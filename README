@@ -1,0 +1,40 @@
+
+
+Sprint 1
+
+A UI that
+consists of
+3 panels:
+•
+A board panel that displays the  board
+.( You can download a
+board image or draw your own
+or paint
+your own)
+.
+The board image should include the number of the pips
+. These numbers can be fixed and can be from either players point of view.
+
+
+Although they do not need to be included until Sprint 4,
+allow room on the panel for a doubling cube and a match score
+.
+•
+An information panel that allows display of text message telling the players on what is happening,
+prompts them with what to do and shows previous user inputs.
+•
+A command panel that allows the user to enter text commands
+.
+The app should:
+•            Display  the initial board with all of the players’ checkers on the board in the proper places
+.
+•          As a test, move one checker around the board from bar to bear
+	- off one pip at a time. Do this for both players.
+
+The display might be a little odd when there are checkers from both players on a single point.
+That's ok because it can’t happen in the real game.
+
+•        As a test, echo whatever the user types on the command panel to the information panel.
+When the user enters “quit”, the program should terminate
+.
+No game functionality is needed at this stage.
