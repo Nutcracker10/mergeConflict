@@ -1,0 +1,9 @@
+
+//Class to comtain Main function
+
+public class MainFunction
+{
+    public MainFunction(){}
+
+
+}
