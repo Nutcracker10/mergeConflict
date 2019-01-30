@@ -1,0 +1,29 @@
+//Class to represent the players
+// Has method to check if player has won the game, returns true or false
+// Has method to check if the player goes first, returns 1 or 2
+// Has method to Get Colour of player
+public class Player
+{
+
+    public Player()
+    {
+
+    }
+
+    private boolean hasWonGame()
+    {
+        if(/* TODO slot is full */ false )
+        {
+            return true;
+        }
+
+        else
+            return false;
+
+    }
+
+    
+
+
+
+}
