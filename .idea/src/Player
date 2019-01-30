@@ -5,7 +5,12 @@
 public class Player
 {
 
-
+    //Colours for player. Need to have this as a common information for all files
+    public enum colour
+    {
+        WHITE,
+        BLACK
+    }
 
 
     public Player()
@@ -13,21 +18,26 @@ public class Player
 
     }
 
+    //method to check if game has been won. Should check players slot to see if it is full
     private boolean hasWonGame()
     {
-        if(/* TODO slot is full */ false )
-        {
-            return true;
-        }
-
-        else
-            return false;
+        return true;
 
     }
 
 
+    //Mehtod takes dice roll at start and compares against other player object's dice roll
+    private boolean goFirst()
+    {
+        return true;
+    }
 
 
+    //Method gets the colour the player is using. o for white, 1 for black
+    private int getColour()
+    {
+        return 0;
+    }
 
 
 
