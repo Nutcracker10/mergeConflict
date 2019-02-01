@@ -11,15 +11,13 @@
 import java.util.Stack;
 public class Bar
 {
-    Stack<String> blackBar = new Stack();
-    Stack<String> whiteBar = new Stack();
+    Stack<String> blackBar = new Stack(); //TODO replace String with Checker
+    Stack<String> whiteBar = new Stack(); // TODO replace String with CHecker
 
 
 
     public Bar ()
-    {
-
-    }
+    { }
 
     public int numberOfWhite()
     {

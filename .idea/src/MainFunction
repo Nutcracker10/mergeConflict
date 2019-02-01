@@ -5,17 +5,5 @@ public class MainFunction
 {
     public MainFunction(){}
 
-    //Colours for player, checkers etc
-    public enum colours
-    {
-        WHITE,
-        BLACK
-    }
 
-
-  /*  public static void main(String[] args)
-    {
-        System.out.println("Hello world");
-    }
-*/
 }
