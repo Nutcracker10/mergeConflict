@@ -11,8 +11,8 @@
 import java.util.Stack;
 public class Bar
 {
-    Stack<String> blackBar = new Stack(); //TODO replace String with Checker
-    Stack<String> whiteBar = new Stack(); // TODO replace String with CHecker
+    Stack<Checker> blackBar = new Stack(); //TODO replace String with Checker
+    Stack<Checker> whiteBar = new Stack(); // TODO replace String with CHecker
 
 
 
