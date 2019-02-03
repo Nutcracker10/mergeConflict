@@ -9,9 +9,6 @@ public class GUI{
         new frame(); //displays the frame to user
 
 
-
-
-
     }
 
 
