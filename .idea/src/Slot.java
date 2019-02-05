@@ -27,7 +27,7 @@ public class Slot
     //checks if slot is full of checkers
     public boolean isFull()
     {
-        return size == 14;
+        return size == 15;
     }
 
 
