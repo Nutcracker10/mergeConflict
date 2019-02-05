@@ -9,10 +9,20 @@ public class CentrePanel extends JPanel {
 
 
 
-        BufferedImage image =  ImageIO.read(CentrePanel.class.getResource("/resources/images/myImage.imageExtension")); //gets backgammon board image
+    private BufferedImage image;  //gets backgammon board image
+
 
         //default constructor
         CentrePanel() throws IOException {
+
+            try
+            {
+                image =  ImageIO.read(CentrePanel.class.getResource("/resources/images/Backgammon_board_-_03.jpg")); //gets backgammon board image
+            }
+            catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+
             this.setLayout(new BorderLayout());              // sets the layout to border
 
             JLabel label = new JLabel(new ImageIcon(image)); // assigns image to a Label
