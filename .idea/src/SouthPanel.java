@@ -10,8 +10,9 @@ public class SouthPanel extends JPanel {
 
     SouthPanel(){
 
-        subpanel.setLayout(new GridLayout(1,2));
+        subpanel.setLayout(new GridLayout(1,2)); //Add a 1*2 grid
 
+        //add textareas to subpanel
         subpanel.add(doubleroll);
         subpanel.add(diceRoll);
 
