@@ -12,8 +12,11 @@ public class SouthPanel extends JPanel {
 
         subpanel.setLayout(new GridLayout(1,2));
 
+        subpanel.add(doubleroll);
+        subpanel.add(diceRoll);
+
         this.setLayout(new BorderLayout());          //adds border layout to south panel
-        this.add(diceRoll, BorderLayout.EAST);       //adds diceroll to right side of panel
+        this.add(subpanel, BorderLayout.EAST);       //adds diceroll to right side of panel
         this.add(dicedisplay, BorderLayout.CENTER);  //adds dicedisplay to middle of panel
 
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // creates black lines around panel

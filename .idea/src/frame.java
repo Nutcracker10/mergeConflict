@@ -1,13 +1,15 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
-
 public class frame extends JFrame {
 
     //adds panels to frame
     EastPanel east = new EastPanel();
     SouthPanel south = new SouthPanel();
-    //CentrePanel centre = new CentrePanel();
+    CentrePanel centre = new CentrePanel();
 
     frame() throws IOException {
         this.setSize(800, 600);         // sets window size
@@ -19,6 +21,7 @@ public class frame extends JFrame {
         //adds panels to the frame
         this.add(east, BorderLayout.EAST);
         this.add(south, BorderLayout.SOUTH);
-        //this.add(centre, BorderLayout.CENTER);
+        this.add(centre, BorderLayout.CENTER);
     }
+
 }
