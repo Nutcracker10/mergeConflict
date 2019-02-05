@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22f04dff-5884-4f5e-b6f1-2cc3c9b4676f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/src/Bar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/src/Checker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/src/Dice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/src/MainFunction" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/src/Player" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/src/Slot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/src/Spike.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/src/CentrePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/src/CentrePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/src/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/src/Resources/Backgammon_board_-_03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/src/resources/images/Backgammon_board_-_03.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/src/SouthPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/src/SouthPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/src/frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/src/frame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/src/EastPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/src/EastPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/EastPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/EastPanel.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,10 +50,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/src/CentrePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
+            <state relative-caret-position="393">
               <caret line="28" column="61" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -73,11 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.idea/src/EastPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="1" column="18" lean-forward="true" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+            <state relative-caret-position="243">
+              <caret line="26" column="106" selection-start-line="26" selection-start-column="106" selection-end-line="26" selection-end-column="106" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -110,11 +99,11 @@
         <option value="$PROJECT_DIR$/CHANGELOG.md" />
         <option value="$PROJECT_DIR$/.idea/src/WestPanel.java" />
         <option value="$PROJECT_DIR$/.idea/src/GUI.java" />
-        <option value="$PROJECT_DIR$/.idea/src/EastPanel.java" />
         <option value="$PROJECT_DIR$/.idea/README.md" />
         <option value="$PROJECT_DIR$/.idea/src/frame.java" />
         <option value="$PROJECT_DIR$/.idea/src/CentrePanel.java" />
         <option value="$PROJECT_DIR$/.idea/src/SouthPanel.java" />
+        <option value="$PROJECT_DIR$/.idea/src/EastPanel.java" />
       </list>
     </option>
   </component>
@@ -155,7 +144,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549380829328" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549381402427" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -298,11 +287,19 @@
       <option name="project" value="LOCAL" />
       <updated>1549375719096</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Fixed commit issue, added master to James">
+      <created>1549380848026</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1549380848026</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-1" width="1368" height="770" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -313,12 +310,12 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4976378" weight="0.32707354" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4976378" visible="true" weight="0.32707354" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39906102" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49924242" visible="true" weight="0.3286385" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49924242" weight="0.3286385" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5023622" side_tool="true" weight="0.32967034" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3286385" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3286385" />
@@ -375,7 +372,8 @@
     <MESSAGE value="Added master to my branch, changed south panel to have extra button + grid layout.&#10;Messed with image, not fixed yet" />
     <MESSAGE value="Committed master to James branch" />
     <MESSAGE value="Committed master To James" />
-    <option name="LAST_COMMIT_MESSAGE" value="Committed master To James" />
+    <MESSAGE value="Fixed commit issue, added master to James" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed commit issue, added master to James" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
@@ -419,20 +417,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/src/EastPanel.java">
+    <entry file="file://$PROJECT_DIR$/.idea/src/frame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="1" column="18" lean-forward="true" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+        <state relative-caret-position="345">
+          <caret line="23" column="8" lean-forward="true" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/src/frame.java">
+    <entry file="file://$PROJECT_DIR$/.idea/src/CentrePanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="8" lean-forward="true" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+        <state relative-caret-position="393">
+          <caret line="28" column="61" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -449,10 +447,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/src/CentrePanel.java">
+    <entry file="file://$PROJECT_DIR$/.idea/src/EastPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="28" column="61" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
+        <state relative-caret-position="243">
+          <caret line="26" column="106" selection-start-line="26" selection-start-column="106" selection-end-line="26" selection-end-column="106" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
