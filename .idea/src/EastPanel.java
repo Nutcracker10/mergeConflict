@@ -14,6 +14,9 @@ public class EastPanel extends JPanel {
         this.add(areaText, BorderLayout.CENTER);
         this.add(enterText, BorderLayout.SOUTH);
         this.add(playerDetails, BorderLayout.NORTH);
+
+        this.setBorder(BorderFactory.createLineBorder(Color.BLACK));          // creates black lines around panel
+        playerDetails.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // creates line around name
     }
 
 }
