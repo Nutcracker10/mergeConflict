@@ -5,7 +5,13 @@ import java.io.IOException;
 
 public class GUI{
     public static void main(String[] args) throws IOException {
-      new frame();//displays the frame to user
+
+        new frame(); //displays the frame to user
+
+
+
+
+
     }
 
 
