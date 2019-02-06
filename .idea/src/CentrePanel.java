@@ -12,7 +12,7 @@ public class CentrePanel extends JPanel {
     private BufferedImage image;  //gets backgammon board image
 
 
-        //default constructor
+    //default constructor
         CentrePanel() throws IOException {
 
             try
