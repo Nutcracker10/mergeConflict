@@ -6,24 +6,18 @@ import java.util.LinkedList;
 
 public class GUI{
 
+    public GUI()
+    {
 
-    public GUI(){}
-
+    }
 
     public static void main(String[] args) throws IOException {
 
         new frame(); //displays the frame to user
+        Checker check = new Checker();
+        Spike spike = new Spike();
 
-
-        //trying to make a linked list of the spikes
-        LinkedList<Spike> listOfSpikes = new LinkedList<Spike>();
-        Spike s1 = new Spike();
-        Spike s2 = new Spike();
-        //then put the checkers in the spikes and move them about
-        Checker c1 = new Checker();
-        Checker c2 = new Checker();
-
-
+        check.
 
 
     }
