@@ -1,25 +1,19 @@
-//Class for the Bar. When an opponent blots your checker it gets moved here. It acts like a Stack. Both players cam
+//Class for the Bar. When an opponent blots your checker it gets moved here. It acts like a Stack. Both players can
 //have checkers on the bar and every player can have multiple checkers on the bar at the same time.
 
 //Methods
 /*
     NumberofWhite : returns number of white checkers on bar
     NumberOfBlack : returns number of black checkers on bar
-    isBarEmpty : reuturns boolean true if no checkers on bar, false otherwise
+    isBarEmpty : returns boolean true if no checkers on bar, false otherwise
  */
 
 import java.util.Stack;
-/*public class Bar
+
+public class Bar
 {
-
-   // Stack<Checker> blackBar = new Stack(); //TODO replace String with Checker
-    //Stack<Checker> whiteBar = new Stack(); // TODO replace String with CHecker
-
-    Stack<Object> blackBar = new Stack(); //TODO replace String with Checker
-    Stack<Object> whiteBar = new Stack(); // TODO replace String with CHecker
-
-
-
+	Stack<BlackChecker> blackBar = new Stack(); //TODO replace String with Checker
+   	Stack<WhiteChecker> whiteBar = new Stack(); // TODO replace String with CHecker
 
     public Bar ()
     { }
@@ -39,4 +33,4 @@ import java.util.Stack;
         return (whiteBar.isEmpty() && blackBar.isEmpty());
     }
 
-}*/
+}

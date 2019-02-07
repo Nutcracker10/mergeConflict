@@ -21,6 +21,10 @@ public class GUI{
         Spike s2 = new Spike();
         //then put the checkers in the spikes and move them about
 
+
+        WhiteChecker c1 = new WhiteChecker();
+        BlackChecker c2 = new BlackChecker();
+
     }
 }
 
