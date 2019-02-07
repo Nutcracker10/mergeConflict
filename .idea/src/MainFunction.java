@@ -16,8 +16,8 @@ public class MainFunction
         Spike s1 = new Spike();
         Spike s2 = new Spike();
         //then put the checkers in the spikes and move them about
-        Checker c1 = new Checker();
-        Checker c2 = new Checker();
+       // Checker c1 = new Checker(1);
+       // Checker c2 = new Checker(2);
 
 
 

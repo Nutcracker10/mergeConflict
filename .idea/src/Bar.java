@@ -9,10 +9,10 @@
  */
 
 import java.util.Stack;
-public class Bar
+/*public class Bar
 {
-    Stack<Checker> blackBar = new Stack(); //TODO replace String with Checker
-    Stack<Checker> whiteBar = new Stack(); // TODO replace String with CHecker
+   // Stack<Checker> blackBar = new Stack(); //TODO replace String with Checker
+    //Stack<Checker> whiteBar = new Stack(); // TODO replace String with CHecker
 
 
 
@@ -34,4 +34,4 @@ public class Bar
         return (whiteBar.isEmpty() && blackBar.isEmpty());
     }
 
-}
+}*/
