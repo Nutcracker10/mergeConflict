@@ -19,7 +19,7 @@ public class CentrePanel extends JPanel {
 
             try
             {
-                image =  ImageIO.read(CentrePanel.class.getResource("/resources/images/Backgammon_board_-_03.jpg")); //gets backgammon board image
+                image =  ImageIO.read(CentrePanel.class.getResource("/resources/images/Backgammon_board_smaller.jpg")); //gets backgammon board image
             }
             catch (IOException ioe) {
                 ioe.printStackTrace();
