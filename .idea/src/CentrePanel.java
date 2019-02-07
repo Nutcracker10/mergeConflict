@@ -23,12 +23,12 @@ public class CentrePanel extends JPanel
         	ioe.printStackTrace();
         }
 
-        this.setLayout(new BorderLayout());              // sets the layout to border
+
+
+    	this.setLayout(new BorderLayout());              // sets the layout to border
 
         JLabel label = new JLabel(new ImageIcon(image)); // assigns image to a Label
         this.add(label, BorderLayout.CENTER);            // adds image to panel
-        JLabel checker = new JLabel(new ImageIcon(white));
-        label.add(checker);
     }
 }
 
