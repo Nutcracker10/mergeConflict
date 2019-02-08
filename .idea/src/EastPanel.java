@@ -33,6 +33,11 @@ public class EastPanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent) {
 
         String text = enterText.getText();
+
+        if(areaText.getText() == "quit" || enterText.getText() == "Quit"){
+            System.exit(0);
+        }
+
         areaText.append(text + "\n");
         enterText.selectAll();
 
