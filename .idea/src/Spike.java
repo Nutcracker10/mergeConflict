@@ -8,7 +8,7 @@ import java.util.*;
 // Checkers  can move from one spike to another. Store Spike objects in LinkedSist???
 
 
-public class Spike<E> extends Stack
+public class Spike<E> extends Stack<E>
 {
     Stack<Object> spike;
 
