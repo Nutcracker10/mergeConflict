@@ -5,6 +5,16 @@
  */
 public class Checker 
 {
-	
+	String test;
+	public Checker()
+	{
+		test = "Hello World";
+	}
+
+	public void test()
+	{
+		System.out.println(test);
+	}
+
 }
 
