@@ -16,15 +16,13 @@ public class GUI{
 
 
         //trying to make a linked list of the spikes
-        LinkedList<Spike> listOfSpikes = new LinkedList<Spike>();
-        Spike s1 = new Spike();
-        Spike s2 = new Spike();
+        LinkedList<Spike<Object>> listOfSpikes = new LinkedList<Spike<Object>>();
+        Spike<Object> s1 = new Spike<Object>();
+        Spike<Object> s2 = new Spike<Object>();
         //then put the checkers in the spikes and move them about
-
 
         WhiteChecker c1 = new WhiteChecker();
         BlackChecker c2 = new BlackChecker();
-
     }
 }
 
