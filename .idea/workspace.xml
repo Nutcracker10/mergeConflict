@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22f04dff-5884-4f5e-b6f1-2cc3c9b4676f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/CentrePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/CentrePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/Checker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/GUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/Spike.class" beforeDir="false" afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/Spike.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/frame.class" beforeDir="false" afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/frame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/resources/images/Backgammon_board_-_03.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -172,7 +167,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549620961991" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549621125542" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -343,7 +338,21 @@
       <option name="project" value="LOCAL" />
       <updated>1549620800250</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Merge branch 'master' of https://github.com/UCD-COMP20050/mergeConflict&#10;&#10;# Conflicts:&#10;#&#9;.idea/src/CentrePanel.java">
+      <created>1549620931036</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1549620931036</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Merge branch 'master' of https://github.com/UCD-COMP20050/mergeConflict&#10;&#10;# Conflicts:&#10;#&#9;.idea/src/CentrePanel.java">
+      <created>1549621062774</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1549621062774</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView">
