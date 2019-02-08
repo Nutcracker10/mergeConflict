@@ -15,8 +15,6 @@ public class GUI{
 
         new frame(); //displays the frame to user
 
-
-
         //trying to make a linked list of the spikes
         LinkedList<Spike<Object>> listOfSpikes = new LinkedList<Spike<Object>>();
         Spike<Object> s1 = new Spike<Object>();
