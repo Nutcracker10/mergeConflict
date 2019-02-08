@@ -5,18 +5,24 @@ public class EastPanel extends JPanel {
 
     JTextField enterText = new JTextField();                     // a field for entering details
     JTextArea areaText = new JTextArea("Welcome to Backgammon"); // an area for displaying game details
-    JTextArea playerDetails = new JTextArea("Player: ");         // Displays player name
+    JTextArea playerName = new JTextArea("Player: ");         // Displays player name
+    JTextArea playerScore = new JTextArea("Score: ");            // Displays Player Score
+    JPanel subpanel = new JPanel();
 
     EastPanel(){
-        this.setLayout(new BorderLayout()); // sets border layout to Eastpanel
+        this.setLayout(new BorderLayout());   // sets border layout to Eastpanel
+        subpanel.setLayout(new GridLayout(2, 1)); // sets grid layout to subpanel
 
         //adds each component to panel
+        subpanel.add(playerName);
+        subpanel.add(playerScore);
         this.add(areaText, BorderLayout.CENTER);
-        this.add(enterText, BorderLayout.NORTH);
-        this.add(playerDetails, BorderLayout.SOUTH);
+        this.add(enterText, BorderLayout.SOUTH);
+        this.add(subpanel, BorderLayout.NORTH);
+
 
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK));          // creates black lines around panel
-        playerDetails.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // creates line around name
+        playerScore.setBorder(BorderFactory.createLineBorder(Color.BLACK));   // creates line around score
     }
 
 }

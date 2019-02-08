@@ -24,12 +24,24 @@ public class CentrePanel extends JPanel
         	ioe.printStackTrace();
         }
 
+        //default constructor
+        CentrePanel() throws IOException {
 
+            this.setSize(400, 300);
 
-    	this.setLayout(new BorderLayout());              // sets the layout to border
+            try
+            {
+                image =  ImageIO.read(CentrePanel.class.getResource("/resources/images/Backgammon_board_smaller.jpg")); //gets backgammon board image
+            }
+            catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
 
-        JLabel label = new JLabel(new ImageIcon(image)); // assigns image to a Label
-        this.add(label, BorderLayout.CENTER);            // adds image to panel
+           JLabel label = new JLabel(new ImageIcon(image)); // assigns image to a Label
+           this.add(label);            // adds image to panel
+
+        }
+
     }
 }
 

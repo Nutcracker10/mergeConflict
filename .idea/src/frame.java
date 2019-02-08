@@ -1,7 +1,9 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
-
 public class frame extends JFrame {
 
     //adds panels to frame
@@ -23,4 +25,5 @@ public class frame extends JFrame {
         this.add(south, BorderLayout.SOUTH);
         this.add(centre, BorderLayout.CENTER);
     }
+
 }
