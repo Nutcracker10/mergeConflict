@@ -15,6 +15,8 @@ public class CentrePanel extends JPanel
     //default constructor
     CentrePanel() throws IOException 
     {
+     	this.setSize(400, 300);
+
         try
         {
         	image =  ImageIO.read(CentrePanel.class.getResource("/resources/images/Backgammon_board_smaller.jpg")); //gets backgammon board image
