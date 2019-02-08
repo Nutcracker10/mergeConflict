@@ -8,7 +8,7 @@ public class Checker
 	String test;
 	public Checker()
 	{
-		test = "Hello Wolrd"
+		test = "Hello World";
 	}
 
 	public void test()

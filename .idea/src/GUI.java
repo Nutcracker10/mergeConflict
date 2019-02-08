@@ -17,7 +17,7 @@ public class GUI{
         Checker check = new Checker();
         Spike spike = new Spike();
 
-        check.
+
 
 
     }
