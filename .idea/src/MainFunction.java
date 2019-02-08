@@ -12,12 +12,12 @@ public class MainFunction
     public static void main()
     {
         //trying to make a linked list of the spikes
-        LinkedList<Spike>  listOfSpikes = new LinkedList<Spike>();
-        Spike s1 = new Spike();
-        Spike s2 = new Spike();
+        LinkedList<Spike<Object>>  listOfSpikes = new LinkedList<Spike<Object>>();
+        Spike<Object> s1 = new Spike<Object>();
+        Spike<Object> s2 = new Spike<Object>();
         //then put the checkers in the spikes and move them about
-        Checker c1 = new Checker();
-        Checker c2 = new Checker();
+        WhiteChecker c1 = new WhiteChecker();
+        BlackChecker c2 = new BlackChecker();
 
 
 
