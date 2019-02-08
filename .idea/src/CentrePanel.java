@@ -8,7 +8,8 @@ import java.io.IOException;
 public class CentrePanel extends JPanel
 {
     private BufferedImage image;  //gets backgammon board image
-    WhiteChecker white = new WhiteChecker();
+    WhiteChecker white = new WhiteChecker(0, 0);
+    BlackChecker black = new BlackChecker(50, 0);
 
     //default constructor
       
