@@ -5,12 +5,23 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class CentrePanel extends JPanel {
-
-
-
+public class CentrePanel extends JPanel
+{
     private BufferedImage image;  //gets backgammon board image
+    WhiteChecker white = new WhiteChecker();
 
+    //default constructor
+      
+    CentrePanel() throws IOException 
+    {
+    	try
+        {
+    		image =  ImageIO.read(CentrePanel.class.getResource("/resources/images/Backgammon_board_-_03.jpg")); //gets backgammon board image
+        }
+        catch (IOException ioe)
+    	{
+        	ioe.printStackTrace();
+        }
 
         //default constructor
         CentrePanel() throws IOException {
@@ -29,6 +40,8 @@ public class CentrePanel extends JPanel {
            this.add(label);            // adds image to panel
 
         }
+
     }
+}
 
 

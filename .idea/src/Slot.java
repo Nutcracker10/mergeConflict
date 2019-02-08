@@ -7,27 +7,27 @@
 public class Slot
 {
 
-    private  Checker [] slot;
+    //private  Checker [] slot;
     private int size;
 
     public Slot()
     {
-        slot = new Checker[15];
+       // slot = new Checker[15];
         size = 0;
     }
 
 
     //adds checkers to slot
-    public void addChecker(Checker checker)
+ //   public void addChecker(Checker checker)
     {
-        slot[size] = checker;
+      //  slot[size] = checker;
         size++;
     }
 
     //checks if slot is full of checkers
     public boolean isFull()
     {
-        return size == 14;
+        return size == 15;
     }
 
 

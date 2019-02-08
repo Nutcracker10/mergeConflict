@@ -5,16 +5,16 @@
 /*
     NumberofWhite : returns number of white checkers on bar
     NumberOfBlack : returns number of black checkers on bar
-    isBarEmpty : reuturns boolean true if no checkers on bar, false otherwise
+    isBarEmpty : returns boolean true if no checkers on bar, false otherwise
  */
 
 import java.util.Stack;
+
 public class Bar
 {
-    Stack<Checker> blackBar = new Stack(); //TODO replace String with Checker
-    Stack<Checker> whiteBar = new Stack(); // TODO replace String with CHecker
-
-
+	Stack<BlackChecker> blackBar = new Stack<BlackChecker>(); 
+   	Stack<WhiteChecker> whiteBar = new Stack<WhiteChecker>();
+ 
 
     public Bar ()
     { }
