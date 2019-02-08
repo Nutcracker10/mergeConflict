@@ -3,6 +3,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS;
+
 public class EastPanel extends JPanel implements ActionListener {
 
     JTextField enterText = new JTextField();                       // a field for entering details
@@ -10,7 +12,9 @@ public class EastPanel extends JPanel implements ActionListener {
     JTextArea playerName = new JTextArea("Player: ");              // Displays player name
     JTextArea playerScore = new JTextArea("Score: ");              // Displays Player Score
     JPanel subpanel = new JPanel();                                // a subpanel for buttons
-    JScrollPane scrollPane = new JScrollPane(areaText);                    // adds scrolling functionality to the text area
+
+    // adds scrolling functionality to the text area
+    JScrollPane scrollPane = new JScrollPane(areaText);
 
     EastPanel(){
         this.setLayout(new BorderLayout());   // sets border layout to Eastpanel
@@ -23,12 +27,16 @@ public class EastPanel extends JPanel implements ActionListener {
 
         enterText.addActionListener(this);
 
+        scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+
         //adds each component to panel
         subpanel.add(playerName);
         subpanel.add(playerScore);
         this.add(areaText, BorderLayout.CENTER);
         this.add(enterText, BorderLayout.SOUTH);
         this.add(subpanel, BorderLayout.NORTH);
+        this.add(scrollPane, BorderLayout.EAST);
 
 
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK));          // creates black lines around panel
@@ -40,7 +48,7 @@ public class EastPanel extends JPanel implements ActionListener {
 
         String text = enterText.getText();
 
-        if(text == "quit"){
+        if(text == "quit"){         // ends program if string is quit
             System.exit(0);
         }
         else {
