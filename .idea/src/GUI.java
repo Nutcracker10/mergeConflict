@@ -6,13 +6,15 @@ import java.util.LinkedList;
 
 public class GUI{
 
+    public GUI()
+    {
 
-    public GUI(){}
-
+    }
 
     public static void main(String[] args) throws IOException {
 
         new frame(); //displays the frame to user
+
 
 
         //trying to make a linked list of the spikes
