@@ -1,29 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="22f04dff-5884-4f5e-b6f1-2cc3c9b4676f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/src/Resources/images/Backgammon_board_-_03.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/CentrePanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/Checker.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/Dice.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/EastPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/GUI.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/META-INF/Software engineering project 2.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/Resources/images/Backgammon_board_-_03.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/SouthPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/Spike.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/frame.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/resources/images/Backgammon_board_-_03.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Software engineering project 2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Software engineering project 2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="22f04dff-5884-4f5e-b6f1-2cc3c9b4676f" name="Default Changelist" comment="Merge branch 'master' of https://github.com/UCD-COMP20050/mergeConflict&#10;&#10;# Conflicts:&#10;#&#9;.idea/src/CentrePanel.java">
+      <change afterPath="$PROJECT_DIR$/.idea/src/BlackChecker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/src/MainFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/src/WhiteChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/src/Bar.java" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/src/Bar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/src/CentrePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/src/CentrePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/src/EastPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/src/EastPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/src/SouthPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/src/SouthPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/src/Checker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/src/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/src/Slot.java" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/src/Slot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/src/Spike.java" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/src/Spike.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/src/frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/src/frame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/src/resources/images/Backgammon_board_-_03.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,13 +35,38 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/src/SouthPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="104" lean-forward="true" selection-start-line="7" selection-start-column="104" selection-end-line="7" selection-end-column="104" />
+            <state relative-caret-position="240">
+              <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/src/Bar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+              <folding>
+                <element signature="e#517#531#0" expanded="true" />
+                <element signature="e#580#594#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.idea/src/MainFunction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+              <folding>
+                <element signature="e#384#392#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -61,7 +76,7 @@
         <entry file="file://$PROJECT_DIR$/.idea/src/frame.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
-              <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+              <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -72,8 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/src/CentrePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="28" column="61" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
+            <state relative-caret-position="330">
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -120,9 +135,9 @@
         <option value="$PROJECT_DIR$/.idea/src/GUI.java" />
         <option value="$PROJECT_DIR$/.idea/README.md" />
         <option value="$PROJECT_DIR$/.idea/src/frame.java" />
-        <option value="$PROJECT_DIR$/.idea/src/CentrePanel.java" />
         <option value="$PROJECT_DIR$/.idea/src/EastPanel.java" />
         <option value="$PROJECT_DIR$/.idea/src/SouthPanel.java" />
+        <option value="$PROJECT_DIR$/.idea/src/CentrePanel.java" />
       </list>
     </option>
   </component>
@@ -136,8 +151,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -160,10 +173,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549620306437" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549620793907" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -320,14 +335,30 @@
       <option name="project" value="LOCAL" />
       <updated>1549381433755</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Fixing merge issues">
+      <created>1549620321926</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1549620321927</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-1" width="1368" height="770" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2030303" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2030303" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -340,11 +371,11 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39906102" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286385" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49924242" weight="0.3286385" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5023622" side_tool="true" weight="0.32967034" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.3286385" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3286385" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5022727" side_tool="true" visible="true" weight="0.3286385" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3286385" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49772727" visible="true" weight="0.3286385" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -400,7 +431,9 @@
     <MESSAGE value="Committed master To James" />
     <MESSAGE value="Fixed commit issue, added master to James" />
     <MESSAGE value="Added a score textArea to east Panel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a score textArea to east Panel" />
+    <MESSAGE value="Fixing merge issues" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/UCD-COMP20050/mergeConflict&#10;&#10;# Conflicts:&#10;#&#9;.idea/src/CentrePanel.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/UCD-COMP20050/mergeConflict&#10;&#10;# Conflicts:&#10;#&#9;.idea/src/CentrePanel.java" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
@@ -445,7 +478,7 @@
     <entry file="file://$PROJECT_DIR$/.idea/src/frame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -454,8 +487,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/src/CentrePanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="28" column="61" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
+        <state relative-caret-position="330">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -474,10 +507,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/src/SouthPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="104" lean-forward="true" selection-start-line="7" selection-start-column="104" selection-end-line="7" selection-end-column="104" />
+        <state relative-caret-position="240">
+          <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/src/Bar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+          <folding>
+            <element signature="e#517#531#0" expanded="true" />
+            <element signature="e#580#594#0" expanded="true" />
           </folding>
         </state>
       </provider>
