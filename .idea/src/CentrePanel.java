@@ -8,27 +8,28 @@ import java.io.IOException;
 public class CentrePanel extends JPanel
 {
     private BufferedImage image;  //gets backgammon board image
+    WhiteChecker white = new WhiteChecker();
 
     //default constructor
       
     CentrePanel() throws IOException 
     {
-    	try
+        this.setSize(400, 300);
+
+        try
         {
-    		image =  ImageIO.read(CentrePanel.class.getResource("/resources/images/Backgammon_board_-_03.jpg")); //gets backgammon board image
+            image =  ImageIO.read(CentrePanel.class.getResource("/resources/images/Backgammon_board_smaller.jpg")); //gets backgammon board image
         }
-        catch (IOException ioe)
-    	{
-        	ioe.printStackTrace();
+        catch (IOException ioe) {
+            ioe.printStackTrace();
         }
-
-
-
-    	this.setLayout(new BorderLayout());              // sets the layout to border
 
         JLabel label = new JLabel(new ImageIcon(image)); // assigns image to a Label
-        this.add(label, BorderLayout.CENTER);            // adds image to panel
-     }
+        this.add(label);            // adds image to panel
+
+    }
+
 }
+
 
 

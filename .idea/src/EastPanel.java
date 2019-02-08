@@ -21,7 +21,6 @@ public class EastPanel extends JPanel {
         this.add(subpanel, BorderLayout.NORTH);
 
 
-
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK));          // creates black lines around panel
         playerScore.setBorder(BorderFactory.createLineBorder(Color.BLACK));   // creates line around score
     }
