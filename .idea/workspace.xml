@@ -33,7 +33,7 @@
         <entry file="file://$PROJECT_DIR$/.idea/src/SouthPanel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+              <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/.idea/src/MainFunction.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="252">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
               <folding>
                 <element signature="e#384#392#0" expanded="true" />
               </folding>
@@ -172,7 +172,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549620920113" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549620961991" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -357,9 +357,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-1" width="1368" height="770" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2030303" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2030303" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -374,9 +373,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286385" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49924242" weight="0.3286385" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5022727" side_tool="true" visible="true" weight="0.3286385" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3286385" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49772727" visible="true" weight="0.3286385" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="8" sideWeight="0.5007576" side_tool="true" visible="true" weight="0.3286385" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49924242" visible="true" weight="0.3286385" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49772727" weight="0.3286385" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
