@@ -14,12 +14,22 @@ public class WhiteChecker extends JComponent
 		ycoordinate = y;
 	}
 	
-	public void paint(Graphics g)
+	public void paintComponent(Graphics g)
 	{
+
+
 		g.setColor(Color.BLACK);
 		g.fillOval(xcoordinate, ycoordinate, 30, 30);
 		g.setColor(Color.WHITE);
 		g.fillOval(xcoordinate, ycoordinate, 29, 29);
+
+
 	}
+
+
+
+
+
+
 }
 

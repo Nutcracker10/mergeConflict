@@ -13,7 +13,8 @@ public class GUI{
 
     public static void main(String[] args) throws IOException {
 
-        new frame(); //displays the frame to user
+        JFrame ourFrame = new frame(); //displays the frame to user
+
 
         //trying to make a linked list of the spikes
         LinkedList<Spike<Object>> listOfSpikes = new LinkedList<Spike<Object>>();
@@ -23,6 +24,12 @@ public class GUI{
 
         WhiteChecker c1 = new WhiteChecker(0, 0);
         BlackChecker c2 = new BlackChecker(50, 50);
+
+        s1.addChecker(c1);
+        s1.addChecker(c2);
+
+
+
     }
 }
 

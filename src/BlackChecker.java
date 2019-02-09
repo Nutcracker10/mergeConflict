@@ -11,7 +11,7 @@ public class BlackChecker extends JComponent
 		ycoordinate = y;
 	}
 	
-	public void paint(Graphics g)
+	public void paintComponent(Graphics g)
 	{
 		g.setColor(Color.WHITE);
 		g.fillOval(xcoordinate, ycoordinate, 30, 30);
