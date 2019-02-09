@@ -2,25 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a023b9d0-de36-4773-ab64-28e4972e3c5e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/src/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/src/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/Bar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/BlackChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/BlackChecker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/CentrePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/CentrePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/Checker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/EastPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/EastPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/GUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/META-INF/Software engineering project 2.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/MainFunction" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/MainFunction.class" beforeDir="false" afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/MainFunction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/Player" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/Slot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/Spike.class" beforeDir="false" afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/Spike.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/WhiteChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/WhiteChecker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/frame.class" beforeDir="false" afterPath="$PROJECT_DIR$/compiled results/production/Software engineering project 2/frame.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,11 +23,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/src/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+            <state>
+              <caret selection-end-line="18" selection-end-column="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/compiled results/production/Software engineering project 2/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -58,6 +50,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.idea/src/.gitignore" />
+        <option value="$PROJECT_DIR$/compiled results/production/Software engineering project 2/.gitignore" />
       </list>
     </option>
   </component>
@@ -93,6 +86,41 @@
               <item name=".idea" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="mergeConflict" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mergeConflict" type="462c0819:PsiDirectoryNode" />
+              <item name="compiled results" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mergeConflict" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mergeConflict" type="462c0819:PsiDirectoryNode" />
+              <item name="compiled results" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mergeConflict" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mergeConflict" type="462c0819:PsiDirectoryNode" />
+              <item name="compiled results" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+              <item name="Software engineering project 2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mergeConflict" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mergeConflict" type="462c0819:PsiDirectoryNode" />
+              <item name="compiled results" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+              <item name="Software engineering project 2" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mergeConflict" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mergeConflict" type="462c0819:PsiDirectoryNode" />
+              <item name="compiled results" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+              <item name="Software engineering project 2" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -100,7 +128,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549635331791" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549722589076" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
@@ -140,6 +168,21 @@
       <option name="presentableId" value="Default" />
       <updated>1549633515784</updated>
     </task>
+    <task id="LOCAL-00001" summary="commiting stuff before pull">
+      <created>1549722406042</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1549722406042</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added stuff to git ignore">
+      <created>1549722570739</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1549722570739</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -155,14 +198,14 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3286119" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50067115" side_tool="true" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49932885" weight="0.3286119" />
       <window_info anchor="bottom" id="Messages" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -173,6 +216,11 @@
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commiting stuff before pull" />
+    <MESSAGE value="added stuff to git ignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="added stuff to git ignore" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/.gitignore" />
@@ -185,8 +233,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/src/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        <state>
+          <caret selection-end-line="18" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compiled results/production/Software engineering project 2/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
