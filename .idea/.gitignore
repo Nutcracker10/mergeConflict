@@ -1,4 +1,4 @@
 /bin/
-workspace.xml
-.classpath
-.project
+/workspace.xml
+/.classpath
+/.project
