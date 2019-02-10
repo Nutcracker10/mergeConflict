@@ -9,6 +9,7 @@ public class BlackChecker extends JComponent
 	{
 		xcoordinate = x;
 		ycoordinate = y;
+
 	}
 	
 	public void paintComponent(Graphics g)

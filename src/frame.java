@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.text.LayeredHighlighter;
 import java.awt.*;
 import java.io.IOException;
 public class frame extends JFrame {
@@ -7,6 +8,8 @@ public class frame extends JFrame {
     EastPanel east = new EastPanel();
     SouthPanel south = new SouthPanel();
     Board board = new Board();
+    WhiteChecker c1 = new WhiteChecker(0, 0);
+    private JLayeredPane layeredPane; //to put the checkers on a diffrent layer to the board
 
     frame() throws IOException 
     {
@@ -24,6 +27,14 @@ public class frame extends JFrame {
         this.add(east, BorderLayout.EAST);
         this.add(south, BorderLayout.SOUTH);
         this.pack();
+
+        this.layeredPane = new JLayeredPane();
+        layeredPane.setPreferredSize(board.getSize()); //setting layer to the size of the board
+        c1.setVisible(true);
+        layeredPane.add(c1);
+        this.add(layeredPane);
+
+
     }
 
 }
