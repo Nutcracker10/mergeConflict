@@ -14,15 +14,24 @@ public class BlackChecker extends JComponent
 	public void paintComponent(Graphics g)
 	{
 		super.paint(g);
-		drawChecker(g);
+		
+		if(blackCoordinates.getX() > 663)
+			drawInBearOff(g);
+		
+		else
+			drawChecker(g);
 	}
-
-
 
 	private void drawChecker(Graphics g)
 	{
 		g.setColor(Color.BLACK);
 		g.fillOval(blackCoordinates.getX(), blackCoordinates.getY(), 30, 30);
+	}
+	
+	private void drawInBearOff(Graphics g)
+	{
+		g.setColor(Color.BLACK);
+		g.fillRect(715, 252, 50, 13);
 	}
 
 
