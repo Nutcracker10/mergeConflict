@@ -4,11 +4,13 @@
 // Has method to Get Colour of player
 public class Player
 {
+    String name;
     int colour;
 
-    public Player()
+    public Player(String n, int c)
     {
-
+    	this.name = n;
+    	this.colour = c;
     }
 
 
@@ -28,16 +30,20 @@ public class Player
     }
 
 
-    private void setColour(int colour)
+    private void setColour(int c)
     {
-        this.colour = colour;
+        this.colour = c;
 
     }
 
     //Method gets the colour the player is using. o for white, 1 for black
-    private int getColour()
+    private String getColour(int c)
     {
-        return 0;
+        if(c == 1)
+        	return "Black";
+        
+        else
+        	return "White";
     }
 
 
