@@ -6,10 +6,7 @@ import java.util.LinkedList;
 
 public class GUI{
 
-    public GUI()
-    {
 
-    }
 
     public static void main(String[] args) throws IOException {
 
