@@ -35,6 +35,9 @@ public class frame extends JFrame {
         this.add(layeredPane);
 
 
+        ((Board) board).Moving(); //moves a checker around the board
+
+
     }
 
 }

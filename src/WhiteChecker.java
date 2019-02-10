@@ -25,6 +25,13 @@ public class WhiteChecker extends JComponent
 		g.fillOval(whiteCoordinates.getX(), whiteCoordinates.getY(), 30, 30);
 	}
 
+	public Coordinate move(int dice)
+	{
+		whiteCoordinates.setX(whiteCoordinates.getX()+50); //moves checker to the right
+
+		return whiteCoordinates;
+	}
+
 
 
 
