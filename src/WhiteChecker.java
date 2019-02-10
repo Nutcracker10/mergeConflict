@@ -23,8 +23,8 @@ public class WhiteChecker extends JComponent
 	
 	private void drawChecker(Graphics g)
 	{
-		g.fillOval(xcoordinate, ycoordinate, 30, 30);
 		g.setColor(Color.WHITE);
+		g.fillOval(xcoordinate, ycoordinate, 30, 30);
 	}
 
 
