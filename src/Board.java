@@ -1,8 +1,12 @@
 import java.awt.*;
+import java.util.LinkedList;
 
 public class Board extends Canvas
 {
-	public void paint(Graphics g)
+
+
+
+    public void paint(Graphics g)
 	{
 		super.paint(g);
 		drawBackground(g);
@@ -216,4 +220,11 @@ public class Board extends Canvas
 		b15.paintComponent(g);	
 	}
 	
+
+
+
+
+
+
+
 }
