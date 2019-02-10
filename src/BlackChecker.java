@@ -37,7 +37,35 @@ public class BlackChecker extends JComponent
 
 	public Coordinate move(int dice)
     {
-        blackCoordinates.setX(blackCoordinates.getX() - 50); //moves checker to the left
+		if((blackCoordinates.getX()) == 362 && (blackCoordinates.getY() == 310))
+		{
+			blackCoordinates.setX(663);
+			blackCoordinates.setY(520);
+		}
+
+		else if((blackCoordinates.getY() == 520))
+		{
+			blackCoordinates.setX(blackCoordinates.getX() - 50);
+
+			if(blackCoordinates.getX() < 61)
+			{
+				blackCoordinates.setX(61);
+				blackCoordinates.setY(50);
+			}
+
+			if(blackCoordinates.getX() == 363)
+			{
+				blackCoordinates.setX(blackCoordinates.getX() - 50);
+			}
+		}
+
+		else if((blackCoordinates.getY() == 50))
+		{
+			blackCoordinates.setX(blackCoordinates.getX() + 50);
+
+			if(blackCoordinates.getX() == 361)
+				blackCoordinates.setX(blackCoordinates.getX() + 50);
+		}
 
         return blackCoordinates;
     }

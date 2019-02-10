@@ -264,7 +264,9 @@ public class Board extends Canvas
 
 	public void Moving() //testing that I can move a black checker
 	{
-		w7.move(1);
+	    b15.move(1);
+	    b15.repaint();
+	    w7.move(1);
 		w7.repaint();
 	}
 
