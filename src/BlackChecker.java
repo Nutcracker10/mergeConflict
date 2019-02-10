@@ -29,19 +29,10 @@ public class BlackChecker extends JComponent
 	public Coordinate move(int dice)
     {
 
+			
 
-       /* if(blackCoordinates.getX() == 311)
-			blackCoordinates.setX(blackCoordinates.getX() + 100); //to jump over the bar
-		else if(blackCoordinates.getX() == 413)
-			blackCoordinates.setX(blackCoordinates.getX() + 100);
-		else if(blackCoordinates.getX() == 61)
-		{
 
-		}
 
-		else
-			blackCoordinates.setX(blackCoordinates.getX() + 50); //moves checker to the left
-	*/
         return blackCoordinates;
     }
 

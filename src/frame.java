@@ -36,7 +36,7 @@ public class frame extends JFrame {
         this.add(layeredPane);
 
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 24; i++) {
 
 
             ((Board) board).Moving(); //moving a black checker around}
