@@ -7,8 +7,7 @@ public class BlackChecker extends JComponent
 	
 	public BlackChecker(int x, int y)
 	{
-		blackCoordinates.setX(x);
-		blackCoordinates.setY(y);
+		blackCoordinates = new Coordinate(x, y);
 
 	}
 	
@@ -17,10 +16,6 @@ public class BlackChecker extends JComponent
 		super.paint(g);
 		drawChecker(g);
 	}
-
-
-
-
 
 
 	private void drawChecker(Graphics g)
