@@ -28,7 +28,7 @@ public class BlackChecker extends JComponent
 
 	public Coordinate move(int dice)
     {
-        blackCoordinates.setX(blackCoordinates.getX()-50); //moves checker to the left
+        blackCoordinates.setX(blackCoordinates.getX() - 50); //moves checker to the left
 
         return blackCoordinates;
     }
