@@ -10,16 +10,16 @@ public class frame extends JFrame {
 
     frame() throws IOException 
     {
-        this.setSize(1000, 800);         // sets window size
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE); // ends process on window close
-        this.setResizable(false);                     //Prevents user from resizing window
-        this.setLayout(new BorderLayout());           // adds Borderlayout to the frame
-        this.setVisible(true);                        //makes the frame visible to the user
+        this.setSize(1000, 800);        				// sets window size
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE); 	// ends process on window close
+        this.setResizable(false);                     	//Prevents user from resizing window
+        this.setLayout(new BorderLayout());          	// adds Borderlayout to the frame
+        this.setVisible(true);                        	//makes the frame visible to the user
 
         Canvas board = new Board();
         board.setSize(800, 600);
      
-      //adds panels to the frame
+        //adds panels to the frame
         this.add(board, BorderLayout.CENTER);
         this.add(east, BorderLayout.EAST);
         this.add(south, BorderLayout.SOUTH);
