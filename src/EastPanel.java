@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static java.util.function.Predicate.isEqual;
 import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS;
 
 public class EastPanel extends JPanel implements ActionListener {
@@ -40,7 +41,7 @@ public class EastPanel extends JPanel implements ActionListener {
 
 
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK));          // creates black lines around panel
-        playerScore.setBorder(BorderFactory.createLineBorder(Color.BLACK));   // creates line around score
+        playerScore.setBorder(BorderFactory.createLineBorder(Color.BLACK));   // creates line around scor
     }
 
     @Override
@@ -48,7 +49,7 @@ public class EastPanel extends JPanel implements ActionListener {
 
         String text = enterText.getText();
 
-        if(text == "quit"){         // ends program if string is quit
+        if(text.equals("quit")){         // ends program if string is quit
             System.exit(0);
         }
         else {

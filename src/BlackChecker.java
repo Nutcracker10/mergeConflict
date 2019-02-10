@@ -9,14 +9,19 @@ public class BlackChecker extends JComponent
 	{
 		xcoordinate = x;
 		ycoordinate = y;
+
 	}
 	
-	public void paint(Graphics g)
+	public void paintComponent(Graphics g)
 	{
-		g.setColor(Color.WHITE);
-		g.fillOval(xcoordinate, ycoordinate, 30, 30);
+		super.paint(g);
+		drawChecker(g);
+	}
+	
+	private void drawChecker(Graphics g)
+	{
 		g.setColor(Color.BLACK);
-		g.fillOval(xcoordinate, ycoordinate, 29, 29);
+		g.fillOval(xcoordinate, ycoordinate, 30, 30);
 	}
 
 }
