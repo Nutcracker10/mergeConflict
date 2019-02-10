@@ -9,7 +9,7 @@ import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS;
 public class EastPanel extends JPanel implements ActionListener {
 
     JTextField enterText = new JTextField();                       // a field for entering details
-    JTextArea areaText = new JTextArea("Welcome to Backgammon\n" + "type move [colour] to make that colour move"); // an area for displaying game details
+    JTextArea areaText = new JTextArea("Welcome to Backgammon\n" + "type quit to end the game"); // an area for displaying game details
     JTextArea playerName = new JTextArea("Player: ");              // Displays player name
     JTextArea playerScore = new JTextArea("Score: ");              // Displays Player Score
     JPanel subpanel = new JPanel();                                // a subpanel for buttons
@@ -59,6 +59,6 @@ public class EastPanel extends JPanel implements ActionListener {
 
         if (s.equals("quit")) { System.exit(0); return s; } //ends program if quit was entered
 
-        else { return ("Unknown command");}
+        else { return ("Unknown command: " + s);}
     }
 }

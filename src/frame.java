@@ -2,6 +2,8 @@ import javax.swing.*;
 import javax.swing.text.LayeredHighlighter;
 import java.awt.*;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
 public class frame extends JFrame {
 
     //adds panels to frame
@@ -11,17 +13,16 @@ public class frame extends JFrame {
     WhiteChecker c1 = new WhiteChecker(0, 0);
     private JLayeredPane layeredPane; //to put the checkers on a diffrent layer to the board
 
-    frame() throws IOException 
-    {
-        this.setSize(1000, 800);        				// sets window size
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE); 	// ends process on window close
-        this.setResizable(false);                     	//Prevents user from resizing window
-        this.setLayout(new BorderLayout());          	// adds Borderlayout to the frame
-        this.setVisible(true);                        	//makes the frame visible to the user
+    frame() throws IOException, InterruptedException {
+        this.setSize(1000, 800);                        // sets window size
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);    // ends process on window close
+        this.setResizable(false);                        //Prevents user from resizing window
+        this.setLayout(new BorderLayout());            // adds Borderlayout to the frame
+        this.setVisible(true);                            //makes the frame visible to the user
 
         Canvas board = new Board();
         board.setSize(800, 600);
-     
+
         //adds panels to the frame
         this.add(board, BorderLayout.CENTER);
         this.add(east, BorderLayout.EAST);
@@ -34,10 +35,21 @@ public class frame extends JFrame {
         layeredPane.add(c1);
         this.add(layeredPane);
 
+        for (int i = 0; i < 2; i++) {
 
-        ((Board) board).Moving(); //moves a checker around the board
+
+            ((Board) board).Moving();
+
+            try
+            {
+                Thread.sleep(1000);
+            }
+            catch (Exception e) {}
+
+            board.repaint();
+
+        }
 
 
     }
-
 }

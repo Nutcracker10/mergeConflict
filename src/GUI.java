@@ -8,7 +8,11 @@ public class GUI{
 
     public static void main(String[] args) throws IOException {
 
-        new frame(); //displays the frame to user
+        try
+        {
+            new frame(); //displays the frame to user
+        }
+        catch(InterruptedException e){}
 
         //trying to make a linked list of the spikes
 
