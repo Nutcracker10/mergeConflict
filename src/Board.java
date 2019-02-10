@@ -1,6 +1,8 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.LinkedList;
-import java.util.concurrent.TimeUnit;
+import javax.swing.*;
 
 public class Board extends Canvas
 {
@@ -224,15 +226,14 @@ public class Board extends Canvas
 
 	}
 
+
+
 	public void Moving() //testing that I can move a black checker
 	{
-		b1.move(1);
-		b1.repaint();
+
+			b1.move(1);
+			b1.repaint();
 	}
-
-
-
-
 
 
 
