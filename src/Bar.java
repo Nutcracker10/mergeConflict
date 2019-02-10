@@ -1,3 +1,4 @@
+
 //Class for the Bar. When an opponent blots your checker it gets moved here. It acts like a Stack. Both players cam
 //have checkers on the bar and every player can have multiple checkers on the bar at the same time.
 
