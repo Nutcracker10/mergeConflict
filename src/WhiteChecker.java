@@ -39,10 +39,10 @@ public class WhiteChecker extends JComponent
 
 	public Coordinate move(int dice)
 	{
-		if((whiteCoordinates.getX()) == 362 && (whiteCoordinates.getY() == 80))
+		if((whiteCoordinates.getX()) == 362 && (whiteCoordinates.getY() == 260))
 		{
 			whiteCoordinates.setX(663);
-			whiteCoordinates.setY(550);
+			whiteCoordinates.setY(50);
 		}
 		
 		else if((whiteCoordinates.getY() == 50))
