@@ -1,9 +1,10 @@
 import java.awt.*;
 import java.util.LinkedList;
+import java.util.concurrent.TimeUnit;
 
 public class Board extends Canvas
 {
-
+	BlackChecker b1 = new BlackChecker(261, 50); //making this checker global so can making moving method
 
 
     public void paint(Graphics g)
@@ -182,7 +183,7 @@ public class Board extends Canvas
 	private void placeBlackCheckers(Graphics g)
 	{
 		//Spike 5
-		BlackChecker b1 = new BlackChecker(261, 50);
+
 		b1.paintComponent(g);
 		BlackChecker b2 = new BlackChecker(261, 80);
 		b2.paintComponent(g);
@@ -217,9 +218,17 @@ public class Board extends Canvas
 		BlackChecker b14 = new BlackChecker(663, 520);
 		b14.paintComponent(g);
 		BlackChecker b15 = new BlackChecker(663, 490);
-		b15.paintComponent(g);	
+		b15.paintComponent(g);
+
+
+
 	}
-	
+
+	public void Moving() //testing that I can move a black checker
+	{
+		b1.move(1);
+		b1.repaint();
+	}
 
 
 
