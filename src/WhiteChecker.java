@@ -6,12 +6,11 @@ import java.awt.*;
  */
 public class WhiteChecker extends JComponent
 {	
-	private int xcoordinate, ycoordinate;
+	private Coordinate whiteCoordinates;
 	
 	public WhiteChecker(int x, int y)
 	{
-		xcoordinate = x;
-		ycoordinate = y;
+		whiteCoordinates = new Coordinate(x, y);
 	}
 	
 	public void paintComponent(Graphics g)
@@ -23,9 +22,14 @@ public class WhiteChecker extends JComponent
 	private void drawChecker(Graphics g)
 	{
 		g.setColor(Color.WHITE);
-		g.fillOval(xcoordinate, ycoordinate, 30, 30);
+		g.fillOval(whiteCoordinates.getX(), whiteCoordinates.getY(), 30, 30);
 	}
 
+	public Coordinate move(int dice)
+	{
+		whiteCoordinates.setX(whiteCoordinates.getX() + 50);
+		return whiteCoordinates;
+	}
 
 
 

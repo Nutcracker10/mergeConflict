@@ -3,6 +3,7 @@ import java.awt.*;
 public class Board extends Canvas
 {
 	BlackChecker b1 = new BlackChecker(261, 50); //making this checker global so can making moving method
+	WhiteChecker w1 = new WhiteChecker(61, 50);
 
 
     public void paint(Graphics g)
@@ -178,7 +179,7 @@ public class Board extends Canvas
 	private void placeWhiteCheckers(Graphics g)
 	{
 		//Spike 13
-		WhiteChecker w1 = new WhiteChecker(61, 50);
+		
 		w1.paintComponent(g);
 		WhiteChecker w2 = new WhiteChecker(61, 80);
 		w2.paintComponent(g);
@@ -261,6 +262,8 @@ public class Board extends Canvas
 	{
 		b1.move(1);
 		b1.repaint();
+		w1.move(1);
+		w1.repaint();
 	}
 
 
