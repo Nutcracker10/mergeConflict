@@ -3,12 +3,11 @@ import java.awt.*;
 
 public class BlackChecker extends JComponent
 {
-	private int xcoordinate, ycoordinate;
+	private Coordinate blackCoordinates; //coordinates for the checker
 	
 	public BlackChecker(int x, int y)
 	{
-		xcoordinate = x;
-		ycoordinate = y;
+		blackCoordinates = new Coordinate(x, y); //giving the co ordinates to object
 
 	}
 	
@@ -17,11 +16,23 @@ public class BlackChecker extends JComponent
 		super.paint(g);
 		drawChecker(g);
 	}
-	
+
+
+
 	private void drawChecker(Graphics g)
 	{
 		g.setColor(Color.BLACK);
-		g.fillOval(xcoordinate, ycoordinate, 30, 30);
+		g.fillOval(blackCoordinates.getX(), blackCoordinates.getY(), 30, 30);
 	}
+
+
+	public Coordinate move(int dice)
+    {
+        blackCoordinates.setX(blackCoordinates.getX()-50); //moves checker to the left
+
+        return blackCoordinates;
+    }
+
+
 
 }
