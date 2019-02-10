@@ -59,10 +59,6 @@ public class EastPanel extends JPanel implements ActionListener {
 
         if (s.equals("quit")) { System.exit(0); return s; } //ends program if quit was entered
 
-        else if (s.equals("move black")) { return s;}
-
-        else if (s.equals("move white")) { return s;}
-
         else { return ("Unknown command");}
     }
 }

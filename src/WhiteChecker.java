@@ -5,9 +5,9 @@ import java.awt.*;
  * Should draw the checkers and describe how they move??
  */
 public class WhiteChecker extends JComponent
-{
+{	
 	private Coordinate whiteCoordinates;
-
+	
 	public WhiteChecker(int x, int y)
 	{
 		whiteCoordinates = new Coordinate(x, y);
@@ -27,11 +27,9 @@ public class WhiteChecker extends JComponent
 
 	public Coordinate move(int dice)
 	{
-		whiteCoordinates.setX(whiteCoordinates.getX()+50); //moves checker to the right
-
+		whiteCoordinates.setX(whiteCoordinates.getX() + 50);
 		return whiteCoordinates;
 	}
-
 
 
 
