@@ -16,7 +16,6 @@ public class WhiteChecker extends JComponent
 	
 	public void paintComponent(Graphics g)
 	{
-
 		super.paint(g);
 		drawChecker(g);
 	}
