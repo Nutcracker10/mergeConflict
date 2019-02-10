@@ -6,7 +6,9 @@ import javax.swing.*;
 
 public class Board extends Canvas
 {
-	BlackChecker b1 = new BlackChecker(261, 50); //making this checker global so can making moving method
+	 //making this checker global so can making moving method
+	WhiteChecker w7 = new WhiteChecker(362, 260);
+	BlackChecker b15 = new BlackChecker(362, 310);
 
 
     public void paint(Graphics g)
@@ -158,7 +160,6 @@ public class Board extends Canvas
 		//Spike 12
 		WhiteChecker w6 = new WhiteChecker(663, 50);
 		w6.paintComponent(g);
-		WhiteChecker w7 = new WhiteChecker(663, 80);
 		w7.paintComponent(g);
 		
 		//Spike 17
@@ -185,7 +186,7 @@ public class Board extends Canvas
 	private void placeBlackCheckers(Graphics g)
 	{
 		//Spike 5
-
+		BlackChecker b1 = new BlackChecker(261, 50);
 		b1.paintComponent(g);
 		BlackChecker b2 = new BlackChecker(261, 80);
 		b2.paintComponent(g);
@@ -219,7 +220,6 @@ public class Board extends Canvas
 		//Spike 24
 		BlackChecker b14 = new BlackChecker(663, 520);
 		b14.paintComponent(g);
-		BlackChecker b15 = new BlackChecker(663, 490);
 		b15.paintComponent(g);
 
 
@@ -230,9 +230,8 @@ public class Board extends Canvas
 
 	public void Moving() //testing that I can move a black checker
 	{
-
-			b1.move(1);
-			b1.repaint();
+		w7.move(1);
+		w7.repaint();
 	}
 
 

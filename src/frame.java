@@ -47,10 +47,6 @@ public class frame extends JFrame {
             catch (Exception e) {}
 
             board.repaint();
-
-
-
-
         }
 
 
