@@ -35,19 +35,18 @@ public class frame extends JFrame {
         layeredPane.add(c1);
         this.add(layeredPane);
 
-        for (int i = 0; i < 2; i++) {
+
+        for (int i = 0; i < 25; i++) {
 
 
-            ((Board) board).Moving();
-
+            ((Board) board).Moving(); //moving a black checker around}
             try
             {
                 Thread.sleep(1000);
             }
             catch (Exception e) {}
 
-            board.repaint();
-
+            ((Board) board).w7.repaint();
         }
 
 

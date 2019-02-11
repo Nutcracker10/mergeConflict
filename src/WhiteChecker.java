@@ -34,7 +34,7 @@ public class WhiteChecker extends JComponent
 	private void drawInBearOff(Graphics g)
 	{
 		g.setColor(Color.WHITE);
-		g.fillRect(715, 252, 50, 13);
+		g.fillRect(715, 535, 50, 13);
 	}
 
 	public Coordinate move(int dice)
@@ -52,10 +52,22 @@ public class WhiteChecker extends JComponent
 			if(whiteCoordinates.getX() < 61)
 			{
 				whiteCoordinates.setX(61);
-				whiteCoordinates.setY(550);
+				whiteCoordinates.setY(520);
+			}
+			
+			if(whiteCoordinates.getX() == 363)
+			{
+				whiteCoordinates.setX(whiteCoordinates.getX() - 50);
 			}
 		}
 		
+		else if((whiteCoordinates.getY() == 520))
+		{
+			whiteCoordinates.setX(whiteCoordinates.getX() + 50);
+			
+			if(whiteCoordinates.getX() == 361)
+				whiteCoordinates.setX(whiteCoordinates.getX() + 50);
+		}
 		return whiteCoordinates;
 	}
 
