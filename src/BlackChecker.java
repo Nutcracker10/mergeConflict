@@ -1,3 +1,7 @@
+/* Caoimhe Tiernan 17336331
+   Saoirse Houlihan 17340803
+   James   Kirwan   17402782
+*/
 import javax.swing.*;
 import java.awt.*;
 
