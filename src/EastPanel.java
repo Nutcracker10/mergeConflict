@@ -1,3 +1,7 @@
+/* Caoimhe Tiernan 17336331
+   Saorise Houlihan 17340803
+   James   Kirwan   17402782
+*/
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

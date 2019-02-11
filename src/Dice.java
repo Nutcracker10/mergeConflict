@@ -1,4 +1,7 @@
-
+/* Caoimhe Tiernan 17336331
+   Saorise Houlihan 17340803
+   James   Kirwan   17402782
+*/
 //needs a randome number generator
 // Doubling die will be a subclass
 
