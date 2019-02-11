@@ -1,8 +1,6 @@
 import javax.swing.*;
-import javax.swing.text.LayeredHighlighter;
 import java.awt.*;
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 public class frame extends JFrame {
 

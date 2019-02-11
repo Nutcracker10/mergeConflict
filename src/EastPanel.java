@@ -3,9 +3,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static java.util.function.Predicate.isEqual;
-import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS;
-
 public class EastPanel extends JPanel implements ActionListener {
 
     JTextField enterText = new JTextField();                       // a field for entering details
