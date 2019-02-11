@@ -1,12 +1,22 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.LinkedList;
+import javax.swing.*;
 
 public class Board extends Canvas
 {
-	public void paint(Graphics g)
+	 //making this checker global so can making moving method
+	WhiteChecker w7 = new WhiteChecker(362, 260);
+	BlackChecker b15 = new BlackChecker(362, 310);
+
+
+    public void paint(Graphics g)
 	{
 		super.paint(g);
 		drawBackground(g);
 		drawBoard(g);
+		drawSpikeNo(g);
 		drawBearOff(g);
 		drawTrianglesOne(g);
 		drawTrianglesTwo(g);
@@ -35,6 +45,42 @@ public class Board extends Canvas
 		//Draw brown bar in the middle
 		g.setColor(brown);
 		g.fillRect(352, 50, 50, 500);
+	}
+	
+	private void drawSpikeNo(Graphics g)
+	{
+		int fontSize = 20;
+		Color cream = new Color(245, 222, 179);
+		Color slateGray = new Color(112, 128, 144);
+		g.setFont(new Font("TimesRoman", Font.PLAIN, fontSize));
+		
+		g.setColor(cream);
+		g.drawString("13", 68, 46);
+		g.drawString("15", 168, 46);
+		g.drawString("17", 268, 46);
+		g.drawString("19", 420, 46);
+		g.drawString("21", 520, 46);
+		g.drawString("23", 620, 46);
+		g.drawString("11", 118, 568);
+		g.drawString("9", 222, 568);
+		g.drawString("7", 322, 568);
+		g.drawString("5", 474, 568);
+		g.drawString("3", 574, 568);
+		g.drawString("1", 674, 568);
+		
+		g.setColor(slateGray);
+		g.drawString("14", 118, 46);
+		g.drawString("16", 218, 46);
+		g.drawString("18", 318, 46);
+		g.drawString("20", 470, 46);
+		g.drawString("22", 570, 46);
+		g.drawString("24", 670, 46);
+		g.drawString("12", 68, 568);
+		g.drawString("10", 168, 568);
+		g.drawString("8", 272, 568);
+		g.drawString("6", 424, 568);
+		g.drawString("4", 524, 568);
+		g.drawString("2", 624, 568);	
 	}
 	
 	private void drawBearOff(Graphics g)
@@ -136,7 +182,7 @@ public class Board extends Canvas
 	
 	private void placeWhiteCheckers(Graphics g)
 	{
-		//Spike 1
+		//Spike 13
 		WhiteChecker w1 = new WhiteChecker(61, 50);
 		w1.paintComponent(g);
 		WhiteChecker w2 = new WhiteChecker(61, 80);
@@ -148,13 +194,12 @@ public class Board extends Canvas
 		WhiteChecker w5 = new WhiteChecker(61, 170);
 		w5.paintComponent(g);
 		
-		//Spike 12
+		//Spike 24
 		WhiteChecker w6 = new WhiteChecker(663, 50);
 		w6.paintComponent(g);
-		WhiteChecker w7 = new WhiteChecker(663, 80);
 		w7.paintComponent(g);
 		
-		//Spike 17
+		//Spike 8
 		WhiteChecker w8 = new WhiteChecker(261, 520);
 		w8.paintComponent(g);
 		WhiteChecker w9 = new WhiteChecker(261, 490);
@@ -162,7 +207,7 @@ public class Board extends Canvas
 		WhiteChecker w10 = new WhiteChecker(261, 460);
 		w10.paintComponent(g);
 		
-		//Spike 19
+		//Spike 6
 		WhiteChecker w11 = new WhiteChecker(413, 520);
 		w11.paintComponent(g);
 		WhiteChecker w12 = new WhiteChecker(413, 490);
@@ -177,7 +222,7 @@ public class Board extends Canvas
 	
 	private void placeBlackCheckers(Graphics g)
 	{
-		//Spike 5
+		//Spike 17
 		BlackChecker b1 = new BlackChecker(261, 50);
 		b1.paintComponent(g);
 		BlackChecker b2 = new BlackChecker(261, 80);
@@ -185,7 +230,7 @@ public class Board extends Canvas
 		BlackChecker b3 = new BlackChecker(261, 110);
 		b3.paintComponent(g);
 		
-		//Spike 7
+		//Spike 19
 		BlackChecker b4 = new BlackChecker(413, 50);
 		b4.paintComponent(g);
 		BlackChecker b5 = new BlackChecker(413, 80);
@@ -197,7 +242,7 @@ public class Board extends Canvas
 		BlackChecker b8 = new BlackChecker(413, 170);
 		b8.paintComponent(g);
 		
-		//Spike 13
+		//Spike 12
 		BlackChecker b9 = new BlackChecker(61, 520);
 		b9.paintComponent(g);
 		BlackChecker b10 = new BlackChecker(61, 490);
@@ -209,11 +254,22 @@ public class Board extends Canvas
 		BlackChecker b13 = new BlackChecker(61, 400);
 		b13.paintComponent(g);
 		
-		//Spike 24
+		//Spike 1
 		BlackChecker b14 = new BlackChecker(663, 520);
 		b14.paintComponent(g);
-		BlackChecker b15 = new BlackChecker(663, 490);
-		b15.paintComponent(g);	
+		b15.paintComponent(g);
 	}
-	
+
+
+
+	public void Moving() //testing that I can move a black checker
+	{
+	    b15.move(1);
+	    b15.repaint();
+	    w7.move(1);
+		w7.repaint();
+	}
+
+
+
 }
