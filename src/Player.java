@@ -1,3 +1,7 @@
+/* Caoimhe Tiernan 17336331
+   Saoirse Houlihan 17340803
+   James   Kirwan   17402782
+*/
 //Class to represent the players
 // Has method to check if player has won the game, returns true or false
 // Has method to check if the player goes first, returns 1 or 2

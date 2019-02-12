@@ -1,3 +1,7 @@
+/* Caoimhe Tiernan 17336331
+   Saoirse Houlihan 17340803
+   James   Kirwan   17402782
+*/
 
 //Class for the Bar. When an opponent blots your checker it gets moved here. It acts like a Stack. Both players cam
 //have checkers on the bar and every player can have multiple checkers on the bar at the same time.

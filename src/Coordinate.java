@@ -1,3 +1,7 @@
+/* Caoimhe Tiernan 17336331
+   Saoirse Houlihan 17340803
+   James   Kirwan   17402782
+*/
 //Class for co-ordinates. When creating an object it takes two numbers x and y respectivly.
 //has methods getx, gety setx and sety
 

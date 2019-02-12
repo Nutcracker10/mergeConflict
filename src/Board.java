@@ -1,8 +1,8 @@
+/* Caoimhe Tiernan 17336331
+   Saoirse Houlihan 17340803
+   James   Kirwan   17402782
+*/
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.LinkedList;
-import javax.swing.*;
 
 public class Board extends Canvas
 {
@@ -206,7 +206,7 @@ public class Board extends Canvas
 		w9.paintComponent(g);
 		WhiteChecker w10 = new WhiteChecker(261, 460);
 		w10.paintComponent(g);
-		
+
 		//Spike 6
 		WhiteChecker w11 = new WhiteChecker(413, 520);
 		w11.paintComponent(g);
@@ -264,7 +264,9 @@ public class Board extends Canvas
 
 	public void Moving() //testing that I can move a black checker
 	{
-		w7.move(1);
+	    b15.move(1);
+	    b15.repaint();
+	    w7.move(1);
 		w7.repaint();
 	}
 
