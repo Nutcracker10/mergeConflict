@@ -3,10 +3,11 @@
    James   Kirwan   17402782
 */
 import javax.swing.*;
-import javax.swing.text.LayeredHighlighter;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
+
 
 public class frame extends JFrame {
 
@@ -24,14 +25,14 @@ public class frame extends JFrame {
         this.setLayout(new BorderLayout());            // adds Borderlayout to the frame
         this.setVisible(true);                            //makes the frame visible to the user
 
-        Canvas board = new Board();
-        board.setSize(800, 600);
+
+
 
         //adds panels to the frame
         this.add(board, BorderLayout.CENTER);
         this.add(east, BorderLayout.EAST);
         this.add(south, BorderLayout.SOUTH);
-        this.pack();
+
 
         this.layeredPane = new JLayeredPane();
         layeredPane.setPreferredSize(board.getSize()); //setting layer to the size of the board
@@ -39,19 +40,17 @@ public class frame extends JFrame {
         layeredPane.add(c1);
         this.add(layeredPane);
 
+      Timer timer = new Timer(1000, new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+              ((Board) board).Moving();
+              board.repaint();
+          }
+      });
+        timer.setInitialDelay(1900);
+        timer.start();
 
-        for (int i = 0; i < 25; i++) {
 
-
-            ((Board) board).Moving(); //moving a black checker around}
-            try
-            {
-                Thread.sleep(1000);
-            }
-            catch (Exception e) {}
-
-            board.repaint();
-        }
 
 
     }
