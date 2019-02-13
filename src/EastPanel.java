@@ -1,14 +1,11 @@
 /* Caoimhe Tiernan 17336331
-   Saorise Houlihan 17340803
+   Saoirse Houlihan 17340803
    James   Kirwan   17402782
 */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import static java.util.function.Predicate.isEqual;
-import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS;
 
 public class EastPanel extends JPanel implements ActionListener {
 

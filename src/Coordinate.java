@@ -1,5 +1,5 @@
 /* Caoimhe Tiernan 17336331
-   Saorise Houlihan 17340803
+   Saoirse Houlihan 17340803
    James   Kirwan   17402782
 */
 //Class for co-ordinates. When creating an object it takes two numbers x and y respectivly.

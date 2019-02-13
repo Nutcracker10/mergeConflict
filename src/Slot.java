@@ -1,5 +1,5 @@
 /* Caoimhe Tiernan 17336331
-   Saorise Houlihan 17340803
+   Saoirse Houlihan 17340803
    James   Kirwan   17402782
 */
 //Class for slots at end of boards. Once a player has filled their slot with all their checkers that playre has won the
