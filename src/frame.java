@@ -24,8 +24,6 @@ public class frame extends JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);    // ends process on window close
         this.setResizable(false);                        //Prevents user from resizing window
         this.setLayout(new BorderLayout());            // adds Borderlayout to the frame
-        this.setVisible(true);                            //makes the frame visible to the user
-
 
 
 
@@ -34,7 +32,7 @@ public class frame extends JFrame {
         c.add(east, BorderLayout.EAST);
         c.add(south, BorderLayout.SOUTH);
 
-        this.setVisible(true);
+        this.setVisible(true);  //makes the frame visible to the user
 
 
 
@@ -44,7 +42,7 @@ public class frame extends JFrame {
         layeredPane.add(c1);
         this.add(layeredPane);
 
-      Timer timer = new Timer(1000, new ActionListener() {
+      Timer timer = new Timer(1000, new ActionListener() { //slows the animation down.
           @Override
           public void actionPerformed(ActionEvent e) {
               ((Board) board).Moving();
