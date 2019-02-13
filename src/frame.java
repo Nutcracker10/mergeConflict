@@ -16,6 +16,7 @@ public class frame extends JFrame {
     SouthPanel south = new SouthPanel();
     Board board = new Board();
     WhiteChecker c1 = new WhiteChecker(0, 0);
+    Container c = this.getContentPane();
     private JLayeredPane layeredPane; //to put the checkers on a diffrent layer to the board
 
     frame() throws IOException, InterruptedException {
@@ -29,9 +30,12 @@ public class frame extends JFrame {
 
 
         //adds panels to the frame
-        this.add(board, BorderLayout.CENTER);
-        this.add(east, BorderLayout.EAST);
-        this.add(south, BorderLayout.SOUTH);
+        c.add(board, BorderLayout.CENTER);
+        c.add(east, BorderLayout.EAST);
+        c.add(south, BorderLayout.SOUTH);
+
+        this.setVisible(true);
+
 
 
         this.layeredPane = new JLayeredPane();

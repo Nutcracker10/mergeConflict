@@ -4,9 +4,6 @@
 */
 import java.awt.Graphics;
 import  java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.LinkedList;
 import javax.swing.*;
 
 public class Board extends JPanel
@@ -19,6 +16,7 @@ public class Board extends JPanel
 
 	public void paintComponent(Graphics g)
 	{
+		this.setSize(900, 600);
 
 		super.paintComponent(g);
 		drawBackground(g);
