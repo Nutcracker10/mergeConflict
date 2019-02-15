@@ -16,7 +16,7 @@ public class GUI{
         try
         {
             JFrame frame = new frame(); //displays the frame to user
-
+            ((frame) frame).getEastPanel().areaText.append("\n\nEnter White's name : ");
 
         }
         catch(InterruptedException e){}
