@@ -13,10 +13,15 @@ public class EastPanel extends JPanel implements ActionListener {
     JTextArea areaText = new JTextArea("Welcome to Backgammon\n"); // an area for displaying game details
     JTextArea playerName = new JTextArea("Player: ");              // Displays player name
     JTextArea playerScore = new JTextArea("Score: ");              // Displays Player Score
-    JPanel subpanel = new JPanel();                                // a subpanel for buttons
+    JPanel subpanel = new JPanel();
+    // a subpanel for buttons
 
     // adds scrolling functionality to the text area
     JScrollPane scrollPane = new JScrollPane(areaText);
+
+    //Players
+    Player player1, player2;
+
 
     EastPanel(){
         this.setLayout(new BorderLayout());   // sets border layout to Eastpanel
@@ -43,6 +48,11 @@ public class EastPanel extends JPanel implements ActionListener {
 
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK));          // creates black lines around panel
         playerScore.setBorder(BorderFactory.createLineBorder(Color.BLACK));   // creates line around scor
+
+
+        //Assigning player's names
+        player1 = new Player(playerName.getText(),0); // 0 represents the white player
+        player2 = new Player(playerName.getText(),1); // 1 represents the black player
     }
 
     @Override
@@ -59,4 +69,8 @@ public class EastPanel extends JPanel implements ActionListener {
         }
 
     }//end of actionPerformed
+
+
+
+
 }
