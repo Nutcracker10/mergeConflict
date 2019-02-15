@@ -15,7 +15,9 @@ public class GUI{
 
         try
         {
-            new frame(); //displays the frame to user
+            JFrame frame = new frame(); //displays the frame to user
+
+
         }
         catch(InterruptedException e){}
 
