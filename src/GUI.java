@@ -19,6 +19,8 @@ public class GUI{
         }
         catch(InterruptedException e){}
 
+
+
         //trying to make a linked list of the spikes
 
         Spike<Object> s1 = new Spike<>();

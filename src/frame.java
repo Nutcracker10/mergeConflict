@@ -56,4 +56,24 @@ public class frame extends JFrame {
 
 
     }
+
+    //returns the east panel
+    public EastPanel getEastPanel()
+    {
+        return east;
+    }
+
+    public SouthPanel getSouthPanel()
+    {
+        return south;
+    }
+
+    public Board getBoard()
+    {
+        return board;
+    }
+
+
+
+
 }
