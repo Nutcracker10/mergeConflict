@@ -16,7 +16,7 @@ public class Board extends JPanel
 
 	public void paintComponent(Graphics g)
 	{
-		this.setSize(780, 700);
+		this.setSize(780, 600);
 
 		super.paintComponent(g);
 		drawBackground(g);
