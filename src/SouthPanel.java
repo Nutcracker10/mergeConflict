@@ -34,7 +34,7 @@ public class SouthPanel extends JPanel {
         diceRoll.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dicedisplay.append(d1.roll() + " " + d2.roll() + "\n" ); //when dice roll is cliked the numbers appear on the screem
+                dicedisplay.setText(d1.roll() + " " + d2.roll() + "\n" ); //when dice roll is cliked the numbers appear on the screem
             }
         });
 
