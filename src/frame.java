@@ -19,7 +19,7 @@ public class frame extends JFrame {
     private JLayeredPane layeredPane; //to put the checkers on a diffrent layer to the board
 
     frame() throws IOException, InterruptedException {
-        this.setSize(1000, 800);                        // sets window size
+        this.setSize(1000, 750);                        // sets window size
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);    // ends process on window close
         this.setResizable(false);                        //Prevents user from resizing window
         this.setLayout(new BorderLayout());            // adds Borderlayout to the frame

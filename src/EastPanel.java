@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 public class EastPanel extends JPanel implements ActionListener {
 
     JTextField enterText = new JTextField();                       // a field for entering details
-    JTextArea areaText = new JTextArea("Welcome to Backgammon\n"); // an area for displaying game details
+    JTextArea areaText = new JTextArea("Welcome to Backgammon\n" + "type quit to end the game"); // an area for displaying game details
     JTextArea playerName = new JTextArea("Player: ");              // Displays player name
     JTextArea playerScore = new JTextArea("Score: ");              // Displays Player Score
     JPanel subpanel = new JPanel();                                // a subpanel for buttons
@@ -50,13 +50,16 @@ public class EastPanel extends JPanel implements ActionListener {
 
         String text = enterText.getText();
 
-        if(text.equals("quit")){         // ends program if string is quit
-            System.exit(0);
-        }
-        else {
-            areaText.append(text + "\n");
-            enterText.selectAll();
-        }
+        areaText.append("\n"+ stringRecogniser(text) + "\n"); // sends string to recogniser to make action
+        enterText.selectAll();
 
-    }//end of actionPerformed
+
+    }// end of actionPerformed
+
+    public String stringRecogniser (String s) {
+
+        if (s.equals("quit")) { System.exit(0); return s; } //ends program if quit was entered
+
+        else { return ("Unknown command: " + s);}
+    }
 }
