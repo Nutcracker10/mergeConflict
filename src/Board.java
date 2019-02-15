@@ -1,19 +1,24 @@
 /* Caoimhe Tiernan 17336331
-   Saoirse Houlihan 17340803
+   Saorise Houlihan 17340803
    James   Kirwan   17402782
 */
-import java.awt.*;
+import java.awt.Graphics;
+import  java.awt.*;
+import javax.swing.*;
 
-public class Board extends Canvas
+public class Board extends JPanel
 {
 	 //making this checker global so can making moving method
 	WhiteChecker w7 = new WhiteChecker(362, 260);
 	BlackChecker b15 = new BlackChecker(362, 310);
 
 
-    public void paint(Graphics g)
+
+	public void paintComponent(Graphics g)
 	{
-		super.paint(g);
+		this.setSize(780, 700);
+
+		super.paintComponent(g);
 		drawBackground(g);
 		drawBoard(g);
 		drawSpikeNo(g);
@@ -265,11 +270,8 @@ public class Board extends Canvas
 	public void Moving() //testing that I can move a black checker
 	{
 	    b15.move(1);
-	    b15.repaint();
 	    w7.move(1);
-		w7.repaint();
 	}
-
 
 
 }

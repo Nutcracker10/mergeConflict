@@ -4,6 +4,8 @@
 */
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class SouthPanel extends JPanel {
 
@@ -11,6 +13,8 @@ public class SouthPanel extends JPanel {
     JButton doubleroll = new JButton("DOUBLE");      // a button for the double mechanic
     JTextArea dicedisplay = new JTextArea("DICE ROLL: "); // an area for displaying the dice roll result
     JPanel subpanel = new JPanel();                       // a sub panel for buttons
+    Dice d1 = new Dice();                                  //Dice object for rolling
+    Dice d2 = new Dice();
 
     SouthPanel(){
 
@@ -25,5 +29,14 @@ public class SouthPanel extends JPanel {
         this.add(dicedisplay, BorderLayout.CENTER);  //adds dicedisplay to middle of panel
 
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // creates black lines around panel
+
+
+        diceRoll.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dicedisplay.append(d1.roll() + " " + d2.roll() + "\n" ); //when dice roll is cliked the numbers appear on the screem
+            }
+        });
+
     }
 }

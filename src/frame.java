@@ -1,10 +1,13 @@
 /* Caoimhe Tiernan 17336331
-   Saoirse Houlihan 17340803
+   Saorise Houlihan 17340803
    James   Kirwan   17402782
 */
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
+
 
 public class frame extends JFrame {
 
@@ -13,6 +16,7 @@ public class frame extends JFrame {
     SouthPanel south = new SouthPanel();
     Board board = new Board();
     WhiteChecker c1 = new WhiteChecker(0, 0);
+    Container c = this.getContentPane();
     private JLayeredPane layeredPane; //to put the checkers on a diffrent layer to the board
 
     frame() throws IOException, InterruptedException {
@@ -20,16 +24,17 @@ public class frame extends JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);    // ends process on window close
         this.setResizable(false);                        //Prevents user from resizing window
         this.setLayout(new BorderLayout());            // adds Borderlayout to the frame
-        this.setVisible(true);                            //makes the frame visible to the user
 
-        Canvas board = new Board();
-        board.setSize(800, 600);
+
 
         //adds panels to the frame
-        this.add(board, BorderLayout.CENTER);
-        this.add(east, BorderLayout.EAST);
-        this.add(south, BorderLayout.SOUTH);
-        this.pack();
+        c.add(board, BorderLayout.CENTER);
+        c.add(east, BorderLayout.EAST);
+        c.add(south, BorderLayout.SOUTH);
+
+        this.setVisible(true);  //makes the frame visible to the user
+
+
 
         this.layeredPane = new JLayeredPane();
         layeredPane.setPreferredSize(board.getSize()); //setting layer to the size of the board
@@ -37,19 +42,17 @@ public class frame extends JFrame {
         layeredPane.add(c1);
         this.add(layeredPane);
 
+      Timer timer = new Timer(1000, new ActionListener() { //slows the animation down.
+          @Override
+          public void actionPerformed(ActionEvent e) {
+              ((Board) board).Moving();
+              board.repaint();
+          }
+      });
+        timer.setInitialDelay(1900);
+        timer.start();
 
-        for (int i = 0; i < 25; i++) {
 
-
-            ((Board) board).Moving(); //moving a black checker around}
-            try
-            {
-                Thread.sleep(1000);
-            }
-            catch (Exception e) {}
-
-            ((Board) board).w7.repaint();
-        }
 
 
     }
