@@ -15,8 +15,20 @@ public class GUI{
 
         try
         {
-            JFrame frame = new frame(); //displays the frame to user
-            ((frame) frame).getEastPanel().areaText.append("\n\nEnter White's name : ");
+            JFrame ourFrame = new frame(); //displays the frame to user
+            //Assigning player's names
+            Player white;
+            Player black;
+
+
+            ((frame) ourFrame).getEastPanel().areaText.append("\n\nEnter White's name : ");
+
+            //((frame) ourFrame).getEastPanel().getComponent().getT
+
+
+            white = new Player( ((frame) ourFrame).getEastPanel().enterText.getText() , 0 ); //assigns player the entered name and the colour white
+            ((frame) ourFrame).getEastPanel().areaText.append("\n\nEnter Black's name : ");
+            black = new Player( ((frame) ourFrame).getEastPanel().enterText.getText() , 1 ); //assigns player the entered name and the colour black
 
         }
         catch(InterruptedException e){}

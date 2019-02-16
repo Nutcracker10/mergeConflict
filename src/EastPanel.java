@@ -50,9 +50,6 @@ public class EastPanel extends JPanel implements ActionListener {
         playerScore.setBorder(BorderFactory.createLineBorder(Color.BLACK));   // creates line around scor
 
 
-        //Assigning player's names
-        player1 = new Player(playerName.getText(),0); // 0 represents the white player
-        player2 = new Player(playerName.getText(),1); // 1 represents the black player
     }
 
     @Override
