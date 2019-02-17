@@ -17,18 +17,13 @@ public class GUI{
         {
             JFrame ourFrame = new frame(); //displays the frame to user
             //Assigning player's names
-            Player white;
-            Player black;
 
 
-            ((frame) ourFrame).getEastPanel().areaText.append("\n\nEnter White's name : ");
 
-            //((frame) ourFrame).getEastPanel().getComponent().getT
+            ((frame) ourFrame).getEastPanel().areaText.append("\nCommands : "); //telling the user what commands they can use
+            ((frame) ourFrame).getEastPanel().areaText.append("\nwName -> save white's name" +
+                    "\nbName -> save black's name");
 
-
-            white = new Player( ((frame) ourFrame).getEastPanel().enterText.getText() , 0 ); //assigns player the entered name and the colour white
-            ((frame) ourFrame).getEastPanel().areaText.append("\n\nEnter Black's name : ");
-            black = new Player( ((frame) ourFrame).getEastPanel().enterText.getText() , 1 ); //assigns player the entered name and the colour black
 
         }
         catch(InterruptedException e){}

@@ -20,7 +20,7 @@ public class EastPanel extends JPanel implements ActionListener {
     JScrollPane scrollPane = new JScrollPane(areaText);
 
     //Players
-    Player player1, player2;
+    Player white, black;
 
 
     EastPanel(){
@@ -60,6 +60,18 @@ public class EastPanel extends JPanel implements ActionListener {
         if(text.equals("quit")){         // ends program if string is quit
             System.exit(0);
         }
+        else if(text.startsWith("wName")) //command to savw white player'ss name
+        {
+            white = new Player(text.substring(6),0); //name should start the space after the command word
+            areaText.append("\nWhite :" + white.name);
+        }
+        else if(text.startsWith("bName")) //comand to sace blck player's name
+        {
+            black = new Player(text.substring(6),1);
+            areaText.append("\nBlack :" + black.name);
+
+        }
+
         else {
             areaText.append(text + "\n");
             enterText.selectAll();
