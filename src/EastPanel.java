@@ -50,6 +50,7 @@ public class EastPanel extends JPanel implements ActionListener {
         playerScore.setBorder(BorderFactory.createLineBorder(Color.BLACK));   // creates line around scor
 
 
+
     }
 
     @Override
@@ -78,6 +79,12 @@ public class EastPanel extends JPanel implements ActionListener {
         }
 
     }//end of actionPerformed
+
+
+    public boolean ReadyToStart() //if both players given their names, this method returns true.
+    {
+       return ((black != null) && (white != null));
+    }
 
 
 
