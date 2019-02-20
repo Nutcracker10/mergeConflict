@@ -32,7 +32,7 @@ public class Player
     }
 
 
-    //Mehtod takes dice roll at start and compares against other player object's dice roll
+    //Mehtod takes dice roll at object creation and compares against other player object's dice roll
     public boolean goFirst(Player opponent)
     {
         if(this.initiaive > opponent.initiaive) //if player's roll is hihger
@@ -44,11 +44,11 @@ public class Player
         }
 
         else
-        return false; //eles return false
+        return false; //else return false
     }
 
 
-    public void setColour(int c)
+    public void setColour(int c) //0 for white, 1 for black
     {
         this.colour = c;
 

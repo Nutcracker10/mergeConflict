@@ -26,25 +26,8 @@ public class GUI{
 
 
 
-
-
-
-
-
-
         }
         catch(InterruptedException e){}
-
-
-
-
-
-
-
-
-
-
-
 
 
 
