@@ -65,6 +65,7 @@ public class EastPanel extends JPanel implements ActionListener {
         {
             white = new Player(text.substring(6),0); //name should start the space after the command word
             areaText.append("\nWhite :" + white.name);
+            playerName.append(white.name);
         }
         else if(text.startsWith("bName")) //comand to sace blck player's name
         {
