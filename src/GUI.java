@@ -15,11 +15,20 @@ public class GUI{
 
         try
         {
-            JFrame frame = new frame(); //displays the frame to user
+            JFrame ourFrame = new frame(); //displays the frame to user
+            //Assigning player's names
+            EastPanel east = ((frame) ourFrame).getEastPanel(); //to be able to access panels in Main
+            SouthPanel south = ((frame) ourFrame).getSouthPanel();
+
+            east.areaText.append("\nCommands : "); //telling the user what commands they can use
+            east.areaText.append("\nwName -> save white's name" + "\nbName -> save black's name");
+
+
 
 
         }
         catch(InterruptedException e){}
+
 
 
 

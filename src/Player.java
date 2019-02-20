@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /* Caoimhe Tiernan 17336331
    Saoirse Houlihan 17340803
    James   Kirwan   17402782
@@ -9,39 +11,51 @@
 public class Player
 {
     String name;
-    int colour;
+    int colour, initiaive;
+    Dice roll;
 
     public Player(String n, int c)
     {
     	this.name = n;
     	this.colour = c;
+        roll = new Dice();
+        initiaive = roll.roll();
     }
 
 
 
     //method to check if game has been won. Should check players slot to see if it is full
-    private boolean hasWonGame()
+    public boolean hasWonGame()
     {
-        return true;
+        return false;
 
     }
 
 
-    //Mehtod takes dice roll at start and compares against other player object's dice roll
-    private boolean goFirst()
+    //Mehtod takes dice roll at object creation and compares against other player object's dice roll
+    public boolean goFirst(Player opponent)
     {
-        return true;
+        if(this.initiaive > opponent.initiaive) //if player's roll is hihger
+            return true;
+        else if(this.initiaive == opponent.initiaive) //if the same, re roll check again
+        {
+                initiaive = roll.roll();
+                return goFirst(opponent);
+        }
+
+        else
+        return false; //else return false
     }
 
 
-    private void setColour(int c)
+    public void setColour(int c) //0 for white, 1 for black
     {
         this.colour = c;
 
     }
 
     //Method gets the colour the player is using. o for white, 1 for black
-    private String getColour(int c)
+    public String getColour(int c)
     {
         if(c == 1)
         	return "Black";
