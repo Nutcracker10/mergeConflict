@@ -70,7 +70,4 @@ public class EastPanel extends JPanel implements ActionListener {
 
     }//end of actionPerformed
 
-
-
-
 }

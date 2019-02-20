@@ -16,6 +16,7 @@ public class SouthPanel extends JPanel {
     Dice d1 = new Dice();                                  //Dice object for rolling
     Dice d2 = new Dice();
 
+
     SouthPanel(){
 
         subpanel.setLayout(new GridLayout(1,2)); //Add a 1*2 grid
@@ -34,9 +35,14 @@ public class SouthPanel extends JPanel {
         diceRoll.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dicedisplay.setText(d1.roll() + " " + d2.roll() + "\n" ); //when dice roll is cliked the numbers appear on the screem
+                dicedisplay.setText(d1.roll() + " " + d2.roll() + "\n" ); //when dice roll is clicked the numbers appear on the screen
+
             }
         });
 
+    }
+
+    public String getAction () {
+        return dicedisplay.getText();
     }
 }
