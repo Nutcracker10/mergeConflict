@@ -16,6 +16,7 @@ public class frame extends JFrame {
     SouthPanel south = new SouthPanel();
     Board board = new Board();
     Container c = this.getContentPane();
+    private int i = 0;
     private JLayeredPane layeredPane; //to put the checkers on a diffrent layer to the board
 
     frame() throws IOException, InterruptedException {
@@ -33,14 +34,23 @@ public class frame extends JFrame {
 
         this.setVisible(true);  //makes the frame visible to the user
 
-      Timer timer = new Timer(1000, new ActionListener() { //slows the animation down.
+      Timer timer = new Timer(1000, new ActionListener() 
+      { //slows the animation down.
           @Override
-          public void actionPerformed(ActionEvent e) {
-              ((Board) board).Moving();
-              board.repaint();
+          public void actionPerformed(ActionEvent e) 
+          {
+        	  if(i == 25)
+        		 return;
+        	  
+        	  else
+        	  {
+	              ((Board) board).Moving(i, i+1);
+	              board.repaint();
+	              i++;
+        	  }
           }
       });
-        timer.setInitialDelay(1900);
+        timer.setInitialDelay(1000);
         timer.start();
 
 
