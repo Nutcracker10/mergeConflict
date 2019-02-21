@@ -64,6 +64,11 @@ public class Player
         	return "White";
     }
 
+    public String getName()
+    {
+        return name;
+    }
+
 
 
 }
