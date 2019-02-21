@@ -30,7 +30,7 @@ public class GUI{
                 if(east.ReadyToStart() && turnNumber == 0)
                 {
                     east.areaText.append("\nGAME START");
-                    
+
                     turnNumber++;
 
                 }
