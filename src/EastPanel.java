@@ -93,10 +93,14 @@ public class EastPanel extends JPanel implements ActionListener {
 
         if(gameHasBegun)
         {
-            if(white.goFirst(black))
-                areaText.append("\n"+white.name + " goes first");
-            else
-                areaText.append("\n"+black.name + " goes first");
+            if(white.goFirst(black)) {
+                areaText.append("\n" + white.name + " goes first");
+                white.myTurn = true;
+            }
+            else {
+                areaText.append("\n" + black.name + " goes first");
+                black.myTurn = false;
+            }
 
         }
 

@@ -13,6 +13,7 @@ public class Player
     String name;
     int colour, initiaive;
     Dice roll;
+    boolean myTurn;
 
     public Player(String n, int c)
     {
@@ -20,6 +21,7 @@ public class Player
     	this.colour = c;
         roll = new Dice();
         initiaive = roll.roll();
+        myTurn = false;
     }
 
 
