@@ -103,9 +103,9 @@ public class EastPanel extends JPanel implements ActionListener {
             }
 
 
-            if(white.myTurn){}
+            if(white.myTurn){}  //add code for what happens on white's turn
 
-            if(black.myTurn){}
+            if(black.myTurn){} //add code for what happens on black's turn
 
 
 
