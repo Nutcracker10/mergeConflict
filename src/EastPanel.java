@@ -58,8 +58,8 @@ public class EastPanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent) {
 
         String text = enterText.getText();
-        int turnNumber = 0;
-        boolean gameHasBegun = false;
+        int turnNumber = 0; //to count what turn it is
+        boolean gameHasBegun = false; //flag to show the game has started
 
         if(text.equals("quit")){         // ends program if string is quit
             System.exit(0);
@@ -93,9 +93,10 @@ public class EastPanel extends JPanel implements ActionListener {
 
         if(gameHasBegun)
         {
-            //put move Methods here!!!
-
-
+            if(white.goFirst(black))
+                areaText.append("\n"+white.name + " goes first");
+            else
+                areaText.append("\n"+black.name + " goes first");
 
         }
 
