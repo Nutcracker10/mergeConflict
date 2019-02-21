@@ -7,6 +7,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 
 
 public class GUI{
@@ -17,17 +18,18 @@ public class GUI{
         {
             JFrame ourFrame = new frame(); //displays the frame to user
             //Assigning player's names
+            EastPanel east = ((frame) ourFrame).getEastPanel(); //to be able to access panels in Main
+            SouthPanel south = ((frame) ourFrame).getSouthPanel();
 
 
+            east.areaText.append("\nCommands : "); //telling the user what commands they can use
+            east.areaText.append("\nwName -> save white's name" + "\nbName -> save black's name"
+                                + "\nquit -> end the program");
 
-            ((frame) ourFrame).getEastPanel().areaText.append("\nCommands : "); //telling the user what commands they can use
-            ((frame) ourFrame).getEastPanel().areaText.append("\nwName -> save white's name" +
-                    "\nbName -> save black's name");
 
 
         }
         catch(InterruptedException e){}
-
 
 
         //trying to make a linked list of the spikes

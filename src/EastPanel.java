@@ -20,7 +20,8 @@ public class EastPanel extends JPanel implements ActionListener {
     JScrollPane scrollPane = new JScrollPane(areaText);
 
     //Players
-    Player white, black;
+    Player white = new Player("", 0);
+    Player black = new Player("", 1);
 
 
     EastPanel(){
@@ -50,24 +51,30 @@ public class EastPanel extends JPanel implements ActionListener {
         playerScore.setBorder(BorderFactory.createLineBorder(Color.BLACK));   // creates line around scor
 
 
+
     }
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
 
         String text = enterText.getText();
+        int turnNumber = 0; //to count what turn it is
+        boolean gameHasBegun = false; //flag to show the game has started
 
         if(text.equals("quit")){         // ends program if string is quit
             System.exit(0);
         }
         else if(text.startsWith("wName")) //command to savw white player'ss name
         {
-            white = new Player(text.substring(6),0); //name should start the space after the command word
+           // white = new Player(text.substring(6),0); //name should start the space after the command word
+            white.name = text.substring(6);
             areaText.append("\nWhite :" + white.name);
+            playerName.append(white.name);
         }
         else if(text.startsWith("bName")) //comand to sace blck player's name
         {
-            black = new Player(text.substring(6),1);
+           // black = new Player(text.substring(6),1);
+            black.name = text.substring(6);
             areaText.append("\nBlack :" + black.name);
 
         }
@@ -77,7 +84,44 @@ public class EastPanel extends JPanel implements ActionListener {
             enterText.selectAll();
         }
 
+
+        if(ReadyToStart() && turnNumber == 0) //Have to do this inside the action listner because of threads and swing
+        {
+            areaText.append("\nGAME START"); //Annouces start of the games
+            gameHasBegun = true;
+        }
+
+        if(gameHasBegun) //if the game has started
+        {
+            if(white.goFirst(black)) { //We check who goes first
+                areaText.append("\n" + white.name + " goes first");
+                white.myTurn = true;
+            }
+            else {
+                areaText.append("\n" + black.name + " goes first");
+                black.myTurn = false;
+            }
+
+
+            if(white.myTurn){}  //add code for what happens on white's turn
+
+            if(black.myTurn){} //add code for what happens on black's turn
+
+
+
+        }
+
+
+
     }//end of actionPerformed
+
+
+    public boolean ReadyToStart() //if both players given their names, this method returns true.
+    {
+       return ( ( !(black.name.equals("")) && !(white.name.equals("")) ) );
+    }
+
+
 
 
 
