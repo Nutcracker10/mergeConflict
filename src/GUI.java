@@ -7,6 +7,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 
 
 public class GUI{
@@ -19,33 +20,16 @@ public class GUI{
             //Assigning player's names
             EastPanel east = ((frame) ourFrame).getEastPanel(); //to be able to access panels in Main
             SouthPanel south = ((frame) ourFrame).getSouthPanel();
-            int turnNumber = 0; //number of turns that have been taken
+
 
             east.areaText.append("\nCommands : "); //telling the user what commands they can use
             east.areaText.append("\nwName -> save white's name" + "\nbName -> save black's name"
                                 + "\nquit -> end the program");
 
 
-            while((!(east.black.hasWonGame())&& !(east.white.hasWonGame())))
-            {
-                if(east.ReadyToStart() && turnNumber == 0)
-                {
-                    east.areaText.append("\nGAME START");
-
-                    turnNumber++;
-
-                }
-
-
-
-            }
-
-
 
         }
         catch(InterruptedException e){}
-
-
 
 
         //trying to make a linked list of the spikes
