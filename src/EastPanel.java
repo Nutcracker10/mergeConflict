@@ -3,6 +3,8 @@
    James   Kirwan   17402782
 */
 import javax.swing.*;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Document;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,6 +24,8 @@ public class EastPanel extends JPanel implements ActionListener {
     //Players
     Player white = new Player("", 0);
     Player black = new Player("", 1);
+
+    Document doc = areaText.getDocument();
 
 
     EastPanel(){
@@ -114,6 +118,7 @@ public class EastPanel extends JPanel implements ActionListener {
             turnNumber++;
         }
 
+
         else {
             areaText.append(text + "\n");
             enterText.selectAll();
@@ -147,8 +152,6 @@ public class EastPanel extends JPanel implements ActionListener {
 
         }
 
-
-
     }//end of actionPerformed
 
 
@@ -156,7 +159,6 @@ public class EastPanel extends JPanel implements ActionListener {
     {
        return ( ( !(black.name.equals("")) && !(white.name.equals("")) ) );
     }
-
 
 
 

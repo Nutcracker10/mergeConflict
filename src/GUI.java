@@ -22,10 +22,6 @@ public class GUI{
             SouthPanel south = ((frame) ourFrame).getSouthPanel();
 
 
-
-
-
-
         }
         catch(InterruptedException e){}
 
