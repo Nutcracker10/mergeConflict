@@ -46,12 +46,23 @@ public class EastPanel extends JPanel implements ActionListener {
         this.add(subpanel, BorderLayout.NORTH);
         this.add(scrollPane, BorderLayout.EAST);
 
+        this.areaText.append("\nCommands : "); //telling the user what commands they can use
+        this.areaText.append("\nwName -> save white's name" + "\nbName -> save black's name"
+                + "\nquit -> end the program");
+
 
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK));          // creates black lines around panel
         playerScore.setBorder(BorderFactory.createLineBorder(Color.BLACK));   // creates line around scor
 
+    }
 
+    public int[] autoDiceRoller() {
+        Dice d6 = new Dice();
+        int[] result = new int[2];
 
+        result[0] = d6.roll(); result [1] = d6.roll();
+
+        return result;
     }
 
     @Override
@@ -70,12 +81,15 @@ public class EastPanel extends JPanel implements ActionListener {
             white.name = text.substring(6);
             areaText.append("\nWhite :" + white.name);
             playerName.append(white.name);
+            enterText.selectAll();
+
         }
         else if(text.startsWith("bName")) //comand to sace blck player's name
         {
            // black = new Player(text.substring(6),1);
             black.name = text.substring(6);
             areaText.append("\nBlack :" + black.name);
+            enterText.selectAll();
 
         }
 
