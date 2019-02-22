@@ -79,6 +79,24 @@ public class EastPanel extends JPanel implements ActionListener {
 
         }
 
+        else if(text.equals("next")) //user switching bewteen turns
+        {
+            if(white.myTurn)
+            {
+                white.myTurn = false;
+                black.myTurn = true;
+                areaText.append("\n"+black.name+"'s turn");
+            }
+
+            else
+                {
+                    white.myTurn = true;
+                    black.myTurn = false;
+                    areaText.append("\n"+white.name+"'s turn");
+                }
+            turnNumber++;
+        }
+
         else {
             areaText.append(text + "\n");
             enterText.selectAll();
@@ -93,13 +111,14 @@ public class EastPanel extends JPanel implements ActionListener {
 
         if(gameHasBegun) //if the game has started
         {
-            if(white.goFirst(black)) { //We check who goes first
-                areaText.append("\n" + white.name + " goes first");
-                white.myTurn = true;
-            }
-            else {
-                areaText.append("\n" + black.name + " goes first");
-                black.myTurn = false;
+            if(turnNumber == 0) {
+                if (white.goFirst(black)) { //We check who goes first
+                    areaText.append("\n" + white.name + " goes first");
+                    white.myTurn = true;
+                } else {
+                    areaText.append("\n" + black.name + " goes first");
+                    black.myTurn = false;
+                }
             }
 
 
