@@ -11,6 +11,8 @@ import java.awt.*;
 public class WhiteChecker extends JComponent
 {	
 	private Coordinate whiteCoordinates;
+	private int[] xpos = {362, 663, 613, 563, 513, 463, 413, 311, 261, 211, 161, 111, 61, 61, 111, 161, 211, 261, 311, 413, 463, 513, 563, 613, 663, 715};
+	private int[] ypos = {260,  50,  50,  50,  50,  50,  50,  50,  50,  50,  50,  50,  50, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 535};
 	
 	public WhiteChecker(int x, int y)
 	{
@@ -41,37 +43,22 @@ public class WhiteChecker extends JComponent
 		g.fillRect(715, 535, 50, 13);
 	}
 
-	public Coordinate move(int dice)
+	public Coordinate move(int from, int to, int[] pips)
 	{
-		if((whiteCoordinates.getX()) == 362 && (whiteCoordinates.getY() == 260))
+		whiteCoordinates.setX(xpos[to]);
+		
+		if(pips[to] == 0)
+			whiteCoordinates.setY(ypos[to]);
+		
+		else
 		{
-			whiteCoordinates.setX(663);
-			whiteCoordinates.setY(50);
+			if((to > 0) && (to < 13))
+				whiteCoordinates.setY((ypos[to]) + (pips[to] * 30)); 
+			
+			else
+				whiteCoordinates.setY((ypos[to]) - (pips[to] * 30));
 		}
 		
-		else if((whiteCoordinates.getY() == 50))
-		{
-			whiteCoordinates.setX(whiteCoordinates.getX() - 50);
-			
-			if(whiteCoordinates.getX() < 61)
-			{
-				whiteCoordinates.setX(61);
-				whiteCoordinates.setY(520);
-			}
-			
-			if(whiteCoordinates.getX() == 363)
-			{
-				whiteCoordinates.setX(whiteCoordinates.getX() - 50);
-			}
-		}
-		
-		else if((whiteCoordinates.getY() == 520))
-		{
-			whiteCoordinates.setX(whiteCoordinates.getX() + 50);
-			
-			if(whiteCoordinates.getX() == 361)
-				whiteCoordinates.setX(whiteCoordinates.getX() + 50);
-		}
 		return whiteCoordinates;
 	}
 

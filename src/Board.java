@@ -12,7 +12,8 @@ public class Board extends JPanel
 	WhiteChecker w7 = new WhiteChecker(362, 260);
 	BlackChecker b15 = new BlackChecker(362, 310);
 
-
+	public int[][] pips = { {1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 3, 0, 5, 0, 0, 0, 0, 0, 0},
+							{1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 3, 0, 5, 0, 0, 0, 0, 0, 0}};
 
 	public void paintComponent(Graphics g)
 	{
@@ -265,12 +266,14 @@ public class Board extends JPanel
 		b15.paintComponent(g);
 	}
 
-
-
-	public void Moving() //testing that I can move a black checker
+	public void Moving(int from, int to) //testing that I can move a black checker
 	{
-	    b15.move(1);
-	    w7.move(1);
+	    b15.move(from, to, pips[1]);
+	    pips[1][from]--;
+	    pips[1][to]++;
+	    w7.move(from, to, pips[0]);
+	    pips[0][from]--;
+	    pips[0][to]++;
 	}
 
 

@@ -8,6 +8,8 @@ import java.awt.*;
 public class BlackChecker extends JComponent
 {
 	private Coordinate blackCoordinates; //coordinates for the checker
+	private int[] xpos = {362, 663, 613, 563, 513, 463, 413, 311, 261, 211, 161, 111, 61, 61, 111, 161, 211, 261, 311, 413, 463, 513, 563, 613, 663, 715};
+	private int[] ypos = {310, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 252};
 	
 	public BlackChecker(int x, int y)
 	{
@@ -35,43 +37,27 @@ public class BlackChecker extends JComponent
 	private void drawInBearOff(Graphics g)
 	{
 		g.setColor(Color.BLACK);
-		g.fillRect(715, 252, 50, 13);
+		g.fillRect(blackCoordinates.getX(), blackCoordinates.getY(), 50, 13);
 	}
 
 
-	public Coordinate move(int dice)
+	public Coordinate move(int from, int to, int[] pips)
     {
-		if((blackCoordinates.getX()) == 362 && (blackCoordinates.getY() == 310))
+		blackCoordinates.setX(xpos[to]);
+		
+		if(pips[to] == 0)
+			blackCoordinates.setY(ypos[to]);
+		
+		else
 		{
-			blackCoordinates.setX(663);
-			blackCoordinates.setY(520);
+			if((to > 0) && (to < 13))
+				blackCoordinates.setY((ypos[to]) - (pips[to] * 30)); 
+			
+			else
+				blackCoordinates.setY((ypos[to]) + (pips[to] * 30));
 		}
-
-		else if((blackCoordinates.getY() == 520))
-		{
-			blackCoordinates.setX(blackCoordinates.getX() - 50);
-
-			if(blackCoordinates.getX() < 61)
-			{
-				blackCoordinates.setX(61);
-				blackCoordinates.setY(50);
-			}
-
-			if(blackCoordinates.getX() == 363)
-			{
-				blackCoordinates.setX(blackCoordinates.getX() - 50);
-			}
-		}
-
-		else if((blackCoordinates.getY() == 50))
-		{
-			blackCoordinates.setX(blackCoordinates.getX() + 50);
-
-			if(blackCoordinates.getX() == 361)
-				blackCoordinates.setX(blackCoordinates.getX() + 50);
-		}
-
-        return blackCoordinates;
+		
+		return blackCoordinates;
     }
 
 
