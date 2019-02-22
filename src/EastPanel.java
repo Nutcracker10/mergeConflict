@@ -100,6 +100,7 @@ public class EastPanel extends JPanel implements ActionListener {
                 white.myTurn = false;
                 black.myTurn = true;
                 areaText.append("\n"+black.name+"'s turn");
+                areaText.append("\nRoll: " + autoDiceRoller()[0] + " " + autoDiceRoller()[1]);
             }
 
             else
@@ -107,6 +108,8 @@ public class EastPanel extends JPanel implements ActionListener {
                     white.myTurn = true;
                     black.myTurn = false;
                     areaText.append("\n"+white.name+"'s turn");
+                    areaText.append("\nRoll: " + autoDiceRoller()[0] + " " + autoDiceRoller()[1]);
+
                 }
             turnNumber++;
         }
