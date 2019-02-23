@@ -3,7 +3,6 @@
    James   Kirwan   17402782
 */
 import javax.swing.*;
-import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -25,7 +24,7 @@ public class EastPanel extends JPanel implements ActionListener {
     Player white = new Player("", 0);
     Player black = new Player("", 1);
 
-    Document doc = areaText.getDocument();
+    Document doc = areaText.getDocument();                          // a means of getting text details
 
 
     EastPanel(){
@@ -56,11 +55,11 @@ public class EastPanel extends JPanel implements ActionListener {
 
 
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK));          // creates black lines around panel
-        playerScore.setBorder(BorderFactory.createLineBorder(Color.BLACK));   // creates line around scor
+        playerScore.setBorder(BorderFactory.createLineBorder(Color.BLACK));   // creates line around score
 
     }
 
-    public int[] autoDiceRoller() {
+    public int[] autoDiceRoller() { // automatically rolls dice and returns an array of results
         Dice d6 = new Dice();
         int[] result = new int[2];
 
@@ -79,7 +78,7 @@ public class EastPanel extends JPanel implements ActionListener {
         if(text.equals("quit")){         // ends program if string is quit
             System.exit(0);
         }
-        else if(text.startsWith("wName")) //command to savw white player'ss name
+        else if(text.startsWith("wName")) //command to save white player'ss name
         {
            // white = new Player(text.substring(6),0); //name should start the space after the command word
             white.name = text.substring(6);
@@ -88,7 +87,7 @@ public class EastPanel extends JPanel implements ActionListener {
             enterText.selectAll();
 
         }
-        else if(text.startsWith("bName")) //comand to sace blck player's name
+        else if(text.startsWith("bName")) //command to save black player's name
         {
            // black = new Player(text.substring(6),1);
             black.name = text.substring(6,0);
@@ -97,7 +96,7 @@ public class EastPanel extends JPanel implements ActionListener {
 
         }
 
-        else if(text.equals("next")) //user switching bewteen turns
+        else if(text.equals("next")) //user switching between turns
         {
             if(white.myTurn)
             {
@@ -105,6 +104,7 @@ public class EastPanel extends JPanel implements ActionListener {
                 black.myTurn = true;
                 areaText.append("\n"+black.name+"'s turn");
                 areaText.append("\nRoll: " + autoDiceRoller()[0] + " " + autoDiceRoller()[1]);
+                enterText.selectAll();
             }
 
             else
@@ -113,15 +113,36 @@ public class EastPanel extends JPanel implements ActionListener {
                     black.myTurn = false;
                     areaText.append("\n"+white.name+"'s turn");
                     areaText.append("\nRoll: " + autoDiceRoller()[0] + " " + autoDiceRoller()[1]);
+                    enterText.selectAll();
 
                 }
             turnNumber++;
         }
 
-        else if (text.equals("move")) {
+        else if (text.startsWith("move")) {
 
-            String test = text.substring(3);
-            areaText.append("\n"+test);
+            String subString = text.substring(5, 8);
+
+            if (subString.length() < 6) {
+
+                try{
+                    int pipNum = Integer.parseInt(subString.substring(0));
+                    int pipToMoveTo = Integer.parseInt(subString.substring(3));
+                    areaText.append("\n" + pipNum + " " + pipToMoveTo);
+                    //checkerMover(pipNum, pipToMoveTo);
+                }
+                catch (NumberFormatException e){
+                    areaText.append("\nmove : Invalid format\n");
+                }
+
+            }
+            else {
+                areaText.append("\nInvalid number of arguments");
+            }
+
+
+
+            enterText.selectAll();
 
         }
 
@@ -177,7 +198,7 @@ public class EastPanel extends JPanel implements ActionListener {
     }
 
     public void checkerMover(int n, int m) { // takes in some ints n and m for moving checkers
-        areaText.append("\n" + n +" "+ m);
+        areaText.append("\n" + n +" "+ m + "\n");
     }
 
 
