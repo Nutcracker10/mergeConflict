@@ -25,9 +25,7 @@ public class GUI{
             Board board = ((frame) ourFrame).getBoard();
 
 
-            east.areaText.append("\nCommands : "); //telling the user what commands they can use
-            east.areaText.append("\nwName -> save white's name" + "\nbName -> save black's name"
-                                + "\nquit -> end the program");
+
 
 
 
