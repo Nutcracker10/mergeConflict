@@ -52,7 +52,7 @@ public class EastPanel extends JPanel implements ActionListener {
 
         this.areaText.append("\nCommands : "); //telling the user what commands they can use
         this.areaText.append("\nwName -> save white's name" + "\nbName -> save black's name"
-                + "\nquit -> end the program");
+                + "\nquit -> end the program\n");
 
 
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK));          // creates black lines around panel
@@ -83,7 +83,7 @@ public class EastPanel extends JPanel implements ActionListener {
         {
            // white = new Player(text.substring(6),0); //name should start the space after the command word
             white.name = text.substring(6);
-            areaText.append("\nWhite :" + white.name);
+            areaText.append("\nWhite : " + white.name);
             playerName.append(white.name);
             enterText.selectAll();
 
@@ -92,7 +92,7 @@ public class EastPanel extends JPanel implements ActionListener {
         {
            // black = new Player(text.substring(6),1);
             black.name = text.substring(6);
-            areaText.append("\nBlack :" + black.name);
+            areaText.append("\nBlack : " + black.name);
             enterText.selectAll();
 
         }
@@ -118,8 +118,15 @@ public class EastPanel extends JPanel implements ActionListener {
             turnNumber++;
         }
 
+        else if (text.equals("move")) {
+
+            String test = text.substring(3);
+            areaText.append("\n"+test);
+
+        }
 
         else {
+            areaText.append("\nUnrecognised Command :\n");
             areaText.append(text + "\n");
             enterText.selectAll();
         }
@@ -160,6 +167,9 @@ public class EastPanel extends JPanel implements ActionListener {
        return ( ( !(black.name.equals("")) && !(white.name.equals("")) ) );
     }
 
+    public void checkerMover(int n, int m) { // takes in some ints n and m for moving checkers
+        areaText.append("\n" + n +" "+ m);
+    }
 
 
 
