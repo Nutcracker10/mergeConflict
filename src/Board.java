@@ -15,6 +15,8 @@ public class Board extends JPanel
 	public int[][] pips = { {1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 3, 0, 5, 0, 0, 0, 0, 0, 0},
 							{1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 3, 0, 5, 0, 0, 0, 0, 0, 0}};
 
+	int whosTurn = 0; //varible to switich depending on which players turn. 0 for White. 1 for black
+
 	public void paintComponent(Graphics g)
 	{
 		this.setSize(780, 600);
@@ -22,12 +24,18 @@ public class Board extends JPanel
 		super.paintComponent(g);
 		drawBackground(g);
 		drawBoard(g);
-		drawSpikeNo(g);
 		drawBearOff(g);
 		drawTrianglesOne(g);
 		drawTrianglesTwo(g);
 		placeWhiteCheckers(g);
 		placeBlackCheckers(g);
+		if(whosTurn == 0)
+		{
+		    drawSpikeNoWhite(g);
+        }
+		else
+		    drawSpikeNoBlack(g);
+
 	}
 	
 	private void drawBackground(Graphics g)
@@ -53,7 +61,7 @@ public class Board extends JPanel
 		g.fillRect(352, 50, 50, 500);
 	}
 	
-	private void drawSpikeNo(Graphics g)
+	private void drawSpikeNoWhite(Graphics g)
 	{
 		int fontSize = 20;
 		Color cream = new Color(245, 222, 179);
@@ -86,8 +94,46 @@ public class Board extends JPanel
 		g.drawString("8", 272, 568);
 		g.drawString("6", 424, 568);
 		g.drawString("4", 524, 568);
-		g.drawString("2", 624, 568);	
+		g.drawString("2", 624, 568);
 	}
+
+    private void drawSpikeNoBlack(Graphics g)
+    {
+        int fontSize = 20;
+        Color cream = new Color(245, 222, 179);
+        Color slateGray = new Color(112, 128, 144);
+        g.setFont(new Font("TimesRoman", Font.PLAIN, fontSize));
+
+        g.setColor(cream);
+        g.drawString("13", 68, 568);
+        g.drawString("15", 168, 568);
+        g.drawString("17", 272, 568);
+        g.drawString("19", 424, 568);
+        g.drawString("21",  524, 568);
+        g.drawString("23", 624, 568);
+        g.drawString("11", 118, 46);
+        g.drawString("9", 218, 46);
+        g.drawString("7",  318, 46);
+        g.drawString("5", 470, 46);
+        g.drawString("3",  570, 46);
+        g.drawString("1", 670, 46);
+
+        g.setColor(slateGray);
+        g.drawString("14", 118, 568);
+        g.drawString("16", 222, 568);
+        g.drawString("18", 322, 568);
+        g.drawString("20",  474, 568);
+        g.drawString("22",  574, 568);
+        g.drawString("24", 674, 568);
+        g.drawString("12", 68, 46);
+        g.drawString("10", 168, 46);
+        g.drawString("8", 268, 46);
+        g.drawString("6", 420, 46);
+        g.drawString("4", 520, 46);
+        g.drawString("2", 620, 46);
+    }
+
+
 	
 	private void drawBearOff(Graphics g)
 	{
@@ -275,6 +321,12 @@ public class Board extends JPanel
 	    pips[0][from]--;
 	    pips[0][to]++;
 	}
+
+
+	public Board getBoard()
+    {
+        return this;
+    }
 
 
 }

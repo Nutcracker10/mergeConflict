@@ -14,6 +14,7 @@ public class Player
     int colour, initiaive;
     Dice roll;
     boolean myTurn;
+    Coordinate lastMove;
 
     public Player(String n, int c)
     {
@@ -22,6 +23,7 @@ public class Player
         roll = new Dice();
         initiaive = roll.roll();
         myTurn = false;
+        lastMove = new Coordinate(0, 0);
     }
 
 
@@ -57,9 +59,9 @@ public class Player
     }
 
     //Method gets the colour the player is using. o for white, 1 for black
-    public String getColour(int c)
+    public String getColour()
     {
-        if(c == 1)
+        if(this.colour == 1)
         	return "Black";
         
         else
@@ -70,6 +72,12 @@ public class Player
     {
         return name;
     }
+
+    public boolean isMyTurn()
+    {
+        return myTurn;
+    }
+
 
 
 

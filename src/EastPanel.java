@@ -111,6 +111,7 @@ public class EastPanel extends JPanel implements ActionListener {
 
         if(gameHasBegun) //if the game has started
         {
+
             if(turnNumber == 0) {
                 if (white.goFirst(black)) { //We check who goes first
                     areaText.append("\n" + white.name + " goes first");
@@ -122,9 +123,27 @@ public class EastPanel extends JPanel implements ActionListener {
             }
 
 
-            if(white.myTurn){}  //add code for what happens on white's turn
+            if(white.myTurn) //add code for what happens on white's turn
+            {
+                areaText.append("\nenter move: to from ");
 
-            if(black.myTurn){} //add code for what happens on black's turn
+
+                String[] numbers =  text.split(" ");
+
+                int to = Integer.parseInt(numbers[0]);
+                int from = Integer.parseInt(numbers[1]);
+
+                System.out.println("to : " + to + "from : "+from);
+
+
+
+            }
+
+            if(black.myTurn) //add code for what happens on black's turn
+            {
+                areaText.append("\nenter move: to from ");
+
+            }
 
 
 
@@ -139,6 +158,8 @@ public class EastPanel extends JPanel implements ActionListener {
     {
        return ( ( !(black.name.equals("")) && !(white.name.equals("")) ) );
     }
+
+
 
 
 
