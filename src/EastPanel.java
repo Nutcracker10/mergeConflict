@@ -91,7 +91,7 @@ public class EastPanel extends JPanel implements ActionListener {
         else if(text.startsWith("bName")) //comand to sace blck player's name
         {
            // black = new Player(text.substring(6),1);
-            black.name = text.substring(6);
+            black.name = text.substring(6,0);
             areaText.append("\nBlack : " + black.name);
             enterText.selectAll();
 
@@ -140,6 +140,7 @@ public class EastPanel extends JPanel implements ActionListener {
 
         if(gameHasBegun) //if the game has started
         {
+
             if(turnNumber == 0) {
                 if (white.goFirst(black)) { //We check who goes first
                     areaText.append("\n" + white.name + " goes first");
@@ -151,9 +152,17 @@ public class EastPanel extends JPanel implements ActionListener {
             }
 
 
-            if(white.myTurn){}  //add code for what happens on white's turn
+            if(white.myTurn) //add code for what happens on white's turn
+            {
 
-            if(black.myTurn){} //add code for what happens on black's turn
+
+            }
+
+            if(black.myTurn) //add code for what happens on black's turn
+            {
+
+
+            }
 
 
 
@@ -170,6 +179,8 @@ public class EastPanel extends JPanel implements ActionListener {
     public void checkerMover(int n, int m) { // takes in some ints n and m for moving checkers
         areaText.append("\n" + n +" "+ m);
     }
+
+
 
 
 

@@ -6,6 +6,8 @@
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
@@ -20,6 +22,33 @@ public class GUI{
             //Assigning player's names
             EastPanel east = ((frame) ourFrame).getEastPanel(); //to be able to access panels in Main
             SouthPanel south = ((frame) ourFrame).getSouthPanel();
+            Board board = ((frame) ourFrame).getBoard();
+
+
+
+
+
+
+            Timer timer = new Timer(500, new ActionListener() { //slows the animation down.
+                @Override
+                public void actionPerformed(ActionEvent e) {
+
+                    if(east.white.isMyTurn())
+                    {
+                        board.whosTurn = 0;
+                        board.repaint();
+                    }
+
+                    else if(east.black.isMyTurn())
+                    {
+                        board.whosTurn = 1;
+                        board.repaint();
+                    }
+
+                }
+            });
+            timer.start();
+
 
 
         }
