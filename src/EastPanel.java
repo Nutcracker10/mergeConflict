@@ -121,13 +121,13 @@ public class EastPanel extends JPanel implements ActionListener {
 
         else if (text.startsWith("move")) {
 
-            String subString = text.substring(5, 8);
+            String subString = text.substring(5);
 
             if (subString.length() < 6) {
 
                 try{
-                    int pipNum = Integer.parseInt(subString.substring(0));
-                    int pipToMoveTo = Integer.parseInt(subString.substring(3));
+                    int pipNum = Integer.parseInt(subString.substring(0,1));
+                    int pipToMoveTo = Integer.parseInt(subString.substring(2,3));
                     areaText.append("\n" + pipNum + " " + pipToMoveTo);
                     //checkerMover(pipNum, pipToMoveTo);
                 }
