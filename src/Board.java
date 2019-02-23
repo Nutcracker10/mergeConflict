@@ -61,7 +61,7 @@ public class Board extends JPanel
 		g.fillRect(352, 50, 50, 500);
 	}
 	
-	private void drawSpikeNoWhite(Graphics g)
+	private void drawSpikeNoWhite(Graphics g) //numbers from whites persective
 	{
 		int fontSize = 20;
 		Color cream = new Color(245, 222, 179);
@@ -97,7 +97,7 @@ public class Board extends JPanel
 		g.drawString("2", 624, 568);
 	}
 
-    private void drawSpikeNoBlack(Graphics g)
+    private void drawSpikeNoBlack(Graphics g)  //numbers from black's perspective
     {
         int fontSize = 20;
         Color cream = new Color(245, 222, 179);
