@@ -41,6 +41,7 @@ public class Player
     {
         if(this.initiaive > opponent.initiaive) //if player's roll is hihger
             return true;
+        
         else if(this.initiaive == opponent.initiaive) //if the same, re roll check again
         {
                 initiaive = roll.roll();
@@ -48,7 +49,7 @@ public class Player
         }
 
         else
-        return false; //else return false
+        	return false; //else return false
     }
 
 

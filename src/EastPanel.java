@@ -51,7 +51,7 @@ public class EastPanel extends JPanel implements ActionListener {
 
         this.areaText.append("\nCommands : "); //telling the user what commands they can use
         this.areaText.append("\nwName -> save white's name" + "\nbName -> save black's name"
-                + "\nquit -> end the program\n");
+                + "\nquit -> end the program" + "\nmove -> enter a move\n");
 
 
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK));          // creates black lines around panel
@@ -133,7 +133,7 @@ public class EastPanel extends JPanel implements ActionListener {
                     int pipNum = Integer.parseInt(firstHalf);
                     int pipToMoveTo = Integer.parseInt(secondHalf);
                     areaText.append("\n" + pipNum + " " + pipToMoveTo);
-                    //checkerMover(pipNum, pipToMoveTo);
+                    //Moving(pipNum, pipToMoveTo);
                 }
                 catch (NumberFormatException e){
                     areaText.append("\nmove : Invalid format\n");
@@ -174,20 +174,9 @@ public class EastPanel extends JPanel implements ActionListener {
                 black.myTurn = true;
             }
 
-            if(turnNumber == 0) {
-                if (white.goFirst(black)) { //We check who goes first
-                    areaText.append("\n" + white.name + " goes first");
-                    white.myTurn = true;
-                } else {
-                    areaText.append("\n" + black.name + " goes first");
-                    black.myTurn = false;
-                }
-            }
-
-
             if(white.myTurn) //add code for what happens on white's turn
             {
-
+            	
 
             }
 
