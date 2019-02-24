@@ -90,7 +90,7 @@ public class EastPanel extends JPanel implements ActionListener {
         else if(text.startsWith("bName")) //command to save black player's name
         {
            // black = new Player(text.substring(6),1);
-            black.name = text.substring(6,0);
+            black.name = text.substring(6);
             areaText.append("\nBlack : " + black.name);
             enterText.selectAll();
 
