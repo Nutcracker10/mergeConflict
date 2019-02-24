@@ -6,8 +6,8 @@ import java.util.*;
 
 
 
-//This class represemts the Spikes on the board where the checkers move. They act like a stack.
-// Checkers  can move from one spike to another. Store Spike objects in LinkedSist???
+//This class represents the Spikes on the board where the checkers move. They act like a stack.
+// Checkers  can move from one spike to another. Store Spike objects in LinkedList???
 
 
 public class Spike<E> extends Stack<E>
@@ -23,6 +23,11 @@ public class Spike<E> extends Stack<E>
     public void addChecker(Object check)
     {
         spike.push(check);
+    }
+    
+    public Object takeChecker()
+    {
+    	return spike.pop();
     }
 
 }

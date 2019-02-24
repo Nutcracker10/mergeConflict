@@ -12,14 +12,14 @@ public class WhiteChecker extends JComponent
 {	
 	private Coordinate whiteCoordinates;
 	private int[] xpos = {362, 663, 613, 563, 513, 463, 413, 311, 261, 211, 161, 111, 61, 61, 111, 161, 211, 261, 311, 413, 463, 513, 563, 613, 663, 715};
-	private int[] ypos = {260,  50,  50,  50,  50,  50,  50,  50,  50,  50,  50,  50,  50, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 535};
+	private int[] ypos = {260, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 535};
 	
 	public WhiteChecker(int x, int y)
 	{
 		whiteCoordinates = new Coordinate(x, y);
 	}
 	
-	public void paintComponent(Graphics g)
+	public void paint(Graphics g)
 	{
 		super.paint(g);
 		
@@ -43,7 +43,7 @@ public class WhiteChecker extends JComponent
 		g.fillRect(715, 535, 50, 13);
 	}
 
-	public Coordinate move(int from, int to, int[] pips)
+	public Coordinate move(int to, int[] pips)
 	{
 		whiteCoordinates.setX(xpos[to]);
 		

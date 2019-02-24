@@ -56,7 +56,6 @@ public class EastPanel extends JPanel implements ActionListener {
 
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK));          // creates black lines around panel
         playerScore.setBorder(BorderFactory.createLineBorder(Color.BLACK));   // creates line around score
-
     }
 
     public int[] autoDiceRoller() { // automatically rolls dice and returns an array of results
@@ -166,6 +165,14 @@ public class EastPanel extends JPanel implements ActionListener {
 
         if(gameHasBegun) //if the game has started
         {
+            if(white.goFirst(black)) { //We check who goes first
+                areaText.append("\n" + white.name + " goes first");
+                white.myTurn = true;
+            }
+            else {
+                areaText.append("\n" + black.name + " goes first");
+                black.myTurn = true;
+            }
 
             if(turnNumber == 0) {
                 if (white.goFirst(black)) { //We check who goes first

@@ -8,30 +8,28 @@
 // method : isFull() returns true or false.
 //method : addChecker() enters checker into slot
 
+import java.util.Stack;
+
 public class Slot
 {
-
-    //private  Checker [] slot;
-    private int size;
+    private Stack<Object> bearOff;
 
     public Slot()
     {
-       // slot = new Checker[15];
-        size = 0;
+    	bearOff = new Stack<>();
     }
 
 
     //adds checkers to slot
- //   public void addChecker(Checker checker)
+    public void addChecker(Object checker)
     {
-      //  slot[size] = checker;
-        size++;
+    	bearOff.push(checker);
     }
 
     //checks if slot is full of checkers
     public boolean isFull()
     {
-        return size == 15;
+        return bearOff.size() == 15;
     }
 
 

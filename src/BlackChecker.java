@@ -17,7 +17,7 @@ public class BlackChecker extends JComponent
 
 	}
 	
-	public void paintComponent(Graphics g)
+	public void paint(Graphics g)
 	{
 		super.paint(g);
 		

@@ -16,7 +16,7 @@ public class frame extends JFrame {
     SouthPanel south = new SouthPanel();
     Board board = new Board();
     Container c = this.getContentPane();
-    private int i = 0;
+    private int i = 1;
     private JLayeredPane layeredPane; //to put the checkers on a diffrent layer to the board
 
     frame() throws IOException, InterruptedException {
