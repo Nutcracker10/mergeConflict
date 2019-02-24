@@ -8,12 +8,14 @@ import java.awt.*;
 public class BlackChecker extends JComponent
 {
 	private Coordinate blackCoordinates; //coordinates for the checker
+	//holds the x coordinate for all possible black checker locations
 	private int[] xpos = {362, 663, 613, 563, 513, 463, 413, 311, 261, 211, 161, 111, 61, 61, 111, 161, 211, 261, 311, 413, 463, 513, 563, 613, 663, 715};
+	//holds the y coordinate for all possible black checker locations
 	private int[] ypos = {310, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 252};
 	
 	public BlackChecker(int x, int y)
 	{
-		blackCoordinates = new Coordinate(x, y); //giving the co ordinates to object
+		blackCoordinates = new Coordinate(x, y); //giving the coordinates to object
 
 	}
 	
@@ -41,7 +43,7 @@ public class BlackChecker extends JComponent
 	}
 
 
-	public Coordinate move(int from, int to, int[] pips)
+	public Coordinate move(int to, int[] pips)
     {
 		blackCoordinates.setX(xpos[to]);
 		

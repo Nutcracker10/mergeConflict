@@ -9,9 +9,13 @@ import java.util.ArrayList;
 
 public class Board extends JPanel
 {
+	//how many checkers are on each pip
+	//pip[0] holds white checkers
+	//pip[1] hold black checker
 	public int[][] pips = { {0, 0, 0, 0, 0, 0, 5, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0},
 							{0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 3, 0, 5, 0, 0, 0, 0, 0, 0}};
 
+	//declare all white checkers
 	WhiteChecker w1 = new WhiteChecker(413, 520);
 	WhiteChecker w2 = new WhiteChecker(413, 490);
 	WhiteChecker w3 = new WhiteChecker(413, 460);
@@ -28,6 +32,7 @@ public class Board extends JPanel
 	WhiteChecker w14 = new WhiteChecker(663, 50);
 	WhiteChecker w15 = new WhiteChecker(663, 80);
 
+	//declare all black checkers
 	BlackChecker b1 = new BlackChecker(413, 80);
 	BlackChecker b2 = new BlackChecker(413, 110);
 	BlackChecker b3 = new BlackChecker(413, 140);
@@ -44,6 +49,7 @@ public class Board extends JPanel
 	BlackChecker b14 = new BlackChecker(663, 520);
 	BlackChecker b15 = new BlackChecker(663, 490);
 	
+	//each pip is represented by an ArrayList, as is the bar and bear off
 	ArrayList<Component> bar = new ArrayList<>();
 	ArrayList<Component> s1 = new ArrayList<>();
 	ArrayList<Component> s2 = new ArrayList<>();
@@ -71,8 +77,10 @@ public class Board extends JPanel
 	ArrayList<Component> s24 = new ArrayList<>();
 	ArrayList<Component> bearOff = new ArrayList<>();
 	
+	//ArrayList to hold all of the pips, the bar, and the bearoff
 	ArrayList<ArrayList<Component>> board = new ArrayList<ArrayList<Component>>();
 	
+	//constructor
 	public Board()
 	{
 		s1.add(b14);
@@ -141,7 +149,7 @@ public class Board extends JPanel
 		board.add(bearOff);
 	}
 
-	int whosTurn = 0; //varible to switich depending on which players turn. 0 for White. 1 for black
+	int whosTurn = 0; //variable to switch depending on which players turn. 0 for White. 1 for black
 
 	public void paintComponent(Graphics g)
 	{
@@ -154,10 +162,10 @@ public class Board extends JPanel
 		drawTrianglesOne(g);
 		drawTrianglesTwo(g);
 		placeCheckers(g);
+		
 		if(whosTurn == 0)
-		{
 		    drawSpikeNoWhite(g);
-        }
+		
 		else
 		    drawSpikeNoBlack(g);
 	}
@@ -185,7 +193,7 @@ public class Board extends JPanel
 		g.fillRect(352, 50, 50, 500);
 	}
 	
-	private void drawSpikeNoWhite(Graphics g) //numbers from whites persective
+	private void drawSpikeNoWhite(Graphics g) //numbers from whites perspective
 	{
 		int fontSize = 20;
 		Color cream = new Color(245, 222, 179);
@@ -233,21 +241,21 @@ public class Board extends JPanel
         g.drawString("15", 168, 568);
         g.drawString("17", 272, 568);
         g.drawString("19", 424, 568);
-        g.drawString("21",  524, 568);
+        g.drawString("21", 524, 568);
         g.drawString("23", 624, 568);
         g.drawString("11", 118, 46);
         g.drawString("9", 218, 46);
-        g.drawString("7",  318, 46);
+        g.drawString("7", 318, 46);
         g.drawString("5", 470, 46);
-        g.drawString("3",  570, 46);
+        g.drawString("3", 570, 46);
         g.drawString("1", 670, 46);
 
         g.setColor(slateGray);
         g.drawString("14", 118, 568);
         g.drawString("16", 222, 568);
         g.drawString("18", 322, 568);
-        g.drawString("20",  474, 568);
-        g.drawString("22",  574, 568);
+        g.drawString("20", 474, 568);
+        g.drawString("22", 574, 568);
         g.drawString("24", 674, 568);
         g.drawString("12", 68, 46);
         g.drawString("10", 168, 46);
@@ -356,6 +364,7 @@ public class Board extends JPanel
 		g.fillPolygon(x12, y2, 3);
 	}
 	
+	//paints the checkers onto the board
 	private void placeCheckers(Graphics g)
 	{
 		for(int i = 0; i < board.size(); i++)
@@ -367,6 +376,7 @@ public class Board extends JPanel
 		}	
 	}
 	
+	//converts what black entered in to be switched to a common pip number
 	private int blackToWhite(int pip)
 	{
 		int[] answer = {0, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 25};
@@ -375,33 +385,37 @@ public class Board extends JPanel
 		return returned;
 	}
 
-	public void Moving(int from, int to) //testing that I can move a black checker
-	{
-	    if((board.get(from).get(board.get(from).size() - 1).getClass()) == BlackChecker.class)
+	//move method
+	public void Move(String colour, int from, int to)
+	{	
+	    if(colour == "Black")
 	    {
-	    	BlackChecker moving = (BlackChecker) board.get(from).get(board.get(from).size()-1);
-	    	moving.move(from, to, pips[1]);
-		    pips[1][from]--;
-		    pips[1][to]++;
-		    board.get(to).add(board.get(from).remove((board.get(from).size()-1)));
+	    	int blackFrom = blackToWhite(from);
+	    	int blackTo = blackToWhite(to);
+	    	
+	    	if(pips[1][from] == 0)
+	    		return;
+	    	
+	    	BlackChecker moving = (BlackChecker) board.get(blackFrom).get(board.get(blackFrom).size()-1);
+	    	moving.move(blackTo, pips[1]);
+		    pips[1][blackFrom]--;
+		    pips[1][blackTo]++;
+		    board.get(blackTo).add(board.get(blackFrom).remove((board.get(blackFrom).size()-1)));
 	    }
-
-	    int whiteFrom = blackToWhite(from);
-	    int whiteTo = blackToWhite(to);
 	    
-	    if((board.get(whiteFrom).size() - 1) >= 0)
+	    else if(colour == "White")
 	    {
-		    if((board.get(whiteFrom).get(board.get(whiteFrom).size() - 1).getClass()) == WhiteChecker.class)
-		    {
-		    	WhiteChecker moving = (WhiteChecker) board.get(whiteFrom).get(board.get(whiteFrom).size() - 1);
-		    	moving.move(whiteTo, pips[0]);
-		    	pips[0][whiteFrom]--;
-		    	pips[0][whiteTo]++;
-		    	board.get(whiteTo).add(board.get(whiteFrom).remove((board.get(whiteFrom).size() - 1)));
-		    }
+	    	if(pips[0][from] == 0)
+	    		return;
+	    	
+	    	WhiteChecker moving = (WhiteChecker) board.get(from).get(board.get(from).size() - 1);
+	    	moving.move(to, pips[0]);
+	    	pips[0][from]--;
+	    	pips[0][to]++;
+	    	board.get(to).add(board.get(from).remove((board.get(from).size() - 1)));
 	    }
+	    
 	}
-
 
 	public Board getBoard()
     {
