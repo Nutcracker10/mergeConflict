@@ -148,7 +148,7 @@ public class EastPanel extends JPanel implements ActionListener {
 
             enterText.selectAll();
 
-        }
+        }//end of move
 
         else {
             areaText.append("\nUnrecognised Command :\n");
@@ -209,9 +209,6 @@ public class EastPanel extends JPanel implements ActionListener {
        return ( ( !(black.name.equals("")) && !(white.name.equals("")) ) );
     }
 
-    public void checkerMover(int n, int m) { // takes in some ints n and m for moving checkers
-        areaText.append("\n" + n +" "+ m + "\n");
-    }
 
 
 
