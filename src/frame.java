@@ -31,28 +31,8 @@ public class frame extends JFrame {
         c.add(board, BorderLayout.CENTER);
         c.add(east, BorderLayout.EAST);
         c.add(south, BorderLayout.SOUTH);
-
+        
         this.setVisible(true);  //makes the frame visible to the user
-
-        Timer timer = new Timer(1000, new ActionListener() { //slows the animation down.
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (i == 25)
-                    return;
-
-                else {
-                    ((Board) board).Moving(i, i + 1);
-                    board.repaint();
-                    i++;
-                }
-            }
-        });
-        timer.setInitialDelay(1000);
-        timer.start();
-
-
-
-
     }
 
     //returns the east panel
