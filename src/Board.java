@@ -5,15 +5,141 @@
 import java.awt.Graphics;
 import  java.awt.*;
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class Board extends JPanel
 {
-	 //making this checker global so can making moving method
-	WhiteChecker w7 = new WhiteChecker(362, 260);
-	BlackChecker b15 = new BlackChecker(362, 310);
+	public int[][] pips = { {0, 0, 0, 0, 0, 0, 5, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0},
+							{0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 3, 0, 5, 0, 0, 0, 0, 0, 0}};
 
-	public int[][] pips = { {1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 3, 0, 5, 0, 0, 0, 0, 0, 0},
-							{1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 3, 0, 5, 0, 0, 0, 0, 0, 0}};
+	WhiteChecker w1 = new WhiteChecker(413, 520);
+	WhiteChecker w2 = new WhiteChecker(413, 490);
+	WhiteChecker w3 = new WhiteChecker(413, 460);
+	WhiteChecker w4 = new WhiteChecker(413, 430);
+	WhiteChecker w5 = new WhiteChecker(413, 400);
+	WhiteChecker w6 = new WhiteChecker(261, 520);
+	WhiteChecker w7 = new WhiteChecker(261, 490);
+	WhiteChecker w8 = new WhiteChecker(261, 460);
+	WhiteChecker w9 = new WhiteChecker(61, 50);
+	WhiteChecker w10 = new WhiteChecker(61, 80);
+	WhiteChecker w11 = new WhiteChecker(61, 110);
+	WhiteChecker w12 = new WhiteChecker(61, 140);
+	WhiteChecker w13 = new WhiteChecker(61, 170);
+	WhiteChecker w14 = new WhiteChecker(663, 50);
+	WhiteChecker w15 = new WhiteChecker(663, 80);
+
+	BlackChecker b1 = new BlackChecker(413, 80);
+	BlackChecker b2 = new BlackChecker(413, 110);
+	BlackChecker b3 = new BlackChecker(413, 140);
+	BlackChecker b4 = new BlackChecker(413, 170);
+	BlackChecker b5 = new BlackChecker(413, 50);
+	BlackChecker b6 = new BlackChecker(261, 50);
+	BlackChecker b7 = new BlackChecker(261, 80);
+	BlackChecker b8 = new BlackChecker(261, 110);
+	BlackChecker b9 = new BlackChecker(61, 520);
+	BlackChecker b10 = new BlackChecker(61, 490);
+	BlackChecker b11 = new BlackChecker(61, 460);
+	BlackChecker b12 = new BlackChecker(61, 430);
+	BlackChecker b13 = new BlackChecker(61, 400);
+	BlackChecker b14 = new BlackChecker(663, 520);
+	BlackChecker b15 = new BlackChecker(663, 490);
+	
+	ArrayList<Component> bar = new ArrayList<>();
+	ArrayList<Component> s1 = new ArrayList<>();
+	ArrayList<Component> s2 = new ArrayList<>();
+	ArrayList<Component> s3 = new ArrayList<>();
+	ArrayList<Component> s4 = new ArrayList<>();
+	ArrayList<Component> s5 = new ArrayList<>();
+	ArrayList<Component> s6 = new ArrayList<>();
+	ArrayList<Component> s7 = new ArrayList<>();
+	ArrayList<Component> s8 = new ArrayList<>();
+	ArrayList<Component> s9 = new ArrayList<>();
+	ArrayList<Component> s10 = new ArrayList<>();
+	ArrayList<Component> s11 = new ArrayList<>();
+	ArrayList<Component> s12 = new ArrayList<>();
+	ArrayList<Component> s13 = new ArrayList<>();
+	ArrayList<Component> s14 = new ArrayList<>();
+	ArrayList<Component> s15 = new ArrayList<>();
+	ArrayList<Component> s16 = new ArrayList<>();
+	ArrayList<Component> s17 = new ArrayList<>();
+	ArrayList<Component> s18 = new ArrayList<>();
+	ArrayList<Component> s19 = new ArrayList<>();
+	ArrayList<Component> s20 = new ArrayList<>();
+	ArrayList<Component> s21 = new ArrayList<>();
+	ArrayList<Component> s22 = new ArrayList<>();
+	ArrayList<Component> s23 = new ArrayList<>();
+	ArrayList<Component> s24 = new ArrayList<>();
+	ArrayList<Component> bearOff = new ArrayList<>();
+	
+	ArrayList<ArrayList<Component>> board = new ArrayList<ArrayList<Component>>();
+	
+	public Board()
+	{
+		s1.add(b14);
+		s1.add(b15);
+		
+		s6.add(w1);
+		s6.add(w2);
+		s6.add(w3);
+		s6.add(w4);
+		s6.add(w5);
+		
+		s8.add(w6);
+		s8.add(w7);
+		s8.add(w8);
+		
+		s12.add(b9);
+		s12.add(b10);
+		s12.add(b11);
+		s12.add(b12);
+		s12.add(b13);
+		
+		s13.add(w9);
+		s13.add(w10);
+		s13.add(w11);
+		s13.add(w12);
+		s13.add(w13);
+		
+		s17.add(b6);
+		s17.add(b7);
+		s17.add(b8);
+		
+		s19.add(b1);
+		s19.add(b2);
+		s19.add(b3);
+		s19.add(b4);
+		s19.add(b5);
+		
+		s24.add(w14);
+		s24.add(w15);
+		
+		board.add(bar);
+		board.add(s1);
+		board.add(s2);
+		board.add(s3);
+		board.add(s4);
+		board.add(s5);
+		board.add(s6);
+		board.add(s7);
+		board.add(s8);
+		board.add(s9);
+		board.add(s10);
+		board.add(s11);
+		board.add(s12);
+		board.add(s13);
+		board.add(s14);
+		board.add(s15);
+		board.add(s16);
+		board.add(s17);
+		board.add(s18);
+		board.add(s19);
+		board.add(s20);
+		board.add(s21);
+		board.add(s22);
+		board.add(s23);
+		board.add(s24);
+		board.add(bearOff);
+	}
 
 	public void paintComponent(Graphics g)
 	{
@@ -26,8 +152,7 @@ public class Board extends JPanel
 		drawBearOff(g);
 		drawTrianglesOne(g);
 		drawTrianglesTwo(g);
-		placeWhiteCheckers(g);
-		placeBlackCheckers(g);
+		placeCheckers(g);
 	}
 	
 	private void drawBackground(Graphics g)
@@ -186,94 +311,50 @@ public class Board extends JPanel
 		g.fillPolygon(x12, y2, 3);
 	}
 	
-	private void placeWhiteCheckers(Graphics g)
+	private void placeCheckers(Graphics g)
 	{
-		//Spike 13
-		WhiteChecker w1 = new WhiteChecker(61, 50);
-		w1.paintComponent(g);
-		WhiteChecker w2 = new WhiteChecker(61, 80);
-		w2.paintComponent(g);
-		WhiteChecker w3 = new WhiteChecker(61, 110);
-		w3.paintComponent(g);
-		WhiteChecker w4 = new WhiteChecker(61, 140);
-		w4.paintComponent(g);
-		WhiteChecker w5 = new WhiteChecker(61, 170);
-		w5.paintComponent(g);
-		
-		//Spike 24
-		WhiteChecker w6 = new WhiteChecker(663, 50);
-		w6.paintComponent(g);
-		w7.paintComponent(g);
-		
-		//Spike 8
-		WhiteChecker w8 = new WhiteChecker(261, 520);
-		w8.paintComponent(g);
-		WhiteChecker w9 = new WhiteChecker(261, 490);
-		w9.paintComponent(g);
-		WhiteChecker w10 = new WhiteChecker(261, 460);
-		w10.paintComponent(g);
-
-		//Spike 6
-		WhiteChecker w11 = new WhiteChecker(413, 520);
-		w11.paintComponent(g);
-		WhiteChecker w12 = new WhiteChecker(413, 490);
-		w12.paintComponent(g);
-		WhiteChecker w13 = new WhiteChecker(413, 460);
-		w13.paintComponent(g);
-		WhiteChecker w14 = new WhiteChecker(413, 430);
-		w14.paintComponent(g);
-		WhiteChecker w15 = new WhiteChecker(413, 400);
-		w15.paintComponent(g);	
+		for(int i = 0; i < board.size(); i++)
+		{
+			for(int j = 0; j < board.get(i).size(); j++)
+			{
+				board.get(i).get(j).paint(g);
+			}
+		}	
 	}
 	
-	private void placeBlackCheckers(Graphics g)
+	private int blackToWhite(int pip)
 	{
-		//Spike 17
-		BlackChecker b1 = new BlackChecker(261, 50);
-		b1.paintComponent(g);
-		BlackChecker b2 = new BlackChecker(261, 80);
-		b2.paintComponent(g);
-		BlackChecker b3 = new BlackChecker(261, 110);
-		b3.paintComponent(g);
+		int[] answer = {0, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 25};
+		int returned = answer[pip];
 		
-		//Spike 19
-		BlackChecker b4 = new BlackChecker(413, 50);
-		b4.paintComponent(g);
-		BlackChecker b5 = new BlackChecker(413, 80);
-		b5.paintComponent(g);
-		BlackChecker b6 = new BlackChecker(413, 110);
-		b6.paintComponent(g);
-		BlackChecker b7 = new BlackChecker(413, 140);
-		b7.paintComponent(g);
-		BlackChecker b8 = new BlackChecker(413, 170);
-		b8.paintComponent(g);
-		
-		//Spike 12
-		BlackChecker b9 = new BlackChecker(61, 520);
-		b9.paintComponent(g);
-		BlackChecker b10 = new BlackChecker(61, 490);
-		b10.paintComponent(g);
-		BlackChecker b11 = new BlackChecker(61, 460);
-		b11.paintComponent(g);
-		BlackChecker b12 = new BlackChecker(61, 430);
-		b12.paintComponent(g);
-		BlackChecker b13 = new BlackChecker(61, 400);
-		b13.paintComponent(g);
-		
-		//Spike 1
-		BlackChecker b14 = new BlackChecker(663, 520);
-		b14.paintComponent(g);
-		b15.paintComponent(g);
+		return returned;
 	}
 
 	public void Moving(int from, int to) //testing that I can move a black checker
 	{
-	    b15.move(from, to, pips[1]);
-	    pips[1][from]--;
-	    pips[1][to]++;
-	    w7.move(from, to, pips[0]);
-	    pips[0][from]--;
-	    pips[0][to]++;
+	    if((board.get(from).get(board.get(from).size() - 1).getClass()) == BlackChecker.class)
+	    {
+	    	BlackChecker moving = (BlackChecker) board.get(from).get(board.get(from).size()-1);
+	    	moving.move(from, to, pips[1]);
+		    pips[1][from]--;
+		    pips[1][to]++;
+		    board.get(to).add(board.get(from).remove((board.get(from).size()-1)));
+	    }
+
+	    int whiteFrom = blackToWhite(from);
+	    int whiteTo = blackToWhite(to);
+	    
+	    if((board.get(whiteFrom).size() - 1) >= 0)
+	    {
+		    if((board.get(whiteFrom).get(board.get(whiteFrom).size() - 1).getClass()) == WhiteChecker.class)
+		    {
+		    	WhiteChecker moving = (WhiteChecker) board.get(whiteFrom).get(board.get(whiteFrom).size() - 1);
+		    	moving.move(whiteTo, pips[0]);
+		    	pips[0][whiteFrom]--;
+		    	pips[0][whiteTo]++;
+		    	board.get(whiteTo).add(board.get(whiteFrom).remove((board.get(whiteFrom).size() - 1)));
+		    }
+	    }
 	}
 
 

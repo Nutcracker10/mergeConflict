@@ -17,20 +17,31 @@ import java.util.Stack;
 
 public class Bar
 {
-   	Stack<WhiteChecker> whiteBar = new Stack<WhiteChecker>();
- 
+   	Stack<Object> bar = new Stack<Object>();
 
     public Bar ()
-    { }
-
-    public int numberOfWhite()
-    {
-        return whiteBar.size();
+    { 
+    	
     }
 
+    public int numberOfCheckers()
+    {
+        return bar.size();
+    }
+    
     public boolean isBarEmpty()
     {
-        return (whiteBar.isEmpty());
+        return (bar.isEmpty());
+    }
+    
+    public void addChecker(Object check)
+    {
+    	bar.push(check);
+    }
+    
+    public Object removeChecker()
+    {
+    	return bar.pop();
     }
 
 }

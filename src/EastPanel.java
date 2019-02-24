@@ -50,8 +50,6 @@ public class EastPanel extends JPanel implements ActionListener {
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK));          // creates black lines around panel
         playerScore.setBorder(BorderFactory.createLineBorder(Color.BLACK));   // creates line around scor
 
-
-
     }
 
     @Override
@@ -99,7 +97,7 @@ public class EastPanel extends JPanel implements ActionListener {
             }
             else {
                 areaText.append("\n" + black.name + " goes first");
-                black.myTurn = false;
+                black.myTurn = true;
             }
 
 
