@@ -36,8 +36,15 @@ public class frame extends JFrame implements MoveListener{
     
     public void move(String colour, int from, int to)
     {
-    	board.Move(colour, from, to);
-    	board.repaint();
+    	try 
+    	{
+    		board.Move(colour, from, to);
+    		board.repaint();
+    	}
+    	catch(NoCheckerException e)
+    	{
+    		east.areaText.append("\nInvalid move, no checker at this pip");
+    	}
     }
 
     //returns the east panel
