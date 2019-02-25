@@ -4,22 +4,19 @@
 */
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 
 
-public class frame extends JFrame {
+public class frame extends JFrame implements MoveListener{
 
     //adds panels to frame
     EastPanel east = new EastPanel();
     SouthPanel south = new SouthPanel();
     Board board = new Board();
     Container c = this.getContentPane();
-    private int i = 1;
-    private JLayeredPane layeredPane; //to put the checkers on a diffrent layer to the board
 
-    frame() throws IOException, InterruptedException {
+    frame() throws IOException, InterruptedException 
+    {
         this.setSize(1000, 750);                        // sets window size
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);    // ends process on window close
         this.setResizable(false);                        //Prevents user from resizing window
@@ -31,8 +28,16 @@ public class frame extends JFrame {
         c.add(board, BorderLayout.CENTER);
         c.add(east, BorderLayout.EAST);
         c.add(south, BorderLayout.SOUTH);
-        
+
+        east.addListener(this);
+        //east.addListener(this);
         this.setVisible(true);  //makes the frame visible to the user
+    }
+    
+    public void move(String colour, int from, int to)
+    {
+    	board.Move(colour, from, to);
+    	board.repaint();
     }
 
     //returns the east panel

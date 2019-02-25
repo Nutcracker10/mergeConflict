@@ -4,13 +4,9 @@
    James   Kirwan   17402782
 */
 import javax.swing.*;
-import javax.swing.border.Border;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-
 
 public class GUI{
 
@@ -23,11 +19,6 @@ public class GUI{
             EastPanel east = ((frame) ourFrame).getEastPanel(); //to be able to access panels in Main
             SouthPanel south = ((frame) ourFrame).getSouthPanel();
             Board board = ((frame) ourFrame).getBoard();
-
-
-
-
-
 
             Timer timer = new Timer(500, new ActionListener() { //slows the animation down.
                 @Override
@@ -48,24 +39,11 @@ public class GUI{
                 }
             });
             timer.start();
-
-
-
         }
-        catch(InterruptedException e){}
-
-
-        //trying to make a linked list of the spikes
-
-        Spike<Object> s1 = new Spike<>();
-        Spike<Object> s2 = new Spike<>();
-        //then put the checkers in the spikes and move them about
-
-        WhiteChecker c1 = new WhiteChecker(0, 0);
-        BlackChecker c2 = new BlackChecker(50, 50);
-
-        s1.addChecker(c1);
-        s1.addChecker(c2);
+        catch(InterruptedException e)
+        {
+        	
+        }
     }
 }
 

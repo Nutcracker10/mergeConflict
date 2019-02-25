@@ -11,7 +11,9 @@ import java.awt.*;
 public class WhiteChecker extends JComponent
 {	
 	private Coordinate whiteCoordinates;
+	//holds x coordinates for all possible locations for black checkers
 	private int[] xpos = {362, 663, 613, 563, 513, 463, 413, 311, 261, 211, 161, 111, 61, 61, 111, 161, 211, 261, 311, 413, 463, 513, 563, 613, 663, 715};
+	//holds y coordinates for all possible locations for black checkers
 	private int[] ypos = {260, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 535};
 	
 	public WhiteChecker(int x, int y)
@@ -24,9 +26,8 @@ public class WhiteChecker extends JComponent
 		super.paint(g);
 		
 		if(whiteCoordinates.getX() > 663)
-		{
 			drawInBearOff(g);
-		}
+		
 		else
 			drawChecker(g);
 	}
@@ -40,7 +41,7 @@ public class WhiteChecker extends JComponent
 	private void drawInBearOff(Graphics g)
 	{
 		g.setColor(Color.WHITE);
-		g.fillRect(715, 535, 50, 13);
+		g.fillRect(whiteCoordinates.getX(), whiteCoordinates.getY(), 50, 13);
 	}
 
 	public Coordinate move(int to, int[] pips)
@@ -53,10 +54,10 @@ public class WhiteChecker extends JComponent
 		else
 		{
 			if((to > 0) && (to < 13))
-				whiteCoordinates.setY((ypos[to]) + (pips[to] * 30)); 
+				whiteCoordinates.setY((ypos[to]) - (pips[to] * 30)); 
 			
 			else
-				whiteCoordinates.setY((ypos[to]) - (pips[to] * 30));
+				whiteCoordinates.setY((ypos[to]) + (pips[to] * 30));
 		}
 		
 		return whiteCoordinates;

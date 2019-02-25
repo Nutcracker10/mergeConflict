@@ -8,7 +8,7 @@
 
 # Controls
 1. Type quit to exit the program.
-2. Type wName to enter a name for the white player.
-3. Type bName to enter a name for the black player.
+2. Type wName and a string to enter a name for the white player.
+3. Type bName and a string to enter a name for the black player.
 4. Type move followed by two numbers with a space between
 them to move a checker.
