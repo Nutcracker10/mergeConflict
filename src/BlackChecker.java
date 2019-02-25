@@ -55,6 +55,9 @@ public class BlackChecker extends JComponent
 			if((to > 0) && (to < 13))
 				blackCoordinates.setY((ypos[to]) - (pips[to] * 30)); 
 			
+			else if(to == 25)
+				blackCoordinates.setY((ypos[to]) - (pips[to] * 30));
+			
 			else
 				blackCoordinates.setY((ypos[to]) + (pips[to] * 30));
 		}
