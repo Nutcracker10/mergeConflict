@@ -55,7 +55,7 @@ public class EastPanel extends JPanel implements ActionListener {
 		this.add(scrollPane, BorderLayout.EAST);
 
 		this.areaText.append("\nCommands : "); // telling the user what commands they can use
-		this.areaText.append("\nwName -> save white's name" + "\nbName -> save black's name" + "\nmove -> enter a move" + 
+		this.areaText.append("\nwName -> save white's name" + "\nbName -> save black's name" + "\nmove -> enter a move" +
 							 "\nnext -> end turn" + "\nquit -> end the program\n" );
 
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // creates black lines around panel
