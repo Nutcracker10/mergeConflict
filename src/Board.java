@@ -406,7 +406,7 @@ public class Board extends JPanel
 	    else if(colour == "White")
 	    {
 	    	if(pips[0][from] == 0)
-	    		return;
+	    		throw new NoCheckerException();
 	    	
 	    	WhiteChecker moving = (WhiteChecker) board.get(from).get(board.get(from).size() - 1);
 	    	moving.move(to, pips[0]);
