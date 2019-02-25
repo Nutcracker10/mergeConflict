@@ -394,7 +394,7 @@ public class Board extends JPanel
 	    	int blackTo = blackToWhite(to);
 	    	
 	    	if(pips[1][blackFrom] == 0)
-	    		return;
+	    		throw new NoCheckerException();
 	    	
 	    	BlackChecker moving = (BlackChecker) board.get(blackFrom).get(board.get(blackFrom).size()-1);
 	    	moving.move(blackTo, pips[1]);
