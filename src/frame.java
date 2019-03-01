@@ -45,6 +45,20 @@ public class frame extends JFrame implements MoveListener{
     	{
     		east.areaText.append("\nInvalid move, no checker at this pip");
     	}
+
+        if(east.black.hasWonGame(board.numInBlackSlot))
+        {
+            east.areaText.append("\nCongratulations " +east.black.getName()+" has won");
+        }
+
+        if(east.white.hasWonGame(board.numInWhiteSlot))
+        {
+            east.areaText.append("\nCongratulations " +east.white.getName()+" has won");
+        }
+
+
+
+
     }
 
     //returns the east panel

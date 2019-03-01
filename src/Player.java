@@ -27,9 +27,9 @@ public class Player
 
 
     //method to check if game has been won. Should check players slot to see if it is full
-    public boolean hasWonGame()
+    public boolean hasWonGame(int checksInSlot)
     {
-        return false;
+        return checksInSlot == 15;
 
     }
 
