@@ -162,6 +162,11 @@ public class EastPanel extends JPanel implements ActionListener {
 			enterText.selectAll();
 			turnNumber++;
 		}
+		
+		else if(text.startsWith("cheat"))
+		{
+			notifyCheatListeners();
+		}
 
 		else {
 			areaText.append("\nUnrecognised Command :\n");
@@ -211,5 +216,11 @@ public class EastPanel extends JPanel implements ActionListener {
 		{
 			m.move(colour, from, to);
 		}
+	}
+	
+	public void notifyCheatListeners()
+	{
+		for(MoveListener m : listeners)
+			m.cheat();
 	}
 }

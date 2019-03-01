@@ -47,6 +47,11 @@ public class frame extends JFrame implements MoveListener{
     	}
     }
 
+    public void cheat()
+    {
+    	board.cheat();
+    	board.repaint();
+    }
     //returns the east panel
     public EastPanel getEastPanel()
     {

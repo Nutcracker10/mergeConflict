@@ -33,11 +33,11 @@ public class Board extends JPanel
 	WhiteChecker w15 = new WhiteChecker(663, 80);
 
 	//declare all black checkers
-	BlackChecker b1 = new BlackChecker(413, 80);
-	BlackChecker b2 = new BlackChecker(413, 110);
-	BlackChecker b3 = new BlackChecker(413, 140);
-	BlackChecker b4 = new BlackChecker(413, 170);
-	BlackChecker b5 = new BlackChecker(413, 50);
+	BlackChecker b1 = new BlackChecker(413, 50);
+	BlackChecker b2 = new BlackChecker(413, 80);
+	BlackChecker b3 = new BlackChecker(413, 110);
+	BlackChecker b4 = new BlackChecker(413, 140);
+	BlackChecker b5 = new BlackChecker(413, 170);
 	BlackChecker b6 = new BlackChecker(261, 50);
 	BlackChecker b7 = new BlackChecker(261, 80);
 	BlackChecker b8 = new BlackChecker(261, 110);
@@ -75,7 +75,8 @@ public class Board extends JPanel
 	ArrayList<Component> s22 = new ArrayList<>();
 	ArrayList<Component> s23 = new ArrayList<>();
 	ArrayList<Component> s24 = new ArrayList<>();
-	ArrayList<Component> bearOff = new ArrayList<>();
+	ArrayList<Component> whiteBearOff = new ArrayList<>();
+	ArrayList<Component> blackBearOff = new ArrayList<>();
 	
 	//ArrayList to hold all of the pips, the bar, and the bearoff
 	ArrayList<ArrayList<Component>> board = new ArrayList<ArrayList<Component>>();
@@ -146,7 +147,8 @@ public class Board extends JPanel
 		board.add(s22);
 		board.add(s23);
 		board.add(s24);
-		board.add(bearOff);
+		board.add(whiteBearOff);
+		board.add(blackBearOff);
 	}
 
 	int whosTurn = 0; //variable to switch depending on which players turn. 0 for White. 1 for black
@@ -400,7 +402,12 @@ public class Board extends JPanel
 	    	moving.move(blackTo, pips[1]);
 		    pips[1][blackFrom]--;
 		    pips[1][blackTo]++;
-		    board.get(blackTo).add(board.get(blackFrom).remove((board.get(blackFrom).size()-1)));
+		    
+		    if(blackTo != 25)
+		    	board.get(blackTo).add(board.get(blackFrom).remove((board.get(blackFrom).size()-1)));
+		    
+		    else
+		    	board.get(26).add(board.get(blackFrom).remove((board.get(blackFrom).size()-1)));
 	    }
 	    
 	    else if(colour == "White")
@@ -415,6 +422,89 @@ public class Board extends JPanel
 	    	board.get(to).add(board.get(from).remove((board.get(from).size() - 1)));
 	    }
 	    
+	}
+	
+	public void cheat()
+	{
+		for(ArrayList<Component> a : board)
+		{
+			a.clear();
+		}
+		
+		w1.setCoordinates(362, 260);
+		w2.setCoordinates(362, 230);
+		w3.setCoordinates(362, 200);
+		w4.setCoordinates(663, 520);
+		w5.setCoordinates(663, 490);
+		w6.setCoordinates(613, 520);
+		w7.setCoordinates(613, 490);
+		w8.setCoordinates(563, 520);
+		w9.setCoordinates(563, 490);
+		w10.setCoordinates(513, 520);
+		w11.setCoordinates(513, 490);
+		w12.setCoordinates(463, 520);
+		w13.setCoordinates(463, 490);
+		w14.setCoordinates(715, 535);
+		w15.setCoordinates(715, 520);
+		
+		b1.setCoordinates(362, 310);
+		b2.setCoordinates(362, 340);
+		b3.setCoordinates(362, 370);
+		b4.setCoordinates(663, 50);
+		b5.setCoordinates(663, 80);
+		b6.setCoordinates(663, 110);
+		b7.setCoordinates(563, 50);
+		b8.setCoordinates(563, 80);
+		b9.setCoordinates(563, 110);
+		b10.setCoordinates(513, 50);
+		b11.setCoordinates(513, 80);
+		b12.setCoordinates(513, 110);
+		b13.setCoordinates(715, 252);
+		b14.setCoordinates(715, 237);
+		b15.setCoordinates(715, 222);
+		
+		
+		
+		bar.add(w1);
+		bar.add(w2);
+		bar.add(w3);
+		bar.add(b1);
+		bar.add(b2);
+		bar.add(b3);
+		
+		s1.add(w4);
+		s1.add(w5);
+		
+		s2.add(w6);
+		s2.add(w7);
+		
+		s3.add(w8);
+		s3.add(w9);
+		
+		s4.add(w10);
+		s4.add(w11);
+		
+		s5.add(w12);
+		s5.add(w13);
+		
+		s24.add(b4);
+		s24.add(b5);
+		s24.add(b6);
+		
+		s22.add(b7);
+		s22.add(b8);
+		s22.add(b9);
+		
+		s21.add(b10);
+		s21.add(b11);
+		s21.add(b12);
+		
+		blackBearOff.add(b13);
+		blackBearOff.add(b14);
+		blackBearOff.add(b15);
+		
+		whiteBearOff.add(w14);
+		whiteBearOff.add(w15);
 	}
 
 	public Board getBoard()
