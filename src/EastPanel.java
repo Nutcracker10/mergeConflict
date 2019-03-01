@@ -98,7 +98,7 @@ public class EastPanel extends JPanel implements ActionListener {
 
 		}
 
-		else if (text.equals("next")) // user switching between turns
+		else if (text.equals("next") && !(black.haveWon || white.haveWon)) // user switching between turns
 		{
 			if (white.myTurn) {
 				white.myTurn = false;
@@ -118,7 +118,7 @@ public class EastPanel extends JPanel implements ActionListener {
 			}
 		}
 
-		else if (text.startsWith("move")) {
+		else if (text.startsWith("move") && !(black.haveWon || white.haveWon)) {
 
 			String subString = text.substring(5); // a substring of the numbers from the command
 			String firstHalf = subString.substring(0, (subString.length() / 2));

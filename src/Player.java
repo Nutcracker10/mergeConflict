@@ -11,7 +11,7 @@ public class Player
     String name;
     int colour, initiaive;
     Dice roll;
-    boolean myTurn;
+    boolean myTurn, haveWon;
     Coordinate lastMove;
 
     public Player(String n, int c)
@@ -21,6 +21,7 @@ public class Player
         roll = new Dice();
         initiaive = roll.roll();
         myTurn = false;
+        haveWon = false;
         lastMove = new Coordinate(0, 0);
     }
 
@@ -29,8 +30,13 @@ public class Player
     //method to check if game has been won. Should check players slot to see if it is full
     public boolean hasWonGame(int checksInSlot)
     {
-        return checksInSlot == 15;
+         if(checksInSlot == 15)
+         {
+             haveWon = true;
+             return true;
+         }
 
+        return false;
     }
 
 
