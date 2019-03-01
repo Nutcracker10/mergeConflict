@@ -38,6 +38,12 @@ public class WhiteChecker extends JComponent
 		g.fillOval(whiteCoordinates.getX(), whiteCoordinates.getY(), 30, 30);
 	}
 	
+	public void setCoordinates(int x, int y)
+	{
+		whiteCoordinates.setX(x);
+		whiteCoordinates.setY(y);
+	}
+	
 	private void drawInBearOff(Graphics g)
 	{
 		g.setColor(Color.WHITE);

@@ -42,7 +42,12 @@ public class BlackChecker extends JComponent
 		g.fillRect(blackCoordinates.getX(), blackCoordinates.getY(), 50, 13);
 	}
 
-
+	public void setCoordinates(int x, int y)
+	{
+		blackCoordinates.setX(x);
+		blackCoordinates.setY(y);
+	}
+	
 	public Coordinate move(int to, int[] pips)
     {
 		blackCoordinates.setX(xpos[to]);
