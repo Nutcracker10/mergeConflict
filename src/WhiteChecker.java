@@ -53,8 +53,11 @@ public class WhiteChecker extends JComponent
 		
 		else
 		{
-			if((to > 0) && (to < 13))
+			if((to >= 0) && (to < 13))
 				whiteCoordinates.setY((ypos[to]) - (pips[to] * 30)); 
+			
+			else if(to == 25)
+				whiteCoordinates.setY((ypos[to]) - (pips[to] * 15));
 			
 			else
 				whiteCoordinates.setY((ypos[to]) + (pips[to] * 30));
