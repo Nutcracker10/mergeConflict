@@ -130,6 +130,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				enterText.selectAll();
 
 			}
+			turnNumber++;
 		}
 
 		else if (text.startsWith("move") && !(black.haveWon || white.haveWon)) {
@@ -174,7 +175,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			}
 
 			enterText.selectAll();
-			turnNumber++;
+
 		}
 		
 		else if(text.startsWith("cheat"))
