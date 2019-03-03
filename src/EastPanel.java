@@ -6,11 +6,12 @@
 import javax.swing.*;
 import javax.swing.text.Document;
 import java.awt.*;
+import javax.swing.JScrollPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class EastPanel extends JPanel implements ActionListener {
+public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 	JTextField enterText = new JTextField(); // a field for entering details
 	JTextArea areaText = new JTextArea("Welcome to Backgammon\n"); // an area for displaying game details
@@ -20,6 +21,8 @@ public class EastPanel extends JPanel implements ActionListener {
 
 	// adds scrolling functionality to the text area
 	JScrollPane scrollPane = new JScrollPane(areaText);
+
+
 
 	// Players
 	Player white = new Player("", 0);
@@ -49,10 +52,11 @@ public class EastPanel extends JPanel implements ActionListener {
 		// adds each component to panel
 		subpanel.add(playerName);
 		subpanel.add(playerScore);
-		this.add(areaText, BorderLayout.CENTER);
 		this.add(enterText, BorderLayout.SOUTH);
 		this.add(subpanel, BorderLayout.NORTH);
-		this.add(scrollPane, BorderLayout.EAST);
+		this.add(scrollPane, BorderLayout.EAST); //textarea contained in scrollpane
+
+	//	areaText.setPreferredSize(new Dimension(155, 627));
 
 		this.areaText.append("\nCommands : "); // telling the user what commands they can use
 		this.areaText.append("\nwName -> save white's name" + "\nbName -> save black's name" + "\nmove -> enter a move" +
@@ -60,6 +64,16 @@ public class EastPanel extends JPanel implements ActionListener {
 
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // creates black lines around panel
 		playerScore.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // creates line around score
+
+		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
+
+
+
+
+
+
 	}
 
 	public int[] autoDiceRoller() { // automatically rolls dice and returns an array of results
@@ -194,6 +208,8 @@ public class EastPanel extends JPanel implements ActionListener {
 			}
 		}
 
+
+
 	}// end of actionPerformed
 
 	public boolean ReadyToStart() // if both players given their names, this method returns true.
@@ -223,4 +239,35 @@ public class EastPanel extends JPanel implements ActionListener {
 		for(MoveListener m : listeners)
 			m.cheat();
 	}
+
+
+	//methods to implement the scrollable class
+
+	public Dimension getPreferredScrollableViewportSize()
+	{
+		return new Dimension(155, 627);
+	}
+
+
+	public int getScrollableUnitIncrement(Rectangle visibleRect, int orientation, int direction)
+	{
+		return 4;
+	}
+
+	public int getScrollableBlockIncrement(Rectangle visibleRect, int orientation, int direction)
+	{
+		return 2;
+	}
+
+	public boolean getScrollableTracksViewportHeight()
+	{
+		return true;
+	}
+
+	public  boolean getScrollableTracksViewportWidth()
+	{
+		return true;
+	}
+
+
 }
