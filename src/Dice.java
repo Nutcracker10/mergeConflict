@@ -6,26 +6,41 @@
 // Doubling die will be a subclass
 
 import java.util.Random;
-public class Dice {
-
-    private Random roll1;
-    private Random roll2; 
+import java.awt.Graphics;
+public class Dice 
+{
+	public int die1;
+	public int die2;
+	private Random rand;
 
     public Dice()
     {
-        roll1 = new Random();
-        roll2 = new Random();
+    	rand = new Random();
+        die1 = roll();
+        die2 = roll();
+    }
+    
+    public void paint(Graphics g)
+    {
+    	drawDieOne(g);
+    	drawDieTwo(g);
     }
 
     //returns a random number from 1 to 6
-    public int rollDieOne()
+    public int roll()
     {
-       return roll1.nextInt(6) + 1 ;
+    	return rand.nextInt(6) + 1;
+    }
+ 
+    
+    private void drawDieOne(Graphics g)
+    {
+
     }
     
-    public int rollDieTwo()
+    private void drawDieTwo(Graphics g)
     {
-    	return roll2.nextInt(6) + 1;
+    	
     }
 
 }

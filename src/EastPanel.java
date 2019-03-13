@@ -77,11 +77,11 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	}
 
 	public int[] autoDiceRoller() { // automatically rolls dice and returns an array of results
-		Dice d6 = new Dice();
+		Dice die = new Dice();
 		int[] result = new int[2];
 
-		result[0] = d6.rollDieOne();
-		result[1] = d6.rollDieTwo();
+		result[0] = die.die1;
+		result[1] = die.die2;
 
 		return result;
 	}
