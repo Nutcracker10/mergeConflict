@@ -8,18 +8,25 @@
 import java.util.Random;
 public class Dice {
 
-    private  Random  roll;
+    private Random roll1;
+    private Random roll2; 
 
     public Dice()
     {
-        roll = new Random();
+        roll1 = new Random();
+        roll2 = new Random();
     }
 
 
     //returns a random number from 1 to 6
-    public int roll()
+    public int rollDieOne()
     {
-       return roll.nextInt(6) + 1 ;
+       return roll1.nextInt(6) + 1 ;
+    }
+    
+    public int rollDieTwo()
+    {
+    	return roll2.nextInt(6) + 1;
     }
 
 
