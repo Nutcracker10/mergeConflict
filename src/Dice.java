@@ -17,7 +17,6 @@ public class Dice {
         roll2 = new Random();
     }
 
-
     //returns a random number from 1 to 6
     public int rollDieOne()
     {
@@ -28,6 +27,5 @@ public class Dice {
     {
     	return roll2.nextInt(6) + 1;
     }
-
 
 }

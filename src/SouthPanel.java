@@ -13,8 +13,7 @@ public class SouthPanel extends JPanel {
     JButton doubleroll = new JButton("DOUBLE");      // a button for the double mechanic
     JTextArea dicedisplay = new JTextArea("DICE ROLL: "); // an area for displaying the dice roll result
     JPanel subpanel = new JPanel();                       // a sub panel for buttons
-    Dice d1 = new Dice();                                  //Dice object for rolling
-    Dice d2 = new Dice();
+    Dice d = new Dice();                                  //Dice object for rolling
 
 
     SouthPanel(){
@@ -35,7 +34,7 @@ public class SouthPanel extends JPanel {
         diceRoll.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dicedisplay.setText(d1.roll() + " " + d2.roll() + "\n" ); //when dice roll is clicked the numbers appear on the screen
+                dicedisplay.setText(d.rollDieOne() + " " + d.rollDieTwo() + "\n" ); //when dice roll is clicked the numbers appear on the screen
 
             }
         });

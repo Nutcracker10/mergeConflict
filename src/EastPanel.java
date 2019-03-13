@@ -80,8 +80,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		Dice d6 = new Dice();
 		int[] result = new int[2];
 
-		result[0] = d6.roll();
-		result[1] = d6.roll();
+		result[0] = d6.rollDieOne();
+		result[1] = d6.rollDieTwo();
 
 		return result;
 	}
