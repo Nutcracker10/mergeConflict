@@ -5,7 +5,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class BlackChecker extends JComponent
+public class BlackChecker extends Checker
 {
 	private Coordinate blackCoordinates; //coordinates for the checker
 	//holds the x coordinate for all possible black checker locations
