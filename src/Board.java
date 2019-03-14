@@ -527,13 +527,29 @@ public class Board extends JPanel
     public String acceptableMoves(int colour, int[] rolls)
     {
 
+    	int i;
+    	String possibleMoves = "";
+
         for(ArrayList<Checker> pip : board) {
 
-        	if ((pip.size() > 1) && (pip.get(0).colour != colour)) { //if a pip has more than 1 checker of the opposite colour
+        	i = board.indexOf(pip);
+        	if ( !((board.get(i+rolls[0]).size() > 1) && (board.get(i+rolls[0]).get(0).colour != colour) ))
+        	{ //if the current pip + first dice roll is a valid move
 
+        		possibleMoves += "\nFrom :" + i + " To : " + i+rolls[0];
         	}
-		}
-        return "Possible moves";
+        	else if( !((board.get(i+rolls[1]).size() > 1) && (board.get(i+rolls[1]).get(0).colour != colour) ))
+        	{
+				possibleMoves += "\nFrom :" + i + " To : " + i+rolls[1];
+			}
+
+        	else if( !((board.get(i+rolls[0]+rolls[1]).size() > 1)
+					&& (board.get(i+rolls[0]+rolls[1]).get(0).colour != colour) ))
+        	{
+				possibleMoves += "\nFrom :" + i + " To : " + i+rolls[0]+rolls[1];
+			}
+        }
+        return possibleMoves;
     }
 
 
