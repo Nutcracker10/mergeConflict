@@ -521,5 +521,12 @@ public class Board extends JPanel
         return this;
     }
 
+    public String acceptableMoves(int[] rolls)
+    {
+        for()
+
+        return "Possible moves";
+    }
+
 
 }

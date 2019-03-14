@@ -37,6 +37,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 	public EastPanel() 
 	{
+
+
 		this.setLayout(new BorderLayout()); // sets border layout to Eastpanel
 		subpanel.setLayout(new GridLayout(2, 1)); // sets grid layout to subpanel
 
@@ -240,7 +242,6 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		for(MoveListener m : listeners)
 			m.cheat();
 	}
-
 
 	//methods to implement the scrollable class
 
