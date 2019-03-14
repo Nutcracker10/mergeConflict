@@ -29,6 +29,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	Player black = new Player("", 1);
 
 	Document doc = areaText.getDocument(); // a means of getting text details
+	int[] result = new int[2]; //a way to store dice rolls
 	
 	//ArrayList of action listeners
 	ArrayList<MoveListener> listeners = new ArrayList<MoveListener>();
@@ -80,7 +81,6 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 	public int[] autoDiceRoller() { // automatically rolls dice and returns an array of results
 		Dice d6 = new Dice();
-		int[] result = new int[2];
 
 		result[0] = d6.roll();
 		result[1] = d6.roll();

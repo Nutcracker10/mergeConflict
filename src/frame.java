@@ -36,9 +36,18 @@ public class frame extends JFrame implements MoveListener{
     
     public void move(String colour, int from, int to)
     {
-    	try 
+    	if(colour == "White")
     	{
-    		board.Move(colour, from, to);
+         east.areaText.append(board.acceptableMoves(0, east.result));
+        }
+
+    	else
+            east.areaText.append(board.acceptableMoves(1, east.result));
+
+        try
+    	{
+
+    	    board.Move(colour, from, to);
     		board.repaint();
     	}
     	catch(NoCheckerException e)
