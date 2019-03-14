@@ -379,6 +379,9 @@ public class Board extends JPanel
 				board.get(i).get(j).paint(g);
 			}
 		}	
+
+		int[] debug = {0,0};
+		acceptableMoves(0, debug);
 	}
 	
 	//converts what black entered in to be switched to a common pip number
@@ -521,9 +524,13 @@ public class Board extends JPanel
         return this;
     }
 
-    public String acceptableMoves(int[] rolls)
+    public String acceptableMoves(int colour, int[] rolls)
     {
-        for()
+    	WhiteChecker debug;
+        for(ArrayList<Component> pip : board)
+        {
+			debug = pip.get(0);
+		}
 
         return "Possible moves";
     }
