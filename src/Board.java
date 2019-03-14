@@ -536,17 +536,17 @@ public class Board extends JPanel
 
 		//if(colour == 0) {
 			for (int j = 0; j < 26; j++) {
-				if ((pips[colour][j] != 0) && (j + rolls[0] > 26) && !(pips[oppositeColour][j + rolls[0]] > 1)) {
+				if ((pips[colour][j] != 0) && (j + rolls[0] < 26) && !(pips[oppositeColour][j + rolls[0]] > 1)) {
 					addNums = j + rolls[0] + 1;
 					possibleMoves += "\nFrom :" + j + " To : " + addNums;
 				}
 
-				if ((pips[colour][j] != 0) && (j + rolls[1] > 26) && !(pips[oppositeColour][j + rolls[1]] > 1)) {
+				if ((pips[colour][j] != 0) && (j + rolls[1] < 26) && !(pips[oppositeColour][j + rolls[1]] > 1)) {
 					addNums = j + rolls[1];
 					possibleMoves += "\nFrom :" + j + " To : " + addNums;
 				}
 
-				if ((pips[colour][j] != 0) && (j + rolls[0] + rolls[1] > 26) && !(pips[oppositeColour][j + rolls[0] + rolls[1]] > 1)) {
+				if ((pips[colour][j] != 0) && (j + rolls[0] + rolls[1] < 26) && !(pips[oppositeColour][j + rolls[0] + rolls[1]] > 1)) {
 					addNums = j + rolls[0] + rolls[1];
 					possibleMoves += "\nFrom :" + j + " To : " + addNums;
 				}
@@ -555,7 +555,7 @@ public class Board extends JPanel
 
 		//}
 
-		//else {
+	/*	//else {
 			for (int j = 25; j >= 0; j--) {
 				if ((j - rolls[0] < 0) && (pips[colour][j] != 0) && !(pips[oppositeColour][j - rolls[0]] > 1)) {
 					addNums = (26 - (j + rolls[0]));
@@ -573,8 +573,8 @@ public class Board extends JPanel
 				}
 
 
-			//}
-		}
+			//} */
+
         return possibleMoves;
     }
 
