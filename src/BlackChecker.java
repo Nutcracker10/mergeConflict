@@ -16,7 +16,7 @@ public class BlackChecker extends Checker
 	public BlackChecker(int x, int y)
 	{
 		blackCoordinates = new Coordinate(x, y); //giving the coordinates to object
-
+        colour = 1;
 	}
 	
 	public void paint(Graphics g)

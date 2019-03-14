@@ -19,6 +19,7 @@ public class WhiteChecker extends Checker
 	public WhiteChecker(int x, int y)
 	{
 		whiteCoordinates = new Coordinate(x, y);
+		colour = 0;
 	}
 	
 	public void paint(Graphics g)

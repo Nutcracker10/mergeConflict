@@ -53,36 +53,36 @@ public class Board extends JPanel
 	BlackChecker b15 = new BlackChecker(663, 490);
 	
 	//each pip is represented by an ArrayList, as is the bar and bear off
-	ArrayList<Component> bar = new ArrayList<>();
-	ArrayList<Component> s1 = new ArrayList<>();
-	ArrayList<Component> s2 = new ArrayList<>();
-	ArrayList<Component> s3 = new ArrayList<>();
-	ArrayList<Component> s4 = new ArrayList<>();
-	ArrayList<Component> s5 = new ArrayList<>();
-	ArrayList<Component> s6 = new ArrayList<>();
-	ArrayList<Component> s7 = new ArrayList<>();
-	ArrayList<Component> s8 = new ArrayList<>();
-	ArrayList<Component> s9 = new ArrayList<>();
-	ArrayList<Component> s10 = new ArrayList<>();
-	ArrayList<Component> s11 = new ArrayList<>();
-	ArrayList<Component> s12 = new ArrayList<>();
-	ArrayList<Component> s13 = new ArrayList<>();
-	ArrayList<Component> s14 = new ArrayList<>();
-	ArrayList<Component> s15 = new ArrayList<>();
-	ArrayList<Component> s16 = new ArrayList<>();
-	ArrayList<Component> s17 = new ArrayList<>();
-	ArrayList<Component> s18 = new ArrayList<>();
-	ArrayList<Component> s19 = new ArrayList<>();
-	ArrayList<Component> s20 = new ArrayList<>();
-	ArrayList<Component> s21 = new ArrayList<>();
-	ArrayList<Component> s22 = new ArrayList<>();
-	ArrayList<Component> s23 = new ArrayList<>();
-	ArrayList<Component> s24 = new ArrayList<>();
-	ArrayList<Component> whiteBearOff = new ArrayList<>();
-	ArrayList<Component> blackBearOff = new ArrayList<>();
+	ArrayList<Checker> bar = new ArrayList<>();
+	ArrayList<Checker> s1 = new ArrayList<>();
+	ArrayList<Checker> s2 = new ArrayList<>();
+	ArrayList<Checker> s3 = new ArrayList<>();
+	ArrayList<Checker> s4 = new ArrayList<>();
+	ArrayList<Checker> s5 = new ArrayList<>();
+	ArrayList<Checker> s6 = new ArrayList<>();
+	ArrayList<Checker> s7 = new ArrayList<>();
+	ArrayList<Checker> s8 = new ArrayList<>();
+	ArrayList<Checker> s9 = new ArrayList<>();
+	ArrayList<Checker> s10 = new ArrayList<>();
+	ArrayList<Checker> s11 = new ArrayList<>();
+	ArrayList<Checker> s12 = new ArrayList<>();
+	ArrayList<Checker> s13 = new ArrayList<>();
+	ArrayList<Checker> s14 = new ArrayList<>();
+	ArrayList<Checker> s15 = new ArrayList<>();
+	ArrayList<Checker> s16 = new ArrayList<>();
+	ArrayList<Checker> s17 = new ArrayList<>();
+	ArrayList<Checker> s18 = new ArrayList<>();
+	ArrayList<Checker> s19 = new ArrayList<>();
+	ArrayList<Checker> s20 = new ArrayList<>();
+	ArrayList<Checker> s21 = new ArrayList<>();
+	ArrayList<Checker> s22 = new ArrayList<>();
+	ArrayList<Checker> s23 = new ArrayList<>();
+	ArrayList<Checker> s24 = new ArrayList<>();
+	ArrayList<Checker> whiteBearOff = new ArrayList<>();
+	ArrayList<Checker> blackBearOff = new ArrayList<>();
 	
 	//ArrayList to hold all of the pips, the bar, and the bearoff
-	ArrayList<ArrayList<Component>> board = new ArrayList<ArrayList<Component>>();
+	ArrayList<ArrayList<Checker>> board = new ArrayList<ArrayList<Checker>>();
 	
 	//constructor
 	public Board()
@@ -438,7 +438,7 @@ public class Board extends JPanel
 	
 	public void cheat()
 	{
-		for(ArrayList<Component> a : board)
+		for(ArrayList<Checker> a : board)
 		{
 			a.clear();
 		}
@@ -526,12 +526,13 @@ public class Board extends JPanel
 
     public String acceptableMoves(int colour, int[] rolls)
     {
-    	WhiteChecker debug;
-        for(ArrayList<Component> pip : board)
-        {
-			debug = pip.get(0);
-		}
 
+        for(ArrayList<Checker> pip : board) {
+
+        	if ((pip.size() > 1) && (pip.get(0).colour != colour)) { //if a pip has more than 1 checker of the opposite colour
+
+        	}
+		}
         return "Possible moves";
     }
 
