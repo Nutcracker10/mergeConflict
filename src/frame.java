@@ -32,17 +32,12 @@ public class frame extends JFrame implements MoveListener{
         east.addListener(this);
         //east.addListener(this);
         this.setVisible(true);  //makes the frame visible to the user
+        east.setBoard(board);
     }
     
     public void move(String colour, int from, int to)
     {
-    	if(colour == "White")
-    	{
-         east.areaText.append(board.acceptableMoves(0, east.result));
-        }
 
-    	else
-            east.areaText.append(board.acceptableMoves(1, east.result));
 
         try
     	{

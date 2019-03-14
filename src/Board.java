@@ -527,7 +527,44 @@ public class Board extends JPanel
     public String acceptableMoves(int colour, int[] rolls)
     {
 
-    	int i;
+        int oppositeColour, addNums;
+        if(colour == 0)
+            oppositeColour =1;
+        else
+            oppositeColour = 0;
+        String possibleMoves = "";
+        for(int j = 0; j < 26; j++)
+        {
+            int pipnum = j + 1;
+
+            if( (pips[colour][j] != 0 ) && (j + rolls[0] < 26) && !(pips[oppositeColour][j + rolls[0]] > 1) )
+            {
+                addNums = pipnum+rolls[0];
+                possibleMoves += "\nFrom :" + pipnum + " To : " + addNums;
+            }
+
+            if( (pips[colour][j] != 0 )&& (j + rolls[1] < 26) && !(pips[oppositeColour][j + rolls[1]] > 1) )
+            {
+                addNums = pipnum+ rolls[1];
+                possibleMoves += "\nFrom :" + pipnum + " To : " + addNums;
+            }
+
+            if( (pips[colour][j] != 0 )&&(j + rolls[0] + rolls[1] < 26) && !(pips[oppositeColour][j + rolls[0] + rolls[1]] > 1) )
+            {
+                addNums = pipnum + rolls[0] + rolls[1];
+                possibleMoves += "\nFrom :" + pipnum + " To : " + addNums;
+            }
+
+        }
+
+        return possibleMoves;
+    }
+
+
+
+
+
+        /*int i;
     	String possibleMoves = "";
 
         for(ArrayList<Checker> pip : board) {
@@ -551,6 +588,8 @@ public class Board extends JPanel
         }
         return possibleMoves;
     }
+
+    */
 
 
 }
