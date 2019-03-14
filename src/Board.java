@@ -533,63 +533,49 @@ public class Board extends JPanel
         else
             oppositeColour = 0;
         String possibleMoves = "";
-        for(int j = 0; j < 26; j++)
-        {
-            int pipnum = j + 1;
 
-            if( (pips[colour][j] != 0 ) && (j + rolls[0] < 26) && !(pips[oppositeColour][j + rolls[0]] > 1) )
-            {
-                addNums = pipnum+rolls[0];
-                possibleMoves += "\nFrom :" + pipnum + " To : " + addNums;
-            }
+		//if(colour == 0) {
+			for (int j = 0; j < 26; j++) {
+				if ((pips[colour][j] != 0) && (j + rolls[0] > 26) && !(pips[oppositeColour][j + rolls[0]] > 1)) {
+					addNums = j + rolls[0] + 1;
+					possibleMoves += "\nFrom :" + j + " To : " + addNums;
+				}
 
-            if( (pips[colour][j] != 0 )&& (j + rolls[1] < 26) && !(pips[oppositeColour][j + rolls[1]] > 1) )
-            {
-                addNums = pipnum+ rolls[1];
-                possibleMoves += "\nFrom :" + pipnum + " To : " + addNums;
-            }
+				if ((pips[colour][j] != 0) && (j + rolls[1] > 26) && !(pips[oppositeColour][j + rolls[1]] > 1)) {
+					addNums = j + rolls[1];
+					possibleMoves += "\nFrom :" + j + " To : " + addNums;
+				}
 
-            if( (pips[colour][j] != 0 )&&(j + rolls[0] + rolls[1] < 26) && !(pips[oppositeColour][j + rolls[0] + rolls[1]] > 1) )
-            {
-                addNums = pipnum + rolls[0] + rolls[1];
-                possibleMoves += "\nFrom :" + pipnum + " To : " + addNums;
-            }
+				if ((pips[colour][j] != 0) && (j + rolls[0] + rolls[1] > 26) && !(pips[oppositeColour][j + rolls[0] + rolls[1]] > 1)) {
+					addNums = j + rolls[0] + rolls[1];
+					possibleMoves += "\nFrom :" + j + " To : " + addNums;
+				}
 
-        }
-
-        return possibleMoves;
-    }
-
-
-
-
-
-        /*int i;
-    	String possibleMoves = "";
-
-        for(ArrayList<Checker> pip : board) {
-
-        	i = board.indexOf(pip);
-        	if ( !((board.get(i+rolls[0]).size() > 1) && (board.get(i+rolls[0]).get(0).colour != colour) ))
-        	{ //if the current pip + first dice roll is a valid move
-
-        		possibleMoves += "\nFrom :" + i + " To : " + i+rolls[0];
-        	}
-        	else if( !((board.get(i+rolls[1]).size() > 1) && (board.get(i+rolls[1]).get(0).colour != colour) ))
-        	{
-				possibleMoves += "\nFrom :" + i + " To : " + i+rolls[1];
 			}
 
-        	else if( !((board.get(i+rolls[0]+rolls[1]).size() > 1)
-					&& (board.get(i+rolls[0]+rolls[1]).get(0).colour != colour) ))
-        	{
-				possibleMoves += "\nFrom :" + i + " To : " + i+rolls[0]+rolls[1];
-			}
-        }
+		//}
+
+		//else {
+			for (int j = 25; j >= 0; j--) {
+				if ((j - rolls[0] < 0) && (pips[colour][j] != 0) && !(pips[oppositeColour][j - rolls[0]] > 1)) {
+					addNums = (26 - (j + rolls[0]));
+					possibleMoves += "\nFrom :" + (26 - j) + " To : " + addNums;
+				}
+
+				if ((j - rolls[1] < 0) && (pips[colour][j] != 0) && !(pips[oppositeColour][j - rolls[1]] > 1)) {
+					addNums = (26 - (j + rolls[1]));
+					possibleMoves += "\nFrom :" + (26 - j) + " To : " + addNums;
+				}
+
+				if ((j - rolls[0] - rolls[1] < 0) && (pips[colour][j] != 0) && !(pips[oppositeColour][j - rolls[0] - rolls[1]] > 1)) {
+					addNums = (26 - (j + rolls[0] + rolls[1]));
+					possibleMoves += "\nFrom :" + (26 - 6) + " To : " + addNums;
+				}
+
+
+			//}
+		}
         return possibleMoves;
     }
-
-    */
-
 
 }
