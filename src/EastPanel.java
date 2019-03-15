@@ -260,8 +260,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	public void addPosibleMoves(Board board, int colour)
 
 	{
-		int[] debug = {2,2};
-			areaText.append(board.acceptableMoves(colour,debug));
+			areaText.append(board.acceptableMoves(colour,result));
 	}
 
 	public void setBoard(Board board)
