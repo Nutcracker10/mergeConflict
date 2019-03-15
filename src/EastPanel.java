@@ -183,6 +183,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			}
 
 			enterText.selectAll();
+			turnNumber++;
 
 		}
 		
@@ -205,6 +206,11 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		if (gameHasBegun) // if the game has started
 		{
+			if(white.myTurn)
+				board.setWhosTurn(0);
+			else
+				board.setWhosTurn(1);
+
 			if (white.goFirst(black)) { // We check who goes first
 				areaText.append("\n" + white.name + " goes first");
 				areaText.append("\nRoll: " + autoDiceRoller()[0] + " " + autoDiceRoller()[1]);
@@ -252,8 +258,10 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	}
 
 	public void addPosibleMoves(Board board, int colour)
+
 	{
-			areaText.append(board.acceptableMoves(colour, result));
+		int[] debug = {2,2};
+			areaText.append(board.acceptableMoves(colour,debug));
 	}
 
 	public void setBoard(Board board)
