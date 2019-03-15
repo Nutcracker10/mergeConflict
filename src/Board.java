@@ -154,7 +154,7 @@ public class Board extends JPanel
 		board.add(blackBearOff);
 	}
 
-	int whosTurn = 0; //variable to switch depending on which players turn. 0 for White. 1 for black
+	int whosTurn;//vriable to switch depending on which players turn. 0 for White. 1 for black
 
 	public void paintComponent(Graphics g)
 	{
@@ -558,24 +558,29 @@ public class Board extends JPanel
 
 		else {
 			for (int j = 0; j < 26; j++) {
-				if ((j - rolls[0] > 0) && (pips[colour][j] != 0) && !(pips[oppositeColour][j - rolls[0]] > 1)) {
-					addNums = (26 - (j + rolls[0]));
-					possibleMoves += "\nFrom :" + (26 - j) + " To : " + addNums;
+				if ((j + rolls[0] < 26) && (pips[colour][j] != 0) && !(pips[oppositeColour][j + rolls[0]] > 1)) {
+					addNums = ((j + rolls[0]));
+					possibleMoves += "\nFrom :" + (26-j) + " To : " + addNums;
 				}
 
-				if ((j - rolls[1] > 0) && (pips[colour][j] != 0) && !(pips[oppositeColour][j - rolls[1]] > 1)) {
+				if ((j + rolls[1] < 26) && (pips[colour][j] != 0) && !(pips[oppositeColour][j + rolls[1]] > 1)) {
 					addNums = (26 - (j + rolls[1]));
-					possibleMoves += "\nFrom :" + (26 - j) + " To : " + addNums;
+					possibleMoves += "\nFrom :" + (26-j) + " To : " + addNums;
 				}
 
-				if ((j - rolls[0] - rolls[1] > 0) && (pips[colour][j] != 0) && !(pips[oppositeColour][j - rolls[0] - rolls[1]] > 1)) {
-					addNums = (26 - (j + rolls[0] + rolls[1]));
-					possibleMoves += "\nFrom :" + (26 - j) + " To : " + addNums;
+				if ((j + rolls[0] + rolls[1] < 26) && (pips[colour][j] != 0) && !(pips[oppositeColour][j + rolls[0] + rolls[1]] > 1)) {
+					addNums = ( (j + rolls[0] + rolls[1]));
+					possibleMoves += "\nFrom :" + (26-j) + " To : " + addNums;
 				}
 			}
 		}
 
         return possibleMoves;
+    }
+
+    public void setWhosTurn(int turn)
+    {
+        whosTurn = turn;
     }
 
 }
