@@ -603,24 +603,24 @@ public class Board extends JPanel
                     if(j + rolls[0] < 26 && (pips[oppositeColour][j+rolls[0]] == 1))
                     {
                         addNums = j + rolls[0];
-                        possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums);
+                        possibleMoves += "\n" + (25 - j) + "*-" + (25 - addNums);
                     }
                     if(j + rolls[1] < 26 && (pips[oppositeColour][j+rolls[1]] == 1))
                     {
                         addNums = j + rolls[1];
-                        possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums);
+                        possibleMoves += "\n" + (25 - j) + "*-" + (25 - addNums);
                     }
 
                     if((j + rolls[0] + rolls[1] < 26) && (pips[oppositeColour][j + rolls[0] + rolls[1]] == 1))
                     {
                         addNums = j + rolls[0] + rolls[1];
-                        possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums);
+                        possibleMoves += "\n" + (25 - j) + "*-" + (25 - addNums);
                     }
 
 
 
 
-
+                    //possible moves not involving hits
                     if ((j + rolls[0] < 26) && !(pips[oppositeColour][j + rolls[0]] > 1)) {
 						addNums = ((j + rolls[0]));
 						possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums);
@@ -636,12 +636,17 @@ public class Board extends JPanel
 						possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums);
 					}
 
+					//moves for doubles
 					if (rolls[0] == rolls[1]) {
 
 						if(j + 3*rolls[0] < 26 && !(pips[oppositeColour][j + 3*rolls[0]] > 1))
 							possibleMoves += "\n"+ (25-j) + "-" + (25 - (j + 3*rolls[0]));
 						if(j + 4*rolls[0] < 26 && !(pips[oppositeColour][j + 4*rolls[0]] > 1))
 							possibleMoves += "\n"+ (25-j) + "-" + (25-(j + 4*rolls[0]));
+                        if(j + 3*rolls[0] < 26 && !(pips[oppositeColour][j + 3*rolls[0]] == 1))
+                            possibleMoves += "\n"+ (25-j) + "*-" + (25 - (j + 3*rolls[0]));
+                        if(j + 4*rolls[0] < 26 && !(pips[oppositeColour][j + 4*rolls[0]] == 1))
+                            possibleMoves += "\n"+ (25-j) + "*-" + (25-(j + 4*rolls[0]));
 
 					}
 				}
