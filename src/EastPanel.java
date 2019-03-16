@@ -123,7 +123,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				areaText.append("\n" + black.name + "'s turn");
 				result = autoDiceRoller();
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
-				addPosibleMoves(board,1);
+				addPossibleMoves(board,1);
 				enterText.selectAll();
 			}
 
@@ -133,7 +133,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				areaText.append("\n" + white.name + "'s turn");
 				result = autoDiceRoller();
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
-				addPosibleMoves(board,0);
+				addPossibleMoves(board,0);
 				enterText.selectAll();
 
 
@@ -214,13 +214,13 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			if (white.goFirst(black)) { // We check who goes first
 				areaText.append("\n" + white.name + " goes first");
 				areaText.append("\nRoll: " + autoDiceRoller()[0] + " " + autoDiceRoller()[1]);
-				addPosibleMoves(board,0);
+				addPossibleMoves(board,0);
 				white.myTurn = true;
 			} 
 			else {
 				areaText.append("\n" + black.name + " goes first");
 				areaText.append("\nRoll: " + autoDiceRoller()[0] + " " + autoDiceRoller()[1]);
-				addPosibleMoves(board,1);
+				addPossibleMoves(board,1);
 				black.myTurn = true;
 			}
 		}
@@ -257,10 +257,10 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			m.cheat();
 	}
 
-	public void addPosibleMoves(Board board, int colour)
+	public void addPossibleMoves(Board board, int colour)
 
 	{
-			areaText.append(board.acceptableMoves(colour,result));
+		areaText.append(board.acceptableMoves(colour,result));
 	}
 
 	public void setBoard(Board board)
