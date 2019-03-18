@@ -15,8 +15,8 @@ public class Board extends JPanel
 	public int[][] pips = { {0, 0, 0, 0, 0, 0, 5, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0},
 							{0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 3, 0, 5, 0, 0, 0, 0, 0, 0}};
 
-	public int numInWhiteSlot = 0; //varibles to count the number of checkers in player's slots
-	public int numInBlackSlot = 0;
+	public int numInWhiteoff = 0; //varibles to count the number of checkers in player's offs
+	public int numInBlackoff = 0;
 
 	//declare all white checkers
 	WhiteChecker w1 = new WhiteChecker(413, 520);
@@ -274,7 +274,7 @@ public class Board extends JPanel
 	
 	private void drawBearOff(Graphics g)
 	{
-		//Draw two bear off slots
+		//Draw two bear off offs
 		Color slateGray = new Color(112, 128, 144);
 		g.setColor(slateGray);
 		g.fillRect(715, 65, 50, 200);
@@ -415,7 +415,7 @@ public class Board extends JPanel
 		    else
 		    {
 		    	board.get(26).add(board.get(blackFrom).remove((board.get(blackFrom).size()-1)));
-		    	numInBlackSlot++;
+		    	numInBlackoff++;
 		    }
 	    }
 	    
@@ -431,7 +431,7 @@ public class Board extends JPanel
 	    	board.get(to).add(board.get(from).remove((board.get(from).size() - 1)));
 	    	
 			if(to == 25) //TODO and if the move is vaild
-				numInWhiteSlot++;
+				numInWhiteoff++;
 	    }
 	    
 	}
@@ -544,18 +544,27 @@ public class Board extends JPanel
 			    if(j + rolls[0] < 26 && (pips[oppositeColour][j+rolls[0]] == 1))
 				{
 				    addNums = j + rolls[0];
-				    possibleMoves += "\n" + j + "*-" + addNums;
+				    if(!(addNums == 25))
+				        possibleMoves += "\n" + j + "-" + addNums + "*";
+				    else
+                        possibleMoves += "\n" + j + "-" + "off" + "*";
                 }
                 if(j + rolls[1] < 26 && (pips[oppositeColour][j+rolls[1]] == 1))
                 {
                     addNums = j + rolls[1];
-                    possibleMoves += "\n" + j + "*-" + addNums;
+                    if(!(addNums == 25))
+                        possibleMoves += "\n" + j + "-" + addNums + "*";
+                    else
+                        possibleMoves += "\n" + j + "-" + "off" + "*";
                 }
 
                 if((j + rolls[0] + rolls[1] < 26) && (pips[oppositeColour][j + rolls[0] + rolls[1]] == 1))
                 {
                     addNums = j + rolls[0] + rolls[1];
-                    possibleMoves += "\n" + j + "*-" + addNums;
+                    if(!(addNums == 25))
+                        possibleMoves += "\n" + j + "-" + addNums + "*";
+                    else
+                        possibleMoves += "\n" + j + "-" + "off" + "*";
                 }
 
 
@@ -563,30 +572,67 @@ public class Board extends JPanel
                 //possibleMoves not involving hits.
                 if ((j + rolls[0] < 26) && !(pips[oppositeColour][j + rolls[0]] > 1)) {
 						addNums = j + rolls[0];
-						possibleMoves += "\n" + j + "-" + addNums;
+                    if(!(addNums == 25))
+                        possibleMoves += "\n" + j + "-" + addNums;
+                    else
+                        possibleMoves += "\n" + j + "-" + "off";
 					}
 
 					if (((j + rolls[1] < 26) && (rolls[0] != rolls[1])&& !(pips[oppositeColour][j + rolls[1]] > 1)) ){
 						addNums = j + rolls[1];
-						possibleMoves += "\n" + j + "-" + addNums;
+                        if(!(addNums == 25))
+                            possibleMoves += "\n" + j + "-" + addNums;
+                        else
+                            possibleMoves += "\n" + j + "-" + "off";
 					}
 
 					if ((j + rolls[0] + rolls[1] < 26) && !(pips[oppositeColour][j + rolls[0] + rolls[1]] > 1)) {
 						addNums = j + rolls[0] + rolls[1];
-						possibleMoves += "\n" + j + "-" + addNums;
+                        if(!(addNums == 25))
+                            possibleMoves += "\n" + j + "-" + addNums;
+                        else
+                            possibleMoves += "\n" + j + "-" + "off";
 					}
 
 					//possible moves for doubles
 					if (rolls[0] == rolls[1]) {
 
 						if(j + 3*rolls[0] < 26 && !(pips[oppositeColour][j + 3*rolls[0]] > 1))
-							possibleMoves += "\n"+ j + "-" + (j + 3*rolls[0]);
+						{
+						    addNums = j +3*rolls[0];
+                            if(!(addNums == 25))
+                                possibleMoves += "\n" + j + "-" + addNums;
+                            else
+                                possibleMoves += "\n" + j + "-" + "off";
+                        }
+
 						if(j + 4*rolls[0] < 26 && !(pips[oppositeColour][j + 4*rolls[0]] > 1))
-							possibleMoves += "\n"+ j + "-" + (j + 4*rolls[0]);
+						{
+						    addNums = j+ 4*rolls[0];
+                            if(!(addNums == 25))
+                                possibleMoves += "\n" + j + "-" + addNums;
+                            else
+                                possibleMoves += "\n" + j + "-" + "off";
+                        }
+
 						if(j + 3*rolls[0] < 26 && !(pips[oppositeColour][j + 3*rolls[0]] == 1))
-                            possibleMoves += "\n"+ j + "*-" + (j + 3*rolls[0]);
+						{
+                            addNums = j + 3*rolls[0];
+						    if(!(addNums == 25))
+                                possibleMoves += "\n" + j + "-" + addNums + "*";
+                            else
+                                possibleMoves += "\n" + j + "-" + "off" + "*";
+                        }
+
                         if(j + 4*rolls[0] < 26 && !(pips[oppositeColour][j + 4*rolls[0]] == 1))
-                            possibleMoves += "\n"+ j + "*-" + (j + 4*rolls[0]);
+                        {
+                            addNums = j+4*rolls[0];
+                            if(!(addNums == 25))
+                                possibleMoves += "\n" + j + "-" + addNums + "*";
+                            else
+                                possibleMoves += "\n" + j + "-" + "off" + "*";
+                        }
+                            possibleMoves += "\n"+ j + "-" + (j + 4*rolls[0]) + "*";
 
 					}
 
@@ -603,18 +649,27 @@ public class Board extends JPanel
                     if(j + rolls[0] < 26 && (pips[oppositeColour][j+rolls[0]] == 1))
                     {
                         addNums = j + rolls[0];
-                        possibleMoves += "\n" + (25 - j) + "*-" + (25 - addNums);
+                        if(addNums == 25)
+                            possibleMoves += "\n" + (25 - j) + "-" + "off" + "*";
+                        else
+                            possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums)+ "*";
                     }
                     if(j + rolls[1] < 26 && (pips[oppositeColour][j+rolls[1]] == 1))
                     {
                         addNums = j + rolls[1];
-                        possibleMoves += "\n" + (25 - j) + "*-" + (25 - addNums);
+                        if(addNums == 25)
+                            possibleMoves += "\n" + (25 - j) + "-" + "off" + "*";
+                        else
+                            possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums)+ "*";
                     }
 
                     if((j + rolls[0] + rolls[1] < 26) && (pips[oppositeColour][j + rolls[0] + rolls[1]] == 1))
                     {
                         addNums = j + rolls[0] + rolls[1];
-                        possibleMoves += "\n" + (25 - j) + "*-" + (25 - addNums);
+                        if(addNums == 25)
+                            possibleMoves += "\n" + (25 - j) + "-" + "off" + "*";
+                        else
+                            possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums)+ "*";
                     }
 
 
@@ -623,30 +678,63 @@ public class Board extends JPanel
                     //possible moves not involving hits
                     if ((j + rolls[0] < 26) && !(pips[oppositeColour][j + rolls[0]] > 1)) {
 						addNums = ((j + rolls[0]));
-						possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums);
+                        if(addNums == 25)
+                            possibleMoves += "\n" + (25 - j) + "-" + "off";
+                        else
+                            possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums);
 					}
 
 					if ((j + rolls[1] < 26) && !(pips[oppositeColour][j + rolls[1]] > 1)) {
 						addNums = ((j + rolls[1]));
-						possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums);
+                        if(addNums == 25)
+                            possibleMoves += "\n" + (25 - j) + "-" + "off";
+                        else
+                            possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums);
 					}
 
 					if ((j + rolls[0] + rolls[1] < 26) && !(pips[oppositeColour][j + rolls[0] + rolls[1]] > 1)) {
 						addNums = ((j + rolls[0] + rolls[1]));
-						possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums);
+                        if(addNums == 25)
+                            possibleMoves += "\n" + (25 - j) + "-" + "off";
+                        else
+                            possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums);
 					}
 
 					//moves for doubles
 					if (rolls[0] == rolls[1]) {
 
-						if(j + 3*rolls[0] < 26 && !(pips[oppositeColour][j + 3*rolls[0]] > 1))
-							possibleMoves += "\n"+ (25-j) + "-" + (25 - (j + 3*rolls[0]));
+						if(j + 3*rolls[0] < 26 && !(pips[oppositeColour][j + 3*rolls[0]] > 1)) {
+                            addNums = j + 3 * rolls[0];
+                            if (addNums == 25)
+                                possibleMoves += "\n" + (25 - j) + "-" + "off";
+                            else
+                                possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums);
+                        }
 						if(j + 4*rolls[0] < 26 && !(pips[oppositeColour][j + 4*rolls[0]] > 1))
-							possibleMoves += "\n"+ (25-j) + "-" + (25-(j + 4*rolls[0]));
+						{
+						    addNums = 4*rolls[0];
+                            if(addNums == 25)
+                                possibleMoves += "\n" + (25 - j) + "-" + "off";
+                            else
+                                possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums);
+                        }
+
                         if(j + 3*rolls[0] < 26 && !(pips[oppositeColour][j + 3*rolls[0]] == 1))
-                            possibleMoves += "\n"+ (25-j) + "*-" + (25 - (j + 3*rolls[0]));
-                        if(j + 4*rolls[0] < 26 && !(pips[oppositeColour][j + 4*rolls[0]] == 1))
-                            possibleMoves += "\n"+ (25-j) + "*-" + (25-(j + 4*rolls[0]));
+                        {
+                            addNums = j + 3*rolls[0];
+                            if(addNums == 25)
+                                possibleMoves += "\n" + (25 - j) + "-" + "off" + "*";
+                            else
+                                possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums)+ "*";
+                        }
+                        if(j + 4*rolls[0] < 26 && !(pips[oppositeColour][j + 4*rolls[0]] == 1)) {
+                            addNums = j + 4*rolls[0];
+                            if (addNums == 25)
+                                possibleMoves += "\n" + (25 - j) + "-" + "off" + "*";
+                            else
+                                possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums) + "*";
+                        }
+
 
 					}
 				}
