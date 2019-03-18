@@ -213,13 +213,15 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 			if (white.goFirst(black)) { // We check who goes first
 				areaText.append("\n" + white.name + " goes first");
-				areaText.append("\nRoll: " + autoDiceRoller()[0] + " " + autoDiceRoller()[1]);
+				autoDiceRoller();
+				areaText.append("\nRoll: " + result[0] + " " + result[1]);
 				addPossibleMoves(board,0);
 				white.myTurn = true;
 			} 
 			else {
 				areaText.append("\n" + black.name + " goes first");
-				areaText.append("\nRoll: " + autoDiceRoller()[0] + " " + autoDiceRoller()[1]);
+				autoDiceRoller();
+				areaText.append("\nRoll: " + result[0] + " " + result[1]);
 				addPossibleMoves(board,1);
 				black.myTurn = true;
 			}
