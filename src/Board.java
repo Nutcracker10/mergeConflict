@@ -15,8 +15,8 @@ public class Board extends JPanel
 	public int[][] pips = { {0, 0, 0, 0, 0, 0, 5, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0},
 							{0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 3, 0, 5, 0, 0, 0, 0, 0, 0}};
 
-	public int numInWhiteoff = 0; //varibles to count the number of checkers in player's offs
-	public int numInBlackoff = 0;
+	public int numInWhiteSlot = 0; //varibles to count the number of checkers in player's offs
+	public int numInBlackSlot = 0;
 
 	//declare all white checkers
 	WhiteChecker w1 = new WhiteChecker(413, 520);
@@ -415,7 +415,7 @@ public class Board extends JPanel
 		    else
 		    {
 		    	board.get(26).add(board.get(blackFrom).remove((board.get(blackFrom).size()-1)));
-		    	numInBlackoff++;
+		    	numInBlackSlot++;
 		    }
 	    }
 	    
@@ -431,7 +431,7 @@ public class Board extends JPanel
 	    	board.get(to).add(board.get(from).remove((board.get(from).size() - 1)));
 	    	
 			if(to == 25) //TODO and if the move is vaild
-				numInWhiteoff++;
+				numInWhiteSlot++;
 	    }
 	    
 	}
