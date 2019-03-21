@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import  java.awt.*;
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Board extends JPanel
 {
@@ -740,9 +741,36 @@ public class Board extends JPanel
 				}
 			}
 		}
-
+		dupeRemover(possibleMoves);
         return possibleMoves;
     }
+
+    // a function for removing duplicate moves from the possible moves list
+    public String dupeRemover(String moves) {
+		String[][] moveArray = new String[75][]; // an array for the individual strings
+		String newMoves = new String();
+		int i=0; // an int to increment moveArray
+
+		while (!moves.equals("")) { // adds all possible moves to a 2d array of strings
+
+			moveArray[i] = moves.split("\n");
+			i++;
+
+		} // end of while
+
+		int numOfMoves = i;
+
+		for (int c=0; i<numOfMoves; i++) {
+			for (int j = c+1; j<numOfMoves; j++) {
+				if (moveArray[c] == moveArray[j] ) {
+					j++;
+				}
+			}
+			newMoves += moveArray[c];
+		} // end of outer for loop
+
+		return newMoves;
+	} // end of dupe remover
 
     public void setWhosTurn(int turn)
     {
