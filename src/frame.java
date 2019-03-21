@@ -32,13 +32,17 @@ public class frame extends JFrame implements MoveListener{
         east.addListener(this);
         //east.addListener(this);
         this.setVisible(true);  //makes the frame visible to the user
+        east.setBoard(board);
     }
     
     public void move(String colour, int from, int to)
     {
-    	try 
+
+
+        try
     	{
-    		board.Move(colour, from, to);
+
+    	    board.Move(colour, from, to);
     		board.repaint();
     	}
     	catch(NoCheckerException e)

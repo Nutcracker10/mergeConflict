@@ -5,7 +5,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class BlackChecker extends JComponent
+public class BlackChecker extends Checker
 {
 	private Coordinate blackCoordinates; //coordinates for the checker
 	//holds the x coordinate for all possible black checker locations
@@ -16,7 +16,7 @@ public class BlackChecker extends JComponent
 	public BlackChecker(int x, int y)
 	{
 		blackCoordinates = new Coordinate(x, y); //giving the coordinates to object
-
+        colour = 1;
 	}
 	
 	public void paint(Graphics g)

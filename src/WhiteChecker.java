@@ -8,7 +8,7 @@ import java.awt.*;
 /*
  * Should draw the checkers and describe how they move??
  */
-public class WhiteChecker extends JComponent
+public class WhiteChecker extends Checker
 {	
 	private Coordinate whiteCoordinates;
 	//holds x coordinates for all possible locations for black checkers
@@ -19,6 +19,7 @@ public class WhiteChecker extends JComponent
 	public WhiteChecker(int x, int y)
 	{
 		whiteCoordinates = new Coordinate(x, y);
+		colour = 0;
 	}
 	
 	public void paint(Graphics g)

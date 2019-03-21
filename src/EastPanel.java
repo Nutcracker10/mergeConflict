@@ -29,6 +29,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	Player black = new Player("", 1);
 
 	Document doc = areaText.getDocument(); // a means of getting text details
+	int[] result = new int[2]; //a way to store dice rolls
+	Board board; //a way to get the boards information to east panel
 	
 	//ArrayList of action listeners
 	ArrayList<MoveListener> listeners = new ArrayList<MoveListener>();
@@ -37,6 +39,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 	public EastPanel() 
 	{
+
+
 		this.setLayout(new BorderLayout()); // sets border layout to Eastpanel
 		subpanel.setLayout(new GridLayout(2, 1)); // sets grid layout to subpanel
 
@@ -118,7 +122,9 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				white.myTurn = false;
 				black.myTurn = true;
 				areaText.append("\n" + black.name + "'s turn");
-				areaText.append("\nRoll: " + autoDiceRoller()[0] + " " + autoDiceRoller()[1]);
+				result = autoDiceRoller();
+				areaText.append("\nRoll: " + result[0] + " " + result[1]);
+				addPossibleMoves(board,1);
 				enterText.selectAll();
 			}
 
@@ -126,8 +132,11 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				white.myTurn = true;
 				black.myTurn = false;
 				areaText.append("\n" + white.name + "'s turn");
-				areaText.append("\nRoll: " + autoDiceRoller()[0] + " " + autoDiceRoller()[1]);
+				result = autoDiceRoller();
+				areaText.append("\nRoll: " + result[0] + " " + result[1]);
+				addPossibleMoves(board,0);
 				enterText.selectAll();
+
 
 			}
 			turnNumber++;
@@ -175,6 +184,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			}
 
 			enterText.selectAll();
+			turnNumber++;
 
 		}
 		
@@ -197,14 +207,23 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		if (gameHasBegun) // if the game has started
 		{
+			if(white.myTurn)
+				board.setWhosTurn(0);
+			else
+				board.setWhosTurn(1);
+
 			if (white.goFirst(black)) { // We check who goes first
 				areaText.append("\n" + white.name + " goes first");
-				areaText.append("\nRoll: " + autoDiceRoller()[0] + " " + autoDiceRoller()[1]);
+				autoDiceRoller();
+				areaText.append("\nRoll: " + result[0] + " " + result[1]);
+				addPossibleMoves(board,0);
 				white.myTurn = true;
 			} 
 			else {
 				areaText.append("\n" + black.name + " goes first");
-				areaText.append("\nRoll: " + autoDiceRoller()[0] + " " + autoDiceRoller()[1]);
+				autoDiceRoller();
+				areaText.append("\nRoll: " + result[0] + " " + result[1]);
+				addPossibleMoves(board,1);
 				black.myTurn = true;
 			}
 		}
@@ -241,6 +260,16 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			m.cheat();
 	}
 
+	public void addPossibleMoves(Board board, int colour)
+
+	{
+		areaText.append(board.acceptableMoves(colour,result));
+	}
+
+	public void setBoard(Board board)
+	{
+		this.board = board;
+	}
 
 	//methods to implement the scrollable class
 

@@ -51,80 +51,80 @@ public class Board extends JPanel
 	BlackChecker b13 = new BlackChecker(61, 400);
 	BlackChecker b14 = new BlackChecker(663, 520);
 	BlackChecker b15 = new BlackChecker(663, 490);
-	
+
 	//each pip is represented by an ArrayList, as is the bar and bear off
-	ArrayList<Component> bar = new ArrayList<>();
-	ArrayList<Component> s1 = new ArrayList<>();
-	ArrayList<Component> s2 = new ArrayList<>();
-	ArrayList<Component> s3 = new ArrayList<>();
-	ArrayList<Component> s4 = new ArrayList<>();
-	ArrayList<Component> s5 = new ArrayList<>();
-	ArrayList<Component> s6 = new ArrayList<>();
-	ArrayList<Component> s7 = new ArrayList<>();
-	ArrayList<Component> s8 = new ArrayList<>();
-	ArrayList<Component> s9 = new ArrayList<>();
-	ArrayList<Component> s10 = new ArrayList<>();
-	ArrayList<Component> s11 = new ArrayList<>();
-	ArrayList<Component> s12 = new ArrayList<>();
-	ArrayList<Component> s13 = new ArrayList<>();
-	ArrayList<Component> s14 = new ArrayList<>();
-	ArrayList<Component> s15 = new ArrayList<>();
-	ArrayList<Component> s16 = new ArrayList<>();
-	ArrayList<Component> s17 = new ArrayList<>();
-	ArrayList<Component> s18 = new ArrayList<>();
-	ArrayList<Component> s19 = new ArrayList<>();
-	ArrayList<Component> s20 = new ArrayList<>();
-	ArrayList<Component> s21 = new ArrayList<>();
-	ArrayList<Component> s22 = new ArrayList<>();
-	ArrayList<Component> s23 = new ArrayList<>();
-	ArrayList<Component> s24 = new ArrayList<>();
-	ArrayList<Component> whiteBearOff = new ArrayList<>();
-	ArrayList<Component> blackBearOff = new ArrayList<>();
-	
+	ArrayList<Checker> bar = new ArrayList<>();
+	ArrayList<Checker> s1 = new ArrayList<>();
+	ArrayList<Checker> s2 = new ArrayList<>();
+	ArrayList<Checker> s3 = new ArrayList<>();
+	ArrayList<Checker> s4 = new ArrayList<>();
+	ArrayList<Checker> s5 = new ArrayList<>();
+	ArrayList<Checker> s6 = new ArrayList<>();
+	ArrayList<Checker> s7 = new ArrayList<>();
+	ArrayList<Checker> s8 = new ArrayList<>();
+	ArrayList<Checker> s9 = new ArrayList<>();
+	ArrayList<Checker> s10 = new ArrayList<>();
+	ArrayList<Checker> s11 = new ArrayList<>();
+	ArrayList<Checker> s12 = new ArrayList<>();
+	ArrayList<Checker> s13 = new ArrayList<>();
+	ArrayList<Checker> s14 = new ArrayList<>();
+	ArrayList<Checker> s15 = new ArrayList<>();
+	ArrayList<Checker> s16 = new ArrayList<>();
+	ArrayList<Checker> s17 = new ArrayList<>();
+	ArrayList<Checker> s18 = new ArrayList<>();
+	ArrayList<Checker> s19 = new ArrayList<>();
+	ArrayList<Checker> s20 = new ArrayList<>();
+	ArrayList<Checker> s21 = new ArrayList<>();
+	ArrayList<Checker> s22 = new ArrayList<>();
+	ArrayList<Checker> s23 = new ArrayList<>();
+	ArrayList<Checker> s24 = new ArrayList<>();
+	ArrayList<Checker> whiteBearOff = new ArrayList<>();
+	ArrayList<Checker> blackBearOff = new ArrayList<>();
+
 	//ArrayList to hold all of the pips, the bar, and the bearoff
-	ArrayList<ArrayList<Component>> board = new ArrayList<ArrayList<Component>>();
-	
+	ArrayList<ArrayList<Checker>> board = new ArrayList<ArrayList<Checker>>();
+
 	//constructor
 	public Board()
 	{
 		s1.add(b14);
 		s1.add(b15);
-		
+
 		s6.add(w1);
 		s6.add(w2);
 		s6.add(w3);
 		s6.add(w4);
 		s6.add(w5);
-		
+
 		s8.add(w6);
 		s8.add(w7);
 		s8.add(w8);
-		
+
 		s12.add(b9);
 		s12.add(b10);
 		s12.add(b11);
 		s12.add(b12);
 		s12.add(b13);
-		
+
 		s13.add(w9);
 		s13.add(w10);
 		s13.add(w11);
 		s13.add(w12);
 		s13.add(w13);
-		
+
 		s17.add(b6);
 		s17.add(b7);
 		s17.add(b8);
-		
+
 		s19.add(b1);
 		s19.add(b2);
 		s19.add(b3);
 		s19.add(b4);
 		s19.add(b5);
-		
+
 		s24.add(w14);
 		s24.add(w15);
-		
+
 		board.add(bar);
 		board.add(s1);
 		board.add(s2);
@@ -154,7 +154,7 @@ public class Board extends JPanel
 		board.add(blackBearOff);
 	}
 
-	int whosTurn = 0; //variable to switch depending on which players turn. 0 for White. 1 for black
+	int whosTurn;//vriable to switch depending on which players turn. 0 for White. 1 for black
 
 	public void paintComponent(Graphics g)
 	{
@@ -167,44 +167,44 @@ public class Board extends JPanel
 		drawTrianglesOne(g);
 		drawTrianglesTwo(g);
 		placeCheckers(g);
-		
+
 		if(whosTurn == 0)
 		    drawSpikeNoWhite(g);
-		
+
 		else
 		    drawSpikeNoBlack(g);
 	}
-	
+
 	private void drawBackground(Graphics g)
 	{
 		g.setColor(Color.LIGHT_GRAY);
 		g.fillRect(0, 0, 800, 600);
 	}
-	
+
 	private void drawBoard(Graphics g)
 	{
 		//draw outline
 		Color brown = new Color(92, 44, 6);
 		g.setColor(brown);
 		g.fillRect(25, 25, 750, 550);
-		
+
 		//draw board
 		Color darkRed = new Color(139, 0, 0);
 		g.setColor(darkRed);
 		g.fillRect(50, 50, 655, 500);
-		
+
 		//Draw brown bar in the middle
 		g.setColor(brown);
 		g.fillRect(352, 50, 50, 500);
 	}
-	
+
 	private void drawSpikeNoWhite(Graphics g) //numbers from whites perspective
 	{
 		int fontSize = 20;
 		Color cream = new Color(245, 222, 179);
 		Color slateGray = new Color(112, 128, 144);
 		g.setFont(new Font("TimesRoman", Font.PLAIN, fontSize));
-		
+
 		g.setColor(cream);
 		g.drawString("13", 68, 46);
 		g.drawString("15", 168, 46);
@@ -218,7 +218,7 @@ public class Board extends JPanel
 		g.drawString("5", 474, 568);
 		g.drawString("3", 574, 568);
 		g.drawString("1", 674, 568);
-		
+
 		g.setColor(slateGray);
 		g.drawString("14", 118, 46);
 		g.drawString("16", 218, 46);
@@ -271,7 +271,7 @@ public class Board extends JPanel
     }
 
 
-	
+
 	private void drawBearOff(Graphics g)
 	{
 		//Draw two bear off slots
@@ -280,7 +280,7 @@ public class Board extends JPanel
 		g.fillRect(715, 65, 50, 200);
 		g.fillRect(715, 335, 50, 200);
 	}
-	
+
 	private void drawTrianglesOne(Graphics g)
 	{
 		//Draw all black triangles
@@ -289,42 +289,42 @@ public class Board extends JPanel
 		int y1[] = {50, 50, 260};
 		g.setColor(slateGray);
 		g.fillPolygon(x1, y1, 3);
-		
+
 		int x2[] = {151, 201, 176};
 		g.fillPolygon(x2, y1, 3);
-		
+
 		int x3[] = {251, 301, 276};
 		g.fillPolygon(x3, y1, 3);
-		
+
 		int x4[] = {403, 453, 428};
 		g.fillPolygon(x4, y1, 3);
-		
+
 		int x5[] = {503, 553, 528};
 		g.fillPolygon(x5, y1, 3);
-		
+
 		int x6[] = {603, 653, 628};
 		g.fillPolygon(x6, y1, 3);
-		
+
 		int y2[] = {550, 550, 340};
 		int x7[] = {101, 151, 126};
 		g.fillPolygon(x7, y2, 3);
-		
+
 		int x8[] = {201, 251, 226};
 		g.fillPolygon(x8, y2, 3);
-		
+
 		int x9[] = {301, 351, 326};
 		g.fillPolygon(x9, y2, 3);
-		
+
 		int x10[] = {453, 503, 478};
 		g.fillPolygon(x10, y2, 3);
-		
+
 		int x11[] = {553, 603, 578};
 		g.fillPolygon(x11, y2, 3);
-		
+
 		int x12[] = {653, 703, 678};
 		g.fillPolygon(x12, y2, 3);
 	}
-	
+
 	private void drawTrianglesTwo(Graphics g)
 	{
 		//Draw all white triangles
@@ -333,42 +333,42 @@ public class Board extends JPanel
 		int y1[] = {50, 50, 260};
 		int x1[] = {101, 151, 126};
 		g.fillPolygon(x1, y1, 3);
-		
+
 		int x2[] = {201, 251, 226};
 		g.fillPolygon(x2, y1, 3);
-		
+
 		int x3[] = {301, 351, 326};
 		g.fillPolygon(x3, y1, 3);
-		
+
 		int x4[] = {453, 503, 478};
 		g.fillPolygon(x4, y1, 3);
-		
+
 		int x5[] = {553, 603, 578};
 		g.fillPolygon(x5, y1, 3);
-		
+
 		int x6[] = {653, 703, 678};
 		g.fillPolygon(x6, y1, 3);
-		
+
 		int y2[] = {550, 550, 340};
 		int x7[] = {51, 101, 76};
 		g.fillPolygon(x7, y2, 3);
-		
+
 		int x8[] = {151, 201, 176};
 		g.fillPolygon(x8, y2, 3);
-		
+
 		int x9[] = {251, 301, 276};
 		g.fillPolygon(x9, y2, 3);
-		
+
 		int x10[] = {403, 453, 428};
 		g.fillPolygon(x10, y2, 3);
-		
+
 		int x11[] = {503, 553, 528};
 		g.fillPolygon(x11, y2, 3);
-		
+
 		int x12[] = {603, 653, 628};
 		g.fillPolygon(x12, y2, 3);
 	}
-	
+
 	//paints the checkers onto the board
 	private void placeCheckers(Graphics g)
 	{
@@ -378,68 +378,71 @@ public class Board extends JPanel
 			{
 				board.get(i).get(j).paint(g);
 			}
-		}	
+		}
+
+		int[] debug = {0,0};
+		acceptableMoves(0, debug);
 	}
-	
+
 	//converts what black entered in to be switched to a common pip number
 	private int blackToWhite(int pip)
 	{
 		int[] answer = {0, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 25};
 		int returned = answer[pip];
-		
+
 		return returned;
 	}
 
 	//move method
 	public void Move(String colour, int from, int to)
-	{	
+	{
 	    if(colour == "Black")
 	    {
 	    	int blackFrom = blackToWhite(from);
 	    	int blackTo = blackToWhite(to);
-	    	
+
 	    	if(pips[1][blackFrom] == 0)
 	    		throw new NoCheckerException();
-	    	
+
 	    	BlackChecker moving = (BlackChecker) board.get(blackFrom).get(board.get(blackFrom).size()-1);
 	    	moving.move(blackTo, pips[1]);
 		    pips[1][blackFrom]--;
 		    pips[1][blackTo]++;
-		    
+
 		    if(blackTo != 25)
 		    	board.get(blackTo).add(board.get(blackFrom).remove((board.get(blackFrom).size()-1)));
-		    
+
 		    else
 		    {
 		    	board.get(26).add(board.get(blackFrom).remove((board.get(blackFrom).size()-1)));
 		    	numInBlackSlot++;
 		    }
 	    }
-	    
+
 	    else if(colour == "White")
 	    {
 	    	if(pips[0][from] == 0)
 	    		throw new NoCheckerException();
-	    	
+
 	    	WhiteChecker moving = (WhiteChecker) board.get(from).get(board.get(from).size() - 1);
 	    	moving.move(to, pips[0]);
 	    	pips[0][from]--;
 	    	pips[0][to]++;
 	    	board.get(to).add(board.get(from).remove((board.get(from).size() - 1)));
-	    	
+
 			if(to == 25) //TODO and if the move is vaild
 				numInWhiteSlot++;
 	    }
-	    
+
 	}
-	
+
 	public void cheat()
 	{
-		for(ArrayList<Component> a : board)
+		for(ArrayList<Checker> a : board)
 		{
 			a.clear();
 		}
-		
+
 		w1.setCoordinates(362, 260);
 		w2.setCoordinates(362, 230);
 		w3.setCoordinates(362, 200);
@@ -455,7 +458,7 @@ public class Board extends JPanel
 		w13.setCoordinates(463, 490);
 		w14.setCoordinates(715, 535);
 		w15.setCoordinates(715, 520);
-		
+
 		b1.setCoordinates(362, 310);
 		b2.setCoordinates(362, 340);
 		b3.setCoordinates(362, 370);
@@ -471,47 +474,47 @@ public class Board extends JPanel
 		b13.setCoordinates(715, 252);
 		b14.setCoordinates(715, 237);
 		b15.setCoordinates(715, 222);
-		
-		
-		
+
+
+
 		bar.add(w1);
 		bar.add(w2);
 		bar.add(w3);
 		bar.add(b1);
 		bar.add(b2);
 		bar.add(b3);
-		
+
 		s1.add(w4);
 		s1.add(w5);
-		
+
 		s2.add(w6);
 		s2.add(w7);
-		
+
 		s3.add(w8);
 		s3.add(w9);
-		
+
 		s4.add(w10);
 		s4.add(w11);
-		
+
 		s5.add(w12);
 		s5.add(w13);
-		
+
 		s24.add(b4);
 		s24.add(b5);
 		s24.add(b6);
-		
+
 		s22.add(b7);
 		s22.add(b8);
 		s22.add(b9);
-		
+
 		s21.add(b10);
 		s21.add(b11);
 		s21.add(b12);
-		
+
 		blackBearOff.add(b13);
 		blackBearOff.add(b14);
 		blackBearOff.add(b15);
-		
+
 		whiteBearOff.add(w14);
 		whiteBearOff.add(w15);
 	}
@@ -521,5 +524,229 @@ public class Board extends JPanel
         return this;
     }
 
+    public String acceptableMoves(int colour, int[] rolls)
+    {
+
+        int oppositeColour;
+        int addNums;
+        if(colour == 0)
+            oppositeColour =1;
+        else
+            oppositeColour = 0;
+        String possibleMoves = "";
+
+		if(colour == 0) {
+			for (int j = 25; j > 0; j--) {
+
+			if(pips[colour][j] != 0) {
+
+				//possible moves involving hits
+			    if(j - rolls[0] < 26 && (pips[oppositeColour][j-rolls[0]]) == 1)
+				{
+				    addNums = j - rolls[0];
+				    if(!(addNums == 25))
+				        possibleMoves += "\n" + j + "-" + addNums + "*";
+				    else
+                        possibleMoves += "\n" + j + "-" + "slot" + "*";
+                }
+                if(j - rolls[1] > 0  && (pips[oppositeColour][j-rolls[1]]) == 1)
+                {
+                    addNums = j - rolls[1];
+                    if(!(addNums == 25))
+                        possibleMoves += "\n" + j + "-" + addNums + "*";
+                    else
+                        possibleMoves += "\n" + j + "-" + "slot" + "*";
+                }
+
+                if((j - rolls[0] - rolls[1] > 0) && (pips[oppositeColour][j - rolls[0] - rolls[1]]) == 1)
+                {
+                    addNums = j - rolls[0] - rolls[1];
+                    if(!(addNums == 25))
+                        possibleMoves += "\n" + j + "-" + addNums + "*";
+                    else
+                        possibleMoves += "\n" + j + "-" + "slot" + "*";
+                }
+
+
+
+                //possibleMoves not involving hits.
+                if ((j - rolls[0] > 0) && !(pips[oppositeColour][j - rolls[0]] > 1)) {
+						addNums = j - rolls[0];
+                    if(!(addNums == 25))
+                        possibleMoves += "\n" + j + "-" + addNums;
+                    else
+                        possibleMoves += "\n" + j + "-" + "slot";
+					}
+
+					if (((j - rolls[1] >= 0) && (rolls[0] != rolls[1])&& !(pips[oppositeColour][j - rolls[1]] > 1)) ){
+						addNums = j - rolls[1];
+                        if(!(addNums == 25))
+                            possibleMoves += "\n" + j + "-" + addNums;
+                        else
+                            possibleMoves += "\n" + j + "-" + "slot";
+					}
+
+					if ((j - rolls[0] - rolls[1] > 0) && !(pips[oppositeColour][j - rolls[0] - rolls[1]] > 1)) {
+						addNums = j - rolls[0] - rolls[1];
+                        if(!(addNums == 25))
+                            possibleMoves += "\n" + j + "-" + addNums;
+                        else
+                            possibleMoves += "\n" + j + "-" + "slot";
+					}
+
+					//possible moves for doubles
+					if (rolls[0] == rolls[1]) {
+
+						if(j - 3*rolls[0] >= 0 && !(pips[oppositeColour][j - 3*rolls[0]] > 1))
+						{
+						    addNums = j - 3*rolls[0];
+                            if(!(addNums == 25))
+                                possibleMoves += "\n" + j + "-" + addNums;
+                            else
+                                possibleMoves += "\n" + j + "-" + "slot";
+                        }
+
+						if(j - 4*rolls[0] >= 0 && !(pips[oppositeColour][j - 4*rolls[0]] > 1))
+						{
+						    addNums = j- 4*rolls[0];
+                            if(!(addNums == 25))
+                                possibleMoves += "\n" + j + "-" + addNums;
+                            else
+                                possibleMoves += "\n" + j + "-" + "slot";
+                        }
+
+						if(j - 3*rolls[0] >= 0 && !((pips[oppositeColour][j - 3*rolls[0]]) == 1))
+						{
+                            addNums = j - 3*rolls[0];
+						    if(!(addNums == 25))
+                                possibleMoves += "\n" + j + "-" + addNums + "*";
+                            else
+                                possibleMoves += "\n" + j + "-" + "slot" + "*";
+                        }
+
+                        if(j - 4*rolls[0] >= 26 && !((pips[oppositeColour][j - 4*rolls[0]]) == 1))
+                        {
+                            addNums = j-4*rolls[0];
+                            if(!(addNums == 25))
+                                possibleMoves += "\n" + j + "-" + addNums + "*";
+                            else
+                                possibleMoves += "\n" + j + "-" + "slot" + "*";
+                        }
+
+
+					}
+
+				}
+			}
+
+		}
+
+		else {
+			for (int j = 0; j < 26; j++) {
+				if((pips[colour][j] != 0)) {
+
+                    //possible moves involving hits
+                    if(j + rolls[0] < 26 && (pips[oppositeColour][j+rolls[0]]) == 1)
+                    {
+                        addNums = j + rolls[0];
+                        if(addNums == 25)
+                            possibleMoves += "\n" + (25 - j) + "-" + "slot" + "*";
+                        else
+                            possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums)+ "*";
+                    }
+                    if(j + rolls[1] < 26 && (pips[oppositeColour][j+rolls[1]]) == 1)
+                    {
+                        addNums = j + rolls[1];
+                        if(addNums == 25)
+                            possibleMoves += "\n" + (25 - j) + "-" + "slot" + "*";
+                        else
+                            possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums)+ "*";
+                    }
+
+                    if((j + rolls[0] + rolls[1] < 26) && (pips[oppositeColour][j + rolls[0] + rolls[1]]) == 1)
+                    {
+                        addNums = j + rolls[0] + rolls[1];
+                        if(addNums == 25)
+                            possibleMoves += "\n" + (25 - j) + "-" + "slot" + "*";
+                        else
+                            possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums)+ "*";
+                    }
+
+
+
+
+                    //possible moves not involving hits
+                    if ((j + rolls[0] < 26) && !((pips[oppositeColour][j + rolls[0]]) > 1)) {
+						addNums = ((j + rolls[0]));
+                        if(addNums == 25)
+                            possibleMoves += "\n" + (25 - j) + "-" + "slot";
+                        else
+                            possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums);
+					}
+
+					if ((j + rolls[1] < 26) && !((pips[oppositeColour][j + rolls[1]]) > 1)) {
+						addNums = ((j + rolls[1]));
+                        if(addNums == 25)
+                            possibleMoves += "\n" + (25 - j) + "-" + "slot";
+                        else
+                            possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums);
+					}
+
+					if ((j + rolls[0] + rolls[1] < 26) && !((pips[oppositeColour][j + rolls[0] + rolls[1]]) > 1)) {
+						addNums = ((j + rolls[0] + rolls[1]));
+                        if(addNums == 25)
+                            possibleMoves += "\n" + (25 - j) + "-" + "slot";
+                        else
+                            possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums);
+					}
+
+					//moves for doubles
+					if (rolls[0] == rolls[1]) {
+
+						if(j + 3*rolls[0] < 26 && !((pips[oppositeColour][j + 3*rolls[0]]) > 1)) {
+                            addNums = j + 3 * rolls[0];
+                            if (addNums == 25)
+                                possibleMoves += "\n" + (25 - j) + "-" + "slot";
+                            else
+                                possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums);
+                        }
+						if(j + 4*rolls[0] < 26 && !((pips[oppositeColour][j + 4*rolls[0]]) > 1))
+						{
+						    addNums = 4*rolls[0];
+                            if(addNums == 25)
+                                possibleMoves += "\n" + (25 - j) + "-" + "slot";
+                            else
+                                possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums);
+                        }
+
+                        if(j + 3*rolls[0] < 26 && !((pips[oppositeColour][j + 3*rolls[0]]) == 1))
+                        {
+                            addNums = j + 3*rolls[0];
+                            if(addNums == 25)
+                                possibleMoves += "\n" + (25 - j) + "-" + "slot" + "*";
+                            else
+                                possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums)+ "*";
+                        }
+                        if(j + 4*rolls[0] < 26 && !((pips[oppositeColour][j + 4*rolls[0]]) == 1)) {
+                            addNums = j + 4*rolls[0];
+                            if (addNums == 25)
+                                possibleMoves += "\n" + (25 - j) + "-" + "slot" + "*";
+                            else
+                                possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums) + "*";
+                        }
+
+
+					}
+				}
+			}
+		}
+
+        return possibleMoves;
+    }
+
+    public void setWhosTurn(int turn)
+    {
+        whosTurn = turn;
+    }
 
 }
