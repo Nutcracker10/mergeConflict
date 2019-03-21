@@ -539,7 +539,7 @@ public class Board extends JPanel
 			if(pips[colour][j] != 0) {
 
 				//possible moves involving hits
-			    if(j - rolls[0] < 26 && (pips[oppositeColour][j-rolls[0]]) == 1)
+			    if(j - rolls[0] >= 0 && (pips[oppositeColour][j-rolls[0]]) == 1)
 				{
 				    addNums = j - rolls[0];
 				    if(!(addNums == 0))
@@ -547,7 +547,7 @@ public class Board extends JPanel
 				    else
                         possibleMoves += "\n" + j + "-" + "slot" + "*";
                 }
-                if(j - rolls[1] > 0  && (pips[oppositeColour][j-rolls[1]]) == 1)
+                if(j - rolls[1] >= 0  && (pips[oppositeColour][j-rolls[1]]) == 1)
                 {
                     addNums = j - rolls[1];
                     if(!(addNums == 0))
@@ -556,7 +556,7 @@ public class Board extends JPanel
                         possibleMoves += "\n" + j + "-" + "slot" + "*";
                 }
 
-                if((j - rolls[0] - rolls[1] > 0) && (pips[oppositeColour][j - rolls[0] - rolls[1]]) == 1)
+                if((j - rolls[0] - rolls[1] >= 0) && (pips[oppositeColour][j - rolls[0] - rolls[1]]) == 1)
                 {
                     addNums = j - rolls[0] - rolls[1];
                     if(!(addNums == 0))
@@ -568,7 +568,7 @@ public class Board extends JPanel
 
 
                 //possibleMoves not involving hits.
-                if ((j - rolls[0] > 0) && !(pips[oppositeColour][j - rolls[0]] > 1)) {
+                if ((j - rolls[0] >= 0) && !(pips[oppositeColour][j - rolls[0]] > 1)) {
 						addNums = j - rolls[0];
                     if(!(addNums == 0))
                         possibleMoves += "\n" + j + "-" + addNums;
@@ -584,7 +584,7 @@ public class Board extends JPanel
                             possibleMoves += "\n" + j + "-" + "slot";
 					}
 
-					if ((j - rolls[0] - rolls[1] > 0) && !(pips[oppositeColour][j - rolls[0] - rolls[1]] > 1)) {
+					if ((j - rolls[0] - rolls[1] >= 0) && !(pips[oppositeColour][j - rolls[0] - rolls[1]] > 1)) {
 						addNums = j - rolls[0] - rolls[1];
                         if(!(addNums == 0))
                             possibleMoves += "\n" + j + "-" + addNums;
