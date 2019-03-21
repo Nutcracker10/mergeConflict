@@ -766,7 +766,7 @@ public class Board extends JPanel
 				}
 			}
 		}
-		dupeRemover(possibleMoves);
+		possibleMoves = dupeRemover(possibleMoves);
         return possibleMoves;
     }
 
@@ -782,6 +782,7 @@ public class Board extends JPanel
 					j++;
 				}
 			}
+			newMoves += "\n";
 			newMoves += moveArray[i];
 		} // end of outer for loop
 
