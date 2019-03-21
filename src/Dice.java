@@ -9,8 +9,8 @@ import java.util.Random;
 import java.awt.Graphics;
 public class Dice 
 {
-	public int die1;
-	public int die2;
+	private int die1;
+	private int die2;
 	private Random rand;
 
     public Dice()
@@ -32,7 +32,15 @@ public class Dice
     	return rand.nextInt(6) + 1;
     }
  
+    public int getDie1()
+    {
+    	return die1;
+    }
     
+    public int getDie2()
+    {
+    	return die2;
+    }
     private void drawDieOne(Graphics g)
     {
 

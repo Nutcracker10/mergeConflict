@@ -84,8 +84,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		Dice die = new Dice();
 		int[] result = new int[2];
 
-		result[0] = die.die1;
-		result[1] = die.die2;
+		result[0] = die.getDie1();
+		result[1] = die.getDie2();
 
 		return result;
 	}
@@ -214,14 +214,14 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 			if (white.goFirst(black)) { // We check who goes first
 				areaText.append("\n" + white.name + " goes first");
-				autoDiceRoller();
+				result = autoDiceRoller();
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
 				addPossibleMoves(board,0);
 				white.myTurn = true;
 			} 
 			else {
 				areaText.append("\n" + black.name + " goes first");
-				autoDiceRoller();
+				result = autoDiceRoller();
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
 				addPossibleMoves(board,1);
 				black.myTurn = true;
