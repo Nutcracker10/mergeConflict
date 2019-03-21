@@ -747,26 +747,17 @@ public class Board extends JPanel
 
     // a function for removing duplicate moves from the possible moves list
     public String dupeRemover(String moves) {
-		String[][] moveArray = new String[75][]; // an array for the individual strings
+		String[] moveArray = moves.split("\\n"); // an array for the individual strings
 		String newMoves = new String();
-		int i=0; // an int to increment moveArray
 
-		while (!moves.equals("")) { // adds all possible moves to a 2d array of strings
 
-			moveArray[i] = moves.split("\n");
-			i++;
-
-		} // end of while
-
-		int numOfMoves = i;
-
-		for (int c=0; i<numOfMoves; i++) {
-			for (int j = c+1; j<numOfMoves; j++) {
-				if (moveArray[c] == moveArray[j] ) {
+		for (int i=0; i<moveArray.length; i++) {
+			for (int j = i+1; j<moveArray.length; j++) {
+				if (moveArray[i] == moveArray[j] ) {
 					j++;
 				}
 			}
-			newMoves += moveArray[c];
+			newMoves += moveArray[i];
 		} // end of outer for loop
 
 		return newMoves;
