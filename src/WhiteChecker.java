@@ -12,9 +12,9 @@ public class WhiteChecker extends Checker
 {	
 	private Coordinate whiteCoordinates;
 	//holds x coordinates for all possible locations for black checkers
-	private int[] xpos = {362, 663, 613, 563, 513, 463, 413, 311, 261, 211, 161, 111, 61, 61, 111, 161, 211, 261, 311, 413, 463, 513, 563, 613, 663, 715};
+	private int[] xpos = {715, 663, 613, 563, 513, 463, 413, 311, 261, 211, 161, 111, 61, 61, 111, 161, 211, 261, 311, 413, 463, 513, 563, 613, 663, 362};
 	//holds y coordinates for all possible locations for black checkers
-	private int[] ypos = {260, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 535};
+	private int[] ypos = {535, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 260};
 	
 	public WhiteChecker(int x, int y)
 	{
