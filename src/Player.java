@@ -19,7 +19,7 @@ public class Player
     	this.name = n;
     	this.colour = c;
         roll = new Dice();
-        initiaive = roll.roll();
+        initiaive = roll.getDie1();
         myTurn = false;
         haveWon = false;
         lastMove = new Coordinate(0, 0);
@@ -48,7 +48,7 @@ public class Player
         
         else if(this.initiaive == opponent.initiaive) //if the same, re roll check again
         {
-                initiaive = roll.roll();
+                initiaive = roll.getDie1();
                 return goFirst(opponent);
         }
 
