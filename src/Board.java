@@ -409,6 +409,16 @@ public class Board extends JPanel
 	    	moving.move(blackTo, pips[1]);
 		    pips[1][blackFrom]--;
 		    pips[1][blackTo]++;
+		    
+		    if(pips[0][blackTo] == 1)
+		    {
+		    	WhiteChecker hit = (WhiteChecker) board.get(blackTo).get(0);
+		    	hit.move(0, pips[0]);
+		    	pips[0][blackTo]--;
+		    	pips[0][0]++;
+		    	board.get(blackTo).add(board.get(blackTo).remove(0));
+		    	
+		    }
 
 		    if(blackTo != 25)
 		    	board.get(blackTo).add(board.get(blackFrom).remove((board.get(blackFrom).size()-1)));
@@ -430,8 +440,17 @@ public class Board extends JPanel
 	    	pips[0][from]--;
 	    	pips[0][to]++;
 	    	board.get(to).add(board.get(from).remove((board.get(from).size() - 1)));
+	    	
+	    	if(pips[1][to] == 1)
+	    	{
+	    		BlackChecker hit = (BlackChecker) board.get(to).get(0);
+	    		hit.move(0, pips[1]);
+	    		pips[1][to]--;
+	    		pips[1][0]++;
+	    		board.get(0).add(board.get(to).remove(0));
+	    	}
 
-			if(to == 25) //TODO and if the move is vaild
+			if(to == 25) //TODO and if the move is valid
 				numInWhiteSlot++;
 	    }
 
@@ -476,8 +495,6 @@ public class Board extends JPanel
 		b14.setCoordinates(715, 237);
 		b15.setCoordinates(715, 222);
 
-
-
 		bar.add(w1);
 		bar.add(w2);
 		bar.add(w3);
@@ -518,6 +535,11 @@ public class Board extends JPanel
 
 		whiteBearOff.add(w14);
 		whiteBearOff.add(w15);
+		
+		
+		int[][] changed = {	{3, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},
+							{3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 3, 3}};
+		pips = changed;
 	}
 
 	public Board getBoard()
@@ -531,16 +553,19 @@ public class Board extends JPanel
         int oppositeColour;
         int addNums;
         if(colour == 0)
-            oppositeColour =1;
+            oppositeColour = 1;
         else
             oppositeColour = 0;
         String possibleMoves = "";
 
 		if(colour == 0) {
-			for (int j = 25; j > 0; j--) {
+			for (int j = 25; j > 0; j--) 
+			{
 
 			if(pips[colour][j] != 0) {
-
+				
+				if(j-rolls[0] < 0)
+					
 				//possible moves involving hits
 			    if(j - rolls[0] < 26 && (pips[oppositeColour][j-rolls[0]]) == 1)
 				{
