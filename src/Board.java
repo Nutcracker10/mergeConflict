@@ -718,7 +718,12 @@ public class Board extends JPanel
 
 		else {
 
-			if(pips[colour][25] > 0){} //TODO bar possible moves for black
+			if(pips[colour][25] > 0)//TODO bar possible moves for black
+			{
+
+
+
+			}
 
 
 
