@@ -41,6 +41,7 @@ public class Dice
     {
     	return die2;
     }
+    
     private void drawDieOne(Graphics g)
     {
 

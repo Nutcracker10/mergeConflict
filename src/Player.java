@@ -43,11 +43,12 @@ public class Player
     //Mehtod takes dice roll at object creation and compares against other player object's dice roll
     public boolean goFirst(Player opponent)
     {
-        if(this.initiaive > opponent.initiaive) //if player's roll is hihger
+       if(this.initiaive > opponent.initiaive) //if player's roll is hihger
             return true;
         
         else if(this.initiaive == opponent.initiaive) //if the same, re roll check again
         {
+                roll.roll();
                 initiaive = roll.getDie1();
                 return goFirst(opponent);
         }

@@ -121,7 +121,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			if (white.myTurn) {
 				white.myTurn = false;
 				black.myTurn = true;
-				areaText.append("\n" + black.name + "'s turn");
+				areaText.append("\n\n" + black.name + "'s turn");
 				result = autoDiceRoller();
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
 				addPossibleMoves(board,1);
@@ -131,7 +131,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			else {
 				white.myTurn = true;
 				black.myTurn = false;
-				areaText.append("\n" + white.name + "'s turn");
+				areaText.append("\n\n" + white.name + "'s turn");
 				result = autoDiceRoller();
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
 				addPossibleMoves(board,0);
@@ -191,6 +191,28 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		else if(text.startsWith("cheat"))
 		{
 			notifyCheatListeners();
+			
+			if(white.myTurn)
+			{
+				white.myTurn = false;
+				black.myTurn = true;
+				areaText.append("\n\n" + black.name + "'s turn");
+				result = autoDiceRoller();
+				areaText.append("\nRoll: " + result[0] + " " + result[1]);
+				addPossibleMoves(board,1);
+				enterText.selectAll();
+			}
+			
+			else
+			{
+				black.myTurn = false;
+				white.myTurn = true;
+				areaText.append("\n\n" + white.name + "'s turn");
+				result = autoDiceRoller();
+				areaText.append("\nRoll: " + result[0] + " " + result[1]);
+				addPossibleMoves(board,0);
+				enterText.selectAll();
+			}
 		}
 
 		else {
@@ -263,7 +285,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	public void addPossibleMoves(Board board, int colour)
 
 	{
-		areaText.append(board.acceptableMoves(colour,result));
+		areaText.append(board.acceptableMoves(colour, result));
 	}
 
 	public void setBoard(Board board)
