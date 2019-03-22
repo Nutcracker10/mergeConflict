@@ -560,7 +560,7 @@ public class Board extends JPanel
 
 		if(colour == 0) {
 
-		     if(pips[colour][25] > 0)  //code for checkers in bar
+		     if(pips[colour][25] > 0)  //code for checkers in bar. Must move checkers outside of bar before any other move can be made
 		     {
 
 		         if(!(pips[oppositeColour][25 - rolls[0]] >= 1))
@@ -599,10 +599,21 @@ public class Board extends JPanel
                      possibleMoves += "\n" + "bar" + "-" + addNums + "*";
                  }
 
+                if(rolls[0] == rolls[1])
+                {
+					addNums = 25 - 3*rolls[0];
+                	if(!(pips[oppositeColour][addNums] >= 1))
+                		possibleMoves += "\n" + "bar" + "-" + addNums;
+                	else if (pips[oppositeColour][addNums] == 1)
+						possibleMoves += "\n" + "bar" + "-" + addNums + "*" ;
+					addNums = 25 - 4*rolls[0];
+					if(!(pips[oppositeColour][addNums] >= 1))
+						possibleMoves += "\n" + "bar" + "-" + addNums;
+					else if (pips[oppositeColour][addNums] == 1)
+						possibleMoves += "\n" + "bar" + "-" + addNums + "*" ;
+
+				}
                 
-
-
-
 		     }
 
             else {
