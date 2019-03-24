@@ -810,7 +810,6 @@ public class Board extends JPanel
 									possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums) + "*";
 							}
 
-
 						}
 					}
 				}
@@ -827,11 +826,21 @@ public class Board extends JPanel
 
 
 		for (int i=0; i<moveArray.length; i++) {
-			for (int j = i+1; j<moveArray.length; j++) {
+            int hitCount = 0; // an int for counting the amount of hits that appear in a count
+
+            for (int j = i+1; j<moveArray.length; j++) {
+                if (moveArray[i].equals(moveArray[j].substring(0,(moveArray[j].length()-1))) && moveArray[j].contains("*")) {
+                    hitCount++;
+                    j++;
+                }
 				if (moveArray[i] == moveArray[j] ) {
 					j++;
 				}
-			}
+			}// end of inner for loop
+
+            if (hitCount > 0) {
+                moveArray[i]+= "*";
+            }
 			newMoves += "\n";
 			newMoves += moveArray[i];
 		} // end of outer for loop
@@ -843,5 +852,4 @@ public class Board extends JPanel
     {
         whosTurn = turn;
     }
-
 }
