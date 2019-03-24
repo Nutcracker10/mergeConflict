@@ -104,7 +104,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		{
 			white.name = text.substring(6);
 			areaText.append("\nWhite : " + white.name);
-			playerName.append(white.name);
+			playerName.setText(white.name);
 			enterText.selectAll();
 		}
 		
@@ -112,6 +112,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		{
 			black.name = text.substring(6);
 			areaText.append("\nBlack : " + black.name);
+			playerName.setText(black.name);
 			enterText.selectAll();
 
 		}
@@ -121,6 +122,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			if (white.myTurn) {
 				white.myTurn = false;
 				black.myTurn = true;
+				playerName.setText(black.name);
 				areaText.append("\n\n" + black.name + "'s turn");
 				result = autoDiceRoller();
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
@@ -131,6 +133,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			else {
 				white.myTurn = true;
 				black.myTurn = false;
+				playerName.setText(white.name);
 				areaText.append("\n\n" + white.name + "'s turn");
 				result = autoDiceRoller();
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
