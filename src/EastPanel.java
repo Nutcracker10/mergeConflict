@@ -124,44 +124,9 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		else if (text.startsWith("move") && !(black.haveWon || white.haveWon)) {
 
-			int flag =0;
-			int colour;
-			if(white.myTurn)
-				colour = white.colour;
-			else
-				colour = black.colour;
+			move(text);
 
-			int[] array = moveSelection(board, colour, text);
-			int to = array[1]; int from = array[0];
-
-			if (to ==0){
-				flag = 1;
-				areaText.append("Invalid selection, try again\n");
-			}
-
-					areaText.append("\n" + from + " " + to);
-					
-					if((from < 0) || (to < 0) || (from > 25) || (to > 25) && flag != 1)
-					{
-						areaText.append("Not a valid move");
-						return;
-					}
-					 
-					if(white.myTurn)
-					{
-						notifyMoveListeners(white.getColour(), from, to);
-					}
-					
-					else if(black.myTurn)
-					{
-						notifyMoveListeners(black.getColour(), from, to);
-					}
-
-
-			enterText.selectAll();
-			turnNumber++;
-
-		}
+		}// end of move
 		
 		else if(text.startsWith("cheat"))
 		{
@@ -234,10 +199,6 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	public boolean ReadyToStart() // if both players given their names, this method returns true.
 	{
 		return ((!(black.name.equals("")) && !(white.name.equals(""))));
-	}
-
-	public void checkerMover(int n, int m) { // takes in some ints n and m for moving checkers
-		areaText.append("\n" + n + " " + m + "\n");
 	}
 	
 	public void addListener(EventListener l)
@@ -317,6 +278,60 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		}
 		turnNumber++;
+	} // end of next turn
+
+	public void move(String text) {
+
+		int flag =0;
+		int colour;
+		if(white.myTurn)
+			colour = white.colour;
+		else
+			colour = black.colour;
+
+		int[] array = moveSelection(board, colour, text);
+		int to = array[1]; int from = array[0];
+
+		if (to ==0){
+			flag = 1;
+			areaText.append("Invalid selection, try again\n");
+		}
+
+		areaText.append("\n" + from + " " + to);
+
+		if((from < 0) || (to < 0) || (from > 25) || (to > 25) && flag != 1)
+		{
+			areaText.append("Not a valid move");
+			return;
+		}
+
+		if(white.myTurn)
+		{
+			notifyMoveListeners(white.getColour(), from, to);
+		}
+
+		else if(black.myTurn)
+		{
+			notifyMoveListeners(black.getColour(), from, to);
+		}
+
+
+		enterText.selectAll();
+		turnNumber++;
+	} // end of move
+
+	public void moveCheck(Board board, int colour) throws InterruptedException {
+		if(board.acceptableMoves(colour, result) == "") {
+			areaText.append("No turns available, starting next turn\n");
+			Thread.sleep(1000); // causes the program to sleep for 1 second
+			nextTurn();
+			return;
+		}
+		String[] s = board.acceptableMoves(colour, result).split("\\n");
+
+		if(s.length == 1) {
+
+		}
 	}
 
 
