@@ -60,10 +60,10 @@ public class WhiteChecker extends Checker
 		
 		else
 		{
-			if((to >= 0) && (to < 13))
+			if((to > 0) && (to < 13))
 				whiteCoordinates.setY((ypos[to]) - (pips[to] * 30)); 
 			
-			else if(to == 25)
+			else if(to == 0)
 				whiteCoordinates.setY((ypos[to]) - (pips[to] * 15));
 			
 			else
