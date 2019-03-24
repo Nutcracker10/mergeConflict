@@ -9,7 +9,7 @@ public class BlackChecker extends Checker
 {
 	private Coordinate blackCoordinates; //coordinates for the checker
 	//holds the x coordinate for all possible black checker locations
-	private int[] xpos = {715, 663, 613, 563, 513, 463, 413, 311, 261, 211, 161, 111, 61, 61, 111, 161, 211, 261, 311, 413, 463, 513, 563, 613, 663,362 };
+	private int[] xpos = {715, 663, 613, 563, 513, 463, 413, 311, 261, 211, 161, 111, 61, 61, 111, 161, 211, 261, 311, 413, 463, 513, 563, 613, 663, 362};
 	//holds the y coordinate for all possible black checker locations
 	private int[] ypos = {252, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 520, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 310};
 	
@@ -60,7 +60,7 @@ public class BlackChecker extends Checker
 			if((to > 0) && (to < 13))
 				blackCoordinates.setY((ypos[to]) - (pips[to] * 30)); 
 			
-			else if(to == 25)
+			else if(to == 0)
 				blackCoordinates.setY((ypos[to]) - (pips[to] * 15));
 			
 			else
