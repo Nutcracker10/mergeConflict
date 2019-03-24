@@ -870,13 +870,13 @@ public class Board extends JPanel
 									possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums) + "*";
 							}
 
-
 						}
 					}
 				}
 			}
 		}
 		possibleMoves = dupeRemover(possibleMoves);
+		possibleMoves = letterAdder(possibleMoves);
         return possibleMoves;
     }
 
@@ -887,21 +887,60 @@ public class Board extends JPanel
 
 
 		for (int i=0; i<moveArray.length; i++) {
-			for (int j = i+1; j<moveArray.length; j++) {
-				if (moveArray[i] == moveArray[j] ) {
+		    int hitCount =0;
+
+		    if (moveArray[i].contains("*")) {i++;} // skips hits
+
+            for (int j = i+1; j<moveArray.length; j++) { // adds elements to a list without duplicating them
+
+                if(moveArray[j].contains("*") && moveArray[i] == moveArray[j].substring(0, moveArray[j].length()-1)) {
+                    hitCount++;
+                    j++;
+                }
+
+				else if (moveArray[i] == moveArray[j] ) { // increment to skip listing
 					j++;
 				}
-			}
-			newMoves += "\n";
-			newMoves += moveArray[i];
-		} // end of outer for loop
+			}// end of inner for loop
 
+            if (hitCount > 0) {
+                moveArray[i] += "*";
+            }
+			if (i!=0)
+				newMoves += "\n"; // add a new line to each line of the big string
+
+			newMoves += moveArray[i]; // concatenate each string into one big string
+		} // end of outer for loop
 		return newMoves;
 	} // end of dupe remover
+
+   public String letterAdder(String input) {
+	   	String[] stringArray = input.split("\\n");
+	   	String letteredList = new String(); // a string for the lettered moves
+		int size = stringArray.length;
+
+		for (int i=1; i<size; i++) { // adds single letters
+
+			letteredList += "\n" + numbertoCharacter(i) +": ";
+			letteredList += stringArray[i];
+
+		}
+
+		if (size >= 27) { // adds double letters
+			for (int i=27; i<size; i++) {
+				letteredList += "\nA" + numbertoCharacter(i%26) +": ";
+				letteredList += stringArray[i];
+			}//end of for
+		} // end of if
+	   return letteredList;
+   }// end of letterAdder
+
+	private String numbertoCharacter(int i) { // turns numbers to characters
+		return i > 0 && i < 27 ? String.valueOf((char)(i + 'A' - 1)) : null; // turns number to letter
+	}
 
     public void setWhosTurn(int turn)
     {
         whosTurn = turn;
     }
-
 }
