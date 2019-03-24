@@ -723,7 +723,7 @@ public class Board extends JPanel
 
 		else {
 
-			/*if(pips[colour][25] > 0)
+			if(pips[colour][25] > 0)
 			{
                 if(!(pips[oppositeColour][rolls[0] + 1] >= 1))
                 {
@@ -763,7 +763,7 @@ public class Board extends JPanel
                     possibleMoves += "\n" + "bar" + "-" + addNums + "*";
 
                 }
-			} */
+			} 
 
 
 		else{
@@ -831,7 +831,16 @@ public class Board extends JPanel
 								else
 									possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums);
 							}
-							if (j + 4 * rolls[0] < 26 && !((pips[oppositeColour][j + 4 * rolls[0]]) > 1)) {
+
+                            else if (j + 3 * rolls[0] < 26 && !((pips[oppositeColour][j + 3 * rolls[0]]) == 1)) {
+                                addNums = j + 3 * rolls[0];
+                                if (addNums == 25)
+                                    possibleMoves += "\n" + (25 - j) + "-" + "slot" + "*";
+                                else
+                                    possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums) + "*";
+                            }
+
+                            if (j + 4 * rolls[0] < 26 && !((pips[oppositeColour][j + 4 * rolls[0]]) > 1)) {
 								addNums = 4 * rolls[0];
 								if (addNums == 25)
 									possibleMoves += "\n" + (25 - j) + "-" + "slot";
@@ -839,14 +848,8 @@ public class Board extends JPanel
 									possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums);
 							}
 
-							if (j + 3 * rolls[0] < 26 && !((pips[oppositeColour][j + 3 * rolls[0]]) == 1)) {
-								addNums = j + 3 * rolls[0];
-								if (addNums == 25)
-									possibleMoves += "\n" + (25 - j) + "-" + "slot" + "*";
-								else
-									possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums) + "*";
-							}
-							if (j + 4 * rolls[0] < 26 && !((pips[oppositeColour][j + 4 * rolls[0]]) == 1)) {
+
+							else if (j + 4 * rolls[0] < 26 && !((pips[oppositeColour][j + 4 * rolls[0]]) == 1)) {
 								addNums = j + 4 * rolls[0];
 								if (addNums == 25)
 									possibleMoves += "\n" + (25 - j) + "-" + "slot" + "*";
