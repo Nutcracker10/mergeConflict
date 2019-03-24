@@ -282,6 +282,23 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			m.cheat();
 	}
 
+	public int moveSelection(Board board, int colour, String input) {
+	    String[] moves = board.acceptableMoves(colour, result).split("\\n");
+	    int moveToReturn;
+
+	    input = input.substring(input.length()-3, input.length()); // isolates the input from move
+        input = input.replaceAll(" ", ""); // removes any white spaces from input
+
+        for (int i=0; i<moves.length;i++) {
+            if (input == moves[i].substring(0,1)) {
+
+            }
+
+        }//end of for loop
+
+        return 0;
+    }//end of moveSelection
+
 	public void addPossibleMoves(Board board, int colour)
 
 	{

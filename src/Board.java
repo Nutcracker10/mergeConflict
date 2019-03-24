@@ -861,6 +861,7 @@ public class Board extends JPanel
 			}
 		}
 		possibleMoves = dupeRemover(possibleMoves);
+		possibleMoves = letterAdder(possibleMoves);
         return possibleMoves;
     }
 
@@ -890,24 +891,38 @@ public class Board extends JPanel
             if (hitCount > 0) {
                 moveArray[i] += "*";
             }
+			if (i!=0)
+				newMoves += "\n"; // add a new line to each line of the big string
 
-			newMoves += "\n"; // add a new line to each line of the big string
 			newMoves += moveArray[i]; // concatenate each string into one big string
 		} // end of outer for loop
 		return newMoves;
 	} // end of dupe remover
 
-    public String hitMarker(String[] input) {
+   public String letterAdder(String input) {
+	   	String[] stringArray = input.split("\\n");
+	   	String letteredList = new String(); // a string for the lettered moves
+		int size = stringArray.length;
 
-	    String hits = new String();
+		for (int i=1; i<size; i++) { // adds single letters
 
-	    for(int i=0; i<input.length; i++) { // stores all hits in one string
-	        if (input[i].contains("*")) {
-                hits += ("\n" + input[i]);
-            }
-        }
-	    return hits;
-    } // end of hitMarker
+			letteredList += "\n" + numbertoCharacter(i) +": ";
+			letteredList += stringArray[i];
+
+		}
+
+		if (size >= 27) { // adds double letters
+			for (int i=27; i<size; i++) {
+				letteredList += "\nA" + numbertoCharacter(i) +": ";
+				letteredList += stringArray[i];
+			}//end of for
+		} // end of if
+	   return letteredList;
+   }// end of letterAdder
+
+	private String numbertoCharacter(int i) { // turns numbers to characters
+		return i > 0 && i < 27 ? String.valueOf((char)(i + 'A' - 1)) : null; // turns number to letter
+	}
 
     public void setWhosTurn(int turn)
     {
