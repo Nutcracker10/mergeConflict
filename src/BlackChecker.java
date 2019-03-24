@@ -2,7 +2,6 @@
    Saoirse Houlihan 17340803
    James   Kirwan   17402782
 */
-import javax.swing.*;
 import java.awt.*;
 
 public class BlackChecker extends Checker
