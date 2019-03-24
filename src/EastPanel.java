@@ -171,10 +171,14 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		if (gameHasBegun) // if the game has started
 		{
-			if(white.myTurn)
+			if(white.myTurn) {
 				board.setWhosTurn(0);
-			else
+				moveCheck(board, white.colour);
+			}
+			else {
 				board.setWhosTurn(1);
+				moveCheck(board, black.colour);
+			}
 
 			if (white.goFirst(black)) { // We check who goes first
 				areaText.append("\n" + white.name + " goes first");
@@ -320,19 +324,29 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		turnNumber++;
 	} // end of move
 
-	public void moveCheck(Board board, int colour) throws InterruptedException {
+	public void moveCheck(Board board, int colour) {
+
+		String[] s = board.acceptableMoves(colour, result).split("\\n");
+
 		if(board.acceptableMoves(colour, result) == "") {
 			areaText.append("No turns available, starting next turn\n");
-			Thread.sleep(1000); // causes the program to sleep for 1 second
+			try {
+				Thread.sleep(1000); // causes the program to sleep for 1 second
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			nextTurn();
 			return;
 		}
-		String[] s = board.acceptableMoves(colour, result).split("\\n");
 
-		else if(s.length == 1) { // enacts move if it is the only available move
+		else if(s.length == 1) { // enacts move if there is only one available move
 		    areaText.append("Making only valid move.\n");
-		    Thread.sleep(1000);
-            move(s[0].substring(0,1));
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			move(s[0].substring(0,1));
             nextTurn();
 		}
 	} // end of moveCheck
