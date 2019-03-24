@@ -886,30 +886,34 @@ public class Board extends JPanel
 		String newMoves = new String();
 
 
-		for (int i=0; i<moveArray.length; i++) {
+		for (int i=1; i<moveArray.length; i++) { //starting at one to get rid of a pesky \n
 		    int hitCount =0;
+		    boolean dupFlag = false; //when a dup found will turn true
 
 		    if (moveArray[i].contains("*")) {i++;} // skips hits
 
             for (int j = i+1; j<moveArray.length; j++) { // adds elements to a list without duplicating them
 
-                if(moveArray[j].contains("*") && moveArray[i] == moveArray[j].substring(0, moveArray[j].length()-1)) {
+                if(moveArray[j].contains("*") && moveArray[i].equals(moveArray[j].substring(0, moveArray[j].length()-1))) {
                     hitCount++;
-                    j++;
+                    dupFlag = true;
                 }
 
-				else if (moveArray[i] == moveArray[j] ) { // increment to skip listing
-					j++;
+				else if (moveArray[i].equals(moveArray[j]) ) { // increment to skip listing
+				     dupFlag = true;
+
+
 				}
 			}// end of inner for loop
 
             if (hitCount > 0) {
                 moveArray[i] += "*";
             }
-			if (i!=0)
-				newMoves += "\n"; // add a new line to each line of the big string
 
-			newMoves += moveArray[i]; // concatenate each string into one big string
+            if(!dupFlag)
+                newMoves += "\n" + moveArray[i];
+
+
 		} // end of outer for loop
 		return newMoves;
 	} // end of dupe remover
