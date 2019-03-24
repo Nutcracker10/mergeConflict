@@ -119,30 +119,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		else if (text.equals("next") && !(black.haveWon || white.haveWon)) // user switching between turns
 		{
-			if (white.myTurn) {
-				white.myTurn = false;
-				black.myTurn = true;
-				playerName.setText(black.name);
-				areaText.append("\n\n" + black.name + "'s turn");
-				result = autoDiceRoller();
-				areaText.append("\nRoll: " + result[0] + " " + result[1]);
-				addPossibleMoves(board,1);
-				enterText.selectAll();
-			}
-
-			else {
-				white.myTurn = true;
-				black.myTurn = false;
-				playerName.setText(white.name);
-				areaText.append("\n\n" + white.name + "'s turn");
-				result = autoDiceRoller();
-				areaText.append("\nRoll: " + result[0] + " " + result[1]);
-				addPossibleMoves(board,0);
-				enterText.selectAll();
-
-
-			}
-			turnNumber++;
+			nextTurn();
 		}
 
 		else if (text.startsWith("move") && !(black.haveWon || white.haveWon)) {
@@ -314,6 +291,34 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
         return moveToReturn;
     }//end of moveSelection
+
+	public void nextTurn() {
+		if (white.myTurn) {
+			white.myTurn = false;
+			black.myTurn = true;
+			playerName.setText(black.name);
+			areaText.append("\n\n" + black.name + "'s turn");
+			result = autoDiceRoller();
+			areaText.append("\nRoll: " + result[0] + " " + result[1]);
+			addPossibleMoves(board,1);
+			enterText.selectAll();
+		}
+
+		else {
+			white.myTurn = true;
+			black.myTurn = false;
+			playerName.setText(white.name);
+			areaText.append("\n\n" + white.name + "'s turn");
+			result = autoDiceRoller();
+			areaText.append("\nRoll: " + result[0] + " " + result[1]);
+			addPossibleMoves(board,0);
+			enterText.selectAll();
+
+
+		}
+		turnNumber++;
+	}
+
 
 	public void addPossibleMoves(Board board, int colour)
 
