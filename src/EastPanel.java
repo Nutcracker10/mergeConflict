@@ -173,11 +173,9 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		{
 			if(white.myTurn) {
 				board.setWhosTurn(0);
-				moveCheck(board, white.colour);
 			}
 			else {
 				board.setWhosTurn(1);
-				moveCheck(board, black.colour);
 			}
 
 			if (white.goFirst(black)) { // We check who goes first
@@ -293,6 +291,14 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		}
 		turnNumber++;
+
+		if(white.myTurn) {
+			moveCheck(board, white.colour);
+		}
+		else {
+			moveCheck(board, black.colour);
+		}
+
 	} // end of next turn
 
 	public void move(String text) {
@@ -339,7 +345,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		String[] s = board.acceptableMoves(colour, result).split("\\n");
 
-		if(board.acceptableMoves(colour, result) == "") {
+		if(s.length == 0) {
 			areaText.append("No turns available, starting next turn\n");
 			try {
 				Thread.sleep(1000); // causes the program to sleep for 1 second
