@@ -3,7 +3,6 @@
    James   Kirwan   17402782
 */
 // Class for the checkers
-import javax.swing.*;
 import java.awt.*;
 /*
  * Should draw the checkers and describe how they move??
