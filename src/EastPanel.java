@@ -147,21 +147,24 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		else if (text.startsWith("move") && !(black.haveWon || white.haveWon)) {
 
-			String subString = text.substring(5); // a substring of the numbers from the command
-			String firstHalf = subString.substring(0, (subString.length() / 2));
-			String secondHalf = subString.substring((subString.length() / 2));
+			int flag =0;
+			int colour;
+			if(white.myTurn)
+				colour = white.colour;
+			else
+				colour = black.colour;
 
-			firstHalf = firstHalf.replaceAll("\\s+", ""); // removes white space characters
-			secondHalf = secondHalf.replaceAll("\\s+", "");
+			int[] array = moveSelection(board, colour, text);
+			int to = array[1]; int from = array[0];
 
-			if (subString.length() < 6) {
+			if (to ==0){
+				flag = 1;
+				areaText.append("Invalid selection, try again\n");
+			}
 
-				try {
-					int from = Integer.parseInt(firstHalf);
-					int to = Integer.parseInt(secondHalf);
 					areaText.append("\n" + from + " " + to);
 					
-					if((from < 0) || (to < 0) || (from > 25) || (to > 25))
+					if((from < 0) || (to < 0) || (from > 25) || (to > 25) && flag != 1)
 					{
 						areaText.append("Not a valid move");
 						return;
@@ -176,15 +179,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 					{
 						notifyMoveListeners(black.getColour(), from, to);
 					}
-						
-				} catch (NumberFormatException e) {
-					areaText.append("\nmove : Invalid format\n");
-				}
 
-			} 
-			else {
-				areaText.append("\nInvalid number of arguments");
-			}
 
 			enterText.selectAll();
 			turnNumber++;
@@ -292,21 +287,24 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	    int[] moveToReturn = new int[2];
 
 	    //formatting input for work
-	    input = input.substring(input.length()-3, input.length()); // isolates the input from move
+	    input = input.substring(input.length()-2, input.length()); // isolates the input from move
         input = input.replaceAll(" ", ""); // removes any white spaces from input
         input = input.toUpperCase();
 
         for (int i=0; i<moves.length;i++) {
             if (moves[i].startsWith(input) ) { // checks if the move starts with the input i.e A
-                String firstHalf = moves[i].substring(2,4);
+            	String string = moves[i].substring(2);
+            	string = string.replaceAll("\\s+", ""); // removing white spaces
+
+                String firstHalf = string.substring(0, string.indexOf("-"));
                 try {
                     firstHalf = firstHalf.replaceAll("-", "");
-                    int to = Integer.parseInt(firstHalf);
-                    moveToReturn[0] = to;
+                    int from = Integer.parseInt(firstHalf);
+                    moveToReturn[0] = from;
 
-                    String secondHalf = moves[i].substring(moves[i].indexOf("-")+1);
-                    int from = Integer.parseInt(secondHalf);
-                    moveToReturn[1] = from;
+                    String secondHalf = string.substring(string.indexOf("-")+1);
+                    int to = Integer.parseInt(secondHalf);
+                    moveToReturn[1] = to;
                     }
                     catch (NumberFormatException e) {
                         areaText.append("\nERROR in MOVESELECTION()\n");
