@@ -1,5 +1,5 @@
 
-public interface MoveListener 
+public interface EventListener 
 {
 	void move(String colour, int from, int to);
 	

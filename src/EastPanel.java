@@ -33,7 +33,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	Board board; //a way to get the boards information to east panel
 	
 	//ArrayList of action listeners
-	ArrayList<MoveListener> listeners = new ArrayList<MoveListener>();
+	ArrayList<EventListener> listeners = new ArrayList<EventListener>();
 	
 	int turnNumber = 0; // to count what turn it is
 
@@ -268,14 +268,14 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		areaText.append("\n" + n + " " + m + "\n");
 	}
 	
-	public void addListener(MoveListener l)
+	public void addListener(EventListener l)
 	{
 		listeners.add(l);
 	}
 	
 	public void notifyMoveListeners(String colour, int from, int to)
 	{
-		for(MoveListener m : listeners)
+		for(EventListener m : listeners)
 		{
 			m.move(colour, from, to);
 		}
@@ -283,7 +283,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	
 	public void notifyCheatListeners()
 	{
-		for(MoveListener m : listeners)
+		for(EventListener m : listeners)
 			m.cheat();
 	}
 

@@ -7,7 +7,8 @@ import java.awt.*;
 import java.io.IOException;
 
 
-public class frame extends JFrame implements MoveListener{
+public class frame extends JFrame implements EventListener
+{
 
     //adds panels to frame
     EastPanel east = new EastPanel();
