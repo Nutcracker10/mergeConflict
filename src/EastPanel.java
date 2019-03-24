@@ -329,10 +329,13 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		}
 		String[] s = board.acceptableMoves(colour, result).split("\\n");
 
-		if(s.length == 1) {
-
+		else if(s.length == 1) { // enacts move if it is the only available move
+		    areaText.append("Making only valid move.\n");
+		    Thread.sleep(1000);
+            move(s[0].substring(0,1));
+            nextTurn();
 		}
-	}
+	} // end of moveCheck
 
 
 	public void addPossibleMoves(Board board, int colour)
