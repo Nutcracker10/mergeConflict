@@ -913,7 +913,7 @@ public class Board extends JPanel
 
 		if (size >= 27) { // adds double letters
 			for (int i=27; i<size; i++) {
-				letteredList += "\nA" + numbertoCharacter(i) +": ";
+				letteredList += "\nA" + numbertoCharacter(i%26) +": ";
 				letteredList += stringArray[i];
 			}//end of for
 		} // end of if
