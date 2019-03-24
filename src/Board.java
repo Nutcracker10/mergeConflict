@@ -631,7 +631,7 @@ public class Board extends JPanel
 		     }
 
             else {
-                 for (int j = 25; j > 0; j--) {
+                 for (int j = 24; j > 0; j--) {
 
                      if (pips[colour][j] != 0) {
 
@@ -639,7 +639,7 @@ public class Board extends JPanel
                          //possibleMoves not involving hits.
                          if ((j - rolls[0] >= 0) && !(pips[oppositeColour][j - rolls[0]] >= 1)) {
                              addNums = j - rolls[0];
-                             if (!(addNums == 0))
+                             if (!(addNums <= 0))
                                  possibleMoves += "\n" + j + "-" + addNums;
                              else
                                  possibleMoves += "\n" + j + "-" + "Off";
@@ -649,7 +649,7 @@ public class Board extends JPanel
                          //possible moves involving hits
                         else if (j - rolls[0] >= 0 && (pips[oppositeColour][j - rolls[0]]) == 1) {
                              addNums = j - rolls[0];
-                             if (!(addNums == 0))
+                             if (!(addNums <= 0))
                                  possibleMoves += "\n" + j + "-" + addNums + "*";
                              else
                                  possibleMoves += "\n" + j + "-" + "Off" + "*";
@@ -657,7 +657,7 @@ public class Board extends JPanel
 
                          if (((j - rolls[1] >= 0) && (rolls[0] != rolls[1]) && !(pips[oppositeColour][j - rolls[1]] >= 1))) {
                              addNums = j - rolls[1];
-                             if (!(addNums == 0))
+                             if (!(addNums <= 0))
                                  possibleMoves += "\n" + j + "-" + addNums;
                              else
                                  possibleMoves += "\n" + j + "-" + "Off";
@@ -665,7 +665,7 @@ public class Board extends JPanel
 
                         else if (j - rolls[1] >= 0 && (pips[oppositeColour][j - rolls[1]]) == 1) {
                              addNums = j - rolls[1];
-                             if (!(addNums == 0))
+                             if (!(addNums <= 0))
                                  possibleMoves += "\n" + j + "-" + addNums + "*";
                              else
                                  possibleMoves += "\n" + j + "-" + "Off" + "*";
@@ -673,7 +673,7 @@ public class Board extends JPanel
 
                          if ((j - rolls[0] - rolls[1] >= 0) && !(pips[oppositeColour][j - rolls[0] - rolls[1]] >= 1)) {
                              addNums = j - rolls[0] - rolls[1];
-                             if (!(addNums == 0))
+                             if (!(addNums <= 0))
                                  possibleMoves += "\n" + j + "-" + addNums;
                              else
                                  possibleMoves += "\n" + j + "-" + "Off";
@@ -682,7 +682,7 @@ public class Board extends JPanel
 
                          else if ((j - rolls[0] - rolls[1] >= 0) && (pips[oppositeColour][j - rolls[0] - rolls[1]]) == 1) {
                              addNums = j - rolls[0] - rolls[1];
-                             if (!(addNums == 0))
+                             if (!(addNums <= 0))
                                  possibleMoves += "\n" + j + "-" + addNums + "*";
                              else
                                  possibleMoves += "\n" + j + "-" + "Off" + "*";
@@ -694,7 +694,7 @@ public class Board extends JPanel
 
                              if (j - 3 * rolls[0] >= 0 && !(pips[oppositeColour][j - 3 * rolls[0]] > 1)) {
                                  addNums = j - 3 * rolls[0];
-                                 if (!(addNums == 0))
+                                 if (!(addNums <= 0))
                                      possibleMoves += "\n" + j + "-" + addNums;
                                  else
                                      possibleMoves += "\n" + j + "-" + "Off";
@@ -702,7 +702,7 @@ public class Board extends JPanel
 
                              else if (j - 3 * rolls[0] >= 0 && !((pips[oppositeColour][j - 3 * rolls[0]]) == 1)) {
                                  addNums = j - 3 * rolls[0];
-                                 if (!(addNums == 0))
+                                 if (!(addNums <= 0))
                                      possibleMoves += "\n" + j + "-" + addNums + "*";
                                  else
                                      possibleMoves += "\n" + j + "-" + "Off" + "*";
@@ -710,7 +710,7 @@ public class Board extends JPanel
 
                              if (j - 4 * rolls[0] >= 0 && !(pips[oppositeColour][j - 4 * rolls[0]] > 1)) {
                                  addNums = j - 4 * rolls[0];
-                                 if (!(addNums == 0))
+                                 if (!(addNums <= 0))
                                      possibleMoves += "\n" + j + "-" + addNums;
                                  else
                                      possibleMoves += "\n" + j + "-" + "Off";
@@ -720,7 +720,7 @@ public class Board extends JPanel
 
                             else if (j - 4 * rolls[0] >= 0 && !((pips[oppositeColour][j - 4 * rolls[0]]) == 1)) {
                                  addNums = j - 4 * rolls[0];
-                                 if (!(addNums == 0))
+                                 if (!(addNums <= 0))
                                      possibleMoves += "\n" + j + "-" + addNums + "*";
                                  else
                                      possibleMoves += "\n" + j + "-" + "Off" + "*";
