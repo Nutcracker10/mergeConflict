@@ -718,7 +718,52 @@ public class Board extends JPanel
 
 		else {
 
-			if(pips[colour][25] > 0){} //TODO bar possible moves for black
+			if(pips[colour][25] > 0)//TODO bar possible moves for black
+			{
+                if(!(pips[oppositeColour][rolls[0] + 1] >= 1))
+                {
+                    addNums = 25 - rolls[0];
+                    possibleMoves += "\n" + "bar" + "-" + addNums;
+
+                }
+               else if((pips[oppositeColour][rolls[0] + 1] == 1))
+                {
+                    addNums = 25 - rolls[0];
+                    possibleMoves += "\n" + "bar" + "-" + addNums + "*";
+
+                }
+
+                if(!(pips[oppositeColour][rolls[1] + 1] >= 1))
+                {
+                    addNums = 25 - rolls[1];
+                    possibleMoves += "\n" + "bar" + "-" + addNums;
+
+                }
+                else if((pips[oppositeColour][rolls[1] + 1] == 1))
+                {
+                    addNums = 25 - rolls[1];
+                    possibleMoves += "\n" + "bar" + "-" + addNums + "*";
+
+                }
+
+                if(!(pips[oppositeColour][rolls[0]+rolls[1] + 1] >= 1))
+                {
+                    addNums = 25 - rolls[1] - rolls[0];
+                    possibleMoves += "\n" + "bar" + "-" + addNums;
+
+                }
+                else if((pips[oppositeColour][rolls[0]+rolls[1] + 1] == 1))
+                {
+                    addNums = 25 - rolls[1] - rolls[0];
+                    possibleMoves += "\n" + "bar" + "-" + addNums + "*";
+
+                }
+
+
+
+
+
+			}
 
 
 

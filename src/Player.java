@@ -48,8 +48,8 @@ public class Player
         
         else if(this.initiaive == opponent.initiaive) //if the same, re roll check again
         {
-                roll.roll();
-                initiaive = roll.getDie1();
+
+                this.initiaive = roll.roll();
                 return goFirst(opponent);
         }
 
