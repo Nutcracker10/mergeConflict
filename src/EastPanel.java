@@ -240,22 +240,27 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
                 String firstHalf = string.substring(0, string.indexOf("-"));
 
                 try {
-						if (string.contains("Bar")) {
+						if (string.contains("Bar")) 
+						{
 							from = 25;
 						}
-						else {
+						else 
+						{
 							firstHalf = firstHalf.replaceAll("-", "");
 							from = Integer.parseInt(firstHalf);
-							moveToReturn[0] = from;
 						}
-						if(string.contains("Off")) {
+						
+						if(string.contains("Off")) 
+						{
 							to = 0;
 						}
 						else {
 							String secondHalf = string.substring(string.indexOf("-") + 1);
 							to = Integer.parseInt(secondHalf);
-							moveToReturn[1] = to;
 						}
+						
+						moveToReturn[0] = from;
+						moveToReturn[1] = to;
                     }
                     catch (NumberFormatException e) {
                         areaText.append("\nERROR in MOVESELECTION()\n");
@@ -315,14 +320,14 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		if (to ==0){
 			flag = 1;
-			areaText.append("Invalid selection, try again\n");
+			areaText.append("\nInvalid selection, try again\n");
 		}
 
 		areaText.append("\n" + from + " " + to);
 
 		if((from < 0) || (to < 0) || (from > 25) || (to > 25) && flag != 1)
 		{
-			areaText.append("Not a valid move");
+			areaText.append("\nNot a valid move");
 			return;
 		}
 
@@ -346,7 +351,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		String[] s = board.acceptableMoves(colour, result).split("\\n");
 
 		if(s.length == 0) {
-			areaText.append("No turns available, starting next turn\n");
+			areaText.append("\nNo turns available, starting next turn\n");
 			try {
 				Thread.sleep(1000); // causes the program to sleep for 1 second
 			} catch (InterruptedException e) {
@@ -357,7 +362,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		}
 
 		else if(s.length == 1) { // enacts move if there is only one available move
-		    areaText.append("Making only valid move.\n");
+		    areaText.append("\nMaking only valid move.\n");
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
