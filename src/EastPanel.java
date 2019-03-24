@@ -286,11 +286,13 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	    String[] moves = board.acceptableMoves(colour, result).split("\\n");
 	    int[] moveToReturn = new int[2];
 
+	    //formatting input for work
 	    input = input.substring(input.length()-3, input.length()); // isolates the input from move
         input = input.replaceAll(" ", ""); // removes any white spaces from input
+        input = input.toUpperCase();
 
         for (int i=0; i<moves.length;i++) {
-            if (input == moves[i].substring(0,1)) {
+            if (moves[i].startsWith(input) ) { // checks if the move starts with the input i.e A
                 String firstHalf = moves[i].substring(2,4);
                 try {
                     firstHalf = firstHalf.replaceAll("-", "");
