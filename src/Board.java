@@ -871,27 +871,43 @@ public class Board extends JPanel
 
 
 		for (int i=0; i<moveArray.length; i++) {
-            int hitCount = 0; // an int for counting the amount of hits that appear in a count
+		    int hitCount =0;
 
-            for (int j = i+1; j<moveArray.length; j++) {
-                if (moveArray[i].equals(moveArray[j].substring(0,(moveArray[j].length()-1))) && moveArray[j].contains("*")) {
+		    if (moveArray[i].contains("*")) {i++;} // skips hits
+
+            for (int j = i+1; j<moveArray.length; j++) { // adds elements to a list without duplicating them
+
+                if(moveArray[j].contains("*") && moveArray[i] == moveArray[j].substring(0, moveArray[j].length()-1)) {
                     hitCount++;
                     j++;
                 }
-				if (moveArray[i] == moveArray[j] ) {
+
+				else if (moveArray[i] == moveArray[j] ) { // increment to skip listing
 					j++;
 				}
 			}// end of inner for loop
 
             if (hitCount > 0) {
-                moveArray[i]+= "*";
+                moveArray[i] += "*";
             }
-			newMoves += "\n";
-			newMoves += moveArray[i];
-		} // end of outer for loop
 
+			newMoves += "\n"; // add a new line to each line of the big string
+			newMoves += moveArray[i]; // concatenate each string into one big string
+		} // end of outer for loop
 		return newMoves;
 	} // end of dupe remover
+
+    public String hitMarker(String[] input) {
+
+	    String hits = new String();
+
+	    for(int i=0; i<input.length; i++) { // stores all hits in one string
+	        if (input[i].contains("*")) {
+                hits += ("\n" + input[i]);
+            }
+        }
+	    return hits;
+    } // end of hitMarker
 
     public void setWhosTurn(int turn)
     {
