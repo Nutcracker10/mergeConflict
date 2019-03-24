@@ -163,7 +163,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 						areaText.append("Not a valid move");
 						return;
 					}
-					
+					 
 					if(white.myTurn)
 					{
 						notifyMoveListeners(white.getColour(), from, to);
@@ -201,6 +201,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
 				addPossibleMoves(board,1);
 				enterText.selectAll();
+				turnNumber++;
 			}
 			
 			else
@@ -212,6 +213,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
 				addPossibleMoves(board,0);
 				enterText.selectAll();
+				turnNumber++;
 			}
 		}
 

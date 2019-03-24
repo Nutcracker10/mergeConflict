@@ -388,7 +388,7 @@ public class Board extends JPanel
 	//converts what black entered in to be switched to a common pip number
 	private int blackToWhite(int pip)
 	{
-		int[] answer = {0, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 25};
+		int[] answer = {25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
 		int returned = answer[pip];
 
 		return returned;
@@ -401,11 +401,21 @@ public class Board extends JPanel
 	    {
 	    	int blackFrom = blackToWhite(from);
 	    	int blackTo = blackToWhite(to);
-
+	    	int i;
+	    	BlackChecker moving = new BlackChecker(0,0);
+	    	
 	    	if(pips[1][blackFrom] == 0)
 	    		throw new NoCheckerException();
+	    	
+	    	for(i = 1; i <= (board.get(blackFrom).size()); i++)
+	    	{
+	    		if((board.get(blackFrom).get(board.get(blackFrom).size()-i)).getClass() == BlackChecker.class)
+	    		{
+	    			moving = (BlackChecker) board.get(blackFrom).get(board.get(blackFrom).size()-i);
+	    			break;
+	    		}
+	    	}
 
-	    	BlackChecker moving = (BlackChecker) board.get(blackFrom).get(board.get(blackFrom).size()-1);
 	    	moving.move(blackTo, pips[1]);
 		    pips[1][blackFrom]--;
 		    pips[1][blackTo]++;
@@ -416,30 +426,41 @@ public class Board extends JPanel
 		    	hit.move(0, pips[0]);
 		    	pips[0][blackTo]--;
 		    	pips[0][0]++;
-		    	board.get(blackTo).add(board.get(blackTo).remove(0));
+		    	board.get(0).add(board.get(blackTo).remove(0));
 		    	
 		    }
 
 		    if(blackTo != 25)
-		    	board.get(blackTo).add(board.get(blackFrom).remove((board.get(blackFrom).size()-1)));
+		    	board.get(blackTo).add(board.get(blackFrom).remove((board.get(blackFrom).size()-i)));
 
 		    else
 		    {
-		    	board.get(26).add(board.get(blackFrom).remove((board.get(blackFrom).size()-1)));
+		    	board.get(26).add(board.get(blackFrom).remove((board.get(blackFrom).size()-i)));
 		    	numInBlackSlot++;
 		    }
 	    }
 
 	    else if(colour == "White")
 	    {
+	    	WhiteChecker moving = new WhiteChecker(0, 0);
+	    	int i;
+	    	
 	    	if(pips[0][from] == 0)
 	    		throw new NoCheckerException();
 
-	    	WhiteChecker moving = (WhiteChecker) board.get(from).get(board.get(from).size() - 1);
+	    	for(i = 1; i <= (board.get(from).size()); i++)
+	    	{
+	    		if((board.get(from).get(board.get(from).size()-i)).getClass() == WhiteChecker.class)
+	    		{
+	    			moving = (WhiteChecker) board.get(from).get(board.get(from).size()-i);
+	    			break;
+	    		}
+	    	}
+	    	
 	    	moving.move(to, pips[0]);
 	    	pips[0][from]--;
 	    	pips[0][to]++;
-	    	board.get(to).add(board.get(from).remove((board.get(from).size() - 1)));
+	    	board.get(to).add(board.get(from).remove((board.get(from).size() - i)));
 	    	
 	    	if(pips[1][to] == 1)
 	    	{
