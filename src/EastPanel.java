@@ -227,6 +227,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	public int[] moveSelection(Board board, int colour, String input) {
 	    String[] moves = board.acceptableMoves(colour, result).split("\\n");
 	    int[] moveToReturn = new int[2];
+	    int from; int to;
 
 	    //formatting input for work
 	    input = input.substring(input.length()-2, input.length()); // isolates the input from move
@@ -239,14 +240,24 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
             	string = string.replaceAll("\\s+", ""); // removing white spaces
 
                 String firstHalf = string.substring(0, string.indexOf("-"));
-                try {
-                    firstHalf = firstHalf.replaceAll("-", "");
-                    int from = Integer.parseInt(firstHalf);
-                    moveToReturn[0] = from;
 
-                    String secondHalf = string.substring(string.indexOf("-")+1);
-                    int to = Integer.parseInt(secondHalf);
-                    moveToReturn[1] = to;
+                try {
+						if (string.contains("Bar")) {
+							from = 25;
+						}
+						else {
+							firstHalf = firstHalf.replaceAll("-", "");
+							from = Integer.parseInt(firstHalf);
+							moveToReturn[0] = from;
+						}
+						if(string.contains("Off")) {
+							to = 0;
+						}
+						else {
+							String secondHalf = string.substring(string.indexOf("-") + 1);
+							to = Integer.parseInt(secondHalf);
+							moveToReturn[1] = to;
+						}
                     }
                     catch (NumberFormatException e) {
                         areaText.append("\nERROR in MOVESELECTION()\n");
