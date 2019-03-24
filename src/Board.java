@@ -631,7 +631,7 @@ public class Board extends JPanel
 		     }
 
             else {
-                 for (int j = 24; j > 0; j--) {
+                 for (int j = 25; j > 0; j--) {
 
                      if (pips[colour][j] != 0) {
 
