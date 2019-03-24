@@ -388,7 +388,7 @@ public class Board extends JPanel
 	//converts what black entered in to be switched to a common pip number
 	private int blackToWhite(int pip)
 	{
-		int[] answer = {25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+		int[] answer = {0, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 25};
 		int returned = answer[pip];
 
 		return returned;
@@ -581,7 +581,7 @@ public class Board extends JPanel
 
 		if(colour == 0) {
 
-		     if(pips[colour][25] > 0)  //code for checkers in bar. Must move checkers outside of bar before any other move can be made
+		     if(pips[colour][0] > 0)  //code for checkers in bar. Must move checkers outside of bar before any other move can be made
 		     {
 
 		         if(!(pips[oppositeColour][25 - rolls[0]] >= 1))
@@ -739,7 +739,7 @@ public class Board extends JPanel
 
 		else {
 
-			if(pips[colour][25] > 0)//TODO bar possible moves for black
+			if(pips[colour][0] > 0)//TODO bar possible moves for black
 			{
                 if(!(pips[oppositeColour][rolls[0] + 1] >= 1))
                 {
