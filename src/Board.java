@@ -560,7 +560,7 @@ public class Board extends JPanel
 
 		if(colour == 0) {
 
-		     if(pips[colour][25] > 0)  //code for checkers in bar. Must move checkers outside of bar before any other move can be made
+		    if(pips[colour][25] > 0)  //code for checkers in bar. Must move checkers outside of bar before any other move can be made
 		     {
 
 		         if(!(pips[oppositeColour][25 - rolls[0]] >= 1))
@@ -622,33 +622,8 @@ public class Board extends JPanel
                      if (pips[colour][j] != 0) {
 
 
-                         //possible moves involving hits
-                         if (j - rolls[0] >= 0 && (pips[oppositeColour][j - rolls[0]]) == 1) {
-                             addNums = j - rolls[0];
-                             if (!(addNums == 0))
-                                 possibleMoves += "\n" + j + "-" + addNums + "*";
-                             else
-                                 possibleMoves += "\n" + j + "-" + "slot" + "*";
-                         }
-                         if (j - rolls[1] >= 0 && (pips[oppositeColour][j - rolls[1]]) == 1) {
-                             addNums = j - rolls[1];
-                             if (!(addNums == 0))
-                                 possibleMoves += "\n" + j + "-" + addNums + "*";
-                             else
-                                 possibleMoves += "\n" + j + "-" + "slot" + "*";
-                         }
-
-                         if ((j - rolls[0] - rolls[1] >= 0) && (pips[oppositeColour][j - rolls[0] - rolls[1]]) == 1) {
-                             addNums = j - rolls[0] - rolls[1];
-                             if (!(addNums == 0))
-                                 possibleMoves += "\n" + j + "-" + addNums + "*";
-                             else
-                                 possibleMoves += "\n" + j + "-" + "slot" + "*";
-                         }
-
-
                          //possibleMoves not involving hits.
-                         if ((j - rolls[0] >= 0) && !(pips[oppositeColour][j - rolls[0]] > 1)) {
+                         if ((j - rolls[0] >= 0) && !(pips[oppositeColour][j - rolls[0]] >= 1)) {
                              addNums = j - rolls[0];
                              if (!(addNums == 0))
                                  possibleMoves += "\n" + j + "-" + addNums;
@@ -656,7 +631,17 @@ public class Board extends JPanel
                                  possibleMoves += "\n" + j + "-" + "slot";
                          }
 
-                         if (((j - rolls[1] >= 0) && (rolls[0] != rolls[1]) && !(pips[oppositeColour][j - rolls[1]] > 1))) {
+
+                         //possible moves involving hits
+                        else if (j - rolls[0] >= 0 && (pips[oppositeColour][j - rolls[0]]) == 1) {
+                             addNums = j - rolls[0];
+                             if (!(addNums == 0))
+                                 possibleMoves += "\n" + j + "-" + addNums + "*";
+                             else
+                                 possibleMoves += "\n" + j + "-" + "slot" + "*";
+                         }
+
+                         if (((j - rolls[1] >= 0) && (rolls[0] != rolls[1]) && !(pips[oppositeColour][j - rolls[1]] >= 1))) {
                              addNums = j - rolls[1];
                              if (!(addNums == 0))
                                  possibleMoves += "\n" + j + "-" + addNums;
@@ -664,13 +649,31 @@ public class Board extends JPanel
                                  possibleMoves += "\n" + j + "-" + "slot";
                          }
 
-                         if ((j - rolls[0] - rolls[1] >= 0) && !(pips[oppositeColour][j - rolls[0] - rolls[1]] > 1)) {
+                        else if (j - rolls[1] >= 0 && (pips[oppositeColour][j - rolls[1]]) == 1) {
+                             addNums = j - rolls[1];
+                             if (!(addNums == 0))
+                                 possibleMoves += "\n" + j + "-" + addNums + "*";
+                             else
+                                 possibleMoves += "\n" + j + "-" + "slot" + "*";
+                         }
+
+                         if ((j - rolls[0] - rolls[1] >= 0) && !(pips[oppositeColour][j - rolls[0] - rolls[1]] >= 1)) {
                              addNums = j - rolls[0] - rolls[1];
                              if (!(addNums == 0))
                                  possibleMoves += "\n" + j + "-" + addNums;
                              else
                                  possibleMoves += "\n" + j + "-" + "slot";
                          }
+
+
+                         else if ((j - rolls[0] - rolls[1] >= 0) && (pips[oppositeColour][j - rolls[0] - rolls[1]]) == 1) {
+                             addNums = j - rolls[0] - rolls[1];
+                             if (!(addNums == 0))
+                                 possibleMoves += "\n" + j + "-" + addNums + "*";
+                             else
+                                 possibleMoves += "\n" + j + "-" + "slot" + "*";
+                         }
+
 
                          //possible moves for doubles
                          if (rolls[0] == rolls[1]) {
