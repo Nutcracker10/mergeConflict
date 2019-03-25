@@ -365,7 +365,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			return;
 		}
 
-		else if(s.length == 1) { // enacts move if there is only one available move
+		else if(s.length == 2) { // enacts move if there is only one available move
 		    areaText.append("Making only valid move.\n");
 			try {
 				Thread.sleep(1000);
