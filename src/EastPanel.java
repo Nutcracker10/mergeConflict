@@ -303,6 +303,13 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 	public void move(String text) {
 
+		if(white.myTurn) {
+			moveCheck(board, white.colour);
+		}
+		else {
+			moveCheck(board, black.colour);
+		}
+
 		int flag =0;
 		int colour;
 		if(white.myTurn)
@@ -339,13 +346,15 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		enterText.selectAll();
 		turnNumber++;
+		areaText.append("\n");
+		addPossibleMoves(board, colour);
 	} // end of move
 
 	public void moveCheck(Board board, int colour) {
 
 		String[] s = board.acceptableMoves(colour, result).split("\\n");
 
-		if(s.length == 0) {
+		if(s[0] == "") {
 			areaText.append("No turns available, starting next turn\n");
 			try {
 				Thread.sleep(1000); // causes the program to sleep for 1 second
@@ -363,7 +372,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			move(s[0].substring(0,1));
+			move(s[1].substring(0,1));
             nextTurn();
 		}
 	} // end of moveCheck
