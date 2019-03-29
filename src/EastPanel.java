@@ -128,7 +128,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		}// end of move
 		
-		else if(text.startsWith("cheat"))
+		else if(text.startsWith("cheat") && !(black.haveWon || white.haveWon))
 		{
 			notifyCheatListeners();
 			
@@ -194,6 +194,24 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			}
 		}
 
+
+		if(black.hasWonGame(board.numInBlackSlot))
+		{
+			areaText.append("\nCongratulations " + black.getName()+" has won");
+			areaText.append("\nWould you like to play again? yes/no");
+
+		}
+
+		else if(white.hasWonGame(board.numInWhiteSlot))
+		{
+			areaText.append("\nCongratulations " + white.getName()+" has won");
+			areaText.append("\nWould you like to play again? yes/no");
+		}
+
+		if((white.haveWon || black.haveWon) && text.equals("yes"))
+		{
+			turnNumber = 0;
+		}
 
 
 	}// end of actionPerformed

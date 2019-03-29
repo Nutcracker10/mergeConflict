@@ -14,6 +14,7 @@ public class Board extends JPanel
 	//pip[1] hold black checker
 	public int[][] pips = { {0, 0, 0, 0, 0, 0, 5, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0},
 							{0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 3, 0, 5, 0, 0, 0, 0, 0, 0}};
+	public int[][] restartCopy = pips;
 
 	public int numInWhiteSlot = 0; //varibles to count the number of checkers in player's slots
 	public int numInBlackSlot = 0;
@@ -1130,4 +1131,14 @@ public class Board extends JPanel
     {
         whosTurn = turn;
     }
+
+
+    public void restBoard()
+    {
+        pips = restartCopy;
+        numInWhiteSlot = 0; //varibles to count the number of checkers in player's slots
+        numInBlackSlot = 0;
+    }
+
+
 }
