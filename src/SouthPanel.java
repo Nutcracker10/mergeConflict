@@ -9,39 +9,21 @@ import java.awt.event.ActionListener;
 
 public class SouthPanel extends JPanel {
 
-    JButton diceRoll = new JButton("ROLL DICE");     // a button for rolling dice
-    JButton doubleroll = new JButton("DOUBLE");      // a button for the double mechanic
-    JTextArea dicedisplay = new JTextArea("DICE ROLL: "); // an area for displaying the dice roll result
-    JPanel subpanel = new JPanel();                       // a sub panel for buttons
+    JTextArea scoreToReach = new JTextArea("Score To Reach: "); // an area for displaying the dice roll result
+    JTextArea turnNumber = new JTextArea(("Turn Number: "));
     Dice d = new Dice();                                  //Dice object for rolling
-
 
     SouthPanel(){
 
-        subpanel.setLayout(new GridLayout(1,2)); //Add a 1*2 grid
 
         //add textareas to subpanel
-        subpanel.add(doubleroll);
-        subpanel.add(diceRoll);
-
-        this.setLayout(new BorderLayout());          //adds border layout to south panel
-        this.add(subpanel, BorderLayout.EAST);       //adds diceroll to right side of panel
-        this.add(dicedisplay, BorderLayout.CENTER);  //adds dicedisplay to middle of panel
+        this.setLayout(new GridLayout(1,2));          //adds border layout to south panel
+        this.add(scoreToReach);  //adds dicedisplay to middle of panel
+        this.add(turnNumber);
 
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // creates black lines around panel
 
 
-        diceRoll.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dicedisplay.setText(d.getDie1() + " " + d.getDie2() + "\n" ); //when dice roll is clicked the numbers appear on the screen
-
-            }
-        });
-
     }
 
-    public String getAction () {
-        return dicedisplay.getText();
-    }
 }
