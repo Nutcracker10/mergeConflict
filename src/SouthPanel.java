@@ -9,17 +9,19 @@ import java.awt.event.ActionListener;
 
 public class SouthPanel extends JPanel {
 
-    JTextArea scoreToReach = new JTextArea("Score To Reach: "); // an area for displaying the dice roll result
-    JTextArea turnNumber = new JTextArea(("Turn Number: "));
-    Dice d = new Dice();                                  //Dice object for rolling
+    // creating text areas
+    JTextArea scoreToReach = new JTextArea("Score To Reach: ");
+    JTextArea matchLength = new JTextArea(("Match Length: "));
+    JTextArea doubleCube = new JTextArea("Doube Cube: ");
 
     SouthPanel(){
 
 
-        //add textareas to subpanel
-        this.setLayout(new GridLayout(1,2));          //adds border layout to south panel
-        this.add(scoreToReach);  //adds dicedisplay to middle of panel
-        this.add(turnNumber);
+        this.setLayout(new GridLayout(1,2));          //adds grid layout to south panel
+       // add text fields to panel
+        this.add(scoreToReach);
+        this.add(matchLength);
+        this.add(doubleCube);
 
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // creates black lines around panel
 
