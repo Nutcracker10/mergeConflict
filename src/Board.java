@@ -275,8 +275,8 @@ public class Board extends JPanel
 		//Draw two bear off slots
 		Color slateGray = new Color(112, 128, 144);
 		g.setColor(slateGray);
-		g.fillRect(715, 65, 50, 200);
-		g.fillRect(715, 335, 50, 200);
+		g.fillRect(715, 60, 50, 225);
+		g.fillRect(715, 315, 50, 225);
 	}
 
 	private void drawTrianglesOne(Graphics g)
@@ -463,7 +463,7 @@ public class Board extends JPanel
 	    		board.get(25).add(board.get(to).remove(0));
 	    	}
 
-			if(to == 0) //TODO and if the move is valid
+			if(to == 0)
 				numInWhiteSlot++;
 	    }
 
@@ -476,37 +476,37 @@ public class Board extends JPanel
 			a.clear();
 		}
 
-		w1.setCoordinates(362, 260);
-		w2.setCoordinates(362, 230);
-		w3.setCoordinates(362, 200);
-		w4.setCoordinates(663, 520);
-		w5.setCoordinates(663, 490);
-		w6.setCoordinates(613, 520);
-		w7.setCoordinates(613, 490);
-		w8.setCoordinates(563, 520);
-		w9.setCoordinates(563, 490);
-		w10.setCoordinates(513, 520);
-		w11.setCoordinates(513, 490);
-		w12.setCoordinates(463, 520);
-		w13.setCoordinates(463, 490);
+		w1.setCoordinates(662, 490);
+		w2.setCoordinates(662, 520);
+		w3.setCoordinates(715, 355);
+		w4.setCoordinates(715, 370);
+		w5.setCoordinates(715, 385);
+		w6.setCoordinates(715, 400);
+		w7.setCoordinates(715, 415);
+		w8.setCoordinates(715, 430);
+		w9.setCoordinates(715, 445);
+		w10.setCoordinates(715, 460);
+		w11.setCoordinates(715, 475);
+		w12.setCoordinates(715, 490);
+		w13.setCoordinates(715, 505);
 		w14.setCoordinates(715, 535);
 		w15.setCoordinates(715, 520);
 
-		b1.setCoordinates(362, 310);
-		b2.setCoordinates(362, 340);
-		b3.setCoordinates(362, 370);
-		b4.setCoordinates(663, 50);
-		b5.setCoordinates(663, 80);
-		b6.setCoordinates(663, 110);
-		b7.setCoordinates(563, 50);
-		b8.setCoordinates(563, 80);
-		b9.setCoordinates(563, 110);
-		b10.setCoordinates(513, 50);
-		b11.setCoordinates(513, 80);
-		b12.setCoordinates(513, 110);
-		b13.setCoordinates(715, 252);
+		b1.setCoordinates(662, 80);
+		b2.setCoordinates(662, 50);
+		b3.setCoordinates(715, 57);
+		b4.setCoordinates(715, 72);
+		b5.setCoordinates(715, 87);
+		b6.setCoordinates(715, 102);
+		b7.setCoordinates(715, 117);
+		b8.setCoordinates(715, 132);
+		b9.setCoordinates(715, 147);
+		b10.setCoordinates(715, 162);
+		b11.setCoordinates(715, 177);
+		b12.setCoordinates(715, 192);
+		b13.setCoordinates(715, 207);
 		b14.setCoordinates(715, 237);
-		b15.setCoordinates(715, 222);
+		//b15.setCoordinates(715, );
 
 		bar.add(w1);
 		bar.add(w2);
@@ -550,8 +550,8 @@ public class Board extends JPanel
 		bearOff.add(w15);
 		
 		
-		int[][] changed = {	{2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3},
-							{3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 3, 3}};
+		int[][] changed = {	{13, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+							{13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0}};
 		pips = changed;
 	}
 
