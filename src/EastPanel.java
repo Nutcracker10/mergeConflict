@@ -292,23 +292,10 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		}
 		turnNumber++;
 
-		if(white.myTurn) {
-			moveCheck(board, white.colour);
-		}
-		else {
-			moveCheck(board, black.colour);
-		}
 
 	} // end of next turn
 
 	public void move(String text) {
-
-		if(white.myTurn) {
-			moveCheck(board, white.colour);
-		}
-		else {
-			moveCheck(board, black.colour);
-		}
 
 		int flag =0;
 		int colour;
@@ -317,64 +304,58 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		else
 			colour = black.colour;
 
-		int[] array = moveSelection(board, colour, text);
-		int to = array[1]; int from = array[0];
-
-		if (to ==0){
-			flag = 1;
-			areaText.append("Invalid selection, try again\n");
+		if (moveCheck(board.acceptableMoves(colour, result)) == 0) {
+			areaText.append("No moves available! Next turn!\n");
+			nextTurn();
 		}
-
-		areaText.append("\n" + from + " " + to);
-
-		if((from < 0) || (to < 0) || (from > 25) || (to > 25) && flag != 1)
-		{
-			areaText.append("Not a valid move");
-			return;
+		else if (moveCheck(board.acceptableMoves(colour, result)) == 1){
+			areaText.append("One move available, moving now...\n");
+			move("A");
 		}
+		else {
 
-		if(white.myTurn)
-		{
-			notifyMoveListeners(white.getColour(), from, to);
+			int[] array = moveSelection(board, colour, text);
+			int to = array[1];
+			int from = array[0];
+
+			if (to == 0) {
+				flag = 1;
+				areaText.append("Invalid selection, try again\n");
+			}
+
+			areaText.append("\n" + from + " " + to);
+
+			if ((from < 0) || (to < 0) || (from > 25) || (to > 25) && flag != 1) {
+				areaText.append("Not a valid move");
+				return;
+			}
+
+			if (white.myTurn) {
+				notifyMoveListeners(white.getColour(), from, to);
+			} else if (black.myTurn) {
+				notifyMoveListeners(black.getColour(), from, to);
+			}
+
 		}
-
-		else if(black.myTurn)
-		{
-			notifyMoveListeners(black.getColour(), from, to);
-		}
-
-
 		enterText.selectAll();
 		turnNumber++;
 		areaText.append("\n");
 		addPossibleMoves(board, colour);
 	} // end of move
 
-	public void moveCheck(Board board, int colour) {
+	public int moveCheck(String input) {
 
-		String[] s = board.acceptableMoves(colour, result).split("\\n");
-
-		if(s[0] == "") {
-			areaText.append("No turns available, starting next turn\n");
-			try {
-				Thread.sleep(1000); // causes the program to sleep for 1 second
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			nextTurn();
-			return;
+		String[] inputArray = input.split("\\s");
+		if (inputArray.length == 2) { // return 1 if there is one move
+			return 1;
 		}
 
-		else if(s.length == 2) { // enacts move if there is only one available move
-		    areaText.append("Making only valid move.\n");
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			move(s[1].substring(0,1));
-            nextTurn();
+		else if (inputArray[0] == "") { // return 0 if there is no move
+			return 0;
 		}
+
+		else {return 2;} // if the conditions aren't applicable, return 2
+
 	} // end of moveCheck
 
 
