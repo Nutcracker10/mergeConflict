@@ -11,7 +11,7 @@ public class Player
     String name;
     int colour, initiaive;
     Dice roll;
-    boolean myTurn, haveWon;
+    boolean myTurn, haveWon, doublingCube;
     Coordinate lastMove;
 
     public Player(String n, int c)
@@ -22,6 +22,7 @@ public class Player
         initiaive = roll.getDie1();
         myTurn = false;
         haveWon = false;
+        doublingCube = false;
         lastMove = new Coordinate(0, 0);
     }
 
@@ -82,6 +83,11 @@ public class Player
     public boolean isMyTurn()
     {
         return myTurn;
+    }
+    
+    public boolean hasDoublingCube()
+    {
+    	return doublingCube;
     }
 
 
