@@ -211,6 +211,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		if((white.haveWon || black.haveWon) && text.equals("yes"))
 		{
 			turnNumber = 0;
+			board.restBoard();
 		}
 
 
