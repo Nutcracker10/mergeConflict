@@ -13,11 +13,13 @@ public class Player
     Dice roll;
     boolean myTurn, haveWon, doublingCube;
     Coordinate lastMove;
+    int score;
 
     public Player(String n, int c)
     {
     	this.name = n;
     	this.colour = c;
+    	score = 0;
         roll = new Dice();
         initiaive = roll.getDie1();
         myTurn = false;
@@ -64,6 +66,11 @@ public class Player
         this.colour = c;
 
     }
+    
+    public void setScore(int s)
+    {
+    	this.score = s;
+    }
 
     //Method gets the colour the player is using. o for white, 1 for black
     public String getColour()
@@ -78,6 +85,11 @@ public class Player
     public String getName()
     {
         return name;
+    }
+    
+    public int getScore()
+    {
+    	return score;
     }
 
     public boolean isMyTurn()

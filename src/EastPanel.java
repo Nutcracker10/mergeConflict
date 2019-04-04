@@ -71,13 +71,6 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-
-
-
-
-
-
-
 	}
 
 	public int[] autoDiceRoller() { // automatically rolls dice and returns an array of results
@@ -273,6 +266,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			white.myTurn = false;
 			black.myTurn = true;
 			playerName.setText(black.name);
+			playerScore.setText(Integer.toString(black.getScore()));
 			areaText.append("\n\n" + black.name + "'s turn");
 			result = autoDiceRoller();
 			areaText.append("\nRoll: " + result[0] + " " + result[1]);
@@ -284,6 +278,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			white.myTurn = true;
 			black.myTurn = false;
 			playerName.setText(white.name);
+			playerScore.setText(Integer.toString(white.getScore()));
 			areaText.append("\n\n" + white.name + "'s turn");
 			result = autoDiceRoller();
 			areaText.append("\nRoll: " + result[0] + " " + result[1]);
