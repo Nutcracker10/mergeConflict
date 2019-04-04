@@ -70,14 +70,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		playerScore.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // creates line around score
 
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-
-
-
-
-
-
-
+		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 	}
 
 	public int[] autoDiceRoller() { // automatically rolls dice and returns an array of results
@@ -261,6 +254,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
                 try {
 						if (string.contains("Bar")) {
 							from = 25;
+							moveToReturn[0] = from;
 						}
 						else {
 							firstHalf = firstHalf.replaceAll("-", "");
@@ -269,6 +263,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 						}
 						if(string.contains("Off")) {
 							to = 0;
+							moveToReturn[1] = to;
 						}
 						else {
 							String secondHalf = string.substring(string.indexOf("-") + 1);
@@ -290,6 +285,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			white.myTurn = false;
 			black.myTurn = true;
 			playerName.setText(black.name);
+			playerScore.setText(Integer.toString(black.getScore()));
 			areaText.append("\n\n" + black.name + "'s turn");
 			result = autoDiceRoller();
 			areaText.append("\nRoll: " + result[0] + " " + result[1]);
@@ -301,6 +297,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			white.myTurn = true;
 			black.myTurn = false;
 			playerName.setText(white.name);
+			playerScore.setText(Integer.toString(white.getScore()));
 			areaText.append("\n\n" + white.name + "'s turn");
 			result = autoDiceRoller();
 			areaText.append("\nRoll: " + result[0] + " " + result[1]);
@@ -373,7 +370,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		String[] s = board.acceptableMoves(colour, result).split("\\n");
 
-		if(s[0] == "") {
+		if(s[1] == "") {
 			areaText.append("No turns available, starting next turn\n");
 			try {
 				Thread.sleep(1000); // causes the program to sleep for 1 second
