@@ -53,11 +53,13 @@ public class frame extends JFrame implements EventListener
         if(east.black.hasWonGame(board.numInBlackSlot))
         {
             east.areaText.append("\nCongratulations " +east.black.getName()+" has won");
+            east.black.setScore(board.getScore(east.black.getColour()));
         }
 
         if(east.white.hasWonGame(board.numInWhiteSlot))
         {
             east.areaText.append("\nCongratulations " +east.white.getName()+" has won");
+            east.white.setScore(board.getScore(east.white.getColour()));
         }
 
 

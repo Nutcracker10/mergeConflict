@@ -1119,13 +1119,42 @@ public class Board extends JPanel
 				letteredList += stringArray[i];
 			}//end of for
 		} // end of if
-	   return letteredList;
-   }// end of letterAdder
+		return letteredList;
+   	}// end of letterAdder
 
-	private String numbertoCharacter(int i) { // turns numbers to characters
+	private String numbertoCharacter(int i) 
+	{ // turns numbers to characters
 		return i > 0 && i < 27 ? String.valueOf((char)(i + 'A' - 1)) : null; // turns number to letter
 	}
 
+	public int getScore(String colour)
+	{
+		if(colour == "White")
+		{
+			if(pips[1][0] >= 1)
+				return 1;
+			
+			else if((pips[1][0] == 0) && ((pips[1][25] >= 1)||(pips[1][1] >= 1)||(pips[1][2] >= 1)||(pips[1][3] >= 1)||(pips[1][4] >= 1)||(pips[1][5] >= 1)||(pips[1][6] >= 1)))
+				return 3;
+			
+			else
+				return 2;
+		}
+		
+		if(colour == "Black")
+		{
+			if(pips[0][0] >= 1)
+				return 1;
+			
+			else if((pips[0][0] == 0) && ((pips[0][25] >= 1)||(pips[0][24] >= 1)||(pips[0][23] >= 1)||(pips[0][22] >= 1)||(pips[0][21] >= 1)||(pips[0][20] >= 1)||(pips[0][19] >= 1)))
+				return 3;
+			
+			else
+				return 2;
+		}
+		
+		return 0;
+	}
     public void setWhosTurn(int turn)
     {
         whosTurn = turn;
