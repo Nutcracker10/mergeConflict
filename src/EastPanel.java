@@ -242,6 +242,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
                 try {
 						if (string.contains("Bar")) {
 							from = 25;
+							moveToReturn[0] =from;
 						}
 						else {
 							firstHalf = firstHalf.replaceAll("-", "");
@@ -250,6 +251,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 						}
 						if(string.contains("Off")) {
 							to = 0;
+							moveToReturn[1] = to;
 						}
 						else {
 							String secondHalf = string.substring(string.indexOf("-") + 1);
