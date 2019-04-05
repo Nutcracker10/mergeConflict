@@ -71,6 +71,13 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
+
+
+
+
+
+
 	}
 
 	public int[] autoDiceRoller() { // automatically rolls dice and returns an array of results
@@ -239,7 +246,6 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
                 try {
 						if (string.contains("Bar")) {
 							from = 25;
-							moveToReturn[0] = from;
 						}
 						else {
 							firstHalf = firstHalf.replaceAll("-", "");
@@ -248,7 +254,6 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 						}
 						if(string.contains("Off")) {
 							to = 0;
-							moveToReturn[1] = to;
 						}
 						else {
 							String secondHalf = string.substring(string.indexOf("-") + 1);
@@ -271,6 +276,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			black.myTurn = true;
 			playerName.setText("Name: " + black.name);
 			playerScore.setText("Score: " + Integer.toString(black.getScore()));
+			playerName.setText(black.name);
+
 			areaText.append("\n\n" + black.name + "'s turn");
 			result = autoDiceRoller();
 			areaText.append("\nRoll: " + result[0] + " " + result[1]);
@@ -283,14 +290,14 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			black.myTurn = false;
 			playerName.setText("Name: " + white.name);
 			playerScore.setText("Score: " + Integer.toString(white.getScore()));
+			playerName.setText(white.name);
 			areaText.append("\n\n" + white.name + "'s turn");
 			result = autoDiceRoller();
 			areaText.append("\nRoll: " + result[0] + " " + result[1]);
 			addPossibleMoves(board,0);
 			enterText.selectAll();
-
-
 		}
+		
 		turnNumber++;
 
 		if(white.myTurn) {
@@ -355,7 +362,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		String[] s = board.acceptableMoves(colour, result).split("\\n");
 
-		if(s[1] == "") {
+		if(s[0] == "") {
 			areaText.append("No turns available, starting next turn\n");
 			try {
 				Thread.sleep(1000); // causes the program to sleep for 1 second
