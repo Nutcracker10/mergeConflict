@@ -19,6 +19,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	JTextArea playerScore = new JTextArea("Score: "); // Displays Player Score
 	JPanel subpanel = new JPanel();					// a subpanel for buttons
 
+    private int moveStatus = 2; // a global variable which dictates how the move function works
+
 	// adds scrolling functionality to the text area
 	JScrollPane scrollPane = new JScrollPane(areaText);
 
@@ -140,6 +142,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				result = autoDiceRoller();
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
 				addPossibleMoves(board,1);
+				moveCheck(board.acceptableMoves(1, result));
 				enterText.selectAll();
 				turnNumber++;
 			}
@@ -152,6 +155,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				result = autoDiceRoller();
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
 				addPossibleMoves(board,0);
+                moveCheck(board.acceptableMoves(0, result));
 				enterText.selectAll();
 				turnNumber++;
 			}
@@ -284,6 +288,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			result = autoDiceRoller();
 			areaText.append("\nRoll: " + result[0] + " " + result[1]);
 			addPossibleMoves(board,1);
+            moveCheck(board.acceptableMoves(1, result));
 			enterText.selectAll();
 		}
 
@@ -297,6 +302,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			result = autoDiceRoller();
 			areaText.append("\nRoll: " + result[0] + " " + result[1]);
 			addPossibleMoves(board,0);
+            moveCheck(board.acceptableMoves(0, result));
 			enterText.selectAll();
 		}
 		
@@ -358,7 +364,6 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
         else if (moves.length == 2) {return 1;} // return 1 if there is only one move
 
         else {return 2;} // else return 2
-
 
 	} // end of moveCheck
 
