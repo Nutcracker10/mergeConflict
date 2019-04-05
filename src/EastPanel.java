@@ -311,17 +311,27 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		else if (moveCheck(board.acceptableMoves(colour, result)) == 1){
 			areaText.append("One move available, moving now...\n");
 			move("A");
+
+			int[] array = moveSelection(board, colour, text);
+			int to = array[1];
+			int from = array[0];
+			areaText.append("\n" + from + " " + to);
+			enterText.selectAll();
+			turnNumber++;
+			areaText.append("\n");
+			addPossibleMoves(board, colour);
+			return;
 		}
 		else {
 
 			int[] array = moveSelection(board, colour, text);
 			int to = array[1];
 			int from = array[0];
-
+			/*
 			if (to == 0) {
 				flag = 1;
 				areaText.append("Invalid selection, try again\n");
-			}
+			}*/
 
 			areaText.append("\n" + from + " " + to);
 
