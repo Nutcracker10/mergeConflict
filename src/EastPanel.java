@@ -302,22 +302,16 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		
 		turnNumber++;
 
-		if(white.myTurn) {
-			moveCheck(board, white.colour);
-		}
-		else {
-			moveCheck(board, black.colour);
-		}
 
 	} // end of next turn
 
 	public void move(String text) {
 
 		if(white.myTurn) {
-			moveCheck(board, white.colour);
+			moveCheck(text);
 		}
 		else {
-			moveCheck(board, black.colour);
+			moveCheck(text);
 		}
 
 		int colour;
@@ -355,31 +349,17 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		addPossibleMoves(board, colour);
 	} // end of move
 
-	public void moveCheck(Board board, int colour) {
+	public int moveCheck(String input) {
 
-		String[] s = board.acceptableMoves(colour, result).split("\\n");
+	    String[] moves = input.split("\\n"); // saves possible moves to an array of strings
 
-		if(s[0] == "") {
-			areaText.append("No turns available, starting next turn\n");
-			try {
-				Thread.sleep(1000); // causes the program to sleep for 1 second
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			nextTurn();
-			return;
-		}
+        if (moves[0] == "") {return 0;} // return 0 if there are no moves
 
-		else if(s.length == 2) { // enacts move if there is only one available move
-		    areaText.append("Making only valid move.\n");
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			move(s[1].substring(0,1));
-            nextTurn();
-		}
+        else if (moves.length == 2) {return 1;} // return 1 if there is only one move
+
+        else {return 2;} // else return 2
+
+
 	} // end of moveCheck
 
 
