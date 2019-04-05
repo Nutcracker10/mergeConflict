@@ -312,7 +312,6 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			moveCheck(board, black.colour);
 		}
 
-		int flag =0;
 		int colour;
 		if(white.myTurn)
 			colour = white.colour;
@@ -322,14 +321,10 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		int[] array = moveSelection(board, colour, text);
 		int to = array[1]; int from = array[0];
 
-		if (to ==0){
-			flag = 1;
-			areaText.append("Invalid selection, try again\n");
-		}
 
 		areaText.append("\n" + from + " " + to);
 
-		if((from < 0) || (to < 0) || (from > 25) || (to > 25) && flag != 1)
+		if((from < 0) || (to < 0) || (from > 25) || (to > 25))
 		{
 			areaText.append("Not a valid move");
 			return;
