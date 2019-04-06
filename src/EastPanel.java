@@ -19,8 +19,6 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	JTextArea playerScore = new JTextArea("Score: "); // Displays Player Score
 	JPanel subpanel = new JPanel();					// a subpanel for buttons
 
-    private int moveStatus = 2; // a global variable which dictates how the move function works
-
 	// adds scrolling functionality to the text area
 	JScrollPane scrollPane = new JScrollPane(areaText);
 
@@ -73,12 +71,6 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-
-
-
-
-
-
 
 	}
 
@@ -142,7 +134,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				result = autoDiceRoller();
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
 				addPossibleMoves(board,1);
-				moveStatus = moveCheck(board.acceptableMoves(1, result));
+				moveCheck(board.acceptableMoves(1, result));
 				enterText.selectAll();
 				turnNumber++;
 			}
@@ -155,7 +147,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				result = autoDiceRoller();
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
 				addPossibleMoves(board,0);
-                moveStatus = moveCheck(board.acceptableMoves(0, result));
+                moveCheck(board.acceptableMoves(0, result));
 				enterText.selectAll();
 				turnNumber++;
 			}
@@ -189,7 +181,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				result = autoDiceRoller();
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
 				addPossibleMoves(board,0);
-				moveStatus = moveCheck(board.acceptableMoves(0, result));
+				moveCheck(board.acceptableMoves(0, result));
 				white.myTurn = true;
 			} 
 			else {
@@ -199,7 +191,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				result = autoDiceRoller();
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
 				addPossibleMoves(board,1);
-                moveStatus = moveCheck(board.acceptableMoves(1, result));
+                moveCheck(board.acceptableMoves(1, result));
 				black.myTurn = true;
 			}
 		}
@@ -290,7 +282,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			result = autoDiceRoller();
 			areaText.append("\nRoll: " + result[0] + " " + result[1]);
 			addPossibleMoves(board,1);
-            moveStatus= moveCheck(board.acceptableMoves(1, result));
+            moveCheck(board.acceptableMoves(1, result));
 			enterText.selectAll();
 		}
 
@@ -304,7 +296,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			result = autoDiceRoller();
 			areaText.append("\nRoll: " + result[0] + " " + result[1]);
 			addPossibleMoves(board,0);
-            moveStatus = moveCheck(board.acceptableMoves(0, result));
+            moveCheck(board.acceptableMoves(0, result));
 			enterText.selectAll();
 		}
 		
@@ -320,32 +312,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			colour = white.colour;
 		else
 			colour = black.colour;
-		/*
-		if (moveStatus == 0) { // change to next turn
-			areaText.append("No available moves, changing turn...\n");
 
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			nextTurn();
-			moveStatus = 2;
-			return;
-		}
-
-		else if(moveStatus == 1) {
-			areaText.append("One move possible, making move...\n");
-
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			move("move A");
-			moveStatus = 2;
-			return;
-		} */
 
 		if(true) { // move as normal
 			int[] array = moveSelection(board, colour, text); // break up all possible moves into a 2d array
@@ -373,7 +340,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		addPossibleMoves(board, colour);
 	} // end of move
 
-	public int moveCheck(String input) {
+	public void moveCheck(String input) {
 
 	    String[] moves = input.split("\\n"); // saves possible moves to an array of strings
 
@@ -381,14 +348,13 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			areaText.append("\nNo available moves,\n changing turn...\n");
 
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(1000); // wait one second
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			moveStatus = 2;
-			nextTurn();
-        	return 0;
-        } // return 0 if there are no moves
+			nextTurn(); // call next turn if no available moves
+        	return;
+        }
 
         else if (moves.length == 2) {
 			areaText.append("\nOne move possible, making move...\n");
@@ -398,13 +364,10 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			move("move A");
-			moveStatus = 2;
-
-        	return 1;
-        } // return 1 if there is only one move
-
-        else {return 2;} // else return 2
+			move("move A"); // make first and only move
+        	return;
+        }
+        else {return;} // do nothing if no if statements were triggered
 
 	} // end of moveCheck
 
