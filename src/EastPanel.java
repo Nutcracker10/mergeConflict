@@ -280,7 +280,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 							to = 0;
 							moveToReturn[1] = to;
 						}
-			
+
 						else {
 							to = Integer.parseInt(secondHalf);
 							moveToReturn[1] = to;
