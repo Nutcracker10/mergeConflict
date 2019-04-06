@@ -386,7 +386,7 @@ public class Board extends JPanel
 	//converts what black entered in to be switched to a common pip number
 	private int blackToWhite(int pip)
 	{
-		int[] answer = {0, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 25};
+		int[] answer = {25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
 
 		return answer[pip];
 	}
@@ -454,7 +454,7 @@ public class Board extends JPanel
 	    	pips[0][to]++;
 	    	board.get(to).add(board.get(from).remove((board.get(from).size() - i)));
 	    	
-	    	if(pips[1][to] == 1)
+	    	if(pips[1][25-to] == 1)
 	    	{
 	    		BlackChecker hit = (BlackChecker) board.get(to).get(0);
 	    		hit.move(25, pips[1]);
@@ -1074,7 +1074,7 @@ public class Board extends JPanel
 		for (int i=1; i<moveArray.length; i++) { //starting at one to get rid of a pesky \n
 		    int hitCount =0;
 		    boolean dupFlag = false; //when a dup found will turn true
-			
+
 
             for (int j = i+1; j<moveArray.length; j++) { // adds elements to a list without duplicating them
 
@@ -1167,6 +1167,7 @@ public class Board extends JPanel
         pips = restartCopy;
         numInWhiteSlot = 0; //varibles to count the number of checkers in player's slots
         numInBlackSlot = 0;
+        this.repaint();
     }
 
 

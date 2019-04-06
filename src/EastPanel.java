@@ -194,6 +194,13 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		}
 
 
+        if((white.haveWon || black.haveWon) && text.equals("yes"))
+        {
+            turnNumber = 0;
+            board.restBoard();
+        }
+
+
 		if(black.hasWonGame(board.numInBlackSlot))
 		{
 			areaText.append("\nCongratulations " + black.getName()+" has won");
@@ -207,11 +214,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			areaText.append("\nWould you like to play again? yes/no");
 		}
 
-		if((white.haveWon || black.haveWon) && text.equals("yes"))
-		{
-			turnNumber = 0;
-			board.restBoard();
-		}
+
 
 
 	}// end of actionPerformed
@@ -271,6 +274,13 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 							to = 0;
 							moveToReturn[1] = to;
 						}
+						else if(string.contains("*"))
+						{
+						    String secondHalf = string.substring(string.indexOf("-") + 1,string.indexOf("-"));
+						   to = Integer.parseInt(secondHalf);
+						   moveToReturn[1] = to;
+                        }
+
 						else {
 							String secondHalf = string.substring(string.indexOf("-") + 1);
 							to = Integer.parseInt(secondHalf);
