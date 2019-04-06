@@ -35,6 +35,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	
 	int turnNumber = 0; // to count what turn it is
 	int match = 0;
+	int doublingCube = 1;
+	boolean hasDoubled = false;
 
 	public EastPanel() 
 	{
@@ -159,6 +161,81 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				match = 0;
 			}
 			notifyMatchListeners();
+			enterText.selectAll();
+		}
+		
+		else if(text.startsWith("double"))
+		{
+			if(white.isMyTurn())
+			{
+				if(white.hasDoublingCube())
+				{
+					areaText.append("\n" + white.getName() + " is doubling.");
+					areaText.append("\nDo you accept, " + black.getName() + "?\nEnter Y/N");
+					hasDoubled = true;
+				}
+				
+				else
+				{
+					areaText.append("\nYou cannot double at this time.");
+				}
+			}
+			
+			else
+			{
+				if(black.hasDoublingCube())
+				{
+					areaText.append("\n" + black.getName() + " is doubling.");
+					areaText.append("\nDo you accept, " + white.getName() + "?\nEnter Y/N");
+					hasDoubled = true;
+				}
+				
+				else
+				{
+					areaText.append("\nYou cannot double at this time.");
+				}
+			}
+			
+			enterText.selectAll();
+		}
+		
+		else if(((text.startsWith("Y")) || (text.startsWith("y"))) && hasDoubled)
+		{
+			if(white.isMyTurn())
+			{
+				doublingCube = doublingCube * 2;
+				white.doublingCube = false;
+				black.doublingCube = true;
+				areaText.append("\nScore will be multiplied by " + doublingCube);
+				enterText.selectAll();
+			}
+			
+			else if(black.isMyTurn())
+			{
+				doublingCube = doublingCube * 2;
+				black.doublingCube = false;
+				white.doublingCube = true;
+				areaText.append("\nScore will be multiplied by " + doublingCube);
+				enterText.selectAll();
+			}	
+		}
+		
+		else if(((text.startsWith("N")) || (text.startsWith("n"))) && hasDoubled)
+		{
+			if(white.isMyTurn())
+			{
+				areaText.append("\n" + black.getName() + " has forfeited.");
+			}
+			
+			else if(black.isMyTurn())
+			{
+				areaText.append("\n" + white.getName() + " has forfeited.");
+			}
+		}
+		
+		else if(text.startsWith("roll"))
+		{
+			
 		}
 			
 		else 
@@ -173,10 +250,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			areaText.append("\nGAME START"); // Announces start of the games
 			areaText.append("\nPOINTS TO WIN: " + match);
 			gameHasBegun = true;
-		}
-
-		if (gameHasBegun) // if the game has started
-		{
+			
 			if(white.myTurn) {
 				board.setWhosTurn(0);
 			}
@@ -204,7 +278,10 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 					addPossibleMoves(board,1);
 				black.myTurn = true;
 			}
+			
+			turnNumber++;
 		}
+
 
 
         if((white.haveWon || black.haveWon) && text.equals("yes"))

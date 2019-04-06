@@ -24,11 +24,9 @@ public class Player
         initiaive = roll.getDie1();
         myTurn = false;
         haveWon = false;
-        doublingCube = false;
+        doublingCube = true;
         lastMove = new Coordinate(0, 0);
     }
-
-
 
     //method to check if game has been won. Should check players slot to see if it is full
     public boolean hasWonGame(int checksInSlot)
