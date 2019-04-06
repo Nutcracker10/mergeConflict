@@ -276,7 +276,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 						}
 						else if(string.contains("*"))
 						{
-						    String secondHalf = string.substring(string.indexOf("-") + 1,string.indexOf("-"));
+						    String secondHalf = string.substring(string.indexOf("-") + 1, string.indexOf("-") + 2);
 						   to = Integer.parseInt(secondHalf);
 						   moveToReturn[1] = to;
                         }
