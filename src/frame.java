@@ -38,8 +38,6 @@ public class frame extends JFrame implements EventListener
     
     public void move(String colour, int from, int to)
     {
-
-
         try
     	{
     	    board.Move(colour, from, to);
@@ -62,15 +60,17 @@ public class frame extends JFrame implements EventListener
             east.white.setScore(board.getScore(east.white.getColour()));
         }
 
-
-
-
     }
 
     public void cheat()
     {
     	board.cheat();
     	board.repaint();
+    }
+    
+    public void match(int p)
+    {
+    	south.setMatchLength(p);
     }
     //returns the east panel
     public EastPanel getEastPanel()

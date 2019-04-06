@@ -22,8 +22,6 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	// adds scrolling functionality to the text area
 	JScrollPane scrollPane = new JScrollPane(areaText);
 
-
-
 	// Players
 	Player white = new Player("", 0);
 	Player black = new Player("", 1);
@@ -36,11 +34,10 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	ArrayList<EventListener> listeners = new ArrayList<EventListener>();
 	
 	int turnNumber = 0; // to count what turn it is
+	int match = 0;
 
 	public EastPanel() 
 	{
-
-
 		this.setLayout(new BorderLayout()); // sets border layout to Eastpanel
 		subpanel.setLayout(new GridLayout(2, 1)); // sets grid layout to subpanel
 
@@ -63,21 +60,14 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	//	areaText.setPreferredSize(new Dimension(155, 627));
 
 		this.areaText.append("\nCommands : "); // telling the user what commands they can use
-		this.areaText.append("\nwName -> save white's name" + "\nbName -> save black's name" + "\nmove -> enter a move" +
-							 "\nnext -> end turn" + "\nquit -> end the program\n" );
+		this.areaText.append("\nwName -> save white's name" + "\nbName -> save black's name" + "\npoints -> enter points to play to" 
+							+ "\nmove -> enter a move" + "\nnext -> end turn" + "\nquit -> end the program\n" );
 
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // creates black lines around panel
 		playerScore.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // creates line around score
 
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-
-
-
-
-
-
-
 	}
 
 	public int[] autoDiceRoller() { // automatically rolls dice and returns an array of results
@@ -104,7 +94,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		{
 			white.name = text.substring(6);
 			areaText.append("\nWhite : " + white.name);
-			playerName.setText(white.name);
+			playerScore.setText("Score: " + Integer.toString(white.getScore()));
+			playerName.setText("Name: " + white.name);
 			enterText.selectAll();
 		}
 		
@@ -112,7 +103,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		{
 			black.name = text.substring(6);
 			areaText.append("\nBlack : " + black.name);
-			playerName.setText(black.name);
+			playerName.setText("Name: " + black.name);
+			playerScore.setText("Score: " + Integer.toString(black.getScore()));
 			enterText.selectAll();
 
 		}
@@ -122,10 +114,9 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			nextTurn();
 		}
 
-		else if (text.startsWith("move") && !(black.haveWon || white.haveWon)) {
-
+		else if (text.startsWith("move") && !(black.haveWon || white.haveWon)) 
+		{
 			move(text);
-
 		}// end of move
 		
 		else if(text.startsWith("cheat"))
@@ -137,6 +128,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				white.myTurn = false;
 				black.myTurn = true;
 				areaText.append("\n\n" + black.name + "'s turn");
+				playerName.setText("Name: " + black.name);
+				playerScore.setText("Score: " + Integer.toString(black.getScore()));
 				result = autoDiceRoller();
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
 				addPossibleMoves(board,1);
@@ -157,7 +150,19 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			}
 		}
 
-		else {
+		else if(text.startsWith("points"))
+		{
+			match = Integer.parseInt(text.substring(7));
+			if(match % 2 != 1)
+			{
+				areaText.append("\nInvalid match length.\nMust not be divisble by two.\n");
+				match = 0;
+			}
+			notifyMatchListeners();
+		}
+			
+		else 
+		{
 			areaText.append("\nUnrecognised Command :\n");
 			areaText.append(text + "\n");
 			enterText.selectAll();
@@ -166,6 +171,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		if (ReadyToStart() && turnNumber == 0) // Have to do this inside the action listener because of threads and swing
 		{
 			areaText.append("\nGAME START"); // Announces start of the games
+			areaText.append("\nPOINTS TO WIN: " + match);
 			gameHasBegun = true;
 		}
 
@@ -204,7 +210,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 	public boolean ReadyToStart() // if both players given their names, this method returns true.
 	{
-		return ((!(black.name.equals("")) && !(white.name.equals(""))));
+		return (!(black.name.equals("")) && !(white.name.equals("")) && (match != 0));
 	}
 	
 	public void addListener(EventListener l)
@@ -226,6 +232,11 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			m.cheat();
 	}
 
+	public void notifyMatchListeners()
+	{
+		for(EventListener m : listeners)
+			m.match(match);
+	}
 	public int[] moveSelection(Board board, int colour, String input) {
 	    String[] moves = board.acceptableMoves(colour, result).split("\\n");
 	    int[] moveToReturn = new int[2];
@@ -246,6 +257,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
                 try {
 						if (string.contains("Bar")) {
 							from = 25;
+							moveToReturn[0] = from;
 						}
 						else {
 							firstHalf = firstHalf.replaceAll("-", "");
@@ -254,6 +266,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 						}
 						if(string.contains("Off")) {
 							to = 0;
+							moveToReturn[1] = to;
 						}
 						else {
 							String secondHalf = string.substring(string.indexOf("-") + 1);
@@ -309,8 +322,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 	} // end of next turn
 
-	public void move(String text) {
-
+	public void move(String text) 
+	{
 		if(white.myTurn) {
 			moveCheck(board, white.colour);
 		}
