@@ -827,7 +827,7 @@ public class Board extends JPanel
              }
 		}
 
-		else 
+		else // black checkers
 		{
 
 			if(pips[colour][25] > 0)
@@ -941,7 +941,7 @@ public class Board extends JPanel
 								possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums);
 						}
 
-                        else if (((j + 3 * rolls[0]) < 26) && !((pips[oppositeColour][j + 3 * rolls[0]]) == 1))
+                        else if (((j + 3 * rolls[0]) < 26) && ((pips[oppositeColour][j + 3 * rolls[0]]) == 1))
                         {
                             addNums = j + 3 * rolls[0];
                             if (addNums == 25)
@@ -960,11 +960,11 @@ public class Board extends JPanel
 						}
 
 
-						else if (((j + 4 * rolls[0]) < 26) && !((pips[oppositeColour][j + 4 * rolls[0]]) == 1))
+						else if (((j + 4 * rolls[0]) < 26) && ((pips[oppositeColour][j + 4 * rolls[0]]) == 1))
 						{
 							addNums = j + 4 * rolls[0];
 							if (addNums == 25)
-								possibleMoves += "\n" + (25 - j) + "-" + "Off";
+								possibleMoves += "\n" + (25 - j) + "-" + "Off" + "*";
 							else
 								possibleMoves += "\n" + (25 - j) + "-" + (25 - addNums) + "*";
 						}
@@ -1074,8 +1074,7 @@ public class Board extends JPanel
 		for (int i=1; i<moveArray.length; i++) { //starting at one to get rid of a pesky \n
 		    int hitCount =0;
 		    boolean dupFlag = false; //when a dup found will turn true
-
-		    if (moveArray[i].contains("*")) {i++;} // skips hits
+			
 
             for (int j = i+1; j<moveArray.length; j++) { // adds elements to a list without duplicating them
 

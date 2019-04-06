@@ -173,6 +173,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 			if (white.goFirst(black)) { // We check who goes first
 				areaText.append("\n" + white.name + " goes first");
+				playerName.setText("Name: " + white.name);
+				playerScore.setText("Score: " + Integer.toString(white.getScore()));
 				result = autoDiceRoller();
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
 				if(turnNumber == 0)
@@ -181,6 +183,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			} 
 			else {
 				areaText.append("\n" + black.name + " goes first");
+				playerName.setText("Name: " + black.name);
+				playerScore.setText("Score: " + Integer.toString(black.getScore()));
 				result = autoDiceRoller();
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
 				if(turnNumber == 0)
@@ -253,28 +257,31 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 				String firstHalf = string.substring(0, string.indexOf("-"));
 
-				try {
-					if (string.contains("Bar")) {
-						from = 25;
-						moveToReturn[0] = from;
-					} else {
-						firstHalf = firstHalf.replaceAll("-", "");
-						from = Integer.parseInt(firstHalf);
-						moveToReturn[0] = from;
-					}
-					if (string.contains("Off")) {
-						to = 0;
-						moveToReturn[1] = to;
-					} else {
-						String secondHalf = string.substring(string.indexOf("-") + 1);
-						to = Integer.parseInt(secondHalf);
-						moveToReturn[1] = to;
-					}
-				} catch (NumberFormatException e) {
-					areaText.append("\nERROR in MOVESELECTION()\n");
-				}
-			}
-		}  //end of for loop
+                try {
+						if (string.contains("Bar")) {
+							from = 25;
+							moveToReturn[0] =from;
+						}
+						else {
+							firstHalf = firstHalf.replaceAll("-", "");
+							from = Integer.parseInt(firstHalf);
+							moveToReturn[0] = from;
+						}
+						if(string.contains("Off")) {
+							to = 0;
+							moveToReturn[1] = to;
+						}
+						else {
+							String secondHalf = string.substring(string.indexOf("-") + 1);
+							to = Integer.parseInt(secondHalf);
+							moveToReturn[1] = to;
+						}
+                    }
+                    catch (NumberFormatException e) {
+                        areaText.append("\nERROR in MOVESELECTION()\n");
+                    }
+                }
+            }  //end of for loop
 
         return moveToReturn;
     }//end of moveSelection
@@ -283,8 +290,10 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		if (white.myTurn) {
 			white.myTurn = false;
 			black.myTurn = true;
+			playerName.setText("Name: " + black.name);
+			playerScore.setText("Score: " + Integer.toString(black.getScore()));
 			playerName.setText(black.name);
-			playerScore.setText(Integer.toString(black.getScore()));
+
 			areaText.append("\n\n" + black.name + "'s turn");
 			result = autoDiceRoller();
 			areaText.append("\nRoll: " + result[0] + " " + result[1]);
@@ -295,6 +304,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		else {
 			white.myTurn = true;
 			black.myTurn = false;
+			playerName.setText("Name: " + white.name);
+			playerScore.setText("Score: " + Integer.toString(white.getScore()));
 			playerName.setText(white.name);
 			playerScore.setText(Integer.toString(white.getScore()));
 			areaText.append("\n\n" + white.name + "'s turn");
@@ -302,9 +313,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			areaText.append("\nRoll: " + result[0] + " " + result[1]);
 			addPossibleMoves(board,0);
 			enterText.selectAll();
-
-
 		}
+
 		turnNumber++;
 
 		if(white.myTurn) {
@@ -325,7 +335,6 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			moveCheck(board, black.colour);
 		}
 
-		int flag =0;
 		int colour;
 		if(white.myTurn)
 			colour = white.colour;
@@ -335,14 +344,10 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		int[] array = moveSelection(board, colour, text);
 		int to = array[1]; int from = array[0];
 
-		if (to ==0){
-			flag = 1;
-			areaText.append("Invalid selection, try again\n");
-		}
 
 		areaText.append("\n" + from + " " + to);
 
-		if((from < 0) || (to < 0) || (from > 25) || (to > 25) && flag != 1)
+		if((from < 0) || (to < 0) || (from > 25) || (to > 25))
 		{
 			areaText.append("Not a valid move");
 			return;
@@ -369,7 +374,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		String[] s = board.acceptableMoves(colour, result).split("\\n");
 
-		if(s[1] == "") {
+		if(s[0] == "") {
 			areaText.append("No turns available, starting next turn\n");
 			try {
 				Thread.sleep(1000); // causes the program to sleep for 1 second
