@@ -142,7 +142,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				result = autoDiceRoller();
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
 				addPossibleMoves(board,1);
-				moveCheck(board.acceptableMoves(1, result));
+				moveStatus = moveCheck(board.acceptableMoves(1, result));
 				enterText.selectAll();
 				turnNumber++;
 			}
@@ -155,7 +155,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				result = autoDiceRoller();
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
 				addPossibleMoves(board,0);
-                moveCheck(board.acceptableMoves(0, result));
+                moveStatus = moveCheck(board.acceptableMoves(0, result));
 				enterText.selectAll();
 				turnNumber++;
 			}
@@ -189,6 +189,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				result = autoDiceRoller();
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
 				addPossibleMoves(board,0);
+				moveStatus = moveCheck(board.acceptableMoves(0, result));
 				white.myTurn = true;
 			} 
 			else {
@@ -198,6 +199,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				result = autoDiceRoller();
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
 				addPossibleMoves(board,1);
+                moveStatus = moveCheck(board.acceptableMoves(1, result));
 				black.myTurn = true;
 			}
 		}
@@ -288,7 +290,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			result = autoDiceRoller();
 			areaText.append("\nRoll: " + result[0] + " " + result[1]);
 			addPossibleMoves(board,1);
-            moveCheck(board.acceptableMoves(1, result));
+            moveStatus= moveCheck(board.acceptableMoves(1, result));
 			enterText.selectAll();
 		}
 
@@ -302,7 +304,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			result = autoDiceRoller();
 			areaText.append("\nRoll: " + result[0] + " " + result[1]);
 			addPossibleMoves(board,0);
-            moveCheck(board.acceptableMoves(0, result));
+            moveStatus = moveCheck(board.acceptableMoves(0, result));
 			enterText.selectAll();
 		}
 		
@@ -313,42 +315,58 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 	public void move(String text) {
 
-		if(white.myTurn) {
-			moveCheck(text);
-		}
-		else {
-			moveCheck(text);
-		}
-
 		int colour;
 		if(white.myTurn)
 			colour = white.colour;
 		else
 			colour = black.colour;
 
-		int[] array = moveSelection(board, colour, text);
-		int to = array[1]; int from = array[0];
+		if (moveStatus == 0) { // change to next turn
+			areaText.append("No available moves, changing turn...\n");
 
-
-		areaText.append("\n" + from + " " + to);
-
-		if((from < 0) || (to < 0) || (from > 25) || (to > 25))
-		{
-			areaText.append("Not a valid move");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			nextTurn();
+			moveStatus = 2;
 			return;
 		}
 
-		if(white.myTurn)
-		{
-			notifyMoveListeners(white.getColour(), from, to);
+		else if(moveStatus == 1) {
+			areaText.append("One move possible, making move...\n");
+
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			move("move A");
+			moveStatus = 2;
+			return;
 		}
 
-		else if(black.myTurn)
-		{
-			notifyMoveListeners(black.getColour(), from, to);
+		else { // move as normal
+			int[] array = moveSelection(board, colour, text); // break up all possible moves into a 2d array
+			int to = array[1];
+			int from = array[0];
+
+
+			areaText.append("\n" + from + " " + to);
+
+			if ((from < 0) || (to < 0) || (from > 25) || (to > 25)) {
+				areaText.append("Not a valid move");
+				return;
+			}
+
+			if (white.myTurn) {
+				notifyMoveListeners(white.getColour(), from, to);
+			} else if (black.myTurn) {
+				notifyMoveListeners(black.getColour(), from, to);
+			}
+
 		}
-
-
 		enterText.selectAll();
 		turnNumber++;
 		areaText.append("\n");
