@@ -454,7 +454,7 @@ public class Board extends JPanel
 	    	pips[0][to]++;
 	    	board.get(to).add(board.get(from).remove((board.get(from).size() - i)));
 	    	
-	    	if(pips[1][25-to] == 1)
+	    	if(pips[1][to] == 1)
 	    	{
 	    		BlackChecker hit = (BlackChecker) board.get(to).get(0);
 	    		hit.move(25, pips[1]);
