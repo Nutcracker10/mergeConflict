@@ -40,6 +40,7 @@ public class frame extends JFrame implements EventListener
     {
         try
     	{
+
     	    board.Move(colour, from, to);
     		board.repaint();
     	}
