@@ -320,7 +320,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			colour = white.colour;
 		else
 			colour = black.colour;
-
+		/*
 		if (moveStatus == 0) { // change to next turn
 			areaText.append("No available moves, changing turn...\n");
 
@@ -345,9 +345,9 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			move("move A");
 			moveStatus = 2;
 			return;
-		}
+		} */
 
-		else { // move as normal
+		if(true) { // move as normal
 			int[] array = moveSelection(board, colour, text); // break up all possible moves into a 2d array
 			int to = array[1];
 			int from = array[0];
@@ -377,9 +377,32 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 	    String[] moves = input.split("\\n"); // saves possible moves to an array of strings
 
-        if (moves[0] == "") {return 0;} // return 0 if there are no moves
+        if (moves.length == 1) {
+			areaText.append("\nNo available moves,\n changing turn...\n");
 
-        else if (moves.length == 2) {return 1;} // return 1 if there is only one move
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			moveStatus = 2;
+			nextTurn();
+        	return 0;
+        } // return 0 if there are no moves
+
+        else if (moves.length == 2) {
+			areaText.append("\nOne move possible, making move...\n");
+
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			move("move A");
+			moveStatus = 2;
+
+        	return 1;
+        } // return 1 if there is only one move
 
         else {return 2;} // else return 2
 
