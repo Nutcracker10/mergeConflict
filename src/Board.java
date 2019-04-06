@@ -708,7 +708,7 @@ public class Board extends JPanel
                                     possibleMoves += "\n" + j + "-" + "Off";
                             }
 
-                            else if (((j - 3 * rolls[0]) >= 0) && !((pips[oppositeColour][j - 3 * rolls[0]]) == 1))
+                            else if (((j - 3 * rolls[0]) >= 0) && ((pips[oppositeColour][j - 3 * rolls[0]]) == 1))
                             {
                                 addNums = j - 3 * rolls[0];
                                 if (!(addNums <= 0))
@@ -726,7 +726,7 @@ public class Board extends JPanel
                                     possibleMoves += "\n" + j + "-" + "Off";
                             }
 
-                           else if (((j - 4 * rolls[0]) >= 0) && !((pips[oppositeColour][j - 4 * rolls[0]]) == 1))
+                           else if (((j - 4 * rolls[0]) >= 0) && ((pips[oppositeColour][j - 4 * rolls[0]]) == 1))
                            {
                                 addNums = j - 4 * rolls[0];
                                 if (!(addNums <= 0))
@@ -801,7 +801,7 @@ public class Board extends JPanel
                                      possibleMoves += "\n" + j + "-" + addNums;
                              }
 
-                             else if (((j - 3 * rolls[0]) >= 0) && !((pips[oppositeColour][j - 3 * rolls[0]]) == 1))
+                             else if (((j - 3 * rolls[0]) >= 0) && ((pips[oppositeColour][j - 3 * rolls[0]]) == 1))
                              {
                                  addNums = j - 3 * rolls[0];
                                  if (!(addNums <= 0))
@@ -815,7 +815,7 @@ public class Board extends JPanel
                                      possibleMoves += "\n" + j + "-" + addNums;
                              }
 
-                            else if (((j - 4 * rolls[0]) >= 0) && !((pips[oppositeColour][j - 4 * rolls[0]]) == 1))
+                            else if (((j - 4 * rolls[0]) >= 0) && ((pips[oppositeColour][j - 4 * rolls[0]]) == 1))
                             {
                                  addNums = j - 4 * rolls[0];
                                  if (!(addNums <= 0))
@@ -869,7 +869,7 @@ public class Board extends JPanel
 		//allows checkers into bear off if all checkers are in the home base
 		else if(pips[colour][0] + pips[colour][24] + pips[colour][23] + pips[colour][22] + pips[colour][21] + pips[colour][20] + pips[colour][19] == 15)
 		{
-			for (int j = 0; j < 26; j++) 
+			for (int j = 1; j < 26; j++)
 			{
 				if ((pips[colour][j] != 0)) 
 				{
@@ -975,7 +975,7 @@ public class Board extends JPanel
 			
 		else
 		{
-				for (int j = 0; j < 26; j++) 
+				for (int j = 1; j < 26; j++)
 				{
 					if ((pips[colour][j] != 0)) 
 					{
@@ -1162,7 +1162,7 @@ public class Board extends JPanel
     }
 
 
-    public void restBoard()
+    public void resetBoard()
     {
         pips = restartCopy;
         numInWhiteSlot = 0; //varibles to count the number of checkers in player's slots

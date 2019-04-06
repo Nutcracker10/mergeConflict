@@ -70,7 +70,6 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // creates black lines around panel
 		playerScore.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // creates line around score
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 	}
 
@@ -242,6 +241,11 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		}
 
+        else if( text.equals("yes") && (white.haveWon || black.haveWon))
+        {
+            turnNumber = 0;
+            board.resetBoard();
+        }
 		else
 		{
 			areaText.append("\nUnrecognised Command :\n");
@@ -288,23 +292,17 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 
 
-        if((white.haveWon || black.haveWon) && text.equals("yes"))
-        {
-            turnNumber = 0;
-            board.restBoard();
-        }
+
 
 
 		if(black.hasWonGame(board.numInBlackSlot))
 		{
-			areaText.append("\nCongratulations " + black.getName()+" has won");
 			areaText.append("\nWould you like to play again? yes/no");
 
 		}
 
 		else if(white.hasWonGame(board.numInWhiteSlot))
 		{
-			areaText.append("\nCongratulations " + white.getName()+" has won");
 			areaText.append("\nWould you like to play again? yes/no");
 		}
 
