@@ -42,6 +42,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 	public EastPanel() 
 	{
+
+
 		this.setLayout(new BorderLayout()); // sets border layout to Eastpanel
 		subpanel.setLayout(new GridLayout(2, 1)); // sets grid layout to subpanel
 
@@ -120,7 +122,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			nextTurn();
 		}
 
-		else if (text.startsWith("move") && !(black.haveWon || white.haveWon)) 
+		else if (text.startsWith("move") && !(black.haveWon || white.haveWon))
 		{
 			move(text);
 		}// end of move
@@ -139,6 +141,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				result = autoDiceRoller();
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
 				addPossibleMoves(board,1);
+				moveCheck(board.acceptableMoves(1, result));
 				enterText.selectAll();
 				turnNumber++;
 			}
@@ -151,6 +154,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				result = autoDiceRoller();
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
 				addPossibleMoves(board,0);
+                moveCheck(board.acceptableMoves(0, result));
 				enterText.selectAll();
 				turnNumber++;
 			}
@@ -167,7 +171,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			notifyMatchListeners();
 			enterText.selectAll();
 		}
-		
+
 		else if(text.startsWith("double"))
 		{
 			if(white.isMyTurn())
@@ -178,13 +182,13 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 					areaText.append("\nDo you accept, " + black.getName() + "?\nEnter Y/N");
 					hasDoubled = true;
 				}
-				
+
 				else
 				{
 					areaText.append("\n\nYou cannot double at this time.");
 				}
 			}
-			
+
 			else
 			{
 				if(black.hasDoublingCube())
@@ -193,13 +197,13 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 					areaText.append("\nDo you accept, " + white.getName() + "?\nEnter Y/N");
 					hasDoubled = true;
 				}
-				
+
 				else
 				{
 					areaText.append("\n\nYou cannot double at this time.");
 				}
 			}
-			
+
 			enterText.selectAll();
 		}
 		
@@ -213,7 +217,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				areaText.append("\nScore will be multiplied by " + doublingCube + "\n");
 				enterText.selectAll();
 			}
-			
+
 			else if(black.isMyTurn())
 			{
 				doublingCube = doublingCube * 2;
@@ -225,7 +229,6 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			
 			hasDoubled = false;
 		}
-		
 		else if(((text.startsWith("N")) || (text.startsWith("n"))) && hasDoubled && !matchWon)
 		{
 			if(white.isMyTurn())
@@ -234,7 +237,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				endGame(white, black);
 				enterText.selectAll();
 			}
-			
+
 			else if(black.isMyTurn())
 			{
 				areaText.append("\n" + white.getName() + " has forfeited.");
@@ -242,12 +245,12 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				enterText.selectAll();
 			}
 		}
-		
+
 		else if(text.startsWith("roll"))
 		{
-			
+
 		}
-		
+
 		else if(matchWon && text.equals("yes"))
         {
 			areaText.append("\n\nStarting new game...");
@@ -307,7 +310,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			areaText.append("\nGAME START"); // Announces start of the games
 			areaText.append("\nPOINTS TO WIN: " + match);
 			gameHasBegun = true;
-			
+
 			if(white.myTurn) {
 				board.setWhosTurn(0);
 			}
@@ -321,8 +324,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				playerScore.setText("Score: " + Integer.toString(white.getScore()));
 				result = autoDiceRoller();
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
-				if(turnNumber == 0)
-					addPossibleMoves(board,0);
+				addPossibleMoves(board,0);
+				moveCheck(board.acceptableMoves(0, result));
 				white.myTurn = true;
 			} 
 			else {
@@ -331,11 +334,11 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				playerScore.setText("Score: " + Integer.toString(black.getScore()));
 				result = autoDiceRoller();
 				areaText.append("\nRoll: " + result[0] + " " + result[1]);
-				if(turnNumber == 0)
-					addPossibleMoves(board,1);
+				addPossibleMoves(board,1);
+                moveCheck(board.acceptableMoves(1, result));
 				black.myTurn = true;
 			}
-			
+
 			turnNumber++;
 		}
 
@@ -418,7 +421,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		for(EventListener m : listeners)
 			m.match(match);
 	}
-	
+
 	private int[] moveSelection(Board board, int colour, String input) {
 	    String[] moves = board.acceptableMoves(colour, result).split("\\n");
 	    int[] moveToReturn = new int[2];
@@ -483,6 +486,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			result = autoDiceRoller();
 			areaText.append("\nRoll: " + result[0] + " " + result[1]);
 			addPossibleMoves(board,1);
+            moveCheck(board.acceptableMoves(1, result));
 			enterText.selectAll();
 		}
 
@@ -497,28 +501,16 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			result = autoDiceRoller();
 			areaText.append("\nRoll: " + result[0] + " " + result[1]);
 			addPossibleMoves(board,0);
+            moveCheck(board.acceptableMoves(0, result));
 			enterText.selectAll();
 		}
 
 		turnNumber++;
 
-		if(white.myTurn) {
-			moveCheck(board, white.colour);
-		}
-		else {
-			moveCheck(board, black.colour);
-		}
 
 	} // end of next turn
 
-	private void move(String text) {
-		
-		if(white.myTurn) {
-			moveCheck(board, white.colour);
-		}
-		else {
-			moveCheck(board, black.colour);
-		}
+	public void move(String text) {
 
 		int colour;
 		if(white.myTurn)
@@ -526,59 +518,62 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		else
 			colour = black.colour;
 
-		int[] array = moveSelection(board, colour, text);
-		int to = array[1]; int from = array[0];
+
+		if(true) { // move as normal
+			int[] array = moveSelection(board, colour, text); // break up all possible moves into a 2d array
+			int to = array[1];
+			int from = array[0];
 
 
-		areaText.append("\n" + from + " " + to);
+			areaText.append("\n" + from + " " + to);
 
-		if((from < 0) || (to < 0) || (from > 25) || (to > 25))
-		{
-			areaText.append("Not a valid move");
-			return;
+			if ((from < 0) || (to < 0) || (from > 25) || (to > 25)) {
+				areaText.append("Not a valid move");
+				return;
+			}
+
+			if (white.myTurn) {
+				notifyMoveListeners(white.getColour(), from, to);
+			} else if (black.myTurn) {
+				notifyMoveListeners(black.getColour(), from, to);
+			}
+
 		}
-
-		if(white.myTurn)
-		{
-			notifyMoveListeners(white.getColour(), from, to);
-		}
-
-		else if(black.myTurn)
-		{
-			notifyMoveListeners(black.getColour(), from, to);
-		}
-
-
 		enterText.selectAll();
 		turnNumber++;
 		areaText.append("\n");
 		addPossibleMoves(board, colour);
 	} // end of move
 
-	private void moveCheck(Board board, int colour) {
+	public void moveCheck(String input) {
 
-		String[] s = board.acceptableMoves(colour, result).split("\\n");
+	    String[] moves = input.split("\\n"); // saves possible moves to an array of strings
 
-		if(s[0] == "") {
-			areaText.append("No turns available, starting next turn\n");
+        if (moves.length == 1) {
+			areaText.append("\nNo available moves,\n changing turn...\n");
+
 			try {
-				Thread.sleep(1000); // causes the program to sleep for 1 second
+				Thread.sleep(1000); // wait one second
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			nextTurn();
-		}
+			nextTurn(); // call next turn if no available moves
+        	return;
+        }
 
-		else if(s.length == 2) { // enacts move if there is only one available move
-		    areaText.append("Making only valid move.\n");
+        else if (moves.length == 2) {
+			areaText.append("\nOne move possible, making move...\n");
+
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			move(s[1].substring(0,1));
-            nextTurn();
-		}
+			move("move A"); // make first and only move
+        	return;
+        }
+        else {return;} // do nothing if no if statements were triggered
+
 	} // end of moveCheck
 
 
