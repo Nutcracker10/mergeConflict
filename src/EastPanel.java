@@ -259,6 +259,12 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				string = string.replaceAll("\\s+", ""); // removing white spaces
 
 				String firstHalf = string.substring(0, string.indexOf("-"));
+				String secondHalf = string.substring(string.indexOf("-")+1);
+
+				if(secondHalf.contains("*"))
+				{
+					secondHalf = secondHalf.substring(0, secondHalf.length()-1);
+				}
 
                 try {
 						if (string.contains("Bar")) {
@@ -274,15 +280,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 							to = 0;
 							moveToReturn[1] = to;
 						}
-						else if(string.contains("*"))
-						{
-						    String secondHalf = string.substring(string.indexOf("-") + 1, string.indexOf("-") + 2);
-						   to = Integer.parseInt(secondHalf);
-						   moveToReturn[1] = to;
-                        }
-
+			
 						else {
-							String secondHalf = string.substring(string.indexOf("-") + 1);
 							to = Integer.parseInt(secondHalf);
 							moveToReturn[1] = to;
 						}
