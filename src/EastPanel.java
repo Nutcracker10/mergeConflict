@@ -38,6 +38,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	int turnNumber = 0; // to count what turn it is
 	int match = 0;
 	int doublingCube = 1;
+	int numOfDie = 2;
 	boolean hasDoubled = false;
 	boolean matchWon = false;
 
@@ -252,7 +253,15 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		else if(text.startsWith("roll"))
 		{
-
+			result = autoDiceRoller();
+			areaText.append("\nRoll: " + result[0] + " " + result[1]);
+			
+			if(result[0] == result[1])
+				numOfDie = 4;
+			
+			addPossibleMoves(board,0);
+			moveCheck(board.acceptableMoves(0, result));
+			enterText.selectAll();
 		}
 
 		else if(matchWon && text.equals("yes"))
@@ -326,20 +335,12 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				areaText.append("\n" + white.name + " goes first");
 				playerName.setText("Name: " + white.name);
 				playerScore.setText("Score: " + Integer.toString(white.getScore()));
-				result = autoDiceRoller();
-				areaText.append("\nRoll: " + result[0] + " " + result[1]);
-				addPossibleMoves(board,0);
-				moveCheck(board.acceptableMoves(0, result));
 				white.myTurn = true;
 			} 
 			else {
 				areaText.append("\n" + black.name + " goes first");
 				playerName.setText("Name: " + black.name);
 				playerScore.setText("Score: " + Integer.toString(black.getScore()));
-				result = autoDiceRoller();
-				areaText.append("\nRoll: " + result[0] + " " + result[1]);
-				addPossibleMoves(board,1);
-                moveCheck(board.acceptableMoves(1, result));
 				black.myTurn = true;
 			}
 
@@ -484,35 +485,29 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
         return moveToReturn;
     }//end of moveSelection
 
-	private void nextTurn() {
-		if (white.myTurn) {
+	private void nextTurn() 
+	{
+		if (white.myTurn) 
+		{
 			white.myTurn = false;
 			black.myTurn = true;
 			playerName.setText("Name: " + black.name);
 			playerScore.setText("Score: " + Integer.toString(black.getScore()));
 			playerName.setText(black.name);
-
-			areaText.append("\n\n" + black.name + "'s turn");
-			result = autoDiceRoller();
-			areaText.append("\nRoll: " + result[0] + " " + result[1]);
-			addPossibleMoves(board,1);
-            moveCheck(board.acceptableMoves(1, result));
 			enterText.selectAll();
+			areaText.append("\n\n" + black.getName() + "'s turn.");
 		}
 
-		else {
+		else 
+		{
 			white.myTurn = true;
 			black.myTurn = false;
 			playerName.setText("Name: " + white.name);
 			playerScore.setText("Score: " + Integer.toString(white.getScore()));
 			playerName.setText(white.name);
 			playerScore.setText(Integer.toString(white.getScore()));
-			areaText.append("\n\n" + white.name + "'s turn");
-			result = autoDiceRoller();
-			areaText.append("\nRoll: " + result[0] + " " + result[1]);
-			addPossibleMoves(board,0);
-            moveCheck(board.acceptableMoves(0, result));
 			enterText.selectAll();
+			areaText.append("\n\n" + white.getName() + "'s turn.");
 		}
 
 		turnNumber++;
