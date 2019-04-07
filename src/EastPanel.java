@@ -124,7 +124,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		else if (text.startsWith("move") && !(black.haveWon || white.haveWon)) //user entering their move
 		{
-		    if(numOfDie!=0)
+		    if(numOfDie != 0)
 			    move(text);
 		    else
 		        areaText.append("\nOut of moves");
@@ -258,7 +258,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			result = autoDiceRoller();
 			areaText.append("\nRoll: " + result[0] + " " + result[1]);
 			
-			if(result[0] == result[1]) {
+			if(result[0] == result[1]) 
+			{
                 numOfDie = 4;
 
             }
