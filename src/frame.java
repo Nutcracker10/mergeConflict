@@ -61,7 +61,15 @@ public class frame extends JFrame implements EventListener
     	south.setMatchLength(p);
     } // updates matchlength display
     
-    public void doubleCube(int p) {south.setDoubleCube(p);} // updates doublecube display
+    public void doubleCube(int p) 
+    {
+    	south.setDoubleCube(p);
+    } // updates doublecube display
+    
+    public void score(Player white, Player black)
+    {
+    	south.setScore(white, black);
+    }
     
     //returns the east panel
     public EastPanel getEastPanel()

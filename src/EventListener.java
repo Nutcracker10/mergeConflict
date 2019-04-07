@@ -8,4 +8,6 @@ public interface EventListener
 	void match(int p);
 
 	void doubleCube(int p);
+	
+	void score(Player white, Player black);
 }

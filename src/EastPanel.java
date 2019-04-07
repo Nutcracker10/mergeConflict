@@ -147,6 +147,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				black.myTurn = false;
 				white.myTurn = true;
 				areaText.append("\n\n" + white.name + "'s turn");
+				playerName.setText("Name: " + white.name);
+				playerScore.setText("Score: " + Integer.toString(black.getScore()));
 				enterText.selectAll();
 				turnNumber++;
 			}
@@ -275,12 +277,17 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			//resets everything
         	white.name = "";
         	black.name = "";
+        	white.score = 0;
+        	black.score = 0;
+        	notifyScoreListeners();
             white.haveWon = false;
             black.haveWon = false;
             white.doublingCube = true;
             black.doublingCube = true;
             doublingCube = 1;
+            notifyDoubleCubeListeners();
             match = 0;
+            notifyMatchListeners();
             matchWon = false;
             playerName.setText("Name: ");
             playerScore.setText("Score: ");
@@ -316,6 +323,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		if (ReadyToStart() && turnNumber == 0) // Have to do this inside the action listener because of threads and swing
 		{
+			notifyScoreListeners();
 			areaText.append("\nGAME START"); // Announces start of the games
 			areaText.append("\nPOINTS TO WIN: " + match);
 
@@ -391,6 +399,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				e.printStackTrace();
 			}
 
+			notifyScoreListeners();
 			turnNumber = 0;
             white.haveWon = false;
             black.haveWon = true;
@@ -430,9 +439,16 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	}
 
 	//calls doubleCube for all event listeners
-	public void notifyDoubleCubeListeners() {
+	public void notifyDoubleCubeListeners() 
+	{
 		for (EventListener m : listeners)
 				m.doubleCube(doublingCube);
+	}
+	
+	public void notifyScoreListeners()
+	{
+		for(EventListener m : listeners)
+			m.score(white, black);
 	}
 
 	private int[] moveSelection(Board board, int colour, String input) {
