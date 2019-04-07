@@ -29,9 +29,12 @@ public class SouthPanel extends JPanel
     public void setMatchLength(int p)
     {
     	matchLength.append(Integer.toString(p));
-    }
+    } // updates match length
 
-    public void setDoubleCube(int input) {doubleCube.setText("Double Cube: "+Integer.toString(input));} // updates double cube
+    public void setDoubleCube(int input) 
+    {
+    	doubleCube.setText("Double Cube: "+Integer.toString(input));	
+    } // updates double cube
     
     
 

@@ -54,17 +54,21 @@ public class WhiteChecker extends Checker
 	{
 		whiteCoordinates.setX(xpos[to]);
 		
+		//if this checker is the only one on this pip
 		if(pips[to] == 0)
 			whiteCoordinates.setY(ypos[to]);
 		
 		else
 		{
+			//checkers on the bottom of the board
 			if((to > 0) && (to < 13))
 				whiteCoordinates.setY((ypos[to]) - (pips[to] * 30)); 
 			
+			//checkers in the bear off
 			else if(to == 0)
 				whiteCoordinates.setY((ypos[to]) - (pips[to] * 15));
 			
+			//checkers on the top of the board
 			else
 				whiteCoordinates.setY((ypos[to]) + (pips[to] * 30));
 		}

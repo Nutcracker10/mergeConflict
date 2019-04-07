@@ -35,7 +35,6 @@ public class GUI{
                         board.whosTurn = 1;
                         board.repaint();
                     }
-
                 }
             });
             timer.start();

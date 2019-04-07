@@ -65,7 +65,7 @@ public class Player
 
     }
     
-    public void setScore(int s)
+    public void setScore(int s) //sets score
     {
     	this.score = s;
     }

@@ -51,18 +51,19 @@ public class BlackChecker extends Checker
     {
 		blackCoordinates.setX(xpos[to]);
 		
+		//if this checker is the only one on the pip
 		if(pips[to] == 0)
 			blackCoordinates.setY(ypos[to]);
 		
 		else
 		{
-			if((to > 0) && (to < 13))
+			if((to > 0) && (to < 13)) //checkers on the bottom of the board
 				blackCoordinates.setY((ypos[to]) - (pips[to] * 30)); 
 			
-			else if(to == 0)
+			else if(to == 0) //checkers in the bear off
 				blackCoordinates.setY((ypos[to]) - (pips[to] * 15));
 			
-			else
+			else //checkers on the top of the board
 				blackCoordinates.setY((ypos[to]) + (pips[to] * 30));
 		}
 		
