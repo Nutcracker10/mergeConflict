@@ -255,8 +255,17 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			if(result[0] == result[1])
 				numOfDie = 4;
 			
-			addPossibleMoves(board,0);
-			moveCheck(board.acceptableMoves(0, result));
+			if(black.isMyTurn())
+			{
+				addPossibleMoves(board,1);
+				moveCheck(board.acceptableMoves(1, result));
+			}
+			
+			else if(white.isMyTurn())
+			{
+				addPossibleMoves(board, 0);
+				moveCheck(board.acceptableMoves(0, result));
+			}
 			enterText.selectAll();
 		}
 
