@@ -255,6 +255,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		else if(text.startsWith("roll")) //roll the dice and get a list of possible moves
 		{
+			numOfDie = 2;
 			result = autoDiceRoller();
 			areaText.append("\nRoll: " + result[0] + " " + result[1]);
 			
