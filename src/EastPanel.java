@@ -21,7 +21,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	private JPanel subpanel = new JPanel();					// a subpanel for buttons
 
 	// adds scrolling functionality to the text area
-	private 	JScrollPane scrollPane = new JScrollPane(areaText);
+	private JScrollPane scrollPane = new JScrollPane(areaText);
+	JScrollBar sb = scrollPane.getVerticalScrollBar(); //
 
 	// Players
 	Player white = new Player("", 0);
@@ -43,7 +44,6 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 	public EastPanel() 
 	{
-
 
 		this.setLayout(new BorderLayout()); // sets border layout to Eastpanel
 		subpanel.setLayout(new GridLayout(2, 1)); // sets grid layout to subpanel
@@ -67,8 +67,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	//	areaText.setPreferredSize(new Dimension(155, 627));
 
 		this.areaText.append("\nCommands : "); // telling the user what commands they can use
-		this.areaText.append("\nwName -> save white's name" + "\nbName -> save black's name" + "\npoints -> enter points to play to" 
-							+ "\nroll -> roll dice" + "\ndouble -> use doubling cube" + "\nmove -> enter a move" + 
+		this.areaText.append("\nwName -> save white's name" + "\nbName -> save black's name" + "\npoints -> enter points to play to"
+							+ "\nroll -> roll dice" + "\ndouble -> use doubling cube" + "\nmove -> enter a move" +
 							"\nnext -> end turn" + "\nquit -> end the program\n" );
 		this.areaText.append("\nEnter white player's name,\nblack player's name and\npoints to start game\n");
 
@@ -207,7 +207,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 			enterText.selectAll();
 		}
-		
+
 		else if(((text.startsWith("Y")) || (text.startsWith("y"))) && hasDoubled && !matchWon)
 		{
 			if(white.isMyTurn())
@@ -227,9 +227,13 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				areaText.append("\nScore will be multiplied by " + doublingCube + "\n");
 				enterText.selectAll();
 			}
-			
-			hasDoubled = false;
+			notifyDoubleCubeListeners();
 		}
+
+		else if(((text.startsWith("N")) || (text.startsWith("n"))) && hasDoubled)
+
+			hasDoubled = false;
+
 		else if(((text.startsWith("N")) || (text.startsWith("n"))) && hasDoubled && !matchWon)
 		{
 			if(white.isMyTurn())
@@ -263,7 +267,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		else if(matchWon && text.equals("yes"))
         {
 			areaText.append("\n\nStarting new game...");
-			
+
 			try
 			{
 				Thread.sleep(1000);
@@ -272,7 +276,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			{
 				e.printStackTrace();
 			}
-			
+
         	white.name = "";
         	black.name = "";
             white.haveWon = false;
@@ -287,12 +291,12 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
             areaText.setText("");
             board.restBoard();
             areaText.append("\nCommands : ");
-    		areaText.append("\nwName -> save white's name" + "\nbName -> save black's name" + "\npoints -> enter points to play to" 
-    							+ "\nroll -> roll dice" + "\ndouble -> use doubling cube" + "\nmove -> enter a move" + 
+    		areaText.append("\nwName -> save white's name" + "\nbName -> save black's name" + "\npoints -> enter points to play to"
+    							+ "\nroll -> roll dice" + "\ndouble -> use doubling cube" + "\nmove -> enter a move" +
     							"\nnext -> end turn" + "\nquit -> end the program\n" );
     		areaText.append("\n\nEnter white player's name,\nblack player's name and\npoints to start game\n");
         }
-		
+
 		else if(matchWon && text.startsWith("no"))
 		{
 			areaText.append("\n\nEnding program...");
@@ -306,8 +310,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			}
 			System.exit(0);
 		}
-		
-		else 
+
+		else
 		{
 			areaText.append("\nUnrecognised Command :\n");
 			areaText.append(text + "\n");
@@ -354,6 +358,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		}
 
 
+
 	}// end of actionPerformed
 
 	private boolean ReadyToStart() // if both players given their names, this method returns true.
@@ -367,18 +372,18 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		winner.setScore(winner.getScore() + board.getScore(winner.getColour()) * doublingCube);
 		areaText.append("\nThe score is now:\n  " + winner.getName() + ": " + winner.getScore()
 						+ "\n  " + loser.getName() + ": " + loser.getScore());
-		
+
 		if(winner.getScore() >= match)
 		{
 			areaText.append("\n\n" + winner.getName() + " has won the game!");
 			matchWon = true;
 			areaText.append("\n\nDo you want to play another game?\n Yes/No");
 		}
-		
+
 		else
 		{
 			areaText.append("\n\nStarting next match...\n\n");
-			
+
 			try
 			{
 				Thread.sleep(1000);
@@ -387,7 +392,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			{
 				e.printStackTrace();
 			}
-			
+
 			turnNumber = 0;
             white.haveWon = false;
             black.haveWon = true;
@@ -397,7 +402,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
             board.restBoard();
 		}
 	}
-	
+
 	public void addListener(EventListener l)
 	{
 		listeners.add(l);
@@ -421,6 +426,11 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	{
 		for(EventListener m : listeners)
 			m.match(match);
+	}
+
+	public void notifyDoubleCubeListeners() {
+		for (EventListener m : listeners)
+				m.doubleCube(doublingCube);
 	}
 
 	private int[] moveSelection(Board board, int colour, String input) {
