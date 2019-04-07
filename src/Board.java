@@ -40,6 +40,7 @@ public class Board extends JPanel
 	BlackChecker b1 = new BlackChecker(413, 50);
 	BlackChecker b2 = new BlackChecker(413, 80);
 	BlackChecker b3 = new BlackChecker(413, 110);
+
 	BlackChecker b4 = new BlackChecker(413, 140);
 	BlackChecker b5 = new BlackChecker(413, 170);
 	BlackChecker b6 = new BlackChecker(261, 50);

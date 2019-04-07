@@ -124,8 +124,11 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		else if (text.startsWith("move") && !(black.haveWon || white.haveWon)) //user entering their move
 		{
-			move(text);
-		}
+		    if(numOfDie!=0)
+			    move(text);
+		    else
+		        areaText.append("\nOut of moves");
+		}// end of move
 		
 		else if(text.startsWith("cheat") && !(black.haveWon || white.haveWon)) //jump to end of the game
 		{
@@ -156,14 +159,17 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		else if(text.startsWith("points")) //set how many points to play to
 		{
-			match = Integer.parseInt(text.substring(7));
-			if(match % 2 != 1)
-			{
-				areaText.append("\nInvalid match length.\nMust not be divisble by two.\n");
-				match = 0;
-			}
-			notifyMatchListeners();
-			enterText.selectAll();
+		    try {
+                match = Integer.parseInt(text.substring(7)); // parse the number after "points"
+                if (match % 2 != 1) {
+                    areaText.append("\nInvalid match length.\nMust not be divisble by two.\n");
+                    match = 0;
+                }
+                notifyMatchListeners();
+                enterText.selectAll();
+            } catch(StringIndexOutOfBoundsException e){
+		        areaText.append("\nNo number detected after \n\"points\"");
+            }
 		}
 
 		else if(text.startsWith("double")) //double
@@ -223,7 +229,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				areaText.append("\nScore will be multiplied by " + doublingCube + "\n");
 				enterText.selectAll();
 			}
-			
+
 			hasDoubled = false;
 			notifyDoubleCubeListeners();
 		}
@@ -252,8 +258,10 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			result = autoDiceRoller();
 			areaText.append("\nRoll: " + result[0] + " " + result[1]);
 			
-			if(result[0] == result[1])
-				numOfDie = 4;
+			if(result[0] == result[1]) {
+                numOfDie = 4;
+
+            }
 			
 			if(black.isMyTurn())
 			{
@@ -282,7 +290,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				e.printStackTrace();
 			}
 
-			
+
 			//resets everything
         	white.name = "";
         	black.name = "";
@@ -385,7 +393,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		winner.setScore(winner.getScore() + board.getScore(winner.getColour()) * doublingCube);
 		areaText.append("\nThe score is now:\n  " + winner.getName() + ": " + winner.getScore()
 						+ "\n  " + loser.getName() + ": " + loser.getScore());
-		
+
 		//if the winner has reached the match score
 		if(winner.getScore() >= match)
 		{
@@ -484,7 +492,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				}
 
                 try {
-						if (string.contains("Bar")) {
+						if (string.contains("Bar")) { // adds value of 25 if bar is involved
 							from = 25;
 							moveToReturn[0] = from;
 						}
@@ -493,7 +501,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 							from = Integer.parseInt(firstHalf);
 							moveToReturn[0] = from;
 						}
-						if(string.contains("Off")) {
+						if(string.contains("Off")) { // adds value of 0 to to if off is involved
 							to = 0;
 							moveToReturn[1] = to;
 						}
@@ -550,30 +558,27 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		else
 			colour = black.colour;
 
+		int[] array = moveSelection(board, colour, text); // break up all possible moves into a 2d array
+		int to = array[1];
+		int from = array[0];
 
-		if(true) { // move as normal
-			int[] array = moveSelection(board, colour, text); // break up all possible moves into a 2d array
-			int to = array[1];
-			int from = array[0];
+		areaText.append("\n" + from + " " + to);
 
-
-			areaText.append("\n" + from + " " + to);
-
-			if ((from < 0) || (to < 0) || (from > 25) || (to > 25)) {
-				areaText.append("Not a valid move");
-				return;
-			}
-
-			if (white.myTurn) {
-				notifyMoveListeners(white.getColour(), from, to);
-			} else if (black.myTurn) {
-				notifyMoveListeners(black.getColour(), from, to);
-			}
-
+		if ((from < 0) || (to < 0) || (from > 25) || (to > 25)) {
+			areaText.append("Not a valid move");
+			return;
 		}
+
+		if (white.myTurn) {
+			notifyMoveListeners(white.getColour(), from, to);
+		} else if (black.myTurn) {
+			notifyMoveListeners(black.getColour(), from, to);
+		}
+
 		enterText.selectAll();
 		turnNumber++;
 		areaText.append("\n");
+		numOfDie--;
 		addPossibleMoves(board, colour);
 	} // end of move
 
