@@ -1165,50 +1165,89 @@ public class Board extends JPanel
 
     public void resetBoard()
     {
+
 		for(ArrayList<Checker> a : board)
 		{
 			a.clear();
 		}
 
-		w1.setCoordinates(413, 520);
-		w2.setCoordinates(413, 490);
-		w3.setCoordinates(413, 460);
-		w4.setCoordinates(413, 430);
-		w5.setCoordinates(413, 400);
-		w6.setCoordinates(261, 520);
-		w7.setCoordinates(261, 490);
-		w8.setCoordinates(261, 460);
-		w9.setCoordinates(61, 50);
-		w10.setCoordinates(61, 80);
-		w11.setCoordinates(61, 110);
-		w12.setCoordinates(61, 140);
-		w13.setCoordinates(61, 170);
-		w14.setCoordinates(663, 50);
-		w15.setCoordinates(663, 80);
+    	w1.setCoordinates(413, 520);
+    	w2.setCoordinates(413, 490);
+    	w3.setCoordinates(413, 460);
+    	w4.setCoordinates(413, 430);
+    	w5.setCoordinates(413, 400);
+    	w6.setCoordinates(261, 520);
+    	w7.setCoordinates(261, 490);
+    	w8.setCoordinates(261, 460);
+    	w9.setCoordinates(61, 50);
+    	w10.setCoordinates(61, 80);
+    	w11.setCoordinates(61, 110);
+    	w12.setCoordinates(61, 140);
+    	w13.setCoordinates(61, 170);
+    	w14.setCoordinates(663, 50);
+    	w15.setCoordinates(663, 80);
 
-		//declare all black checkers
-		b1.setCoordinates(413, 50);
-		b2.setCoordinates(413, 80);
-		b3.setCoordinates(413, 110);
-		b4.setCoordinates(413, 140);
-		b5.setCoordinates(413, 170);
-		b6.setCoordinates(261, 50);
-		b7.setCoordinates(261, 80);
-		b8.setCoordinates(261, 110);
-		b9.setCoordinates(61, 520);
-		b10.setCoordinates(61, 490);
-		b11.setCoordinates(61, 460);
-		b12.setCoordinates(61, 430);
-		b13.setCoordinates(61, 400);
-		b14.setCoordinates(663, 520);
-		b15.setCoordinates(663, 490);
-		
+    	//declare all black checkers
+    	b1.setCoordinates(413, 50);
+    	b2.setCoordinates(413, 80);
+    	b3.setCoordinates(413, 110);
+    	b4.setCoordinates(413, 140);
+    	b5.setCoordinates(413, 170);
+    	b6.setCoordinates(261, 50);
+    	b7.setCoordinates(261, 80);
+    	b8.setCoordinates(261, 110);
+    	b9.setCoordinates(61, 520);
+    	b10.setCoordinates(61, 490);
+    	b11.setCoordinates(61, 460);
+    	b12.setCoordinates(61, 430);
+    	b13.setCoordinates(61, 400);
+    	b14.setCoordinates(663, 520);
+    	b15.setCoordinates(663, 490);
+    	
+    	s1.add(b14);
+		s1.add(b15);
 
-		numInBlackSlot = 0;
-		numInWhiteSlot = 0;
+		s6.add(w1);
+		s6.add(w2);
+		s6.add(w3);
+		s6.add(w4);
+		s6.add(w5);
 
+		s8.add(w6);
+		s8.add(w7);
+		s8.add(w8);
 
-	}
+		s12.add(b9);
+		s12.add(b10);
+		s12.add(b11);
+		s12.add(b12);
+		s12.add(b13);
+
+		s13.add(w9);
+		s13.add(w10);
+		s13.add(w11);
+		s13.add(w12);
+		s13.add(w13);
+
+		s17.add(b6);
+		s17.add(b7);
+		s17.add(b8);
+
+		s19.add(b1);
+		s19.add(b2);
+		s19.add(b3);
+		s19.add(b4);
+		s19.add(b5);
+
+		s24.add(w14);
+		s24.add(w15);
+    	
+        pips = restartCopy;
+        numInWhiteSlot = 0; //varibles to count the number of checkers in player's slots
+        numInBlackSlot = 0;
+        this.repaint();
+    }
+
 
 
 }
