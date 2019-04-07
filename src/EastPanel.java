@@ -21,7 +21,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	private JPanel subpanel = new JPanel();					// a subpanel for buttons
 
 	// adds scrolling functionality to the text area
-	private 	JScrollPane scrollPane = new JScrollPane(areaText);
+	private JScrollPane scrollPane = new JScrollPane(areaText);
+	JScrollBar sb = scrollPane.getVerticalScrollBar(); //
 
 	// Players
 	Player white = new Player("", 0);
