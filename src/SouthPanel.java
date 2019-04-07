@@ -21,6 +21,7 @@ public class SouthPanel extends JPanel
         this.setLayout(new GridLayout(1,2));          //adds grid layout to south panel
        // add text fields to panel
         this.add(matchLength);
+        this.add(score);
         this.add(doubleCube);
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // creates black lines around panel
         doubleCube.append(Integer.toString(cube));
@@ -28,13 +29,18 @@ public class SouthPanel extends JPanel
     
     public void setMatchLength(int p)
     {
-    	matchLength.append(Integer.toString(p));
+    	matchLength.setText("Match Length: " + Integer.toString(p));
     } // updates match length
 
     public void setDoubleCube(int input) 
     {
     	doubleCube.setText("Double Cube: "+Integer.toString(input));	
     } // updates double cube
+    
+    public void setScore(Player white, Player black)
+    {
+    	score.setText("Score: " + white.getName() + " - " + white.getScore() + " / " + black.getName() + " - " + black.getScore());
+    }
     
     
 
