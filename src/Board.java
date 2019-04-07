@@ -508,47 +508,37 @@ public class Board extends JPanel
 		b14.setCoordinates(715, 255);
 		b15.setCoordinates(715, 270);
 
-		bar.add(w1);
-		bar.add(w2);
-		bar.add(w3);
-		bar.add(b1);
-		bar.add(b2);
-		bar.add(b3);
-
-		s1.add(w4);
-		s1.add(w5);
-
-		s2.add(w6);
-		s2.add(w7);
-
-		s3.add(w8);
-		s3.add(w9);
-
-		s4.add(w10);
-		s4.add(w11);
-
-		s5.add(w12);
-		s5.add(w13);
-
-		s24.add(b4);
-		s24.add(b5);
-		s24.add(b6);
-
-		s22.add(b7);
-		s22.add(b8);
-		s22.add(b9);
-
-		s21.add(b10);
-		s21.add(b11);
-		s21.add(b12);
-
-		bearOff.add(b13);
-		bearOff.add(b14);
-		bearOff.add(b15);
-
+		s1.add(w1);
+		s1.add(w2);
+		bearOff.add(w3);
+		bearOff.add(w4);
+		bearOff.add(w5);
+		bearOff.add(w6);
+		bearOff.add(w7);
+		bearOff.add(w8);
+		bearOff.add(w9);
+		bearOff.add(w10);
+		bearOff.add(w11);
+		bearOff.add(w12);
+		bearOff.add(w13);
 		bearOff.add(w14);
 		bearOff.add(w15);
 		
+		s24.add(b2);
+		s24.add(b1);
+		bearOff.add(b3);
+		bearOff.add(b4);
+		bearOff.add(b5);
+		bearOff.add(b6);
+		bearOff.add(b7);
+		bearOff.add(b8);
+		bearOff.add(b9);
+		bearOff.add(b10);
+		bearOff.add(b11);
+		bearOff.add(b12);
+		bearOff.add(b13);
+		bearOff.add(b14);
+		bearOff.add(b15);
 		
 		int[][] changed = {	{13, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 							{13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0}};
