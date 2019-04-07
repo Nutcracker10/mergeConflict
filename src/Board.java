@@ -16,7 +16,7 @@ public class Board extends JPanel
 							{0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 3, 0, 5, 0, 0, 0, 0, 0, 0}};
 	public int[][] restartCopy = pips;
 
-	public int numInWhiteSlot = 0; //varibles to count the number of checkers in player's slots
+	public int numInWhiteSlot = 0; //variables to count the number of checkers in player's slots
 	public int numInBlackSlot = 0;
 
 	//declare all white checkers
@@ -154,7 +154,7 @@ public class Board extends JPanel
 		board.add(bar);
 	}
 
-	int whosTurn;//vriable to switch depending on which players turn. 0 for White. 1 for black
+	int whosTurn;//variable to switch depending on which players turn. 0 for White. 1 for black
 
 	public void paintComponent(Graphics g)
 	{
@@ -405,6 +405,7 @@ public class Board extends JPanel
 	    	if(pips[1][blackFrom] == 0)
 	    		throw new NoCheckerException();
 
+	    	//finds a checker fitting the black checker class
 	    	for(i = 1; i <= (board.get(blackFrom).size()); i++)
 	    	{
 	    		if((board.get(blackFrom).get(board.get(blackFrom).size()-i)).getClass() == BlackChecker.class)
@@ -417,8 +418,9 @@ public class Board extends JPanel
 	    	moving.move(blackTo, pips[1]);
 		    pips[1][blackFrom]--;
 		    pips[1][blackTo]++;
-		    board.get(blackTo).add(board.get(blackFrom).remove((board.get(blackFrom).size()-i)));
+		    board.get(blackTo).add(board.get(blackFrom).remove((board.get(blackFrom).size()-i))); //moves checker in the array list
 		    
+		    //deals with the hit checker
 		    if(pips[0][blackTo] == 1)
 		    {
 		    	WhiteChecker hit = (WhiteChecker) board.get(blackTo).get(0);
@@ -429,6 +431,7 @@ public class Board extends JPanel
 		    	
 		    }
 
+		    //increases amount in black bear off
 		    if(blackTo == 0)	
 		    	numInBlackSlot++;
 	    }
@@ -441,6 +444,7 @@ public class Board extends JPanel
 	    	if(pips[0][from] == 0)
 	    		throw new NoCheckerException();
 
+	    	//finds checker fitting the white checker class
 	    	for(i = 1; i <= (board.get(from).size()); i++)
 	    	{
 	    		if((board.get(from).get(board.get(from).size()-i)).getClass() == WhiteChecker.class)
@@ -453,8 +457,9 @@ public class Board extends JPanel
 	    	moving.move(to, pips[0]);
 	    	pips[0][from]--;
 	    	pips[0][to]++;
-	    	board.get(to).add(board.get(from).remove((board.get(from).size() - i)));
+	    	board.get(to).add(board.get(from).remove((board.get(from).size() - i))); //move checker in the array list
 	    	
+	    	//deals with the hit checker
 	    	if(pips[1][to] == 1)
 	    	{
 	    		BlackChecker hit = (BlackChecker) board.get(to).get(0);
@@ -464,6 +469,7 @@ public class Board extends JPanel
 	    		board.get(25).add(board.get(to).remove(0));
 	    	}
 
+	    	//increases amount in white bear off
 			if(to == 0)
 				numInWhiteSlot++;
 	    }
@@ -472,11 +478,13 @@ public class Board extends JPanel
 
 	void cheat()
 	{
+		//clears array list of all checkers
 		for(ArrayList<Checker> a : board)
 		{
 			a.clear();
 		}
 
+		//edits checkers positions
 		w1.setCoordinates(662, 490);
 		w2.setCoordinates(662, 520);
 		w3.setCoordinates(715, 345);
@@ -509,6 +517,7 @@ public class Board extends JPanel
 		b14.setCoordinates(715, 255);
 		b15.setCoordinates(715, 270);
 
+		//adds checkers back to array list
 		s1.add(w1);
 		s1.add(w2);
 		bearOff.add(w3);
@@ -1125,24 +1134,30 @@ public class Board extends JPanel
 	{
 		if(colour.equals("White"))
 		{
+			//if black player has any checkers in bear off, score is 1
 			if(pips[1][0] >= 1)
 				return 1;
 			
+			//if black player has no checker bore off and they still have checkers in white's home board, score is 3
 			else if((pips[1][0] == 0) && ((pips[1][25] >= 1)||(pips[1][1] >= 1)||(pips[1][2] >= 1)||(pips[1][3] >= 1)||(pips[1][4] >= 1)||(pips[1][5] >= 1)||(pips[1][6] >= 1)))
 				return 3;
 			
+			//if black player has no checkers bore off, the score is 2
 			else
 				return 2;
 		}
 		
 		if(colour.equals("Black"))
 		{
+			//if white player has any checkers in bear off, score is 1
 			if(pips[0][0] >= 1)
 				return 1;
 			
+			//if white player has no checkers bore off and the still have checkers in blacks's home board, score is 3
 			else if((pips[0][0] == 0) && ((pips[0][25] >= 1)||(pips[0][24] >= 1)||(pips[0][23] >= 1)||(pips[0][22] >= 1)||(pips[0][21] >= 1)||(pips[0][20] >= 1)||(pips[0][19] >= 1)))
 				return 3;
 			
+			//if white player has no checker bore off, the score is 2
 			else
 				return 2;
 		}
@@ -1157,11 +1172,13 @@ public class Board extends JPanel
 
     public void restBoard()
     {
+    	//clears the array list of all checkers
     	for(ArrayList<Checker> a : board)
 		{
 			a.clear();
 		}
 
+    	//resets the checkers' positions
     	w1.setCoordinates(413, 520);
     	w2.setCoordinates(413, 490);
     	w3.setCoordinates(413, 460);
@@ -1178,7 +1195,6 @@ public class Board extends JPanel
     	w14.setCoordinates(663, 50);
     	w15.setCoordinates(663, 80);
 
-    	//declare all black checkers
     	b1.setCoordinates(413, 50);
     	b2.setCoordinates(413, 80);
     	b3.setCoordinates(413, 110);
@@ -1195,6 +1211,7 @@ public class Board extends JPanel
     	b14.setCoordinates(663, 520);
     	b15.setCoordinates(663, 490);
     	
+    	//adds the checkers back to the array list
     	s1.add(b14);
 		s1.add(b15);
 
@@ -1234,7 +1251,7 @@ public class Board extends JPanel
 		s24.add(w15);
     	
         pips = restartCopy;
-        numInWhiteSlot = 0; //varibles to count the number of checkers in player's slots
+        numInWhiteSlot = 0; //variables to count the number of checkers in player's slots
         numInBlackSlot = 0;
         this.repaint();
     }

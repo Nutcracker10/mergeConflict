@@ -19,12 +19,6 @@ public class Dice
         die1 = roll();
         die2 = roll();
     }
-    
-    public void paint(Graphics g)
-    {
-    	drawDieOne(g);
-    	drawDieTwo(g);
-    }
 
     //returns a random number from 1 to 6
     public int roll()
@@ -41,15 +35,4 @@ public class Dice
     {
     	return die2;
     }
-    
-    private void drawDieOne(Graphics g)
-    {
-
-    }
-    
-    private void drawDieTwo(Graphics g)
-    {
-    	
-    }
-
 }

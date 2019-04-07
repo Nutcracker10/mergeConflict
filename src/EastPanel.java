@@ -16,7 +16,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 	private JTextField enterText = new JTextField(); // a field for entering details
 	JTextArea areaText = new JTextArea("Welcome to Backgammon\n"); // an area for displaying game details
-	private JTextArea playerName = new JTextArea("Player: "); // Displays player name
+	private JTextArea playerName = new JTextArea("Name: "); // Displays player name
 	private JTextArea playerScore = new JTextArea("Score: "); // Displays Player Score
 	private JPanel subpanel = new JPanel();					// a subpanel for buttons
 
@@ -36,16 +36,16 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	ArrayList<EventListener> listeners = new ArrayList<EventListener>();
 	
 	int turnNumber = 0; // to count what turn it is
-	int match = 0;
-	int doublingCube = 1;
-	int numOfDie = 2;
-	boolean hasDoubled = false;
-	boolean matchWon = false;
+	int match = 0; //points to win
+	int doublingCube = 1; //value of doubling cube
+	int numOfDie = 2; //amount of dice
+	boolean hasDoubled = false; //check if someone has doubled
+	boolean matchWon = false; //check if the whole game has been won
 
 	public EastPanel() 
 	{
 
-		this.setLayout(new BorderLayout()); // sets border layout to Eastpanel
+		this.setLayout(new BorderLayout()); // sets border layout to EastPanel
 		subpanel.setLayout(new GridLayout(2, 1)); // sets grid layout to subpanel
 
 		// prevents user from typing in these areas
@@ -93,7 +93,6 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	public void actionPerformed(ActionEvent actionEvent) {
 
 		String text = enterText.getText();
-		boolean gameHasBegun = false; // flag to show the game has started
 
 		if (text.equals("quit")) { // ends program if string is quit
 			System.exit(0);
@@ -123,7 +122,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			nextTurn();
 		}
 
-		else if (text.startsWith("move") && !(black.haveWon || white.haveWon))
+		else if (text.startsWith("move") && !(black.haveWon || white.haveWon)) //user entering their move
 		{
 		    if(numOfDie!=0)
 			    move(text);
@@ -131,7 +130,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		        areaText.append("\nOut of moves");
 		}// end of move
 		
-		else if(text.startsWith("cheat") && !(black.haveWon || white.haveWon))
+		else if(text.startsWith("cheat") && !(black.haveWon || white.haveWon)) //jump to end of the game
 		{
 			notifyCheatListeners();
 			
@@ -142,10 +141,6 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				areaText.append("\n\n" + black.name + "'s turn");
 				playerName.setText("Name: " + black.name);
 				playerScore.setText("Score: " + Integer.toString(black.getScore()));
-				result = autoDiceRoller();
-				areaText.append("\nRoll: " + result[0] + " " + result[1]);
-				addPossibleMoves(board,1);
-				moveCheck(board.acceptableMoves(1, result));
 				enterText.selectAll();
 				turnNumber++;
 			}
@@ -155,28 +150,27 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				black.myTurn = false;
 				white.myTurn = true;
 				areaText.append("\n\n" + white.name + "'s turn");
-				result = autoDiceRoller();
-				areaText.append("\nRoll: " + result[0] + " " + result[1]);
-				addPossibleMoves(board,0);
-                moveCheck(board.acceptableMoves(0, result));
 				enterText.selectAll();
 				turnNumber++;
 			}
 		}
 
-		else if(text.startsWith("points"))
+		else if(text.startsWith("points")) //set how many points to play to
 		{
-			match = Integer.parseInt(text.substring(7));
-			if(match % 2 != 1)
-			{
-				areaText.append("\nInvalid match length.\nMust not be divisble by two.\n");
-				match = 0;
-			}
-			notifyMatchListeners();
-			enterText.selectAll();
+		    try {
+                match = Integer.parseInt(text.substring(7)); // parse the number after "points"
+                if (match % 2 != 1) {
+                    areaText.append("\nInvalid match length.\nMust not be divisble by two.\n");
+                    match = 0;
+                }
+                notifyMatchListeners();
+                enterText.selectAll();
+            } catch(StringIndexOutOfBoundsException e){
+		        areaText.append("\nNo number detected after \n\"points\"");
+            }
 		}
 
-		else if(text.startsWith("double"))
+		else if(text.startsWith("double")) //double
 		{
 			if(white.isMyTurn())
 			{
@@ -187,6 +181,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 					hasDoubled = true;
 				}
 
+				//if white does not own the doubling cube, they cannot double
 				else
 				{
 					areaText.append("\n\nYou cannot double at this time.");
@@ -202,6 +197,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 					hasDoubled = true;
 				}
 
+				//if black does not own the doubling cube, they cannot double
 				else
 				{
 					areaText.append("\n\nYou cannot double at this time.");
@@ -211,6 +207,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			enterText.selectAll();
 		}
 
+		//if the player entered y, and they've doubled and it's not the end of the game
 		else if(((text.startsWith("Y")) || (text.startsWith("y"))) && hasDoubled && !matchWon)
 		{
 			if(white.isMyTurn())
@@ -230,18 +227,17 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				areaText.append("\nScore will be multiplied by " + doublingCube + "\n");
 				enterText.selectAll();
 			}
-			notifyDoubleCubeListeners();
-		}
-
-		else if(((text.startsWith("N")) || (text.startsWith("n"))) && hasDoubled)
 
 			hasDoubled = false;
+			notifyDoubleCubeListeners();
+		}
 
 		else if(((text.startsWith("N")) || (text.startsWith("n"))) && hasDoubled && !matchWon)
 		{
 			if(white.isMyTurn())
 			{
 				areaText.append("\n" + black.getName() + " has forfeited.");
+				hasDoubled = false;
 				endGame(white, black);
 				enterText.selectAll();
 			}
@@ -249,12 +245,13 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			else if(black.isMyTurn())
 			{
 				areaText.append("\n" + white.getName() + " has forfeited.");
+				hasDoubled = false;
 				endGame(black, white);
 				enterText.selectAll();
 			}
 		}
 
-		else if(text.startsWith("roll"))
+		else if(text.startsWith("roll")) //roll the dice and get a list of possible moves
 		{
 			result = autoDiceRoller();
 			areaText.append("\nRoll: " + result[0] + " " + result[1]);
@@ -269,7 +266,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			enterText.selectAll();
 		}
 
-		else if(matchWon && text.equals("yes"))
+		else if(matchWon && text.equals("yes")) //if the match is over and the players wish to play another game
         {
 			areaText.append("\n\nStarting new game...");
 
@@ -282,6 +279,8 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				e.printStackTrace();
 			}
 
+
+			//resets everything
         	white.name = "";
         	black.name = "";
             white.haveWon = false;
@@ -302,7 +301,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
     		areaText.append("\n\nEnter white player's name,\nblack player's name and\npoints to start game\n");
         }
 
-		else if(matchWon && text.startsWith("no"))
+		else if(matchWon && text.startsWith("no")) //if the match has ended and the players do not wish to play another round
 		{
 			areaText.append("\n\nEnding program...");
 			try
@@ -316,7 +315,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			System.exit(0);
 		}
 
-		else
+		else //unrecognised command
 		{
 			areaText.append("\nUnrecognised Command :\n");
 			areaText.append(text + "\n");
@@ -327,7 +326,6 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		{
 			areaText.append("\nGAME START"); // Announces start of the games
 			areaText.append("\nPOINTS TO WIN: " + match);
-			gameHasBegun = true;
 
 			if(white.myTurn) {
 				board.setWhosTurn(0);
@@ -352,12 +350,12 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			turnNumber++;
 		}
 
-		if(black.hasWonGame(board.numInBlackSlot))
+		if(black.hasWonGame(board.numInBlackSlot)) //if black has all their checkers in the bear off
 		{
 			endGame(black, white);
 		}
 
-		if(white.hasWonGame(board.numInWhiteSlot))
+		if(white.hasWonGame(board.numInWhiteSlot)) //if white has all their checkers in the bear off
 		{
 			endGame(white, black);
 		}
@@ -366,18 +364,20 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 	}// end of actionPerformed
 
-	private boolean ReadyToStart() // if both players given their names, this method returns true.
+	private boolean ReadyToStart() // if both players given their names and the match point has been set, this method returns true.
 	{
 		return (!(black.name.equals("")) && !(white.name.equals("")) && (match != 0));
 	}
 	
-	private void endGame(Player winner, Player loser)
+	private void endGame(Player winner, Player loser) //what happens at the end of a game
 	{
 		areaText.append("\n\nCongratulations!!\n" + winner.getName() + " has won this match!");
+		//adds the player's current score to the score they received in this match by the doubling cube
 		winner.setScore(winner.getScore() + board.getScore(winner.getColour()) * doublingCube);
 		areaText.append("\nThe score is now:\n  " + winner.getName() + ": " + winner.getScore()
 						+ "\n  " + loser.getName() + ": " + loser.getScore());
 
+		//if the winner has reached the match score
 		if(winner.getScore() >= match)
 		{
 			areaText.append("\n\n" + winner.getName() + " has won the game!");
@@ -385,6 +385,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			areaText.append("\n\nDo you want to play another game?\n Yes/No");
 		}
 
+		//starts the next round
 		else
 		{
 			areaText.append("\n\nStarting next match...\n\n");
@@ -413,6 +414,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		listeners.add(l);
 	}
 	
+	//calls move for all event listeners
 	private void notifyMoveListeners(String colour, int from, int to)
 	{
 		for(EventListener m : listeners)
@@ -421,18 +423,21 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		}
 	}
 	
+	//calls cheat for all event listeners
 	private void notifyCheatListeners()
 	{
 		for(EventListener m : listeners)
 			m.cheat();
 	}
 
+	//calls match for all event listeners
 	public void notifyMatchListeners()
 	{
 		for(EventListener m : listeners)
 			m.match(match);
 	}
 
+	//calls doubleCube for all event listeners
 	public void notifyDoubleCubeListeners() {
 		for (EventListener m : listeners)
 				m.doubleCube(doublingCube);
