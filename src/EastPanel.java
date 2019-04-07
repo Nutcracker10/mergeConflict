@@ -125,7 +125,10 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 
 		else if (text.startsWith("move") && !(black.haveWon || white.haveWon))
 		{
-			move(text);
+		    if(numOfDie!=0)
+			    move(text);
+		    else
+		        areaText.append("\nOut of moves");
 		}// end of move
 		
 		else if(text.startsWith("cheat") && !(black.haveWon || white.haveWon))
@@ -457,7 +460,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				}
 
                 try {
-						if (string.contains("Bar")) {
+						if (string.contains("Bar")) { // adds value of 25 if bar is involved
 							from = 25;
 							moveToReturn[0] = from;
 						}
@@ -466,7 +469,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 							from = Integer.parseInt(firstHalf);
 							moveToReturn[0] = from;
 						}
-						if(string.contains("Off")) {
+						if(string.contains("Off")) { // adds value of 0 to to if off is involved
 							to = 0;
 							moveToReturn[1] = to;
 						}
@@ -523,30 +526,27 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		else
 			colour = black.colour;
 
+		int[] array = moveSelection(board, colour, text); // break up all possible moves into a 2d array
+		int to = array[1];
+		int from = array[0];
 
-		if(true) { // move as normal
-			int[] array = moveSelection(board, colour, text); // break up all possible moves into a 2d array
-			int to = array[1];
-			int from = array[0];
+		areaText.append("\n" + from + " " + to);
 
-
-			areaText.append("\n" + from + " " + to);
-
-			if ((from < 0) || (to < 0) || (from > 25) || (to > 25)) {
-				areaText.append("Not a valid move");
-				return;
-			}
-
-			if (white.myTurn) {
-				notifyMoveListeners(white.getColour(), from, to);
-			} else if (black.myTurn) {
-				notifyMoveListeners(black.getColour(), from, to);
-			}
-
+		if ((from < 0) || (to < 0) || (from > 25) || (to > 25)) {
+			areaText.append("Not a valid move");
+			return;
 		}
+
+		if (white.myTurn) {
+			notifyMoveListeners(white.getColour(), from, to);
+		} else if (black.myTurn) {
+			notifyMoveListeners(black.getColour(), from, to);
+		}
+
 		enterText.selectAll();
 		turnNumber++;
 		areaText.append("\n");
+		numOfDie--;
 		addPossibleMoves(board, colour);
 	} // end of move
 
