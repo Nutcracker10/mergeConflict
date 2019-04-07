@@ -12,6 +12,7 @@ public class SouthPanel extends JPanel
     // creating text areas
     JTextArea matchLength = new JTextArea("Match Length: ");
     JTextArea doubleCube = new JTextArea("Double Cube: ");
+    JTextArea score = new JTextArea("Score: ");
     int match;
     int cube;
     
