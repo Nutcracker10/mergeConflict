@@ -259,8 +259,10 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			result = autoDiceRoller();
 			areaText.append("\nRoll: " + result[0] + " " + result[1]);
 			
-			if(result[0] == result[1])
-				numOfDie = 4;
+			if(result[0] == result[1]) {
+                numOfDie = 4;
+
+            }
 			
 			addPossibleMoves(board,0);
 			moveCheck(board.acceptableMoves(0, result));
