@@ -543,6 +543,8 @@ public class Board extends JPanel
 		int[][] changed = {	{13, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 							{13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0}};
 		pips = changed;
+		numInBlackSlot = 13;
+		numInWhiteSlot = 13;
 	}
 
 	public Board getBoard()
