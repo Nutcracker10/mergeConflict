@@ -41,7 +41,6 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	public EastPanel() 
 	{
 
-
 		this.setLayout(new BorderLayout()); // sets border layout to Eastpanel
 		subpanel.setLayout(new GridLayout(2, 1)); // sets grid layout to subpanel
 
@@ -222,6 +221,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 				areaText.append("\nScore will be multiplied by " + doublingCube);
 				enterText.selectAll();
 			}
+			notifyDoubleCubeListeners();
 		}
 
 		else if(((text.startsWith("N")) || (text.startsWith("n"))) && hasDoubled)
@@ -308,9 +308,6 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			areaText.append("\nWould you like to play again? yes/no");
 		}
 
-
-
-
 	}// end of actionPerformed
 
 	private boolean ReadyToStart() // if both players given their names, this method returns true.
@@ -341,6 +338,11 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 	{
 		for(EventListener m : listeners)
 			m.match(match);
+	}
+
+	public void notifyDoubleCubeListeners() {
+		for (EventListener m : listeners)
+				m.doubleCube(doublingCube);
 	}
 
 	private int[] moveSelection(Board board, int colour, String input) {

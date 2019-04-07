@@ -6,4 +6,6 @@ public interface EventListener
 	void cheat();
 	
 	void match(int p);
+
+	void doubleCube(int p);
 }
