@@ -6,7 +6,6 @@
 // Doubling die will be a subclass
 
 import java.util.Random;
-import java.awt.Graphics;
 public class Dice 
 {
 	private int die1;

@@ -4,7 +4,6 @@
    James   Kirwan   17402782
 */
 import javax.swing.*;
-import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import java.awt.*;
 import javax.swing.JScrollPane;
@@ -332,6 +331,14 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 			}
 			System.exit(0);
 		}
+		
+		else if(matchWon)
+		{
+			areaText.append("\nInvalid response.");
+			areaText.append("\n\nDo you want to play another game?\n Yes/No");
+			enterText.selectAll();
+			
+		}
 
 		else //unrecognised command
 		{
@@ -601,7 +608,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
         }
 
         else if (moves.length == 2) {
-			areaText.append("\nOne move possible, making move...\n");
+			areaText.append("\nOne move possible,\n making move...\n");
 
 			try {
 				Thread.sleep(1000);
