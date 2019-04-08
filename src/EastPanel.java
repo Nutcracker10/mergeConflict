@@ -408,7 +408,7 @@ public class EastPanel extends JPanel implements ActionListener, Scrollable{
 		{
 			areaText.append("\n\n" + winner.getName() + " has won the game!");
 			matchWon = true;
-			areaText.append("\n\nDo you want to play another game?\n Yes/No");
+			areaText.append("\n\nDo you want to play \nanother game? Yes/No");
 		}
 
 		//starts the next round
