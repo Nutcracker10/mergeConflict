@@ -1,6 +1,6 @@
 
 public class mergeConflict implements BotAPI {
-
+    // Team Name mergeConflict
     // The public API of Bot must not change
     // This is ONLY class that you can edit in the program
     // Rename Bot to the name of your team. Use camel case.
