@@ -23,7 +23,7 @@ public class mergeConflict implements BotAPI {
     }
 
     public String getName() {
-        return "Bot0"; // must match the class name
+        return "mergeConflict"; // must match the class name
     }
 
     public String getCommand(Plays possiblePlays) {
