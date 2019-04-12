@@ -23,11 +23,17 @@ public class mergeConflict implements BotAPI {
     }
 
     public String getName() {
-        return "Bot0"; // must match the class name
+        return "mergeConflict"; // must match the class name
     }
 
     public String getCommand(Plays possiblePlays) {
         // Add your code here
+        for(Play play : possiblePlays.plays)
+        {
+            Play nextSetOfMoves = new Play(play);
+
+        }
+
         return "1";
     }
 
