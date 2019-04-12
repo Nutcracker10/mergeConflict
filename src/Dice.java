@@ -1,55 +1,38 @@
-/* Caoimhe Tiernan 17336331
-   Saoirse Houlihan 17340803
-   James   Kirwan   17402782
-*/
-//needs a randome number generator
-// Doubling die will be a subclass
+class Dice {
+    // Dice holds the details for two dice
 
-import java.util.Random;
-import java.awt.Graphics;
-public class Dice 
-{
-	private int die1;
-	private int die2;
-	private Random rand;
+    private static final int NUM_DICE = 2;
 
-    public Dice()
-    {
-    	rand = new Random();
-        die1 = roll();
-        die2 = roll();
-    }
-    
-    public void paint(Graphics g)
-    {
-    	drawDieOne(g);
-    	drawDieTwo(g);
+    private int[] numbers;
+
+    Dice() {
+        numbers = new int[]{1, 1};
     }
 
-    //returns a random number from 1 to 6
-    public int roll()
-    {
-    	return rand.nextInt(6) + 1;
+    Dice(int firstValue, int secondValue) {
+        numbers = new int[]{firstValue, secondValue};
     }
- 
-    public int getDie1()
-    {
-    	return die1;
-    }
-    
-    public int getDie2()
-    {
-    	return die2;
-    }
-    
-    private void drawDieOne(Graphics g)
-    {
 
+    public void rollDice() {
+        for (int i=0; i<NUM_DICE; i++) {
+            numbers[i] = 1 + (int) (Math.random() * 6);
+        }
     }
-    
-    private void drawDieTwo(Graphics g)
-    {
-    	
+
+    public int getDie(int index) {
+        return numbers[index];
     }
+
+    public boolean isDouble() {
+        return numbers[0] == numbers[1];
+    }
+
+    public String getDieAsString(int index) {
+        return "[" + numbers[index] + "]";
+    }
+
+   public String toString() {
+      return "[" + numbers[0] + "," + numbers[1] + "]";
+   }
 
 }
