@@ -60,7 +60,8 @@ public class Board implements BoardAPI {
         return NUM_PIPS-pip+1;
     }
 
-    public void move(Player player, Move move) {
+    public void move(Player player, Move move) 
+    {
         checkers[player.getId()][move.getFromPip()]--;
         checkers[player.getId()][move.getToPip()]++;
         int opposingPlayerId = players.getOpposingPlayer(player).getId();
