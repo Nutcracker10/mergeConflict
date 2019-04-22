@@ -30,9 +30,39 @@ public class mergeConflict implements BotAPI {
     public String getCommand(Plays possiblePlays) {
         // Add your code here
 
-        int[][] boardArray = board.get();
-        ArrayList<Integer[][]> positionsAfterMoves = new ArrayList<>();
+        Player bot = (Player) me; //casting playerAPI into player
+        int[][] boardArray = board.get(); //getting current state of board
+        ArrayList<int[][]> positionsAfterMoves = new ArrayList<>(); //making an arrayList of the board;
 
+        Plays playsFromThisPosition = board.getPossiblePlays(bot, new Dice()); //getting the plays from this position
+
+        for(Play play : playsFromThisPosition) //going through each play
+        {
+
+            int fromPip;
+            int toPip;
+
+               Move possibleMove = play.getMove(0);
+
+               toPip = possibleMove.getToPip();
+               fromPip = possibleMove.getFromPip();
+
+               boardArray[bot.getId()][toPip] += 1;
+               boardArray[bot.getId()][fromPip] -= 1;
+
+               int[][] tmpArray = new int [2][boardArray[0].length];
+            for(int i =0; i < boardArray[0].length; i++)
+                {
+                    tmpArray[bot.getId()][i] = boardArray[bot.getId()][i];
+                }
+
+               positionsAfterMoves.add(tmpArray);
+
+                boardArray[bot.getId()][toPip] -= 1;
+                boardArray[bot.getId()][fromPip] += 1;
+
+
+        }
 
         return "1";
     }
