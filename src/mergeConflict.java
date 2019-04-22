@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class mergeConflict implements BotAPI {
 
@@ -28,11 +29,10 @@ public class mergeConflict implements BotAPI {
 
     public String getCommand(Plays possiblePlays) {
         // Add your code here
-        for(Play play : possiblePlays.plays)
-        {
-            Play nextSetOfMoves = new Play(play);
 
-        }
+        int[][] boardArray = board.get();
+        ArrayList<Integer[][]> positionsAfterMoves = new ArrayList<>();
+
 
         return "1";
     }
