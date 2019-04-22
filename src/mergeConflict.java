@@ -42,23 +42,23 @@ public class mergeConflict implements BotAPI {
             int fromPip;
             int toPip;
 
-               Move possibleMove = play.getMove(0);
+               Move possibleMove = play.getMove(0); //get move from play array list
 
-               toPip = possibleMove.getToPip();
-               fromPip = possibleMove.getFromPip();
+               toPip = possibleMove.getToPip(); //get the to pip
+               fromPip = possibleMove.getFromPip(); //get the from pip
 
-               boardArray[bot.getId()][toPip] += 1;
+               boardArray[bot.getId()][toPip] += 1; //show what it would look like on the board
                boardArray[bot.getId()][fromPip] -= 1;
 
-               int[][] tmpArray = new int [2][boardArray[0].length];
-            for(int i =0; i < boardArray[0].length; i++)
+               int[][] tmpArray = new int [2][boardArray[0].length]; //tmp array to copy these values into PAM array list
+            for(int i =0; i < boardArray[0].length; i++) //have to do this because of pointers
                 {
                     tmpArray[bot.getId()][i] = boardArray[bot.getId()][i];
                 }
 
-               positionsAfterMoves.add(tmpArray);
+               positionsAfterMoves.add(tmpArray); //add the new position
 
-                boardArray[bot.getId()][toPip] -= 1;
+                boardArray[bot.getId()][toPip] -= 1; //reset the board array
                 boardArray[bot.getId()][fromPip] += 1;
 
 
