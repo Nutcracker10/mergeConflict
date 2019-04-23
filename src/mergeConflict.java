@@ -63,7 +63,9 @@ public class mergeConflict implements BotAPI {
            boardArray[bot.getId()][fromPip] += 1;
         }
         
-       // boolean hasHit = possiblePlays.get(0).getMove(0).isHit() || possiblePlays.get(0).getMove(1).isHit();
+        
+       boolean hasHit = possiblePlays.get(0).getMove(0).isHit() || possiblePlays.get(0).getMove(1).isHit();
+       int score = getScore(positionsAfterMoves.get(0), hasHit);
         /*
          * for loop through the positionsAfterMoves
          * for each element, send to getScore
@@ -99,7 +101,7 @@ public class mergeConflict implements BotAPI {
 			i++;
 		}
 		
-		for(int j = 0; j < boardNext.length; j++)
+		for(int j = 0; j < boardNext[me.getId()].length; j++)
 		{
 			if(boardNext[me.getId()][j] == 1)
 			{
