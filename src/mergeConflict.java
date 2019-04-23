@@ -75,15 +75,8 @@ public class mergeConflict implements BotAPI {
         }
         
         
-       int[] scoreArray = new int[30];
-        /*
-         * for loop through the positionsAfterMoves
-         * for each element, send to getScore
-         * add score to score array
-         * loop through score array, find biggest
-         * get play with biggest score
-         * return
-         * */
+       int[] scoreArray = new int[MAX_SIZE];
+
         for(int i=0; i<positionsAfterMoves.size(); i++) {
 			boolean hasHit = possiblePlays.get(i).getMove(0).isHit() || possiblePlays.get(i).getMove(1).isHit();
 			scoreArray[i] = getScore(positionsAfterMoves.get(i), hasHit);
