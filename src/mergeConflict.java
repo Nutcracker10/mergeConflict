@@ -14,6 +14,7 @@ public class mergeConflict implements BotAPI {
 	private CubeAPI cube;
 	private MatchAPI match;
 	private InfoPanelAPI info;
+	private int MAX_SIZE = 100;
 
 	mergeConflict(PlayerAPI me, PlayerAPI opponent, BoardAPI board, CubeAPI cube, MatchAPI match, InfoPanelAPI info) {
 		this.me = me;
@@ -28,43 +29,48 @@ public class mergeConflict implements BotAPI {
 		return "mergeConflict"; // must match the class name
 	}
 
-    public String getCommand(Plays possiblePlays) {
+    public String getCommand(Plays possiblePlays) 
+    {
         // Add your code here
 
         Player bot = (Player) me; //casting playerAPI into player
         int[][] boardArray = board.get(); //getting current state of board
         ArrayList<int[][]> positionsAfterMoves = new ArrayList<>(); //making an arrayList of the board;
 
-        Plays playsFromThisPosition = board.getPossiblePlays(bot, new Dice()); //getting the plays from this position
-
-        for(Play play : playsFromThisPosition) //going through each play
+        for(Play play : possiblePlays) //going through each play
         {
-
-            int fromPip;
+        	int fromPip;
             int toPip;
 
-               Move possibleMove = play.getMove(0); //get move from play array list
+            Move possibleMove = play.getMove(0); //get move from play array list
 
-               toPip = possibleMove.getToPip(); //get the to pip
-               fromPip = possibleMove.getFromPip(); //get the from pip
+            toPip = possibleMove.getToPip(); //get the to pip
+            fromPip = possibleMove.getFromPip(); //get the from pip
 
-               boardArray[bot.getId()][toPip] += 1; //show what it would look like on the board
-               boardArray[bot.getId()][fromPip] -= 1;
+            boardArray[bot.getId()][toPip] += 1; //show what it would look like on the board
+            boardArray[bot.getId()][fromPip] -= 1;
 
-               int[][] tmpArray = new int [2][boardArray[0].length]; //tmp array to copy these values into PAM array list
+            int[][] tmpArray = new int [2][boardArray[0].length]; //tmp array to copy these values into PAM array list
+            
             for(int i =0; i < boardArray[0].length; i++) //have to do this because of pointers
-                {
-                    tmpArray[bot.getId()][i] = boardArray[bot.getId()][i];
-                }
+            {
+                tmpArray[bot.getId()][i] = boardArray[bot.getId()][i];
+            }
 
-               positionsAfterMoves.add(tmpArray); //add the new position
+           positionsAfterMoves.add(tmpArray); //add the new position
 
-                boardArray[bot.getId()][toPip] -= 1; //reset the board array
-                boardArray[bot.getId()][fromPip] += 1;
-
-
+           boardArray[bot.getId()][toPip] -= 1; //reset the board array
+           boardArray[bot.getId()][fromPip] += 1;
         }
-
+        
+        /*
+         * for loop through the positionsAfterMoves
+         * for each element, send to getScore
+         * add score to score array
+         * loop through score array, find biggest
+         * get play with biggest score
+         * return
+         * */
         return "1";
     }
 
@@ -72,4 +78,28 @@ public class mergeConflict implements BotAPI {
 		// Add your code here
 		return "n";
 	}
+	
+	private int getScore(int[][] boardNext)
+	{
+		int[] possibleScores = new int[MAX_SIZE];
+		int maxScore = 0;
+		int i = 0;
+		int[][] boardNow = board.get();
+		
+		if(boardNext[me.getId()][0] > boardNow[me.getId()][0])
+		{
+			possibleScores[i] = 10;
+			i++;
+		}
+		
+		
+		//lots of if statements describing different positions
+		//assign a score to possibleScores[i]
+		//increase i
+		
+		return maxScore;
+		
+	}
+	
+	
 }
