@@ -48,7 +48,7 @@ public class mergeConflict implements BotAPI {
             fromPip = possibleMove.getFromPip(); //get the from pip
 
             boardArray[bot.getId()][toPip] += 1; //show what it would look like on the board
-            boardArray[bot.getId()][fromPip] -= 1;
+            boardArray[bot.getId()][fromPip] -= 1;            
 
             int[][] tmpArray = new int [2][boardArray[0].length]; //tmp array to copy these values into PAM array list
             
