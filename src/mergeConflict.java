@@ -125,49 +125,6 @@ public class mergeConflict implements BotAPI {
 			i++;
 		}
 		
-		for(int j = 0; j < boardNext[me.getId()].length; j++)
-		{
-			if(boardNext[me.getId()][j] == 1)
-			{
-				possibleScores[i] = 1;
-				i++;
-			}
-			
-			if(boardNow[me.getId()][j] == 1 && boardNext[me.getId()][j] != 1)
-			{
-				possibleScores[i] = 6;
-			}
-			
-			if(boardNext[me.getId()][j] > 1 && boardNext[me.getId()][j+1] > 1 && boardNext[me.getId()][j+2] > 1 &&
-					boardNext[me.getId()][j+3] > 1 && boardNext[me.getId()][j+4] > 1 && boardNext[me.getId()][j+5] > 1)
-			{
-				possibleScores[i] = 9;
-				i++;
-			}
-			else if(boardNext[me.getId()][j] > 1 && boardNext[me.getId()][j+1] > 1 && boardNext[me.getId()][j+2] > 1 &&
-					boardNext[me.getId()][j+3] > 1 && boardNext[me.getId()][j+4] > 1)
-			{
-				possibleScores[i] = 8;
-				i++;
-			}
-			else if(boardNext[me.getId()][j] > 1 && boardNext[me.getId()][j+1] > 1 && boardNext[me.getId()][j+2] > 1 &&
-					boardNext[me.getId()][j+3] > 1)
-			{
-				possibleScores[i] = 7;
-				i++;
-			}
-			else if(boardNext[me.getId()][j] > 1 && boardNext[me.getId()][j+1] > 1 && boardNext[me.getId()][j+2] > 1)
-			{
-				possibleScores[i] = 5;
-				i++;
-			}
-			else if(boardNext[me.getId()][j] > 1 && boardNext[me.getId()][j+1] > 1)
-			{
-				possibleScores[i] = 4;
-				i++;
-			}	
-		}
-		
 		if(boardNext[me.getId()][24] < boardNow[me.getId()][24])
 		{
 			possibleScores[i] = 4;
@@ -198,22 +155,117 @@ public class mergeConflict implements BotAPI {
 			possibleScores[i] = 4;
 			i++;
 		}
+		else if(boardNext[me.getId()][18] < boardNow[me.getId()][18])
+		{
+			possibleScores[i] = 4;
+			i++;
+		}
+		else if(boardNext[me.getId()][17] < boardNow[me.getId()][17])
+		{
+			possibleScores[i] = 4;
+			i++;
+		}
+		else if(boardNext[me.getId()][16] < boardNow[me.getId()][16])
+		{
+			possibleScores[i] = 4;
+			i++;
+		}
+		else if(boardNext[me.getId()][15] < boardNow[me.getId()][15])
+		{
+			possibleScores[i] = 4;
+			i++;
+		}
+		else if(boardNext[me.getId()][14] < boardNow[me.getId()][14])
+		{
+			possibleScores[i] = 4;
+			i++;
+		}
+		else if(boardNext[me.getId()][13] < boardNow[me.getId()][13])
+		{
+			possibleScores[i] = 4;
+			i++;
+		}
 		
-		if(boardNext[me.getId()][4] > boardNow[me.getId()][4])
+		for(int j = 0; j < boardNext[me.getId()].length; j++)
 		{
-			possibleScores[i] = 4;
-			i++;
+			if(boardNext[me.getId()][j] == 1)
+			{
+				possibleScores[i] = 1;
+				i++;
+			}
+			
+			if(boardNow[me.getId()][j] == 1 && boardNext[me.getId()][j] != 1)
+			{
+				possibleScores[i] = 6;
+			}
+			
+			if(j <= 7)
+			{
+				if(boardNext[me.getId()][j] > 1 && boardNext[me.getId()][j+1] > 1 && boardNext[me.getId()][j+2] > 1 &&
+						boardNext[me.getId()][j+3] > 1 && boardNext[me.getId()][j+4] > 1 && boardNext[me.getId()][j+5] > 1)
+				{
+					possibleScores[i] = 9;
+					i++;
+				}
+				else if(boardNext[me.getId()][j] > 1 && boardNext[me.getId()][j+1] > 1 && boardNext[me.getId()][j+2] > 1 &&
+						boardNext[me.getId()][j+3] > 1 && boardNext[me.getId()][j+4] > 1)
+				{
+					possibleScores[i] = 8;
+					i++;
+				}
+				else if(boardNext[me.getId()][j] > 1 && boardNext[me.getId()][j+1] > 1 && boardNext[me.getId()][j+2] > 1 &&
+						boardNext[me.getId()][j+3] > 1)
+				{
+					possibleScores[i] = 7;
+					i++;
+				}
+				else if(boardNext[me.getId()][j] > 1 && boardNext[me.getId()][j+1] > 1 && boardNext[me.getId()][j+2] > 1)
+				{
+					possibleScores[i] = 5;
+					i++;
+				}
+				else if(boardNext[me.getId()][j] > 1 && boardNext[me.getId()][j+1] > 1)
+				{
+					possibleScores[i] = 4;
+					i++;
+				}
+			}
+			
+			if(j >= 7)
+			{
+				if((boardNow[me.getId()][j] < boardNext[me.getId()][j]) && (boardNext[me.getId()][6] > boardNow[me.getId()][6]))
+				{
+					possibleScores[i] = 4;
+					i++;
+				}
+				else if((boardNow[me.getId()][j] < boardNext[me.getId()][j]) && (boardNext[me.getId()][5] > boardNow[me.getId()][5]))
+				{
+					possibleScores[i] = 4;
+					i++;
+				}
+				else if((boardNow[me.getId()][j] < boardNext[me.getId()][j]) && (boardNext[me.getId()][4] > boardNow[me.getId()][4]))
+				{
+					possibleScores[i] = 4;
+					i++;
+				}
+				else if((boardNow[me.getId()][j] < boardNext[me.getId()][j]) && (boardNext[me.getId()][3] > boardNow[me.getId()][3]))
+				{
+					possibleScores[i] = 4;
+					i++;
+				}
+				else if((boardNow[me.getId()][j] < boardNext[me.getId()][j]) && (boardNext[me.getId()][2] > boardNow[me.getId()][2]))
+				{
+					possibleScores[i] = 4;
+					i++;
+				}
+				else if((boardNow[me.getId()][j] < boardNext[me.getId()][j]) && (boardNext[me.getId()][1] > boardNow[me.getId()][1]))
+				{
+					possibleScores[i] = 4;
+					i++;
+				}
+			}
 		}
-		else if(boardNext[me.getId()][5] > boardNow[me.getId()][5])
-		{
-			possibleScores[i] = 4;
-			i++;
-		}
-		if(boardNext[me.getId()][5] > boardNow[me.getId()][5])
-		{
-			possibleScores[i] = 4;
-			i++;
-		}
+		
 		
 		if(hasHit && (boardNext[me.getId()][1] == 1 || boardNext[me.getId()][2] == 1 || boardNext[me.getId()][3] == 1
 				|| boardNext[me.getId()][4] == 1 || boardNext[me.getId()][5] == 1 || boardNext[me.getId()][6] == 1))
