@@ -75,8 +75,7 @@ public class mergeConflict implements BotAPI {
         }
         
         
-       boolean hasHit = possiblePlays.get(0).getMove(0).isHit() || possiblePlays.get(0).getMove(1).isHit();
-       int score = getScore(positionsAfterMoves.get(0), hasHit);
+       int[] scoreArray = new int[30];
         /*
          * for loop through the positionsAfterMoves
          * for each element, send to getScore
@@ -85,8 +84,25 @@ public class mergeConflict implements BotAPI {
          * get play with biggest score
          * return
          * */
-        return "1";
+        for(int i=0; i<positionsAfterMoves.size(); i++) {
+			boolean hasHit = possiblePlays.get(i).getMove(0).isHit() || possiblePlays.get(i).getMove(1).isHit();
+			scoreArray[i] = getScore(positionsAfterMoves.get(i), hasHit);
+		}
+        int biggest = getLargest(scoreArray);
+        return Integer.toString(biggest+1);
+
     }
+    int getLargest(int[] array) {
+		int maxIndex = 0; int maxScore = 0;
+
+		for(int i=0; i<array.length; i++) {
+			if(maxScore > array[i]) {
+				maxIndex = i;
+				maxScore = array[i];
+			}
+		}
+		return maxIndex;
+	}
 
 	public String getDoubleDecision() {
 		// Add your code here
