@@ -63,6 +63,7 @@ public class mergeConflict implements BotAPI {
            boardArray[bot.getId()][fromPip] += 1;
         }
         
+       // boolean hasHit = possiblePlays.get(0).getMove(0).isHit() || possiblePlays.get(0).getMove(1).isHit();
         /*
          * for loop through the positionsAfterMoves
          * for each element, send to getScore
@@ -79,7 +80,7 @@ public class mergeConflict implements BotAPI {
 		return "n";
 	}
 	
-	private int getScore(int[][] boardNext)
+	private int getScore(int[][] boardNext, boolean hasHit)
 	{
 		int[] possibleScores = new int[MAX_SIZE];
 		int maxScore = 0;
@@ -92,13 +93,88 @@ public class mergeConflict implements BotAPI {
 			i++;
 		}
 		
+		if(hasHit)
+		{
+			possibleScores[i] = 6;
+			i++;
+		}
 		
-		//lots of if statements describing different positions
-		//assign a score to possibleScores[i]
-		//increase i
+		for(int j = 0; j < boardNext.length; j++)
+		{
+			if(boardNext[me.getId()][j] == 1)
+			{
+				possibleScores[i] = 1;
+				i++;
+			}
+			
+			if(boardNext[me.getId()][j] > 1 && boardNext[me.getId()][j+1] > 1 && boardNext[me.getId()][j+2] > 1 &&
+					boardNext[me.getId()][j+3] > 1 && boardNext[me.getId()][j+4] > 1 && boardNext[me.getId()][j+5] > 1)
+			{
+				possibleScores[i] = 9;
+				i++;
+			}
+			else if(boardNext[me.getId()][j] > 1 && boardNext[me.getId()][j+1] > 1 && boardNext[me.getId()][j+2] > 1 &&
+					boardNext[me.getId()][j+3] > 1 && boardNext[me.getId()][j+4] > 1)
+			{
+				possibleScores[i] = 8;
+				i++;
+			}
+			else if(boardNext[me.getId()][j] > 1 && boardNext[me.getId()][j+1] > 1 && boardNext[me.getId()][j+2] > 1 &&
+					boardNext[me.getId()][j+3] > 1)
+			{
+				possibleScores[i] = 7;
+				i++;
+			}
+			else if(boardNext[me.getId()][j] > 1 && boardNext[me.getId()][j+1] > 1 && boardNext[me.getId()][j+2] > 1)
+			{
+				possibleScores[i] = 5;
+				i++;
+			}
+			else if(boardNext[me.getId()][j] > 1 && boardNext[me.getId()][j+1] > 1)
+			{
+				possibleScores[i] = 4;
+				i++;
+			}	
+		}
+		
+		if(boardNext[me.getId()][24] < boardNow[me.getId()][24])
+		{
+			possibleScores[i] = 3;
+			i++;
+		}
+		else if(boardNext[me.getId()][23] < boardNow[me.getId()][23])
+		{
+			possibleScores[i] = 3;
+			i++;
+		}
+		else if(boardNext[me.getId()][22] < boardNow[me.getId()][22])
+		{
+			possibleScores[i] = 3;
+			i++;
+		}
+		else if(boardNext[me.getId()][21] < boardNow[me.getId()][21])
+		{
+			possibleScores[i] = 3;
+			i++;
+		}
+		else if(boardNext[me.getId()][20] < boardNow[me.getId()][20])
+		{
+			possibleScores[i] = 3;
+			i++;
+		}
+		else if(boardNext[me.getId()][19] < boardNow[me.getId()][19])
+		{
+			possibleScores[i] = 3;
+			i++;
+		}
+		
+		for(int j = 0; j < possibleScores.length; j++)
+		{
+			if(possibleScores[j] > maxScore)
+				maxScore = possibleScores[j];
+		}
 		
 		return maxScore;
-		
 	}
 	
 	
