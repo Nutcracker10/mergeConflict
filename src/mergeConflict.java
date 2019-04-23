@@ -14,7 +14,7 @@ public class mergeConflict implements BotAPI {
 	private CubeAPI cube;
 	private MatchAPI match;
 	private InfoPanelAPI info;
-	private int MAX_SIZE = 100;
+	private int MAX_SIZE = 1000;
 
 	mergeConflict(PlayerAPI me, PlayerAPI opponent, BoardAPI board, CubeAPI cube, MatchAPI match, InfoPanelAPI info) {
 		this.me = me;
@@ -75,21 +75,24 @@ public class mergeConflict implements BotAPI {
         }
         
         
-       int[] scoreArray = new int[MAX_SIZE];
+       int[] scoreArray = new int[positionsAfterMoves.size()];
 
-        for(int i=0; i<positionsAfterMoves.size(); i++) {
-			boolean hasHit = possiblePlays.get(i).getMove(0).isHit() || possiblePlays.get(i).getMove(1).isHit();
-			scoreArray[i] = getScore(positionsAfterMoves.get(i), hasHit);
-		}
-        int biggest = getLargest(scoreArray);
-        return Integer.toString(biggest+1);
+       for(int i=0; i<positionsAfterMoves.size(); i++) 
+       {
+    	   boolean hasHit = possiblePlays.get(i).getMove(0).isHit() || possiblePlays.get(i).getMove(1).isHit();
+    	   scoreArray[i] = getScore(positionsAfterMoves.get(i), hasHit);
+       }
+       int biggest = getLargest(scoreArray);
+       return Integer.toString(biggest+1);
 
     }
-    int getLargest(int[] array) {
+    
+    private int getLargest(int[] array) {
 		int maxIndex = 0; int maxScore = 0;
 
 		for(int i=0; i<array.length; i++) {
-			if(maxScore > array[i]) {
+			if(maxScore < array[i]) 
+			{
 				maxIndex = i;
 				maxScore = array[i];
 			}
@@ -97,9 +100,10 @@ public class mergeConflict implements BotAPI {
 		return maxIndex;
 	}
 
-	public String getDoubleDecision() {
+	public String getDoubleDecision() 
+	{
 		// Add your code here
-		return "n";
+		return "y";
 	}
 	
 	private int getScore(int[][] boardNext, boolean hasHit)
@@ -109,15 +113,15 @@ public class mergeConflict implements BotAPI {
 		int i = 0;
 		int[][] boardNow = board.get();
 		
-		if(boardNext[me.getId()][0] > boardNow[me.getId()][0])
+		if(boardNext[me.getId()][0] == 1 + boardNow[me.getId()][0])
 		{
 			possibleScores[i] = 10;
 			i++;
 		}
 		
-		if(hasHit)
+		if(boardNext[me.getId()][0] > 1 + boardNow[me.getId()][0])
 		{
-			possibleScores[i] = 6;
+			possibleScores[i] = 11;
 			i++;
 		}
 		
@@ -127,6 +131,11 @@ public class mergeConflict implements BotAPI {
 			{
 				possibleScores[i] = 1;
 				i++;
+			}
+			
+			if(boardNow[me.getId()][j] == 1 && boardNext[me.getId()][j] != 1)
+			{
+				possibleScores[i] = 6;
 			}
 			
 			if(boardNext[me.getId()][j] > 1 && boardNext[me.getId()][j+1] > 1 && boardNext[me.getId()][j+2] > 1 &&
@@ -161,30 +170,58 @@ public class mergeConflict implements BotAPI {
 		
 		if(boardNext[me.getId()][24] < boardNow[me.getId()][24])
 		{
-			possibleScores[i] = 3;
+			possibleScores[i] = 4;
 			i++;
 		}
 		else if(boardNext[me.getId()][23] < boardNow[me.getId()][23])
 		{
-			possibleScores[i] = 3;
+			possibleScores[i] = 4;
 			i++;
 		}
 		else if(boardNext[me.getId()][22] < boardNow[me.getId()][22])
 		{
-			possibleScores[i] = 3;
+			possibleScores[i] = 4;
 			i++;
 		}
 		else if(boardNext[me.getId()][21] < boardNow[me.getId()][21])
 		{
-			possibleScores[i] = 3;
+			possibleScores[i] = 4;
 			i++;
 		}
 		else if(boardNext[me.getId()][20] < boardNow[me.getId()][20])
 		{
-			possibleScores[i] = 3;
+			possibleScores[i] = 4;
 			i++;
 		}
 		else if(boardNext[me.getId()][19] < boardNow[me.getId()][19])
+		{
+			possibleScores[i] = 4;
+			i++;
+		}
+		
+		if(boardNext[me.getId()][4] > boardNow[me.getId()][4])
+		{
+			possibleScores[i] = 4;
+			i++;
+		}
+		else if(boardNext[me.getId()][5] > boardNow[me.getId()][5])
+		{
+			possibleScores[i] = 4;
+			i++;
+		}
+		if(boardNext[me.getId()][5] > boardNow[me.getId()][5])
+		{
+			possibleScores[i] = 4;
+			i++;
+		}
+		
+		if(hasHit && (boardNext[me.getId()][1] == 1 || boardNext[me.getId()][2] == 1 || boardNext[me.getId()][3] == 1
+				|| boardNext[me.getId()][4] == 1 || boardNext[me.getId()][5] == 1 || boardNext[me.getId()][6] == 1))
+		{
+			possibleScores[i] = 1;
+			i++;
+		}
+		else if(hasHit)
 		{
 			possibleScores[i] = 3;
 			i++;
