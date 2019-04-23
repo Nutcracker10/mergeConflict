@@ -39,16 +39,24 @@ public class mergeConflict implements BotAPI {
 
         for(Play play : possiblePlays) //going through each play
         {
-        	int fromPip;
-            int toPip;
+        	int fromPipOne; int toPipOne;
+        	int fromPipTwo; int toPipTwo;
 
             Move possibleMove = play.getMove(0); //get move from play array list
 
-            toPip = possibleMove.getToPip(); //get the to pip
-            fromPip = possibleMove.getFromPip(); //get the from pip
+            toPipOne = possibleMove.getToPip(); //get the to pip
+            fromPipOne = possibleMove.getFromPip(); //get the from pip
 
-            boardArray[bot.getId()][toPip] += 1; //show what it would look like on the board
-            boardArray[bot.getId()][fromPip] -= 1;
+            boardArray[bot.getId()][toPipOne] += 1; //show what it would look like on the board
+            boardArray[bot.getId()][fromPipOne] -= 1;
+
+            Move possibleMoveTwo = play.getMove(1); //get move from play array list
+
+            toPipTwo = possibleMoveTwo.getToPip(); //get the to pip
+            fromPipTwo = possibleMoveTwo.getFromPip(); //get the from pip
+
+            boardArray[bot.getId()][toPipTwo] += 1; //show what it would look like on the board
+            boardArray[bot.getId()][fromPipTwo] -= 1;
 
             int[][] tmpArray = new int [2][boardArray[0].length]; //tmp array to copy these values into PAM array list
             
@@ -59,8 +67,11 @@ public class mergeConflict implements BotAPI {
 
            positionsAfterMoves.add(tmpArray); //add the new position
 
-           boardArray[bot.getId()][toPip] -= 1; //reset the board array
-           boardArray[bot.getId()][fromPip] += 1;
+           boardArray[bot.getId()][toPipOne] -= 1; //reset the board array
+           boardArray[bot.getId()][fromPipOne] += 1;
+
+           boardArray[bot.getId()][toPipTwo] -= 1; //reset the board array
+           boardArray[bot.getId()][fromPipTwo] += 1;
         }
         
         
