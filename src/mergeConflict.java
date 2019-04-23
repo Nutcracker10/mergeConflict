@@ -65,13 +65,13 @@ public class mergeConflict implements BotAPI {
                 tmpArray[bot.getId()][i] = boardArray[bot.getId()][i];
             }
 
-           positionsAfterMoves.add(tmpArray); //add the new position
+            positionsAfterMoves.add(tmpArray); //add the new position
 
-           boardArray[bot.getId()][toPipOne] -= 1; //reset the board array
-           boardArray[bot.getId()][fromPipOne] += 1;
+            boardArray[bot.getId()][toPipOne] -= 1; //reset the board array
+            boardArray[bot.getId()][fromPipOne] += 1;
 
-           boardArray[bot.getId()][toPipTwo] -= 1; //reset the board array
-           boardArray[bot.getId()][fromPipTwo] += 1;
+            boardArray[bot.getId()][toPipTwo] -= 1; //reset the board array
+            boardArray[bot.getId()][fromPipTwo] += 1;
         }
         
         
